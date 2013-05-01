@@ -1,13 +1,18 @@
 package com.yoloswag.vino;
 
-/** Dummy class until Wilson uploads his
- */
-public class SweetOrDry 
-{
-	private String sweetOrDry;
+public class SweetOrDry {
+	private String taste;
 	
-	public SweetOrDry(String sweetOrDry)
-	{
-		this.sweetOrDry = sweetOrDry;		
+	public SweetOrDry(String taste){
+		this.taste = taste;		
+	}
+	
+	//returns a SweetOrDry array containing arbitrary data
+	//so we can begin implementing our other methods
+	public static SweetOrDry[] getAll() {
+		return  new SweetOrDry[] { 
+				                     new SweetOrDry("SWEET"), 
+				                     new SweetOrDry("DRY")
+		                       };
 	}
 }
