@@ -1,10 +1,17 @@
 package com.yoloswag.vino;
 
+import java.util.Date;
+
 public class Entry {
 	
+	protected String title;
 	protected String comment;
 	protected String location;
 	protected int rating;
+	protected Glass glass;
+	protected Image image;
+	public Date postDate;
+	int mlConsumed;
 	
 	//wine class has all the details
 	protected Wine wine;
