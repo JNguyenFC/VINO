@@ -11,9 +11,17 @@ VINO - Android Wine App Diary
 * Wilson, Rafael, Jeffrey
 * You will use the functions
     * Entry.getAll()
-    * entry.property = x
-    * entry.save()
-    * entry.destroy()
+         * purpose: get all the entries so we can display them
+
+    * entry.property = x 
+         *  property is everything they fill in, like location
+         *  wine type, basically usecases 9-11 see diagram
+
+    * entry.save() 
+         *  save is to save the newly edited entry
+
+    * entry.destroy()    
+         *  destroy is to destroy
 
 ###New Entry
 * Max, Jennifer, Tiffant
