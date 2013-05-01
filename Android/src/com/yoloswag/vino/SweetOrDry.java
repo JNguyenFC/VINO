@@ -1,7 +1,7 @@
 package com.yoloswag.vino;
 
 public class SweetOrDry {
-	private String taste;
+	protected String taste;
 	
 	public SweetOrDry(String taste){
 		this.taste = taste;		

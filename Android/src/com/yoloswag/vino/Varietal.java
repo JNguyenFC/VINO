@@ -2,7 +2,7 @@ package com.yoloswag.vino;
 
 public class Varietal 
 {
-	private String wineType;
+	protected String wineType;
 	
 	public Varietal(String varietal)
 	{

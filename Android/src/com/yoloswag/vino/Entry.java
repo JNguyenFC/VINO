@@ -2,24 +2,32 @@ package com.yoloswag.vino;
 
 public class Entry {
 	
-	public String comment;
-	public String location;
-	public int rating;
-	
-	//not sure if we need to implement these since we are using the phone
-	//calendar, just left them here just in case
-	public double date;
-	public String day;
+	protected String comment;
+	protected String location;
+	protected int rating;
 	
 	//wine class has all the details
-	public Wine wine;
-
+	protected Wine wine;
 	
-	
-	public Entry(){
-		
+	//constructor for fake databaase
+	public Entry(Wine wine, String location, int rating, String comment){
+		this.wine = new Wine();
+		this.location = location;
+		this.rating = rating;
+		this.comment = comment;
 	}
 
+	public static Entry[] getAll(){
+		
+		Entry a = new Entry(new Wine(), "France", 5, "yoloswaging it up");
+		Entry b = new Entry(new Wine(), "US", 4, "gary");
+		Entry c = new Entry(new Wine(), "Canada", 3, "gillespie");
+		Entry d = new Entry(new Wine(), "Germany", 2, "derp");
+		Entry e = new Entry(new Wine(), "Italy", 1, "trolls");
+		
+		return new Entry[] { a, b, c, d, e };
+	}
+	
 	public void save(){
 		
 	}
