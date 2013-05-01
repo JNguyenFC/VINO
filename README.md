@@ -18,7 +18,7 @@ VINO - Android Wine App Diary
 ###New Entry
 * Max, Jennifer, Tiffant
 * You will use the functions
-    * Entry.getAll()
+    * Wine.getAll()
     * Entry.create()
     * entry.save()
     * delegate.finished()
