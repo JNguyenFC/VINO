@@ -2,7 +2,7 @@ package com.yoloswag.vino;
 
 public class ServingTemp {
 	
-	private String servingTemp;
+	protected String servingTemp;
 	
 
 	public ServingTemp(String serving) {

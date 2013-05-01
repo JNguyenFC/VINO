@@ -1,7 +1,7 @@
 package com.yoloswag.vino;
 
 public class Category {
-	private String category;
+	protected String category;
 	
 	public Category(String category){
 		this.category = category;		
