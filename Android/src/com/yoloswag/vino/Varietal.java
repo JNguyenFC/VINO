@@ -1,16 +1,18 @@
 package com.yoloswag.vino;
 
-public class Varietal {
-	
+public class Varietal 
+{
 	private String wineType;
 	
-	public Varietal(String varietal){
+	public Varietal(String varietal)
+	{
 		this.wineType = varietal;		
 	}
 	
 	//returns a varietal array containing arbitrary data so we can
 	//begin implementing our other methods
-	public static Varietal[] getAll() {
+	public static Varietal[] getAll() 
+	{
 		return  new Varietal[] { new Varietal("BARBERA"), 
 				                 new Varietal("CABERNET_FRANC"),
 		                         new Varietal("CABERNET_SAUVIGNON"),
@@ -35,7 +37,6 @@ public class Varietal {
 		                         new Varietal("SAUVIGNON_BLANC"),
 		                         new Varietal("SYRAH"),
 		                         new Varietal("ZINFANDEL"),
-                   
 		                         };
 	}
 }
