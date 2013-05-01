@@ -57,31 +57,20 @@ public class Wine
 		return new Producer();
 	}
 
-	/***  Replacing enums with classes
-	
-	public enum ServingTemperature 
-	{
-		ROOMTEMP, CHILLED
+	public ServingTemp getServingTemp() {
+		return new ServingTemp("CHILLED");
 	}
 
-	public enum SweetOrDry 
-	{
-		SWEET, DRY
+	public SweetOrDry getSweetOrDry() {
+		return new SweetOrDry("SWEET");
 	}
 
-	public enum Varietal 
-	{
-		BARBERA, CABERNET_FRANC, CABERNET_SAUVIGNON, CAYETANA, CHARDONNAY,
-		CHARBONO, CHENIN_BLANC, CHIANTI, CINSAULT, GAMAY, GEWURZTRAMINER,
-		GRENACHE, GRUNER_VELTLINER, MACABEO, MALBEC, MERLOT, MOSCATO,
-		PINOT_BLANC, PINOT_GRIGIO, PINOT_NOIR, RIESLING, SANGIOVESE, SAUVIGNON_BLANC,
-		SYRAH, ZINFANDEL
+	public Varietal getVarietal() {
+		// would usually load from database
+		return new Varietal("CAYETANA");
 	}
 
-	public enum Category 
-	{
-		BLEND, DESSERT, FORTIFIED, FRUIT, RED, ROSE, SPARKLING, WHITE
+	public Category getCategory() {
+		return new Category("RED");
 	}
-	
-	***/
 }
