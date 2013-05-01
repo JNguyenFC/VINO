@@ -2,7 +2,7 @@ package com.yoloswag.vino;
 
 public class Wine 
 {
-  protected int vintage;
+    protected int vintage;
 	protected double alcoholContent;
 	protected String name;
 	protected String region;
@@ -38,15 +38,15 @@ public class Wine
 	public static Wine[] getAll() 
 	{
 		Wine a = new Wine("Castello Banfi", "Italy", 2008, 12.9, "red", 
-				              "Chianti", "dry", "room temperature" );
+				          "Chianti", "dry", "room temperature" );
 		Wine b = new Wine("Barefoot", "California", 2009, 7.0, "white",
-				              "Moscato", "sweet", "chilled");
+				          "Moscato", "sweet", "chilled");
 		Wine c = new Wine("Montana", "New Zealand", 2011, 13.4, "white",
-				              "Sauvignon Blanc", "dry", "chilled");
+				          "Sauvignon Blanc", "dry", "chilled");
 		Wine d = new Wine("Yellow Tail", "Australia", 2011, 14.8, "red",
-				              "Cabernet Sauvignon", "dry", "room temperature");
+		                  "Cabernet Sauvignon", "dry", "room temperature");
 		Wine e = new Wine("Chateau Ste. Michelle", "Florida", 2012, 11.2,
-				              "white", "Riesling", "sweet", "chilled");
+	     	              "white", "Riesling", "sweet", "chilled");
 		
 		return new Wine[] {a, b, c, d, e};
 	}
