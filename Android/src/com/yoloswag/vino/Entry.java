@@ -21,7 +21,7 @@ public class Entry {
 	
 	//constructor for fake database
 	public Entry(Wine wine, String location, int rating, String comment){
-		this.wine = new Wine();
+		this.wine = Wine.get(wine);
 		this.location = location;
 		this.rating = rating;
 		this.comment = comment;
@@ -29,11 +29,11 @@ public class Entry {
 
 	public static Entry[] getAll(){
 		
-		Entry a = new Entry(new Wine(), "France", 5, "yoloswaging it up");
-		Entry b = new Entry(new Wine(), "US", 4, "gary");
-		Entry c = new Entry(new Wine(), "Canada", 3, "gillespie");
-		Entry d = new Entry(new Wine(), "Germany", 2, "derp");
-		Entry e = new Entry(new Wine(), "Italy", 1, "trolls");
+		Entry a = new Entry(Wine.a, "France", 5, "yoloswaging it up");
+		Entry b = new Entry(Wine.b, "US", 4, "gary");
+		Entry c = new Entry(Wine.c, "Canada", 3, "gillespie");
+		Entry d = new Entry(Wine.d, "Germany", 2, "derp");
+		Entry e = new Entry(Wine.e, "Italy", 1, "trolls");
 		
 		return new Entry[] { a, b, c, d, e };
 	}
