@@ -45,6 +45,8 @@ public class Wine
 		this.servingTemp    = new ServingTemp(servingTemp);
 	}
 	
+	/**  Accessor for Entry
+	 */
 	public static Wine get(Wine wine) {
 		return wine;
 	}
