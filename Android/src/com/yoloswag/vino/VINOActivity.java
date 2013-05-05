@@ -118,6 +118,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             // If Favorites tab is clicked, show favorites Fragment
             if (position == 2)
             {
+            	args.putInt(FavoritesFragment.ARG_SECTION_NUMBER, position + 1);
             	favoritesFragment.setArguments(args);
                 return favoritesFragment;
             }
