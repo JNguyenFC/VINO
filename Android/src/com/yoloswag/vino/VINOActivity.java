@@ -111,7 +111,16 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             // Return a DummySectionFragment (defined as a static inner class
             // below) with the page number as its lone argument.
             Fragment fragment = new DummySectionFragment();
+            Fragment favoritesFragment = new FavoritesFragment();
             Bundle args = new Bundle();
+            
+            
+            if (position == 2)
+            {
+            	favoritesFragment.setArguments(args);
+                return favoritesFragment;
+            }
+            
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
             return fragment;
