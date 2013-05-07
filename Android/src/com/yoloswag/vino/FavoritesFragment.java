@@ -2,9 +2,11 @@ package com.yoloswag.vino;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 public class FavoritesFragment extends Fragment {
@@ -13,10 +15,20 @@ public class FavoritesFragment extends Fragment {
      * fragment.
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
-
+    ExpandableListView exv;
+    
     public FavoritesFragment() {
     }
 
+    /*
+    public void onCreate(Bundle savedInstanceState)
+    {
+    	super.onCreate(savedInstanceState);
+    	setContentView(R.layout.favorites_fragment_lay);
+    	exv = (ExpandableListView)findViewById(R.id.expandableListView1);
+    	exv.setAdapter(new ExpandListAdapter(this));
+    }*/
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
