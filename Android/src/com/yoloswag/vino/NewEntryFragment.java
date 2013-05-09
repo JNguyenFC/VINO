@@ -3,14 +3,22 @@
  */
 package com.yoloswag.vino;
 
+import java.io.File;
+import java.util.List;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
+import android.widget.ImageView;
 
 /**
  * @author tiffany
@@ -23,8 +31,13 @@ public class NewEntryFragment extends Fragment {
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
     ExpandableListView exv;
+	private Bitmap mImageBitmap;
+	private ImageView mImageView;
     
-    public NewEntryFragment() {
+    @Override
+    public void onCreate (Bundle savedInstanceState) {
+    	super.onCreate(savedInstanceState);
+    	dispatchTakePictureIntent(15);
     }
     
     @Override
@@ -58,11 +71,11 @@ public class NewEntryFragment extends Fragment {
         mImageView.setImageBitmap(mImageBitmap);
     }
     
-}
-
-
-
-
-
 
 }
+
+
+
+
+
+
