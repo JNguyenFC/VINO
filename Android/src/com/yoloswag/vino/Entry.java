@@ -11,8 +11,9 @@ public class Entry
 	protected Glass glass;
 	protected Image image;
 	protected Quantity quantity;
+	protected Wine wine;
 	public Date postDate;
-
+	
 	/**  Fake database of Entry (to be deleted later)
 	 */
 	protected static Entry a = new Entry(Wine.a, "France", "yoloswaging it up", 5, 750);
@@ -20,9 +21,6 @@ public class Entry
 	protected static Entry c = new Entry(Wine.c, "Canada", "i love justin timberlake", 3, 10);
 	protected static Entry d = new Entry(Wine.d, "Germany",  "derp", 2, 100);
 	protected static Entry e = new Entry(Wine.e, "Italy", "trolls", 1, 1000);
-	
-	//wine class has all the details
-	protected Wine wine;
 	
 	public Entry() 
 	{
