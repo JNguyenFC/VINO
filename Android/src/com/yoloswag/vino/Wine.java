@@ -11,7 +11,7 @@ public class Wine
 	protected SweetOrDry sweetOrDry;
 	protected ServingTemp servingTemp;
 	
-	/**  Fake database of wines (to be deleted later)
+	/**  Fake database of Wine (to be deleted later)
 	 */
 	protected static Wine a = new Wine("Castello Banfi", "Italy", 2008, 12.9, "red", "Chianti", "dry", "room temperature" );
 	protected static Wine b = new Wine("Barefoot", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
@@ -55,12 +55,11 @@ public class Wine
 		return new Wine[] {a, b, c, d, e};
 	}
 	
-	
-	public Producer getProducer() 
+	/*public Producer getProducer() 
 	{
 		// TODO actual implementation that works
 		return new Producer();
-	}
+	}*/
 
 	public ServingTemp getServingTemp() {
 		return new ServingTemp("CHILLED");
