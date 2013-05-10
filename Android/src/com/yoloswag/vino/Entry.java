@@ -7,7 +7,7 @@ public class Entry
 	protected String title;
 	protected String comment;
 	protected String location;
-	protected Rating rating;
+	protected int rating;
 	protected Glass glass;
 	protected Image image;
 	protected Quantity quantity;
@@ -33,7 +33,7 @@ public class Entry
 		this.wine = Wine.get(wine);
 		this.location = location;
 		this.comment = comment;
-		this.rating = new Rating(rating);
+		this.rating = rating;
 		this.quantity = new Quantity(quantity);
 	}
 
