@@ -58,10 +58,4 @@ public class Entry
 	{
 		
 	}
-	
-	/**  Accessor methods for Favorites tab
-	 */
-	
-	
-
 }
