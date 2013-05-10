@@ -1,6 +1,6 @@
 package com.yoloswag.vino;
 
-public class Producer {
+public class Name {
 	
 	public String getName() {
 		return "Generic Producer";
