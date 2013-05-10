@@ -10,21 +10,24 @@ import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-public class ViewLogEntryFragment extends Fragment {
+public class ViewLogEntryFragment extends Fragment 
+{
 	Entry[] entries;
 	
 	public ViewLogEntryFragment()
 	{	
 	}
+	
 	@Override
-    public void onCreate (Bundle savedInstanceState) 
+    public void onCreate(Bundle savedInstanceState) 
 	 {
 	   super.onCreate(savedInstanceState);
 	   entries = Entry.getAll();
      }
 	
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-            Bundle savedInstanceState) {
+            Bundle savedInstanceState) 
+    {
         View rootView = inflater.inflate(R.layout.fragment_view_entry, container, false);
         
         //creates seperate view if there no entries
@@ -34,6 +37,7 @@ public class ViewLogEntryFragment extends Fragment {
         	 View rootView1 = inflater.inflate(R.layout.fragment_view_no_entry, container, false);
         	 return rootView1;
         }
+        
  	   ExpandableListView list;
  	   list = (ExpandableListView) rootView.findViewById(R.id.viewLogEx);
  	   list.setAdapter(new ViewLogEntryAdapter(this.getActivity(), entries));
