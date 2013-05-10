@@ -122,9 +122,14 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             	favoritesFragment.setArguments(args);
                 return favoritesFragment;
             }
-            
-            if (position == 1) {
-            	return new NewEntryFragment();
+            if(position == 1)
+            {
+            	
+            }
+             //this is for the view log, first tab   
+            if (position == 0) {
+            	Fragment re1 = new ViewLogEntryFragment();
+            	return (Fragment) re1;
             }
             
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
