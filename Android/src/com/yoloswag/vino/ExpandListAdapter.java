@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class ExpandListAdapter extends BaseExpandableListAdapter {
 
 	private Context context;
+	private FavoritesFragment favoritesFragment;
 	//Array of favorite wines list to display 
 	String favoriteWines[]  = {"2008 YellowTail Muscato",  
 							"2006 Montes Classic Cabernet Sauvignon", 
@@ -26,9 +27,10 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 									{"Suggestion 1", "Suggestion 2", "Suggestion 3"}};
 	
 	
-	public ExpandListAdapter(Context context)
+	public ExpandListAdapter(FavoritesFragment favoritesFragment)
 	{
-		this.context = context;
+		this.favoritesFragment = favoritesFragment;
+		this.context = favoritesFragment.getActivity();
 	}
 	
 	/*public ExpandListAdapter(FavoritesFragment favoritesFragment) {
