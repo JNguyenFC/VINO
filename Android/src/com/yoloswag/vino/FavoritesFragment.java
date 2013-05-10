@@ -37,7 +37,7 @@ public class FavoritesFragment extends Fragment {
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.favorites_fragment_lay, container, false);
     	exv = (ExpandableListView)rootView.findViewById(R.id.expandableListView1);
-		exv.setAdapter(new ExpandListAdapter(this));
+		exv.setAdapter(new FavoritesAdapter(this));
         return rootView;
     }
 }

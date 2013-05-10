@@ -8,7 +8,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class ViewLogEntryAdapter extends BaseExpandableListAdapter {
+public class ViewLogEntryAdapter extends BaseExpandableListAdapter 
+{
 	private Context context;
 	private Entry[] entries;
 	
@@ -32,7 +33,8 @@ public class ViewLogEntryAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public View getChildView(int group, int arg1, boolean arg2, View arg3,
-			ViewGroup arg4) {
+			ViewGroup arg4) 
+	{
 		// TODO Auto-generated method stub
 		//t3 is going to hold the image and the comments
 		LinearLayout t3 = new LinearLayout(context);

@@ -10,24 +10,26 @@ import android.widget.TextView;
  * Custom Adapter for favorites wine list and recommendations. 
  * NOTE: still have to figure out how to connect to FavoritesFragment.java
  */
-public class ExpandListAdapter extends BaseExpandableListAdapter {
+public class FavoritesAdapter extends BaseExpandableListAdapter 
+{
 
 	private Context context;
 	private FavoritesFragment favoritesFragment;
+	
 	//Array of favorite wines list to display 
-	String favoriteWines[]  = {"2008 YellowTail Muscato",  
-							"2006 Montes Classic Cabernet Sauvignon", 
-							"2011 Dr. Loosen Dr. L Riesling",
-							"2010 Sutter Home White Zinfandel"};
+	String favoriteWines[]  = { "2008 YellowTail Muscato",  
+							    "2006 Montes Classic Cabernet Sauvignon", 
+							    "2011 Dr. Loosen Dr. L Riesling",
+							    "2010 Sutter Home White Zinfandel" };
 	
 	//Temporary array of wine suggestions
-	String recommendationWines[][] = {{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									{"Suggestion 1", "Suggestion 2", "Suggestion 3"}};
+	String recommendationWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
 	
 	
-	public ExpandListAdapter(FavoritesFragment favoritesFragment)
+	public FavoritesAdapter(FavoritesFragment favoritesFragment)
 	{
 		this.favoritesFragment = favoritesFragment;
 		this.context = favoritesFragment.getActivity();
