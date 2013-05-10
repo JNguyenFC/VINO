@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 /**
  * Custom Adapter for favorites wine list and recommendations. 
- * NOTE: still have to figure out how to connect to FavoritesFragment.java
  */
 public class FavoritesAdapter extends BaseExpandableListAdapter 
 {
@@ -18,22 +17,33 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	
 	Entry favoriteWines[] = Entry.getAll();
 	
-	//private sortedRatings()
-	
-	
-	/*procedure bubbleSort( A : list of sortable items )
-    n = length(A)
-    repeat
-       newn = 0
-       for i = 1 to n-1 inclusive do
-          if A[i-1] > A[i] then
-             swap(A[i-1], A[i])
-             newn = i
-          end if
-       end for
-       n = newn
-    until n = 0
-end procedure*/
+	private Entry[] sortRatings(Entry[] ratedEntries)
+	{
+		int n = ratedEntries.length;
+		int temp = 0;
+		
+		do
+		{
+			int counter = 0;
+			
+			for (int i = 0; i < n; ++i)
+			{
+				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
+				{
+					temp = ratedEntries[i].rating;
+					ratedEntries[i].rating = ratedEntries[i+1].rating;
+					ratedEntries[i+1].rating = temp;
+			    
+					counter = i;
+				}	
+			}
+		
+			n = counter;
+		
+		} while (n > 0);
+		
+		return ratedEntries;
+	}
 	
 	/*
 	//Array of favorite wines list to display 
