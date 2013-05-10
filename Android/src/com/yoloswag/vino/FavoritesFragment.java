@@ -36,9 +36,9 @@ public class FavoritesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.favorites_fragment_lay, container, false);
-        TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-        dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
-    	exv = (ExpandableListView)getView().findViewById(R.id.expandableListView1);
+        //TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
+        //dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+    	exv = (ExpandableListView)rootView.findViewById(R.id.expandableListView1);
 		exv.setAdapter(new ExpandListAdapter(this));
         return rootView;
     }

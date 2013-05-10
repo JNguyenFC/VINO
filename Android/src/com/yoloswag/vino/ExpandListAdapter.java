@@ -30,6 +30,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 	public ExpandListAdapter(FavoritesFragment favoritesFragment)
 	{
 		this.favoritesFragment = favoritesFragment;
+		this.context = favoritesFragment.getActivity();
 	}
 	
 	/*public ExpandListAdapter(FavoritesFragment favoritesFragment) {
