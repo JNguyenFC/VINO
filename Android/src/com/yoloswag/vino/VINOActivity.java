@@ -126,6 +126,10 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
                 return favoritesFragment;
             }
             
+            if (position == 1) {
+            	return new NewEntryFragment();
+            }
+            
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
             fragment.setArguments(args);
             return fragment;
