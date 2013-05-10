@@ -7,14 +7,14 @@ public class Wine
 	protected String name;
 	protected String region;
 	protected Category category;
-	protected Varietal varietal;
+	protected String varietal;//Varietal varietal;
 	protected SweetOrDry sweetOrDry;
 	protected ServingTemp servingTemp;
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
 	protected static Wine a = new Wine("Castello Banfi", "Italy", 2008, 12.9, "red", "Chianti", "dry", "room temperature" );
-	protected static Wine b = new Wine("Barefoot", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
+	protected static Wine b = new Wine("Yellowtail", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
 	protected static Wine c = new Wine("Montana", "New Zealand", 2011, 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
 	protected static Wine d = new Wine("Yellow Tail", "Australia", 2011, 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
 	protected static Wine e = new Wine("Chateau Ste. Michelle", "Florida", 2012, 11.2, "white", "Riesling", "sweet", "chilled");
@@ -36,7 +36,7 @@ public class Wine
 		this.vintage        = vintage;
 		this.alcoholContent = alcoholContent;
 		this.category       = new Category(category);
-		this.varietal       = new Varietal(varietal);
+		this.varietal       = varietal; //new Varietal(varietal);
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
 		this.servingTemp    = new ServingTemp(servingTemp);
 	}

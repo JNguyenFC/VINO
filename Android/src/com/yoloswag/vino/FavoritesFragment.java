@@ -19,13 +19,6 @@ public class FavoritesFragment extends Fragment
     {
     }
     
-    /*public void onCreate(Bundle savedInstanceState)
-    {
-    	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.favorites_fragment_lay);
-    	ExpandableListView exv = (ExpandableListView)findViewById(R.id.expandableListView1);
-    	exv.setAdapter(new ExpandListAdapter(this));
-    }*/
     
  
     @Override

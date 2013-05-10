@@ -57,9 +57,6 @@ end procedure*/
 		this.context = favoritesFragment.getActivity();
 	}
 	
-	/*public ExpandListAdapter(FavoritesFragment favoritesFragment) {
-		this.context = context;
-	}*/
 
 	@Override
 	public Object getChild(int groupPosition, int childPosition) {
@@ -114,7 +111,9 @@ end procedure*/
 	{
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
-		textview.setText(favoriteWines[groupPosition].wine.name);
+		textview.setText(favoriteWines[groupPosition].wine.vintage + " " + 
+						 favoriteWines[groupPosition].wine.name + " " + 
+						 favoriteWines[groupPosition].wine.varietal);
 		textview.setPadding(50, 20, 20, 20);
 		return textview;
 	}
