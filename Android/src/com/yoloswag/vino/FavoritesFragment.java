@@ -10,18 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-public class FavoritesFragment extends Fragment {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    public static final String ARG_SECTION_NUMBER = "section_number";
+public class FavoritesFragment extends Fragment 
+{
+	Entry[] entries = Entry.getAll();
     ExpandableListView exv;
     
-    public FavoritesFragment() {
+    public FavoritesFragment() 
+    {
     }
-    
-    
     
     /*public void onCreate(Bundle savedInstanceState)
     {
