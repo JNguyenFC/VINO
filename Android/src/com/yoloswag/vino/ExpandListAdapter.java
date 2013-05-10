@@ -55,6 +55,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
 		textview.setText(recommendationWines[groupPosition][childPosition]);
+		textview.setPadding(70, 0, 0, 0);
 		return textview;
 	}
 
@@ -87,6 +88,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
 		textview.setText(favoriteWines[groupPosition]);
+		textview.setPadding(50, 20, 20, 20);
 		return textview;
 	}
 
