@@ -10,26 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
 
-public class FavoritesFragment extends Fragment {
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    public static final String ARG_SECTION_NUMBER = "section_number";
+public class FavoritesFragment extends Fragment 
+{
+	Entry[] entries = Entry.getAll();
     ExpandableListView exv;
     
-    public FavoritesFragment() {
+    public FavoritesFragment() 
+    {
     }
     
-    
-    
-    /*public void onCreate(Bundle savedInstanceState)
-    {
-    	super.onCreate(savedInstanceState);
-    	setContentView(R.layout.favorites_fragment_lay);
-    	ExpandableListView exv = (ExpandableListView)findViewById(R.id.expandableListView1);
-    	exv.setAdapter(new ExpandListAdapter(this));
-    }*/
     
  
     @Override
@@ -37,7 +26,7 @@ public class FavoritesFragment extends Fragment {
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.favorites_fragment_lay, container, false);
     	exv = (ExpandableListView)rootView.findViewById(R.id.expandableListView1);
-		exv.setAdapter(new ExpandListAdapter(this));
+		exv.setAdapter(new FavoritesAdapter(this));
         return rootView;
     }
 }

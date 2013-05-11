@@ -1,15 +1,18 @@
 package com.yoloswag.vino;
 
-public class Category {
+public class Category 
+{
 	protected String category;
 	
-	public Category(String category){
+	public Category(String category)
+	{
 		this.category = category;		
 	}
 	
 	//returns a Category array containing arbitrary data
 	//so we can begin implementing our other methods
-	public static Category[] getAll() {
+	public static Category[] getAll() 
+	{
 		return  new Category[] { 
 				                     new Category("BLEND"), 
 				                     new Category("DESSERT"),
