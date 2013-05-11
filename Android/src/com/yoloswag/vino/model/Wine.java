@@ -2,12 +2,12 @@ package com.yoloswag.vino.model;
 
 public class Wine 
 {
-    public int vintage;
+	public int vintage;
 	public double alcoholContent;
 	public String name;
 	public String region;
 	public Category category;
-	public String varietal;//Varietal varietal;
+	public Varietal varietal;//Varietal varietal;
 	public SweetOrDry sweetOrDry;
 	public ServingTemp servingTemp;
 	
@@ -36,7 +36,7 @@ public class Wine
 		this.vintage        = vintage;
 		this.alcoholContent = alcoholContent;
 		this.category       = new Category(category);
-		this.varietal       = varietal; //new Varietal(varietal);
+		this.varietal       = new Varietal(varietal); //new Varietal(varietal);
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
 		this.servingTemp    = new ServingTemp(servingTemp);
 	}

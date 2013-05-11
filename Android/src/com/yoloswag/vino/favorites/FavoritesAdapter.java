@@ -97,7 +97,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		TextView textview = new TextView(context);
 		textview.setText(ratedEntries[groupPosition].wine.vintage + " " + 
 						 ratedEntries[groupPosition].wine.name + " " + 
-						 ratedEntries[groupPosition].wine.varietal);
+						 ratedEntries[groupPosition].wine.varietal.varietal_name);
 		textview.setPadding(50, 20, 20, 20);
 		return textview;
 	}

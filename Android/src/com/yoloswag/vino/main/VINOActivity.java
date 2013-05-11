@@ -8,6 +8,7 @@ import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.R.menu;
 import com.yoloswag.vino.R.string;
 import com.yoloswag.vino.favorites.FavoritesFragment;
+import com.yoloswag.vino.newentry.NewEntryFragment;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
@@ -133,7 +134,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             }
             if(position == 1)
             {
-            	
+            	return new NewEntryFragment();
             }
              //this is for the view log, first tab   
             if (position == 0) 
