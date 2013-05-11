@@ -8,9 +8,9 @@ import java.util.List;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
+import com.yoloswag.vino.model.Entry;
 
 import android.content.Context;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -20,10 +20,13 @@ import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * @author tiffany
@@ -50,16 +53,22 @@ public class NewEntryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
     	//android:Id = "+id/newEntryButton";
-        View rootView = inflater.inflate(R.layout.camera, container, false);
-        /*View button = rootView.findViewById(R.id.newEntryButton);
+        //final View rootView = inflater.inflate(R.layout.camera, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
+        View button = rootView.findViewById(R.id.new_entry_button);
         Button b = (Button) button;
-        OnClickListener ocl = new OnClickListener(){
-        	@Override
-        	public void onClick(View v){
-        		
-        	}
-        };
-        b.setOnClickListener((android.view.View.OnClickListener) ocl);*/
+        //OnClickListener ocl = ;
+        b.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg1) {
+				// TODO Auto-generated method stub
+				EditText title = (EditText)rootView.findViewById(R.id.typeOfWineAutoComplete);
+				Entry e = new Entry();
+				e.title = title.getText().toString();
+				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				e.save();
+			}
+        });
 
         return rootView;
     }
@@ -67,8 +76,8 @@ public class NewEntryFragment extends Fragment {
     /** An intent to take the photo */
     private void dispatchTakePictureIntent(int actionCode) 
     {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(takePictureIntent, actionCode);
+        //Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //startActivityForResult(takePictureIntent, actionCode);
     }
     
     /** Checking if the intent is even available */

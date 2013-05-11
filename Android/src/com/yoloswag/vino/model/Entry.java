@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Entry 
 {
-	protected String title;
+	public String title;
 	public String comment;
 	protected String location;
 	public int rating;
