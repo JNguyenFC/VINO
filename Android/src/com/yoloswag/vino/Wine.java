@@ -7,7 +7,7 @@ public class Wine
 	protected String name;
 	protected String region;
 	protected Category category;
-	protected String varietal;//Varietal varietal;
+	protected Varietal varietal;//Varietal varietal;
 	protected SweetOrDry sweetOrDry;
 	protected ServingTemp servingTemp;
 	
@@ -36,7 +36,7 @@ public class Wine
 		this.vintage        = vintage;
 		this.alcoholContent = alcoholContent;
 		this.category       = new Category(category);
-		this.varietal       = varietal; //new Varietal(varietal);
+		this.varietal       = new Varietal(varietal); //new Varietal(varietal);
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
 		this.servingTemp    = new ServingTemp(servingTemp);
 	}
