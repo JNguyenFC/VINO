@@ -82,7 +82,7 @@ public class ViewLogEntryAdapter extends BaseExpandableListAdapter
 		// TODO Auto-generated method stub
 		//t1 is going to appear first in the list
 		TextView title = new TextView(context);
-		title.setText("Title: "+entries[group].wine.name);
+		title.setText("Title: "+entries[group].wine.name.producer);
 		return title;
 	}
 
