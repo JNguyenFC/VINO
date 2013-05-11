@@ -35,13 +35,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	
 
 	@Override
-	public Object getChild(int groupPosition, int childPosition) {
+	public Object getChild(int groupPosition, int childPosition) 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public long getChildId(int groupPosition, int childPosition) {
+	public long getChildId(int groupPosition, int childPosition) 
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
@@ -58,25 +60,29 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	}
 
 	@Override
-	public int getChildrenCount(int groupPosition) {
+	public int getChildrenCount(int groupPosition) 
+	{
 		// TODO Auto-generated method stub
 		return recommendationWines[groupPosition].length;
 	}
 
 	@Override
-	public Object getGroup(int groupPosition) {
+	public Object getGroup(int groupPosition) 
+	{
 		// TODO Auto-generated method stub
 		return groupPosition;
 	}
 
 	@Override
-	public int getGroupCount() {
+	public int getGroupCount() 
+	{
 		// TODO Auto-generated method stub
 		return favoriteWines.length;
 	}
 
 	@Override
-	public long getGroupId(int groupPosition) {
+	public long getGroupId(int groupPosition) 
+	{
 		// TODO Auto-generated method stub
 		return groupPosition;
 	}
@@ -97,13 +103,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	}
 
 	@Override
-	public boolean hasStableIds() {
+	public boolean hasStableIds() 
+	{
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isChildSelectable(int groupPosition, int childPosition) {
+	public boolean isChildSelectable(int groupPosition, int childPosition) 
+	{
 		// TODO Auto-generated method stub
 		return true;
 	}
@@ -139,9 +147,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	}
 	
 	/**  Naive sorting algorithm (bubble sort) for sorting wines by quantity consumed
-
-	 * @param quantifiedEntries
-	 * @return
 	 */
 	private Entry[] sortQuantities(Entry[] quantifiedEntries)
 	{	
