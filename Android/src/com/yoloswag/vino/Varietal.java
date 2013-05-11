@@ -2,11 +2,11 @@ package com.yoloswag.vino;
 
 public class Varietal 
 {
-	protected String wineType;
+	protected String varietal_name;
 	
 	public Varietal(String varietal)
 	{
-		this.wineType = varietal;		
+		this.varietal_name = varietal;		
 	}
 	
 	//returns a varietal array containing arbitrary data so we can
