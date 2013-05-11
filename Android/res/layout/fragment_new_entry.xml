@@ -182,14 +182,14 @@
 
                 <TableRow
                     android:id="@+id/tableRow10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/editText1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
+                        android:id="@+id/comments"
+                        android:layout_width="fill_parent"
+                        android:layout_height="70dp"
+                        android:ems="13"
                         android:inputType="textMultiLine" />
                 </TableRow>
 
@@ -203,13 +203,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rating:"
-                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/tableRow12"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal" >
 
                     <RatingBar
                         android:id="@+id/ratingBar1"
