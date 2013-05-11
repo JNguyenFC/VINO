@@ -95,8 +95,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
-		textview.setText(ratedEntries[groupPosition].wine.vintage + " " + 
-						 ratedEntries[groupPosition].wine.name + " " + 
+		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
+						 ratedEntries[groupPosition].wine.name.producer + " " + 
 						 ratedEntries[groupPosition].wine.varietal.varietal_name);
 		textview.setPadding(50, 20, 20, 20);
 		return textview;
