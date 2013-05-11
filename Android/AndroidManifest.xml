@@ -27,5 +27,9 @@
             android:label="@string/title_activity_favorites" >
         </activity>
     </application>
+    
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    
 
 </manifest>

@@ -6,6 +6,7 @@ package com.yoloswag.vino.newentry;
 import java.io.File;
 import java.util.List;
 
+import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
 
@@ -15,6 +16,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -23,7 +25,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 /**
  * @author tiffany
@@ -38,12 +42,25 @@ public class NewEntryFragment extends Fragment {
     ExpandableListView exv;
 	private Bitmap mImageBitmap;
 	private ImageView mImageView;
+	private CameraPreview mPreview;
+	private Camera mCamera;
     
     @Override
     public void onCreate (Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
-    	dispatchTakePictureIntent(15);
+    	//dispatchTakePictureIntent(15);
+    }
+    
+    public static Camera getCameraInstance(){
+        Camera c = null;
+        try {
+            c = Camera.open(0); // attempt to get a Camera instance
+        }
+        catch (Exception e){
+            // Camera is not available (in use or does not exist)
+        }
+        return c; // returns null if camera is unavailable
     }
     
     @Override
@@ -51,6 +68,15 @@ public class NewEntryFragment extends Fragment {
             Bundle savedInstanceState) {
     	//android:Id = "+id/newEntryButton";
         View rootView = inflater.inflate(R.layout.camera, container, false);
+        
+        // Create an instance of Camera
+        mCamera = getCameraInstance();
+        
+        // Create our Preview view and set it as the content of our activity.
+        mPreview = new CameraPreview(getActivity(), mCamera);
+        FrameLayout preview = (FrameLayout) rootView.findViewById(R.id.camera_preview);
+        preview.addView(mPreview);
+        
         /*View button = rootView.findViewById(R.id.newEntryButton);
         Button b = (Button) button;
         OnClickListener ocl = new OnClickListener(){
