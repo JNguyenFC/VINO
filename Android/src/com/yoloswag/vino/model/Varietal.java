@@ -1,8 +1,8 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 public class Varietal 
 {
-	protected String varietal_name;
+	public String varietal_name;
 	
 	public Varietal(String varietal)
 	{

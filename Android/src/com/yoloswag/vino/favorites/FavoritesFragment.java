@@ -1,5 +1,10 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.favorites;
 
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.R.id;
+import com.yoloswag.vino.R.layout;
+import com.yoloswag.vino.model.Entry;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

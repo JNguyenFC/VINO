@@ -1,15 +1,15 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 public class Wine 
 {
-    protected int vintage;
-	protected double alcoholContent;
-	protected String name;
-	protected String region;
-	protected Category category;
-	protected Varietal varietal;//Varietal varietal;
-	protected SweetOrDry sweetOrDry;
-	protected ServingTemp servingTemp;
+	public int vintage;
+	public double alcoholContent;
+	public String name;
+	public String region;
+	public Category category;
+	public Varietal varietal;//Varietal varietal;
+	public SweetOrDry sweetOrDry;
+	public ServingTemp servingTemp;
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */

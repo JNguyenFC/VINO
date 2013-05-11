@@ -1,10 +1,13 @@
 /**
  * 
  */
-package com.yoloswag.vino;
+package com.yoloswag.vino.newentry;
 
 import java.io.File;
 import java.util.List;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.R.layout;
 
 import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
