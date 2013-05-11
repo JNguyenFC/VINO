@@ -7,6 +7,7 @@ import java.io.File;
 import java.util.List;
 
 import android.content.Context;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -17,6 +18,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 
@@ -43,9 +45,18 @@ public class NewEntryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+    	//android:Id = "+id/newEntryButton";
+    	
         View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
-        //TextView dummyTextView = (TextView) rootView.findViewById(R.id.section_label);
-        //dummyTextView.setText(Integer.toString(getArguments().getInt(ARG_SECTION_NUMBER)));
+        /*View button = rootView.findViewById(R.id.newEntryButton);
+        Button b = (Button) button;
+        OnClickListener ocl = new OnClickListener(){
+        	@Override
+        	public void onClick(View v){
+        		
+        	}
+        };
+        b.setOnClickListener((android.view.View.OnClickListener) ocl);*/
         return rootView;
     }
     
