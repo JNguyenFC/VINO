@@ -14,7 +14,7 @@ public class Wine
 	/**  Fake database of Wine (to be deleted later)
 	 */
 	protected static Wine a = new Wine("Castello Banfi", "Italy", 2008, 12.9, "red", "Chianti", "dry", "room temperature" );
-	protected static Wine b = new Wine("Yellowtail", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
+	protected static Wine b = new Wine("Yellow Tail", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
 	protected static Wine c = new Wine("Montana", "New Zealand", 2011, 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
 	protected static Wine d = new Wine("Yellow Tail", "Australia", 2011, 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
 	protected static Wine e = new Wine("Chateau Ste. Michelle", "Florida", 2012, 11.2, "white", "Riesling", "sweet", "chilled");
