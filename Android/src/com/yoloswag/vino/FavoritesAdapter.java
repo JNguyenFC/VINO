@@ -17,34 +17,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	
 	Entry favoriteWines[] = Entry.getAll();
 	
-	private Entry[] sortRatings(Entry[] ratedEntries)
-	{	
-		int n = ratedEntries.length;
-		Entry temp = null;
-		
-		do
-		{
-			int counter = 0;
-			
-			for (int i = 0; i < n-1; ++i)
-			{
-				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
-				{
-					temp = ratedEntries[i];
-					ratedEntries[i] = ratedEntries[i+1];
-					ratedEntries[i+1] = temp;
-			    
-					++counter;
-				}
-			}
-		
-			n = counter;
-		
-		} while (n > 0);
-		
-		return ratedEntries;
-	}
-	
 	//Temporary array of wine suggestions
 	String recommendationWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
 									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
@@ -132,6 +104,69 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
 		return true;
+	}
+	
+	/**  Naive sorting algorithm (bubble sort) for sorting wines by rating
+	 */
+	private Entry[] sortRatings(Entry[] ratedEntries)
+	{	
+		int n = ratedEntries.length;
+		Entry temp = null;
+		
+		do
+		{
+			int counter = 0;
+			
+			for (int i = 0; i < n-1; ++i)
+			{
+				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
+				{
+					temp = ratedEntries[i];
+					ratedEntries[i] = ratedEntries[i+1];
+					ratedEntries[i+1] = temp;
+			    
+					++counter;
+				}
+			}
+		
+			n = counter;
+		
+		} while (n > 0);
+		
+		return ratedEntries;
+	}
+	
+	/**  Naive sorting algorithm (bubble sort) for sorting wines by quantity consumed
+
+	 * @param quantifiedEntries
+	 * @return
+	 */
+	private Entry[] sortQuantities(Entry[] quantifiedEntries)
+	{	
+		int n = quantifiedEntries.length;
+		Entry temp = null;
+		
+		do
+		{
+			int counter = 0;
+			
+			for (int i = 0; i < n-1; ++i)
+			{
+				if (quantifiedEntries[i].rating < quantifiedEntries[i+1].rating)
+				{
+					temp = quantifiedEntries[i];
+					quantifiedEntries[i] = quantifiedEntries[i+1];
+					quantifiedEntries[i+1] = temp;
+			    
+					++counter;
+				}
+			}
+		
+			n = counter;
+		
+		} while (n > 0);
+		
+		return quantifiedEntries;
 	}
 
 }
