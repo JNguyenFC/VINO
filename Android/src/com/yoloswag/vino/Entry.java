@@ -16,11 +16,11 @@ public class Entry
 	
 	/**  Fake database of Entry (to be deleted later)
 	 */
-	protected static Entry a = new Entry(Wine.a, "France", "yoloswaging it up", 5, 750);
-	protected static Entry b = new Entry(Wine.b, "US", "gary", 4, 250);
-	protected static Entry c = new Entry(Wine.c, "Canada", "i love justin timberlake", 3, 10);
-	protected static Entry d = new Entry(Wine.d, "Germany",  "derp", 2, 100);
-	protected static Entry e = new Entry(Wine.e, "Italy", "trolls", 1, 1000);
+	protected static Entry a = new Entry(Wine.a, "France", "yoloswaging it up", 3, 750);
+	protected static Entry b = new Entry(Wine.b, "US", "gary", 5, 250);
+	protected static Entry c = new Entry(Wine.c, "Canada", "i love justin timberlake", 1, 10);
+	protected static Entry d = new Entry(Wine.d, "Germany",  "derp", 4, 100);
+	protected static Entry e = new Entry(Wine.e, "Italy", "trolls", 2, 1000);
 	
 	public Entry() 
 	{
