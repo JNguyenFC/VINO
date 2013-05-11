@@ -213,9 +213,10 @@
                     android:gravity="center_horizontal" >
 
                     <RatingBar
-                        android:id="@+id/ratingBar1"
+                        android:id="@+id/ratingBar"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        />
                 </TableRow>
 
                 <TableRow
