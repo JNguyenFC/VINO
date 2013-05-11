@@ -125,7 +125,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             }
             if(position == 1)
             {
-            	
+            	return new NewEntryFragment();
             }
              //this is for the view log, first tab   
             if (position == 0) 
