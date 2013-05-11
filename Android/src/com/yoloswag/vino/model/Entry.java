@@ -1,17 +1,17 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 import java.util.Date;
 
 public class Entry 
 {
 	protected String title;
-	protected String comment;
+	public String comment;
 	protected String location;
-	protected int rating;
+	public int rating;
 	protected Glass glass;
 	protected Image image;
 	protected Quantity quantity;
-	protected Wine wine;
+	public Wine wine;
 	public Date postDate;
 	
 	/**  Fake database of Entry (to be deleted later)

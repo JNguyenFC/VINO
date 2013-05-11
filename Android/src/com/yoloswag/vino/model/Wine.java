@@ -1,23 +1,23 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 public class Wine 
 {
-    protected int vintage;
-	protected double alcoholContent;
-	protected String name;
-	protected String region;
-	protected Category category;
-	protected Varietal varietal;//Varietal varietal;
-	protected SweetOrDry sweetOrDry;
-	protected ServingTemp servingTemp;
+	public Vintage vintage;
+	public double alcoholContent;
+	public Name name;
+	public Region region;
+	public Category category;
+	public Varietal varietal;//Varietal varietal;
+	public SweetOrDry sweetOrDry;
+	public ServingTemp servingTemp;
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
-	protected static Wine a = new Wine("Castello Banfi", "Italy", 2008, 12.9, "red", "Chianti", "dry", "room temperature" );
-	protected static Wine b = new Wine("Yellow Tail", "California", 2009, 7.0, "white", "Moscato", "sweet", "chilled");
-	protected static Wine c = new Wine("Montana", "New Zealand", 2011, 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
-	protected static Wine d = new Wine("Yellow Tail", "Australia", 2011, 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
-	protected static Wine e = new Wine("Chateau Ste. Michelle", "Florida", 2012, 11.2, "white", "Riesling", "sweet", "chilled");
+	protected static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
+	protected static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet", "chilled");
+	protected static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
+	protected static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
+	protected static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet", "chilled");
 	
 	/**  Default constructor
 	 */
@@ -27,13 +27,13 @@ public class Wine
 	
 	/**  All-member constructor for fake database
 	 */
-	public Wine(String name, String region, int vintage, double alcoholContent,
+	public Wine(String name, String region, String vintage, double alcoholContent,
 	            String category, String varietal, String sweetOrDry,
 		        String servingTemp) 
 	{
-		this.name           = name;
-		this.region         = region;
-		this.vintage        = vintage;
+		this.name           = new Name(name);
+		this.region         = new Region(region);
+		this.vintage        = new Vintage(vintage);
 		this.alcoholContent = alcoholContent;
 		this.category       = new Category(category);
 		this.varietal       = new Varietal(varietal); //new Varietal(varietal);

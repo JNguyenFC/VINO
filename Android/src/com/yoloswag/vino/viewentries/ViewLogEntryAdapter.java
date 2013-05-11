@@ -1,4 +1,8 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.viewentries;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.R.drawable;
+import com.yoloswag.vino.model.Entry;
 
 import android.content.Context;
 import android.view.View;
@@ -78,7 +82,7 @@ public class ViewLogEntryAdapter extends BaseExpandableListAdapter
 		// TODO Auto-generated method stub
 		//t1 is going to appear first in the list
 		TextView title = new TextView(context);
-		title.setText("Title: "+entries[group].wine.name);
+		title.setText("Title: "+entries[group].wine.name.producer);
 		return title;
 	}
 

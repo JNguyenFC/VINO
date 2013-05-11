@@ -1,8 +1,8 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 public class Vintage {
 
-		protected String year;
+		public String year;
 		
 		public Vintage(String vintage)
 		{
