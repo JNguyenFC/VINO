@@ -1,6 +1,14 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.main;
 
 import java.util.Locale;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.R.id;
+import com.yoloswag.vino.R.layout;
+import com.yoloswag.vino.R.menu;
+import com.yoloswag.vino.R.string;
+import com.yoloswag.vino.favorites.FavoritesFragment;
+import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
 import android.app.ActionBar;

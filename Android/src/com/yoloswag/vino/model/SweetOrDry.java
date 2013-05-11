@@ -1,4 +1,4 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.model;
 
 public class SweetOrDry {
 	protected String taste;

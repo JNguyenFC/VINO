@@ -1,4 +1,6 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.favorites;
+
+import com.yoloswag.vino.model.Entry;
 
 import android.content.Context;
 import android.view.View;
