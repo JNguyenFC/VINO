@@ -18,24 +18,24 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	Entry favoriteWines[] = Entry.getAll();
 	
 	private Entry[] sortRatings(Entry[] ratedEntries)
-	{
+	{	
 		int n = ratedEntries.length;
-		int temp = 0;
+		Entry temp = null;
 		
 		do
 		{
 			int counter = 0;
 			
-			for (int i = 0; i < n; ++i)
+			for (int i = 0; i < n-1; ++i)
 			{
 				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
 				{
-					temp = ratedEntries[i].rating;
-					ratedEntries[i].rating = ratedEntries[i+1].rating;
-					ratedEntries[i+1].rating = temp;
+					temp = ratedEntries[i];
+					ratedEntries[i] = ratedEntries[i+1];
+					ratedEntries[i+1] = temp;
 			    
-					counter = i;
-				}	
+					++counter;
+				}
 			}
 		
 			n = counter;
@@ -44,14 +44,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		
 		return ratedEntries;
 	}
-	
-	/*
-	//Array of favorite wines list to display 
-	String favoriteWines[]  = { "2008 YellowTail Muscato",  
-							    "2006 Montes Classic Cabernet Sauvignon", 
-							    "2011 Dr. Loosen Dr. L Riesling",
-							    "2010 Sutter Home White Zinfandel" };
-	*/
 	
 	//Temporary array of wine suggestions
 	String recommendationWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
@@ -119,11 +111,13 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			                 View convertView, ViewGroup parent) 
 	{
+		Entry[] ratedEntries = sortRatings(favoriteWines);
+		
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
-		textview.setText(favoriteWines[groupPosition].wine.vintage + " " + 
-						 favoriteWines[groupPosition].wine.name + " " + 
-						 favoriteWines[groupPosition].wine.varietal);
+		textview.setText(ratedEntries[groupPosition].wine.vintage + " " + 
+						 ratedEntries[groupPosition].wine.name + " " + 
+						 ratedEntries[groupPosition].wine.varietal);
 		textview.setPadding(50, 20, 20, 20);
 		return textview;
 	}
