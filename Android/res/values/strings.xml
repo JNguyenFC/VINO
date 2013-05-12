@@ -8,5 +8,12 @@
     <string name="title_section3">Favorites</string>
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="newEntry_grape">Grape</string>
+    <string name="newEntry_location">Location</string>
+    <string name="newEntry_vintage">Vintage</string>
+    <string name="newEntry_smell">What\'s that smell?</string>
+    <string name="newEntry_taste">How\'s the taste?</string>
+    <string name="newEntry_color">Color</string>
+    <string name="newEntry_comment">Comments</string>
 
 </resources>

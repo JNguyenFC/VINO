@@ -79,7 +79,7 @@ public class NewEntryFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				// TODO Auto-generated method stub
-				EditText title = (EditText)rootView.findViewById(R.id.typeOfWineAutoComplete);
+				EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				Entry e = new Entry();
 				e.title = title.getText().toString();
 				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
