@@ -19,12 +19,12 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	
 	Entry favoriteWines[] = Entry.getAll();
 	
-	//Temporary array of wine suggestions
-	String recommendationWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-									   {"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
+	// Temporary array of wine suggestions
+	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
 	
 	
 	public FavoritesAdapter(FavoritesFragment favoritesFragment)
@@ -32,7 +32,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		this.favoritesFragment = favoritesFragment;
 		this.context = favoritesFragment.getActivity();
 	}
-	
 
 	@Override
 	public Object getChild(int groupPosition, int childPosition) 
@@ -54,7 +53,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
-		textview.setText(recommendationWines[groupPosition][childPosition]);
+		textview.setText(recommendedWines[groupPosition][childPosition]);
 		textview.setPadding(70, 0, 0, 0);
 		return textview;
 	}
@@ -63,7 +62,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public int getChildrenCount(int groupPosition) 
 	{
 		// TODO Auto-generated method stub
-		return recommendationWines[groupPosition].length;
+		return recommendedWines[groupPosition].length;
 	}
 
 	@Override
