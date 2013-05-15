@@ -14,6 +14,12 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.app.ListActivity;
+import android.widget.AdapterView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+
 
 public class ViewLogEntryFragment extends Fragment 
 {
@@ -48,5 +54,9 @@ public class ViewLogEntryFragment extends Fragment
  	   list.setAdapter(new ViewLogEntryAdapter(this.getActivity(), entries));
         
         return rootView;
+        
+      
     }
+    
+    
 }
