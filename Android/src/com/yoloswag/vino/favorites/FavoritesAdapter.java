@@ -1,5 +1,7 @@
 package com.yoloswag.vino.favorites;
 
+import java.util.Random;
+
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
@@ -25,17 +27,17 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	private Activity context;
 	private FavoritesFragment favoritesFragment;
-	
+
 	Entry favoriteWines[] = Entry.getAll();
-	
+
 	// Temporary array of wine suggestions
 	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-								    {"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
-	
-	
+			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
+			{"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
+
+
 	public FavoritesAdapter(FavoritesFragment favoritesFragment)
 	{
 		this.favoritesFragment = favoritesFragment;
@@ -60,23 +62,30 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
+//		if(childPosition == 1) {
+			LinearLayout linearLayout = new LinearLayout(context);
+			linearLayout.setId(345+groupPosition);
+
+			FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
+			FragmentTransaction ft = fm.beginTransaction();
+			ft.replace(345+groupPosition, new SuggestionsFragment());
+			ft.commit();
+
+			return linearLayout;
+//		}
 //		// TODO Auto-generated method stub
 //		TextView textview = new TextView(context);
 //		textview.setText(recommendedWines[groupPosition][childPosition]);
 //		textview.setPadding(70, 0, 0, 0);
 //		return textview;
-//		return new SuggestionsFragment().getView();
-		LinearLayout linearLayout = new LinearLayout(context);
-		FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
-		FragmentTransaction ft = fm.beginTransaction();
-		return null;
 	}
 
 	@Override
 	public int getChildrenCount(int groupPosition) 
 	{
 		// TODO Auto-generated method stub
-		return recommendedWines[groupPosition].length;
+//		return recommendedWines[groupPosition].length;
+		return 1;
 	}
 
 	@Override
@@ -102,15 +111,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	@Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
-			                 View convertView, ViewGroup parent) 
+			View convertView, ViewGroup parent) 
 	{
 		Entry[] ratedEntries = sortRatings(favoriteWines);
-		
+
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
 		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
-						 ratedEntries[groupPosition].wine.name.producer + " " + 
-						 ratedEntries[groupPosition].wine.varietal.varietal_name);
+				ratedEntries[groupPosition].wine.name.producer + " " + 
+				ratedEntries[groupPosition].wine.varietal.varietal_name);
 		textview.setPadding(50, 20, 20, 20);
 		return textview;
 	}
@@ -128,18 +137,18 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
+
 	/**  Naive sorting algorithm (bubble sort) for sorting wines by rating
 	 */
 	private Entry[] sortRatings(Entry[] ratedEntries)
 	{	
 		int n = ratedEntries.length;
 		Entry temp = null;
-		
+
 		do
 		{
 			int counter = 0;
-			
+
 			for (int i = 0; i < n-1; ++i)
 			{
 				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
@@ -147,29 +156,29 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 					temp = ratedEntries[i];
 					ratedEntries[i] = ratedEntries[i+1];
 					ratedEntries[i+1] = temp;
-			    
+
 					++counter;
 				}
 			}
-		
+
 			n = counter;
-		
+
 		} while (n > 0);
-		
+
 		return ratedEntries;
 	}
-	
+
 	/**  Naive sorting algorithm (bubble sort) for sorting wines by quantity consumed
 	 */
 	private Entry[] sortQuantities(Entry[] quantifiedEntries)
 	{	
 		int n = quantifiedEntries.length;
 		Entry temp = null;
-		
+
 		do
 		{
 			int counter = 0;
-			
+
 			for (int i = 0; i < n-1; ++i)
 			{
 				if (quantifiedEntries[i].rating < quantifiedEntries[i+1].rating)
@@ -177,15 +186,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 					temp = quantifiedEntries[i];
 					quantifiedEntries[i] = quantifiedEntries[i+1];
 					quantifiedEntries[i+1] = temp;
-			    
+
 					++counter;
 				}
 			}
-		
+
 			n = counter;
-		
+
 		} while (n > 0);
-		
+
 		return quantifiedEntries;
 	}
 
