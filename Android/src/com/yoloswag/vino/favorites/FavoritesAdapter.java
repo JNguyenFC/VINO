@@ -1,11 +1,16 @@
 package com.yoloswag.vino.favorites;
 
+import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -57,6 +62,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		textview.setText(recommendationWines[groupPosition][childPosition]);
 		textview.setPadding(70, 0, 0, 0);
 		return textview;
+		
 	}
 
 	@Override
