@@ -3,13 +3,12 @@ package com.yoloswag.vino.model;
 public class Wine 
 {
 	public Vintage vintage;
-	public double alcoholContent;
 	public Name name;
 	public Region region;
 	public Category category;
-	public Varietal varietal;//Varietal varietal;
+	public Varietal varietal;
 	public SweetOrDry sweetOrDry;
-	public ServingTemp servingTemp;
+	
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
@@ -34,11 +33,10 @@ public class Wine
 		this.name           = new Name(name);
 		this.region         = new Region(region);
 		this.vintage        = new Vintage(vintage);
-		this.alcoholContent = alcoholContent;
 		this.category       = new Category(category);
-		this.varietal       = new Varietal(varietal); //new Varietal(varietal);
+		this.varietal       = new Varietal(varietal); 
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
-		this.servingTemp    = new ServingTemp(servingTemp);
+
 	}
 	
 	/**  Getter for Entry
@@ -61,9 +59,6 @@ public class Wine
 		return new Producer();
 	}*/
 
-	public ServingTemp getServingTemp() {
-		return new ServingTemp("CHILLED");
-	}
 
 	public SweetOrDry getSweetOrDry() {
 		return new SweetOrDry("SWEET");
