@@ -3,7 +3,11 @@ package com.yoloswag.vino.favorites;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -19,7 +23,7 @@ import android.widget.TextView;
 public class FavoritesAdapter extends BaseExpandableListAdapter 
 {
 
-	private Context context;
+	private Activity context;
 	private FavoritesFragment favoritesFragment;
 	
 	Entry favoriteWines[] = Entry.getAll();
@@ -56,12 +60,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
-		// TODO Auto-generated method stub
-		TextView textview = new TextView(context);
-		textview.setText(recommendedWines[groupPosition][childPosition]);
-		textview.setPadding(70, 0, 0, 0);
-		return textview;
-		
+//		// TODO Auto-generated method stub
+//		TextView textview = new TextView(context);
+//		textview.setText(recommendedWines[groupPosition][childPosition]);
+//		textview.setPadding(70, 0, 0, 0);
+//		return textview;
+//		return new SuggestionsFragment().getView();
+		LinearLayout linearLayout = new LinearLayout(context);
+		FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
 	}
 
 	@Override

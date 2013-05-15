@@ -32,4 +32,10 @@ public class FavoritesFragment extends Fragment
 		exv.setAdapter(new FavoritesAdapter(this));
         return rootView;
     }
+    
+    /*Instantiate suggestions fragment for the given wine
+    public Fragment displaySuggestions(){
+    	Fragment SuggestionsFragment = new SuggestionsFragment();
+    	return SuggestionsFragment;
+    }*/
 }
