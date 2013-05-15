@@ -69,6 +69,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		LinearLayout linearLayout = new LinearLayout(context);
 		FragmentManager fm = ((FragmentActivity)context).getSupportFragmentManager();
 		FragmentTransaction ft = fm.beginTransaction();
+		return null;
 	}
 
 	@Override
