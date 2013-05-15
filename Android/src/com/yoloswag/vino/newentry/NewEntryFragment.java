@@ -54,17 +54,6 @@ public class NewEntryFragment extends Fragment {
     	//dispatchTakePictureIntent(15);
     }
     
-    public static Camera getCameraInstance(){
-        Camera c = null;
-        try {
-            c = Camera.open(0); // attempt to get a Camera instance
-        }
-        catch (Exception e){
-            // Camera is not available (in use or does not exist)
-        }
-        return c; // returns null if camera is unavailable
-    }
-    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -79,7 +68,7 @@ public class NewEntryFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				// TODO Auto-generated method stub
-				EditText title = (EditText)rootView.findViewById(R.id.typeOfWineAutoComplete);
+				EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				Entry e = new Entry();
 				e.title = title.getText().toString();
 				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();

@@ -2,13 +2,9 @@ package com.yoloswag.vino.main;
 
 import java.util.Locale;
 
+import com.yoloswag.vino.CameraFragment;
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.R.id;
-import com.yoloswag.vino.R.layout;
-import com.yoloswag.vino.R.menu;
-import com.yoloswag.vino.R.string;
 import com.yoloswag.vino.favorites.FavoritesFragment;
-import com.yoloswag.vino.newentry.NewEntryFragment;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
@@ -24,7 +20,6 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 public class VINOActivity extends FragmentActivity implements ActionBar.TabListener {
@@ -134,7 +129,8 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             }
             if(position == 1)
             {
-            	return new NewEntryFragment();
+            	//return new NewEntryFragment(); using the camera for nao
+            	return new CameraFragment();
             }
              //this is for the view log, first tab   
             if (position == 0) 
