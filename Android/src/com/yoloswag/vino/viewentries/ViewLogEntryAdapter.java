@@ -1,4 +1,7 @@
-package com.yoloswag.vino;
+package com.yoloswag.vino.viewentries;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
 
 import android.content.Context;
 import android.database.DataSetObserver;
