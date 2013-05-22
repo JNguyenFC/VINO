@@ -1,22 +1,15 @@
 package com.yoloswag.vino.favorites;
 
-import java.util.Random;
-
-import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 /**
@@ -26,7 +19,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 {
 
 	private Activity context;
-	private FavoritesFragment favoritesFragment;
 
 	Entry favoriteWines[] = Entry.getAll();
 
@@ -40,7 +32,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	public FavoritesAdapter(FavoritesFragment favoritesFragment)
 	{
-		this.favoritesFragment = favoritesFragment;
 		this.context = favoritesFragment.getActivity();
 	}
 
@@ -117,6 +108,13 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 		// TODO Auto-generated method stub
 		TextView textview = new TextView(context);
+		System.out.println("yolo");
+		System.out.println(ratedEntries[groupPosition].wine == null);
+		System.out.println(ratedEntries[groupPosition].wine.vintage == null);
+		System.out.println(ratedEntries[groupPosition].wine.vintage.year == null);
+		System.out.println(ratedEntries[groupPosition].wine.vintage.year);
+		System.out.println(ratedEntries[groupPosition].wine.name.producer);
+		System.out.println(ratedEntries[groupPosition].wine.varietal.varietal_name);
 		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
 				ratedEntries[groupPosition].wine.name.producer + " " + 
 				ratedEntries[groupPosition].wine.varietal.varietal_name);

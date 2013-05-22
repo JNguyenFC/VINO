@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import com.yoloswag.vino.CameraFragment;
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.favorites.FavoritesFragment;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
@@ -44,6 +45,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vino);
+        DatabaseManager.init(this);
 
         // Set up the action bar.
         final ActionBar actionBar = getActionBar();

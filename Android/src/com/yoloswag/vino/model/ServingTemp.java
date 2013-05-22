@@ -1,6 +1,8 @@
 package com.yoloswag.vino.model;
 
-public class ServingTemp {
+import java.io.Serializable;
+
+public class ServingTemp implements Serializable {
 	
 	protected String servingTemp;
 	

@@ -1,23 +1,39 @@
 package com.yoloswag.vino.model;
 
+import java.util.List;
+
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.yoloswag.vino.db.DatabaseManager;
+
 public class Wine 
 {
+	@DatabaseField(generatedId=true)
+	public int id;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Vintage vintage;
+	@DatabaseField
 	public double alcoholContent;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Name name;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Region region;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Category category;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Varietal varietal;//Varietal varietal;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public SweetOrDry sweetOrDry;
+	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public ServingTemp servingTemp;
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
-	protected static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
-	protected static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet", "chilled");
-	protected static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
-	protected static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
-	protected static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet", "chilled");
+	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
+	public static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet", "chilled");
+	public static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
+	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
+	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet", "chilled");
 	
 	/**  Default constructor
 	 */
@@ -52,7 +68,10 @@ public class Wine
 	 */
 	public static Wine[] getAll() 
 	{	
-		return new Wine[] {a, b, c, d, e};
+		//return new Wine[] {a, b, c, d, e};
+		// from the database
+		List<Wine> wines = DatabaseManager.getInstance().getAllWines();
+		return wines.toArray(new Wine[wines.size()]);
 	}
 	
 	/*public Producer getProducer() 
@@ -76,5 +95,9 @@ public class Wine
 
 	public Category getCategory() {
 		return new Category("RED");
+	}
+
+	public void save() {
+        DatabaseManager.getInstance().updateWine(this);
 	}
 }

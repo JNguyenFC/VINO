@@ -13,10 +13,6 @@ public class Quantity
 	 */
 	public static Quantity[] getAll() 
 	{
-		return new Quantity[] { Entry.a.quantity,
-							    Entry.b.quantity,
-							    Entry.c.quantity,
-							    Entry.d.quantity,
-							    Entry.e.quantity };
+		return null;
 	}
 }

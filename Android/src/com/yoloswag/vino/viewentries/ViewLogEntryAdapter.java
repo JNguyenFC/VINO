@@ -81,8 +81,14 @@ public class ViewLogEntryAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int group, boolean arg1, View arg2, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		//t1 is going to appear first in the list
+//		System.out.println("xdgfgdf");
+//		System.out.println(entries[group] == null);
+//		System.out.println(entries[group].wine == null);
+//		System.out.println("x"+entries[group].wine.name.producer);
 		TextView title = new TextView(context);
-		title.setText("Title: "+entries[group].wine.name.producer);
+//		System.out.println(entries[group].wine.name.producer);
+//		title.setText("Title: "+entries[group].wine.name.producer);
+		title.setText("Title: "+entries[group].comment);
 		return title;
 	}
 
