@@ -4,25 +4,20 @@
     android:id="@+id/Layout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wood"
+    android:background="@color/seafoam"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".FavoritesFragment" >
+    tools:context=".ViewLogEntryFragment" >
 
-    <TextView
-        android:id="@+id/viewLogText"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" >
-
-       </TextView>
-    <ExpandableListView
-        android:id="@+id/viewLogEx"
+   
+    <ListView
+        android:id="@+id/viewLogL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" >
-    </ExpandableListView>
+    </ListView>
 
 </LinearLayout>

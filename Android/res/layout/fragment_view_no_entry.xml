@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".FavoritesFragment" >
+    tools:context=".ViewLogEntryFragment" >
 
     <ImageView
         android:id="@+id/imageView1"
@@ -17,7 +17,7 @@
         android:layout_height="212dp"
         android:src="@drawable/classicgary" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

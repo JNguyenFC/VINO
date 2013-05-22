@@ -22,6 +22,7 @@ public class Entry
 	public int rating;
 	//@DatabaseField
 	//protected Image image;
+	//protected Image image;
     @DatabaseField(foreign=true,foreignAutoRefresh=true)
 	public Wine wine;
 	@DatabaseField
