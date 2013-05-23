@@ -1,15 +1,18 @@
 package com.yoloswag.vino.favorites;
 
+import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
 import android.app.Activity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 /**
@@ -105,21 +108,26 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			View convertView, ViewGroup parent) 
 	{
 		Entry[] ratedEntries = sortRatings(favoriteWines);
-
-		// TODO Auto-generated method stub
-		TextView textview = new TextView(context);
-		System.out.println("yolo");
-		System.out.println(ratedEntries[groupPosition].wine == null);
-		System.out.println(ratedEntries[groupPosition].wine.vintage == null);
-		System.out.println(ratedEntries[groupPosition].wine.vintage.year == null);
-		System.out.println(ratedEntries[groupPosition].wine.vintage.year);
-		System.out.println(ratedEntries[groupPosition].wine.name.producer);
-		System.out.println(ratedEntries[groupPosition].wine.varietal.varietal_name);
-		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
-				ratedEntries[groupPosition].wine.name.producer + " " + 
-				ratedEntries[groupPosition].wine.varietal.varietal_name);
-		textview.setPadding(50, 20, 20, 20);
-		return textview;
+		LayoutInflater li = LayoutInflater.from(context);
+		//View v = li.inflate(R.layout.ratinout, null);
+		View v = li.inflate(R.layout.rating_cell_layout, null);
+		
+//		// TODO Auto-generated method stub
+//		
+//		LinearLayout view = new LinearLayout(context);
+		TextView textview = (TextView) v.findViewById(R.id.editText1);
+//		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
+//				ratedEntries[groupPosition].wine.name.producer + " " + 
+//				ratedEntries[groupPosition].wine.varietal.varietal_name);
+//		textview.setPadding(50, 20, 20, 20);
+//		view.addView(textview);
+		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
+		bar.setRating((float) 2.5);
+		bar.setIsIndicator(true);
+		bar.setMax(5);
+		bar.setNumStars(5);
+//		view.addView(bar);
+		return v;
 	}
 
 	@Override
