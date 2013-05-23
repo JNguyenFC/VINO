@@ -121,13 +121,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
 				ratedEntries[groupPosition].wine.name.producer + " " + 
 				ratedEntries[groupPosition].wine.varietal.varietal_name);
+		//textview.setTextSize(15);
 		textview.setPadding(50, 20, 20, 20);
 		((ViewGroup) v).addView(textview);
 		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
-		bar.setRating((float) 2.5);
+		System.out.println(ratedEntries[groupPosition].rating);
+		bar.setRating(ratedEntries[groupPosition].rating);
 		bar.setIsIndicator(true);
-		bar.setMax(5);
-		bar.setNumStars(5);
+		//bar.setMax(5);
+		//bar.setNumStars(5);
 		bar.setPadding(0, 20, 0, 20);
 //		view.addView(bar);
 		return v;
