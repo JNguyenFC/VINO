@@ -3,14 +3,13 @@
  */
 package com.yoloswag.vino.newentry;
 
-import java.io.File;
 import java.util.List;
 
 import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.model.Entry;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -18,7 +17,6 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.hardware.Camera;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +25,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -35,7 +32,7 @@ import android.widget.Toast;
  * @author tiffany
  *
  */
-public class NewEntryFragment extends Fragment {
+public class NewEntryFragment extends Activity {
     /**
      * The fragment argument representing the section number for this
      * fragment.
@@ -54,10 +51,8 @@ public class NewEntryFragment extends Fragment {
     	//dispatchTakePictureIntent(15);
     }
     
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-    	//android:Id = "+id/newEntryButton";
         //final View rootView = inflater.inflate(R.layout.camera, container, false);
         final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = rootView.findViewById(R.id.new_entry_button);
@@ -71,12 +66,40 @@ public class NewEntryFragment extends Fragment {
 				EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				Entry e = new Entry();
 				e.title = title.getText().toString();
-				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 				e.save();
 			}
         });
 
         return rootView;
+    }
+    
+    
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
     }
     
     /** An intent to take the photo */

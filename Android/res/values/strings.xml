@@ -15,5 +15,6 @@
     <string name="newEntry_taste">How\'s the taste?</string>
     <string name="newEntry_color">Color</string>
     <string name="newEntry_comment">Comments</string>
+    <string name="title_activity_new_entry">NewEntryActivity</string>
 
 </resources>

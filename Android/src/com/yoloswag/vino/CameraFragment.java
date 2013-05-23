@@ -8,6 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import com.yoloswag.vino.newentry.ConfirmationDialogFragment;
+import com.yoloswag.vino.newentry.NewEntryFragment;
+
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,6 +27,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Surface;
@@ -167,6 +171,17 @@ public class CameraFragment extends Fragment {
 				// get an image from the camera
 
 	            mCamera.takePicture(null, null, mPicture);
+	            Intent myIntent = new Intent(getActivity(), ConfirmationDialogFragment.class);
+                getActivity().startActivity(myIntent); 
+	            //FragmentTransaction ft = getFragmentManager().beginTransaction();
+	            //ft.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+
+	            //NewEntryFragment newFragment = NewEntryFragment.newInstance();
+
+	            //ft.replace(R.id.details_fragment_container, newFragment, "detailFragment");
+
+	            // Start the animated transition.
+	            //ft.commit();
 			}
         });
 
@@ -192,8 +207,6 @@ public class CameraFragment extends Fragment {
     // Viewing the photo
     private void handleSmallCameraPhoto(Intent intent) {
         Bundle extras = intent.getExtras();
-        // dont commit code that doesnt compile
-        // seriously tiffany wtf
         //mImageBitmap = (Bitmap) extras.get("data");
         //mImageView.setImageBitmap(mImageBitmap);
     }
