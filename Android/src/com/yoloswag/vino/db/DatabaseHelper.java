@@ -45,6 +45,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         a.save();
     	Entry b = new Entry(Wine.a, "France", "yoloswaging it up", 3);
     	b.save();
+    	Entry e = new Entry(Wine.c, "New Zealand", "hi", 1);
+    	e.save();
+    	Entry d = new Entry(Wine.d, "California", "WHISTLE GOES WOO WOO", 5);
+    	d.save();
     	Entry c = new Entry(Wine.a, "France", "If you see this it doesn't work ]:", 3);
     	c.save();
     	c.comment = "If you see this then it works [:";
