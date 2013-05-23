@@ -115,17 +115,20 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 //		// TODO Auto-generated method stub
 //		
 //		LinearLayout view = new LinearLayout(context);
-		TextView textview = (TextView) v.findViewById(R.id.editText1);
-//		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
-//				ratedEntries[groupPosition].wine.name.producer + " " + 
-//				ratedEntries[groupPosition].wine.varietal.varietal_name);
-//		textview.setPadding(50, 20, 20, 20);
-//		view.addView(textview);
+		//TextView textview = (TextView) v.findViewById(R.id.editText1);
+		
+		TextView textview = new TextView(context);
+		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
+				ratedEntries[groupPosition].wine.name.producer + " " + 
+				ratedEntries[groupPosition].wine.varietal.varietal_name);
+		textview.setPadding(50, 20, 20, 20);
+		((ViewGroup) v).addView(textview);
 		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
 		bar.setRating((float) 2.5);
 		bar.setIsIndicator(true);
 		bar.setMax(5);
 		bar.setNumStars(5);
+		bar.setPadding(0, 20, 0, 20);
 //		view.addView(bar);
 		return v;
 	}
