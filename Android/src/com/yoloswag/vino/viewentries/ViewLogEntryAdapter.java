@@ -1,14 +1,15 @@
 package com.yoloswag.vino.viewentries;
 
-import com.yoloswag.vino.R;
-import com.yoloswag.vino.model.Entry;
-
 import android.content.Context;
 import android.database.DataSetObserver;
-import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
 
 public class ViewLogEntryAdapter implements ListAdapter {
 	private Context context;
@@ -46,6 +47,19 @@ public class ViewLogEntryAdapter implements ListAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
+		//LinearLayout container = new LinearLayout(context);
+		LayoutInflater li = LayoutInflater.from(context);
+		View v = li.inflate(R.layout.image_cell_layout, null);
+		
+		ImageView iv = (ImageView) v.findViewById(R.id.entry_image);
+		//iv.setImageResource(R.drawable.vino1);
+		iv.setAdjustViewBounds(true);
+		//iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		return v;
+		
+		
+		
+		/*
 		//t3 is going to hold the image and the comments
 		LinearLayout container = new LinearLayout(context);
 		ImageView wine = new ImageView(context);
@@ -63,10 +77,11 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					//elem.setVisibility(LinearLayout.INVISIBLE);
 			}
 		}; 
-		wine.setImageResource(R.drawable.vino1);
+		wine.setImageResource(R.drawable.classicgary);
 		wine.setAdjustViewBounds(true);
 		//wine.setScale
 		info.setText(entries[arg0].title);
+		info.setPadding(70, 20, 20, 20);
 		info.setId(400);
 		//containerText.addView(info);
 		info.setVisibility(LinearLayout.INVISIBLE);
@@ -75,6 +90,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
      	container.setOnClickListener(handler);
 		//t3.addView(t1);
 		return container;
+	*/
 	}
 
 	@Override
