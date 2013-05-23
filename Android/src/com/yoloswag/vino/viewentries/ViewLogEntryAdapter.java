@@ -61,10 +61,11 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem.setVisibility(LinearLayout.VISIBLE);
 				//if(elem.VISIBLE == LinearLayout.INVISIBLE)
 					//elem.setVisibility(LinearLayout.INVISIBLE);
-				
 			}
 		}; 
 		wine.setImageResource(R.drawable.vino1);
+		wine.setAdjustViewBounds(true);
+		//wine.setScale
 		info.setText(entries[arg0].title);
 		info.setId(400);
 		//containerText.addView(info);
