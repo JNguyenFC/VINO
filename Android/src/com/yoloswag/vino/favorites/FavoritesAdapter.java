@@ -23,7 +23,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	private Activity context;
 
-	Entry favoriteWines[] = Entry.getAll();
+	Entry[] favoriteWines = sortRatings(Entry.getAll());
 
 	// Temporary array of wine suggestions
 	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
@@ -107,7 +107,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
 	{
-		Entry[] ratedEntries = sortRatings(favoriteWines);
 		LayoutInflater li = LayoutInflater.from(context);
 		//View v = li.inflate(R.layout.ratinout, null);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
@@ -118,15 +117,14 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//TextView textview = (TextView) v.findViewById(R.id.editText1);
 		
 		TextView textview = new TextView(context);
-		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
-				ratedEntries[groupPosition].wine.name.producer + " " + 
-				ratedEntries[groupPosition].wine.varietal.varietal_name);
+		textview.setText(favoriteWines[groupPosition].wine.vintage.year + " " + 
+				favoriteWines[groupPosition].wine.name.producer + " " + 
+				favoriteWines[groupPosition].wine.varietal.varietal_name);
 		//textview.setTextSize(15);
 		textview.setPadding(50, 20, 20, 20);
 		((ViewGroup) v).addView(textview);
 		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
-		System.out.println(ratedEntries[groupPosition].rating);
-		bar.setRating(ratedEntries[groupPosition].rating);
+		bar.setRating(favoriteWines[groupPosition].rating);
 		bar.setIsIndicator(true);
 		//bar.setMax(5);
 		//bar.setNumStars(5);
@@ -155,10 +153,11 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{	
 		int n = ratedEntries.length;
 		Entry temp = null;
-
+		
+		int counter = 0;
 		do
 		{
-			int counter = 0;
+			counter = 0;
 
 			for (int i = 0; i < n-1; ++i)
 			{
@@ -172,41 +171,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 				}
 			}
 
-			n = counter;
-
-		} while (n > 0);
-
+		} while (counter > 0);
+		
 		return ratedEntries;
 	}
-
-	/**  Naive sorting algorithm (bubble sort) for sorting wines by quantity consumed
-	 */
-	private Entry[] sortQuantities(Entry[] quantifiedEntries)
-	{	
-		int n = quantifiedEntries.length;
-		Entry temp = null;
-
-		do
-		{
-			int counter = 0;
-
-			for (int i = 0; i < n-1; ++i)
-			{
-				if (quantifiedEntries[i].rating < quantifiedEntries[i+1].rating)
-				{
-					temp = quantifiedEntries[i];
-					quantifiedEntries[i] = quantifiedEntries[i+1];
-					quantifiedEntries[i+1] = temp;
-
-					++counter;
-				}
-			}
-
-			n = counter;
-
-		} while (n > 0);
-
-		return quantifiedEntries;
-	}
-
 }
