@@ -56,7 +56,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
-//		if(childPosition == 1) {
 			LinearLayout linearLayout = new LinearLayout(context);
 			linearLayout.setId(345+groupPosition);
 
@@ -107,29 +106,26 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
 	{
+		// Inflating a View takes the layout XML, creates the View specified
+		//   within, and then adds the View to another ViewGroup --
+		//   this displays the RatingBar indicator for each favorite Wine
 		LayoutInflater li = LayoutInflater.from(context);
-		//View v = li.inflate(R.layout.ratinout, null);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
-//		// TODO Auto-generated method stub
-//		
-//		LinearLayout view = new LinearLayout(context);
-		//TextView textview = (TextView) v.findViewById(R.id.editText1);
-		
+		// Display Favorite Wine vintage, producer, and varietal
 		TextView textview = new TextView(context);
 		textview.setText(favoriteWines[groupPosition].wine.vintage.year + " " + 
 				favoriteWines[groupPosition].wine.name.producer + " " + 
 				favoriteWines[groupPosition].wine.varietal.varietal_name);
-		//textview.setTextSize(15);
 		textview.setPadding(50, 20, 20, 20);
 		((ViewGroup) v).addView(textview);
+		
+		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
 		bar.setRating(favoriteWines[groupPosition].rating);
 		bar.setIsIndicator(true);
-		//bar.setMax(5);
-		//bar.setNumStars(5);
 		bar.setPadding(0, 20, 0, 20);
-//		view.addView(bar);
+		
 		return v;
 	}
 
@@ -171,7 +167,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 				}
 			}
 
-		} while (counter > 0);
+		}while (counter > 0);
 		
 		return ratedEntries;
 	}
