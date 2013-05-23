@@ -1,4 +1,4 @@
-/**
+	/**
  * 
  */
 package com.yoloswag.vino.newentry;
@@ -79,13 +79,6 @@ public class NewEntryFragment extends Fragment {
         return rootView;
     }
     
-    /** An intent to take the photo */
-    private void dispatchTakePictureIntent(int actionCode) 
-    {
-        //Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        //startActivityForResult(takePictureIntent, actionCode);
-    }
-    
     /** Checking if the intent is even available */
     public static boolean isIntentAvailable(Context context, String action) 
     {
@@ -103,8 +96,6 @@ public class NewEntryFragment extends Fragment {
         mImageBitmap = (Bitmap) extras.get("data");
         mImageView.setImageBitmap(mImageBitmap);
     }
-    
-
 }
 
 
