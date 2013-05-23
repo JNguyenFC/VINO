@@ -66,5 +66,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         } catch (Exception e){
             Log.d("OH NO", "Error starting camera preview: " + e.getMessage());
         }
+        
+        // Set camera properties first
+        Camera.Parameters parameters = mCamera.getParameters();
+                parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+                mCamera.setParameters(parameters);
+
+        mCamera.startPreview();
+
+        mCamera.autoFocus(null);
+        }
     }
-}
+
