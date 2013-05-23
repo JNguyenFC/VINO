@@ -65,7 +65,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 			}
 		}; 
 		wine.setImageResource(R.drawable.classicgary);
-		info.setText("test 124");
+		info.setText(entries[arg0].title);
 		info.setId(400);
 		//containerText.addView(info);
 		info.setVisibility(LinearLayout.INVISIBLE);
