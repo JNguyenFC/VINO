@@ -4,13 +4,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <ImageView
-        android:id="@+id/entry_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop" 
-        android:src="@drawable/vino1" />
-        
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <ImageView
+            android:id="@+id/entry_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/vino1" />
+
+        <TextView
+            android:id="@+id/producer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/varietal_name"
+            android:background="#7f000000"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="CARRUTH CELLARS"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/vintage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/producer_name"
+            android:layout_alignParentLeft="true"
+            android:background="#7f000000"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="2011"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/varietal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/producer_name"
+            android:layout_alignParentBottom="true"
+            android:background="#7f000000"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="SAUVIGNON BLANC"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
 
 </LinearLayout>
