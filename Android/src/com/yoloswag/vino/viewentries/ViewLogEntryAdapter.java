@@ -65,6 +65,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				break;
 			case 2: iv.setImageResource(R.drawable.vino2);
 				break;
+			case 3: iv.setImageResource(R.drawable.vino4);
+				break;
 			default:
 				break;
 		}

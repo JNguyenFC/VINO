@@ -10,7 +10,7 @@
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/vino1" />
+            android:src="@drawable/vino5" />
 
          <TextView
              android:id="@+id/varietal_name"
