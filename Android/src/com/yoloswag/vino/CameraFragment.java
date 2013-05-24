@@ -106,7 +106,15 @@ public class CameraFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.camera, container, false);
         View button = rootView.findViewById(R.id.button_capture);
         
-        Button b = (Button) button;
+        View accept = rootView.findViewById(R.id.button_accept);
+        final Button a = (Button)accept;
+        a.setVisibility(View.INVISIBLE);
+        
+        View decline = rootView.findViewById(R.id.button_decline);
+        final Button d = (Button)decline;
+        d.setVisibility(View.INVISIBLE);
+        
+        final Button b = (Button) button;
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
@@ -114,10 +122,27 @@ public class CameraFragment extends Fragment {
 				// get an image from the camera
 
 	            mCamera.takePicture(null, null, mPicture);
+	            a.setVisibility(View.VISIBLE);
+	            d.setVisibility(View.VISIBLE);
+	            b.setVisibility(View.INVISIBLE);
 			}
         });
+        
+        a.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg1) {
+				//save picture
+			}
+        });
+        
+        d.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg1) {
+				//take picture again
+			}
+        });  
 
         return rootView;
     }
 }
-
+    
