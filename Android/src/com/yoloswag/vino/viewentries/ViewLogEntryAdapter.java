@@ -88,7 +88,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		
 		TextView textview_entry_desc = (TextView) v.findViewById(R.id.entry_desc);
 		textview_entry_desc.isOpaque();
-		//textview_entry_desc.setText(entries[arg0].wine.);
+		textview_entry_desc.setText(entries[arg0].comment);
 		textview_entry_desc.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 		textview_entry_desc.setTextSize(34);
 		
