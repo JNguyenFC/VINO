@@ -4,11 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <RelativeLayout
-        android:id="@+id/relativelayout"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
         <ImageView
             android:id="@+id/entry_image"
             android:layout_width="match_parent"
@@ -16,6 +11,13 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             android:src="@drawable/vino1" />
+    
+    <!-- <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+
 
         <TextView
             android:id="@+id/producer_name"
@@ -55,6 +57,6 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF" />
 
-    </RelativeLayout>
+    </RelativeLayout> -->
 
 </LinearLayout>
