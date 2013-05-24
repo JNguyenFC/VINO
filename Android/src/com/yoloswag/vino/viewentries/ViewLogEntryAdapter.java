@@ -84,6 +84,32 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_varietal.setText(entries[arg0].wine.varietal.varietal_name);
 		textview_varietal.setTextSize(34);
 		
+		TextView textview_entry_desc = (TextView) v.findViewById(R.id.entry_desc);
+		textview_entry_desc.isOpaque();
+		//textview_entry_desc.setText(entries[arg0].wine.);
+		textview_entry_desc.setTextSize(34);
+		
+		
+        View.OnClickListener handler = new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				RelativeLayout vG = (RelativeLayout)v.getParent();
+				View elem = vG.findViewById(R.id.entry_desc);
+				if(v == vG.findViewById(R.id.entry_image))
+				 {
+					elem.setVisibility(LinearLayout.VISIBLE);
+				 }
+				if(v == elem)
+				{
+					elem.setVisibility(LinearLayout.INVISIBLE);
+				}
+			}
+		}; 
+		
+		//when click on image make entry descirption appear
+		iv.setOnClickListener(handler);
+		textview_entry_desc.setOnClickListener(handler);
 		return v;
 		
 		

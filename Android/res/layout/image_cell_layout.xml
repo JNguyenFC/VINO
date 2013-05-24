@@ -52,5 +52,19 @@
             android:text="2011"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF" />
+        
+         <TextView
+            android:id="@+id/entry_desc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/producer_name"
+            android:layout_alignParentLeft="true"
+            android:background="#80D7EDEF"
+            android:paddingLeft="4dp"
+            android:paddingRight="8dp"
+            android:text="wine details"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="invisible"
+            android:textColor="#FFFFFF" />
 
 </RelativeLayout>
