@@ -7,7 +7,6 @@ import android.app.Activity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentActivity;
-import android.text.TextUtils.TruncateAt;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,21 +112,12 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
+		// Display favorite Wine vintage, producer, and varietal dynamically
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
 		textview.setText(favoriteWines[groupPosition].wine.vintage.year + 
 				" " + favoriteWines[groupPosition].wine.name.producer + " " + 
 				favoriteWines[groupPosition].wine.varietal.varietal_name +
 				", " + favoriteWines[groupPosition].wine.region.region);
-	
-		/*	// Display Favorite Wine vintage, producer, and varietal
-		TextView textview = new TextView(context);
-		textview.setText(favoriteWines[groupPosition].wine.vintage.year + " " + 
-				favoriteWines[groupPosition].wine.name.producer + " " + 
-				favoriteWines[groupPosition].wine.varietal.varietal_name);
-		textview.setPadding(50, 50, 20, 20);
-		textview.setTextSize(20);
-		textview.setEllipsize(TruncateAt.END);
-		((ViewGroup) v).addView(textview); */
 		
 		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
