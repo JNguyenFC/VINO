@@ -5,7 +5,10 @@ import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+//import android.view.LinearLayout.LayoutParams;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 
 import com.yoloswag.vino.R;
@@ -52,9 +55,14 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		View v = li.inflate(R.layout.image_cell_layout, null);
 		
 		ImageView iv = (ImageView) v.findViewById(R.id.entry_image);
-		//iv.setImageResource(R.drawable.vino1);
-		iv.setAdjustViewBounds(true);
-		//iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+		// Sets photo to be displayed to fill the screen relative to any phone
+		LinearLayout layout = (LinearLayout)v.findViewById(R.id.rootlayout);
+		iv.setLayoutParams(new LinearLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
+		
+        // Dynamically change log entry photos depending on the photo for the entry
+		iv.setImageResource(R.drawable.vino1);
+
 		return v;
 		
 		
