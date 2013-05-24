@@ -17,6 +17,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="Capture" />
+   
+    <LinearLayout 
+    android:id="@+id/camera_preview" 
+    android:layout_height="wrap_content" 
+    android:layout_width="fill_parent" 
+    android:layout_alignParentBottom="true">
+    <Button 
+        android:id="@+id/button_accept" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_weight="1" 
+        android:text="Accept">
+    </Button>
+    <Button 
+        android:id="@+id/button_decline" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content"
+        android:layout_weight="1" 
+        android:text="Decline">
+    </Button>
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/image"
