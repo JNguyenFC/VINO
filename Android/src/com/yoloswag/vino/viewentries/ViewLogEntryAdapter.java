@@ -50,7 +50,6 @@ public class ViewLogEntryAdapter implements ListAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-System.out.println("arg0: " + arg0);
 		//LinearLayout container = new LinearLayout(context);
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.image_cell_layout, null);
@@ -69,7 +68,7 @@ System.out.println("arg0: " + arg0);
 				break;
 			case 1: iv.setImageResource(R.drawable.vino3);
 				break;
-			case 2: iv.setImageResource(R.drawable.untitled);
+			case 2: iv.setImageResource(R.drawable.vino2);
 				break;
 			default:
 				break;
