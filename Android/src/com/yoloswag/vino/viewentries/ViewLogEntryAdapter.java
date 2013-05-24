@@ -50,6 +50,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
+System.out.println("arg0: " + arg0);
 		//LinearLayout container = new LinearLayout(context);
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.image_cell_layout, null);
@@ -61,7 +62,19 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		iv.setLayoutParams(new LinearLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 		
         // Dynamically change log entry photos depending on the photo for the entry
-		iv.setImageResource(R.drawable.vino1);
+		// -- This is the hard-coded version
+		switch (arg0)
+		{
+			case 0: iv.setImageResource(R.drawable.vino1);
+				break;
+			case 1: iv.setImageResource(R.drawable.vino3);
+				break;
+			case 2: iv.setImageResource(R.drawable.untitled);
+				break;
+			default:
+				break;
+		}
+
 
 		return v;
 		
