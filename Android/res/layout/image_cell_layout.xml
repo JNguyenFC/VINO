@@ -25,7 +25,8 @@
              android:text="SAUVIGNON BLANC"
              android:textAllCaps="true"
              android:textAppearance="?android:attr/textAppearanceLarge"
-             android:textColor="#FFFFFF" />
+             android:textColor="#FFFFFF"
+             android:textStyle="bold" />
          
          <TextView
              android:id="@+id/producer_name"
@@ -38,7 +39,8 @@
              android:text="CARRUTH CELLARS"
              android:textAllCaps="true"
              android:textAppearance="?android:attr/textAppearanceLarge"
-             android:textColor="#FFFFFF" />
+             android:textColor="#FFFFFF"
+             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/vintage"
@@ -51,7 +53,8 @@
             android:paddingRight="8dp"
             android:text="2011"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
         
          <TextView
             android:id="@+id/entry_desc"
