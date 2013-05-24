@@ -149,6 +149,9 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//take picture again
+	            a.setVisibility(View.INVISIBLE);
+	            d.setVisibility(View.INVISIBLE);
+	            b.setVisibility(View.VISIBLE);
 			}
         });  
 
