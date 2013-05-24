@@ -7,7 +7,7 @@ public class Region implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected String region;
+	public String region;
 	
 	public Region(String region)
 	{
