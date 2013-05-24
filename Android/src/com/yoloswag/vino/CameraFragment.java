@@ -1,5 +1,7 @@
 package com.yoloswag.vino;
 
+import com.yoloswag.vino.newentry.NewEntryFragment;
+
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +11,7 @@ import android.hardware.Camera.PictureCallback;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -132,6 +135,13 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//save picture
+				// switching to the new entry fragment 
+				Fragment fragment = new NewEntryFragment();
+				FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+				transaction.replace(R.id.cameraFragment, fragment);
+				transaction.addToBackStack(null);
+				transaction.commit();
 			}
         });
         
