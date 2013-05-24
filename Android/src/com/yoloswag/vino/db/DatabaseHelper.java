@@ -17,7 +17,7 @@ import com.yoloswag.vino.model.Wine;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     // name of the database file for your application -- change to something appropriate for your app
-    private static final String DATABASE_NAME = "VIxNxOdDxB.sqlite";
+    private static final String DATABASE_NAME = "VxIxNxOdDxB.sqlite";
 
     // any time you make changes to your database objects, you may have to increase the database version
     private static final int DATABASE_VERSION = 1;
@@ -43,9 +43,18 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         }
         Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
         a.save();
-    	Entry b = new Entry(Wine.a, "France", "yoloswaging it up", 3);
+    	Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
     	b.save();
-    	Entry c = new Entry(Wine.a, "France", "If you see this it doesn't work ]:", 3);
+    	Entry.a.save();
+    	Entry.b.save();
+    	Entry.c.save();
+    	Entry.d.save();
+    	Entry.e.save();
+    	Entry e = new Entry(Wine.c, "title2", "New Zealand", "hi", 1);
+    	e.save();
+    	Entry d = new Entry(Wine.d, "title3", "California", "WHISTLE GOES WOO WOO", 5);
+    	d.save();
+    	Entry c = new Entry(Wine.a, "title4", "France", "If you see this it doesn't work ]:", 3);
     	c.save();
     	c.comment = "If you see this then it works [:";
     	c.save();

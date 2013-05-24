@@ -30,22 +30,23 @@ public class Entry
 	
 	/**  Fake database of Entry (to be deleted later)
 	 */
-	protected static Entry a = new Entry(Wine.a, "France", "yoloswaging it up", 3);
-	protected static Entry b = new Entry(Wine.b, "US", "gary", 5);
-	protected static Entry c = new Entry(Wine.c, "Canada", "i love justin timberlake", 1);
-	protected static Entry d = new Entry(Wine.d, "Germany",  "derp", 4);
-	protected static Entry e = new Entry(Wine.e, "Italy", "trolls", 2);
+	public static Entry a = new Entry(Wine.a, "fuck you max", "France", "yoloswaging it up", 3);
+	public static Entry b = new Entry(Wine.b, "#drank", "US", "gary", 5);
+	public static Entry c = new Entry(Wine.c, "#yolo", "Canada", "i love justin timberlake", 1);
+	public static Entry d = new Entry(Wine.d, "suq madiq", "Germany",  "derp", 4);
+	public static Entry e = new Entry(Wine.e, "liqa madiq", "Italy", "trolls", 2);
 	
 	public Entry() {
 		
 	}
 	
 	//constructor for fake database
-	public Entry(Wine wine, String location, String comment, int rating) {
+	public Entry(Wine wine, String title, String location, String comment, int rating) {
 		this.wine = Wine.get(wine);
 		this.location = location;
 		this.comment = comment;
 		this.rating = rating;
+		this.title = title;
 	}
 
 	public static Entry[] getAll() {	

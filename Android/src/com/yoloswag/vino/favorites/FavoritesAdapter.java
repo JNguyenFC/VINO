@@ -23,7 +23,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	private Activity context;
 
-	Entry favoriteWines[] = Entry.getAll();
+	Entry[] favoriteWines = sortRatings(Entry.getAll());
 
 	// Temporary array of wine suggestions
 	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
@@ -56,7 +56,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
-//		if(childPosition == 1) {
 			LinearLayout linearLayout = new LinearLayout(context);
 			linearLayout.setId(345+groupPosition);
 
@@ -107,26 +106,26 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
 	{
-		Entry[] ratedEntries = sortRatings(favoriteWines);
+		// Inflating a View takes the layout XML, creates the View specified
+		//   within, and then adds the View to another ViewGroup --
+		//   this displays the RatingBar indicator for each favorite Wine
 		LayoutInflater li = LayoutInflater.from(context);
-		//View v = li.inflate(R.layout.ratinout, null);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
-//		// TODO Auto-generated method stub
-//		
-//		LinearLayout view = new LinearLayout(context);
-		TextView textview = (TextView) v.findViewById(R.id.editText1);
-//		textview.setText(ratedEntries[groupPosition].wine.vintage.year + " " + 
-//				ratedEntries[groupPosition].wine.name.producer + " " + 
-//				ratedEntries[groupPosition].wine.varietal.varietal_name);
-//		textview.setPadding(50, 20, 20, 20);
-//		view.addView(textview);
+		// Display Favorite Wine vintage, producer, and varietal
+		TextView textview = new TextView(context);
+		textview.setText(favoriteWines[groupPosition].wine.vintage.year + " " + 
+				favoriteWines[groupPosition].wine.name.producer + " " + 
+				favoriteWines[groupPosition].wine.varietal.varietal_name);
+		textview.setPadding(50, 20, 20, 20);
+		((ViewGroup) v).addView(textview);
+		
+		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
-		bar.setRating((float) 2.5);
+		bar.setRating(favoriteWines[groupPosition].rating);
 		bar.setIsIndicator(true);
-		bar.setMax(5);
-		bar.setNumStars(5);
-//		view.addView(bar);
+		bar.setPadding(0, 20, 0, 20);
+		
 		return v;
 	}
 
@@ -150,10 +149,11 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{	
 		int n = ratedEntries.length;
 		Entry temp = null;
-
+		
+		int counter = 0;
 		do
 		{
-			int counter = 0;
+			counter = 0;
 
 			for (int i = 0; i < n-1; ++i)
 			{
@@ -167,41 +167,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 				}
 			}
 
-			n = counter;
-
-		} while (n > 0);
-
+		}while (counter > 0);
+		
 		return ratedEntries;
 	}
-
-	/**  Naive sorting algorithm (bubble sort) for sorting wines by quantity consumed
-	 */
-	private Entry[] sortQuantities(Entry[] quantifiedEntries)
-	{	
-		int n = quantifiedEntries.length;
-		Entry temp = null;
-
-		do
-		{
-			int counter = 0;
-
-			for (int i = 0; i < n-1; ++i)
-			{
-				if (quantifiedEntries[i].rating < quantifiedEntries[i+1].rating)
-				{
-					temp = quantifiedEntries[i];
-					quantifiedEntries[i] = quantifiedEntries[i+1];
-					quantifiedEntries[i+1] = temp;
-
-					++counter;
-				}
-			}
-
-			n = counter;
-
-		} while (n > 0);
-
-		return quantifiedEntries;
-	}
-
 }
