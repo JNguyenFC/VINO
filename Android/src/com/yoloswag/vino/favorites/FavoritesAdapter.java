@@ -121,7 +121,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		((ViewGroup) v).addView(textview);
 		
 		// Customize RatingBar
-		RatingBar bar = (RatingBar) v.findViewById(R.id.ratingBar1);
+		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
+		//RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
 		bar.setRating(favoriteWines[groupPosition].rating);
 		bar.setIsIndicator(true);
 		bar.setPadding(0, 20, 0, 20);
