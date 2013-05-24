@@ -5,18 +5,14 @@ import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-//import android.view.LinearLayout.LayoutParams;
-import android.widget.LinearLayout.LayoutParams;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
+import android.widget.*;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
 public class ViewLogEntryAdapter implements ListAdapter {
 	private Context context;
-	private Entry[] entries;
+	private Entry[] entries = Entry.getAll();
 	
 	public ViewLogEntryAdapter(Context cont, Entry[] ent)
 	{
@@ -50,15 +46,14 @@ public class ViewLogEntryAdapter implements ListAdapter {
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
-		//LinearLayout container = new LinearLayout(context);
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.image_cell_layout, null);
 		
 		ImageView iv = (ImageView) v.findViewById(R.id.entry_image);
 
 		// Sets photo to be displayed to fill the screen relative to any phone
-		LinearLayout layout = (LinearLayout)v.findViewById(R.id.rootlayout);
-		iv.setLayoutParams(new LinearLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
+		RelativeLayout layout = (RelativeLayout)v.findViewById(R.id.rootlayout);
+		iv.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 		
         // Dynamically change log entry photos depending on the photo for the entry
 		// -- This is the hard-coded version
@@ -73,8 +68,20 @@ public class ViewLogEntryAdapter implements ListAdapter {
 			default:
 				break;
 		}
-
-
+		
+		// Dynamically change white on black text captions on top of photos
+		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
+		textview_vintage.setText(entries[arg0].wine.vintage.year);
+		textview_vintage.setTextSize(34);
+		
+		TextView textview_producer = (TextView) v.findViewById(R.id.producer_name);
+		textview_producer.setText(entries[arg0].wine.name.producer);
+		textview_producer.setTextSize(34);
+		
+		TextView textview_varietal = (TextView) v.findViewById(R.id.varietal_name);
+		textview_varietal.setText(entries[arg0].wine.varietal.varietal_name);
+		textview_varietal.setTextSize(34);
+		
 		return v;
 		
 		
