@@ -69,6 +69,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				break;
 		}
 		
+		// ** NOTE: THESE ARE ALIGNED SUPER AWKWARDLY WHEN RUN ON THE EMULATOR
+		//    BUT ARE FINE ON THE ACTUAL PHONE
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
 		textview_vintage.setText(entries[arg0].wine.vintage.year);
