@@ -17,7 +17,7 @@ public class Entry
 	@DatabaseField
 	public String comment;
 	@DatabaseField
-	protected String location;
+	public String location;
 	@DatabaseField
 	public int rating;
 	//@DatabaseField

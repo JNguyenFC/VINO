@@ -69,10 +69,21 @@ public class NewEntryFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				// TODO Auto-generated method stub
-				EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				Entry e = new Entry();
-				e.title = title.getText().toString();
-				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
+				EditText location = (EditText)rootView.findViewById(R.id.location);
+				//EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
+				//EditText color = (EditText)rootView.findViewById(R.id.color);
+				//EditText smell = (EditText)rootView.findViewById(R.id.smell);
+				//EditText taste = (EditText)rootView.findViewById(R.id.taste);
+				//EditText comments = (EditText)rootView.findViewById(R.id.comments);
+
+				//e.title = title.getText().toString();
+				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				e.location = location.getText().toString();
+				//Toast.makeText(getActivity(), e.location, Toast.LENGTH_SHORT).show();
+				
+				
 				e.save();
 				((VINOActivity)getActivity()).onSubmit();
 			}
