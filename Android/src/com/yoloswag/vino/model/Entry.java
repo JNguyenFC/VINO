@@ -19,6 +19,14 @@ public class Entry
 	@DatabaseField
 	public String location;
 	@DatabaseField
+	public String vintageYear;
+	@DatabaseField
+	public String color;
+	@DatabaseField
+	public String smell;
+	@DatabaseField
+	public String taste;
+	@DatabaseField
 	public int rating;
 	//@DatabaseField
 	//protected Image image;
