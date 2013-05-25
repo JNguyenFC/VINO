@@ -10,6 +10,7 @@ import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -57,13 +59,12 @@ public class NewEntryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-    	//android:Id = "+id/newEntryButton";
-        //final View rootView = inflater.inflate(R.layout.camera, container, false);
+
         final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = rootView.findViewById(R.id.new_entry_button);
         
         Button b = (Button) button;
-        //OnClickListener ocl = ;
+
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
@@ -73,6 +74,14 @@ public class NewEntryFragment extends Fragment {
 				e.title = title.getText().toString();
 				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 				e.save();
+				
+				// Switching to the View Log Entry fragment
+				Fragment fragment = new ViewLogEntryFragment();
+				FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+				transaction.replace(R.id.newEntryFragment, fragment);
+				transaction.addToBackStack(null);
+				transaction.commit();
 			}
         });
 
