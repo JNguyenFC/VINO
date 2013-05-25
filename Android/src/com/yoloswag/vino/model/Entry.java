@@ -61,7 +61,9 @@ public class Entry
 	}
 	
 	public void save() {
-        wine.save();
+		//stop whineing
+        if(wine != null)
+        	wine.save();
         DatabaseManager.getInstance().updateEntry(this);
 	}
 	
