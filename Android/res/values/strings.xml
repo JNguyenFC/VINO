@@ -12,6 +12,7 @@
     <string name="newEntry_location">Location</string>
     <string name="newEntry_vintage">Vintage Year</string>
     <string name="newEntry_category">Category(ie:white,red,etc.)</string>
+    <string name="newEntry_region">Region</string>
     <string name="newEntry_comment">Comments</string>
     <string name="title_activity_new_entry">NewEntryActivity</string>
 

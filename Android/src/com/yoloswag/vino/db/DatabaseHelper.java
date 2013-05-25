@@ -41,7 +41,8 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
         } catch (java.sql.SQLException e) {
             e.printStackTrace();
         }
-        Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
+        Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
+        new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();
         a.save();
     	Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
     	b.save();

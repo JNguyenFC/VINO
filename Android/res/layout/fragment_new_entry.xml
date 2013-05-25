@@ -99,6 +99,28 @@
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/region"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/newEntry_region"
+                        android:textColorHint="@color/android_blue" />
+
+                </TableRow>
+                
+                <TableRow
                     android:id="@+id/tableRow9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >

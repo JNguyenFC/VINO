@@ -23,6 +23,8 @@ public class Entry
 	@DatabaseField
 	public String category;
 	@DatabaseField
+	public String region;
+	@DatabaseField
 	public int rating;
 	//@DatabaseField
 	//protected Image image;

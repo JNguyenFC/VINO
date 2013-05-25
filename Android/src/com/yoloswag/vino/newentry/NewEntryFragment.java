@@ -76,6 +76,7 @@ public class NewEntryFragment extends Fragment {
 				EditText location = (EditText)rootView.findViewById(R.id.location);
 				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
 				EditText category = (EditText)rootView.findViewById(R.id.category);
+				EditText region = (EditText)rootView.findViewById(R.id.region);
 				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
 				EditText comment = (EditText)rootView.findViewById(R.id.comments);
 
@@ -84,6 +85,7 @@ public class NewEntryFragment extends Fragment {
 				e.location = location.getText().toString();
 				e.vintageYear = vintageYear.getText().toString();
 				e.category = category.getText().toString();
+				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
 				
