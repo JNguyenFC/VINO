@@ -4,69 +4,72 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-        <ImageView
-            android:id="@+id/entry_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"
-            android:src="@drawable/vino5" />
+    <ImageView
+        android:id="@+id/entry_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/vino5" />
 
-         <TextView
-             android:id="@+id/varietal_name"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_alignParentBottom="true"
-             android:layout_alignParentLeft="true"
-             android:layout_marginTop="402dp"
-             android:background="#8f000000"
-             android:paddingLeft="4dp"
-             android:paddingRight="8dp"
-             android:text="SAUVIGNON BLANC"
-             android:textAllCaps="true"
-             android:textAppearance="?android:attr/textAppearanceLarge"
-             android:textColor="#FFFFFF"
-             android:textStyle="bold" />
-         
-         <TextView
-             android:id="@+id/producer_name"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_below="@id/varietal_name"
-             android:background="#8f000000"
-             android:paddingLeft="4dp"
-             android:paddingRight="8dp"
-             android:text="CARRUTH CELLARS"
-             android:textAllCaps="true"
-             android:textAppearance="?android:attr/textAppearanceLarge"
-             android:textColor="#FFFFFF"
-             android:textStyle="bold" />
-
+    <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        
         <TextView
             android:id="@+id/vintage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@id/producer_name"
-            android:layout_alignParentLeft="true"
             android:background="#8f000000"
             android:paddingLeft="4dp"
             android:paddingRight="8dp"
-            android:text="2011"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
-            android:textStyle="bold" />
-        
-         <TextView
-            android:id="@+id/entry_desc"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
-            android:background="#80ffffff"
+            android:textStyle="bold"
+            android:text="2011" />        
+
+        <TextView
+            android:id="@+id/producer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#8f000000"
             android:paddingLeft="4dp"
             android:paddingRight="8dp"
-            android:text="wine details"
+            android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:visibility="invisible"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="CARRUTH CELLARS" />
+
+
+        <TextView
+            android:id="@+id/varietal_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#8f000000"
+            android:paddingLeft="4dp"
+            android:paddingRight="8dp"
+            android:textAllCaps="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:text="SAUVIGNON BLANC" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/entry_desc"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:background="#80ffffff"
+        android:paddingLeft="4dp"
+        android:paddingRight="8dp"
+        android:text="wine details"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:visibility="invisible" />
 
 </RelativeLayout>

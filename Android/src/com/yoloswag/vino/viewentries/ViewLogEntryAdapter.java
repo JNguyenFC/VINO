@@ -92,7 +92,6 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_entry_desc.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 		textview_entry_desc.setTextSize(34);
 		
-		
         View.OnClickListener handler = new View.OnClickListener() {
 			
 			@Override
