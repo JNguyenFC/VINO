@@ -103,6 +103,13 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
+    
+    // When the submit button in NewEntry is clicked
+    public void onSubmit() {
+        // When the submit button is selected, switch to the corresponding page in
+        // the ViewPager.
+        mViewPager.setCurrentItem(1);
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

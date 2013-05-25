@@ -10,7 +10,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="newEntry_grape">Grape</string>
     <string name="newEntry_location">Location</string>
-    <string name="newEntry_vintage">Vintage</string>
+    <string name="newEntry_vintage">Vintage Year</string>
     <string name="newEntry_smell">What\'s that smell?</string>
     <string name="newEntry_taste">How\'s the taste?</string>
     <string name="newEntry_color">Color</string>

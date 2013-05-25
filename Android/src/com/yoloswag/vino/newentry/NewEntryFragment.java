@@ -9,6 +9,7 @@ import java.util.List;
 import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
+import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
@@ -53,7 +54,6 @@ public class NewEntryFragment extends Fragment {
     public void onCreate (Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
-    	//dispatchTakePictureIntent(15);
     }
     
     @Override
@@ -74,14 +74,7 @@ public class NewEntryFragment extends Fragment {
 				e.title = title.getText().toString();
 				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 				e.save();
-				
-				// Switching to the View Log Entry fragment
-				Fragment fragment = new ViewLogEntryFragment();
-				FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-				transaction.replace(R.id.newEntryFragment, fragment);
-				transaction.addToBackStack(null);
-				transaction.commit();
+				((VINOActivity)getActivity()).onSubmit();
 			}
         });
 
