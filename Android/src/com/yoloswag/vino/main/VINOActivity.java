@@ -108,7 +108,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     public void onSubmit() {
         // When the submit button is selected, switch to the corresponding page in
         // the ViewPager.
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(0);
     }
 
     /**
