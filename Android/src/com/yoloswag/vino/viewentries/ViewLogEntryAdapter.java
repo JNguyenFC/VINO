@@ -88,10 +88,13 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		
 		TextView textview_entry_desc = (TextView) v.findViewById(R.id.entry_desc);
 		textview_entry_desc.isOpaque();
-		textview_entry_desc.setText(entries[arg0].comment);
+		textview_entry_desc.setText("Varietal: " + entries[arg0].wine.name.producer + "\n" +
+                "Vintage: " + entries[arg0].wine.vintage.year + "\n" +
+                "Region: " + entries[arg0].wine.region.region + "\n"+
+                "Category: " + entries[arg0].wine.category.category + "\n"
+                );
 		textview_entry_desc.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 		textview_entry_desc.setTextSize(34);
-		
 		
         View.OnClickListener handler = new View.OnClickListener() {
 			
@@ -99,13 +102,23 @@ public class ViewLogEntryAdapter implements ListAdapter {
 			public void onClick(View v) {
 				RelativeLayout vG = (RelativeLayout)v.getParent();
 				View elem = vG.findViewById(R.id.entry_desc);
+				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
+				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
+				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
 				if(v == vG.findViewById(R.id.entry_image))
 				 {
 					elem.setVisibility(LinearLayout.VISIBLE);
+					textview_vintage.setVisibility(RelativeLayout.GONE);
+					textview_producer.setVisibility(RelativeLayout.GONE);
+					textview_varietal.setVisibility(RelativeLayout.GONE);
 				 }
 				if(v == elem)
 				{
 					elem.setVisibility(LinearLayout.INVISIBLE);
+					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
+					textview_producer.setVisibility(RelativeLayout.VISIBLE);
+					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
+					
 				}
 			}
 		}; 
