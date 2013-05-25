@@ -21,11 +21,7 @@ public class Entry
 	@DatabaseField
 	public String vintageYear;
 	@DatabaseField
-	public String color;
-	@DatabaseField
-	public String smell;
-	@DatabaseField
-	public String taste;
+	public String category;
 	@DatabaseField
 	public int rating;
 	//@DatabaseField

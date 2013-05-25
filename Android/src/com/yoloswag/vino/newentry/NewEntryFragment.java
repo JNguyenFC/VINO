@@ -75,9 +75,7 @@ public class NewEntryFragment extends Fragment {
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText location = (EditText)rootView.findViewById(R.id.location);
 				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
-				EditText color = (EditText)rootView.findViewById(R.id.color);
-				EditText smell = (EditText)rootView.findViewById(R.id.smell);
-				EditText taste = (EditText)rootView.findViewById(R.id.taste);
+				EditText category = (EditText)rootView.findViewById(R.id.category);
 				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
 				EditText comment = (EditText)rootView.findViewById(R.id.comments);
 
@@ -85,9 +83,7 @@ public class NewEntryFragment extends Fragment {
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 				e.location = location.getText().toString();
 				e.vintageYear = vintageYear.getText().toString();
-				e.color = color.getText().toString();
-				e.smell = smell.getText().toString();
-				e.taste = taste.getText().toString();
+				e.category = category.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
 				
