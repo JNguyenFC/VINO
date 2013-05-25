@@ -9,7 +9,9 @@ import java.util.List;
 import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
+import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +22,8 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -29,6 +33,7 @@ import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 /**
@@ -51,28 +56,43 @@ public class NewEntryFragment extends Fragment {
     public void onCreate (Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
-    	//dispatchTakePictureIntent(15);
     }
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-    	//android:Id = "+id/newEntryButton";
-        //final View rootView = inflater.inflate(R.layout.camera, container, false);
+
         final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = rootView.findViewById(R.id.new_entry_button);
         
         Button b = (Button) button;
-        //OnClickListener ocl = ;
+
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
 				// TODO Auto-generated method stub
-				EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				Entry e = new Entry();
-				e.title = title.getText().toString();
-				Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
+				EditText location = (EditText)rootView.findViewById(R.id.location);
+				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
+				EditText color = (EditText)rootView.findViewById(R.id.color);
+				EditText smell = (EditText)rootView.findViewById(R.id.smell);
+				EditText taste = (EditText)rootView.findViewById(R.id.taste);
+				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
+				EditText comment = (EditText)rootView.findViewById(R.id.comments);
+
+				//e.title = title.getText().toString();
+				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+				e.location = location.getText().toString();
+				e.vintageYear = vintageYear.getText().toString();
+				e.color = color.getText().toString();
+				e.smell = smell.getText().toString();
+				e.taste = taste.getText().toString();
+				e.comment = comment.getText().toString();
+				e.rating = (int)rating.getRating();
+				
 				e.save();
+				((VINOActivity)getActivity()).onSubmit();
 			}
         });
 

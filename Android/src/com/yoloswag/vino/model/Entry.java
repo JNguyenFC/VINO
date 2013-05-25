@@ -17,7 +17,15 @@ public class Entry
 	@DatabaseField
 	public String comment;
 	@DatabaseField
-	protected String location;
+	public String location;
+	@DatabaseField
+	public String vintageYear;
+	@DatabaseField
+	public String color;
+	@DatabaseField
+	public String smell;
+	@DatabaseField
+	public String taste;
 	@DatabaseField
 	public int rating;
 	//@DatabaseField
@@ -61,7 +69,9 @@ public class Entry
 	}
 	
 	public void save() {
-        wine.save();
+		//stop whineing
+        if(wine != null)
+        	wine.save();
         DatabaseManager.getInstance().updateEntry(this);
 	}
 	

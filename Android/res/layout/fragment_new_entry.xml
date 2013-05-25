@@ -52,13 +52,12 @@
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/year"
+                        android:id="@+id/location"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/newEntry_location"
-                        android:inputType="number"
                         android:textColorHint="@color/android_blue" />
 
                 </TableRow>
@@ -69,12 +68,13 @@
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/location"
+                        android:id="@+id/vintageYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/newEntry_vintage"
+                        android:inputType="number"
                         android:textColorHint="@color/android_blue" />
 
                 </TableRow>
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/smell"
+                        android:id="@+id/color"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/taste"
+                        android:id="@+id/smell"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content" >
 
                     <EditText
-                        android:id="@+id/color"
+                        android:id="@+id/taste"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -179,7 +179,7 @@
                     android:gravity="center_horizontal" >
 
 					<RatingBar
-	                    android:id="@+id/ratingBar"
+	                    android:id="@+id/rating"
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
 					    android:layout_marginTop="0dp"
