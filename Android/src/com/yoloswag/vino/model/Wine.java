@@ -29,11 +29,11 @@ public class Wine
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
-	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
-	public static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet", "chilled");
-	public static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
-	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
-	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet", "chilled");
+	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "Red", "Chianti", "dry", "room temperature" );
+	public static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "White", "Moscato", "sweet", "chilled");
+	public static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "White", "Sauvignon Blanc", "dry", "chilled");
+	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "Red", "Cabernet Sauvignon", "dry", "room temperature");
+	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "White", "Riesling", "sweet", "chilled");
 	
 	/**  Default constructor
 	 */
