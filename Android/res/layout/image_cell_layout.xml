@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingTop="20dp"
+        android:paddingTop="30dp"
         android:text="entry title"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
