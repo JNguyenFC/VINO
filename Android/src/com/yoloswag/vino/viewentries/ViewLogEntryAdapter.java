@@ -86,6 +86,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		
 		TextView textview_entry_title = (TextView) v.findViewById(R.id.entry_title);
 		textview_entry_title.setText(entries[arg0].title);
+		textview_entry_title.setTextSize(24);
 		
 		TextView textview_entry_comment = (TextView) v.findViewById(R.id.entry_comment);
 		textview_entry_comment.setText(entries[arg0].comment);
