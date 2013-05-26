@@ -32,9 +32,10 @@ public class SuggestionsFragment extends Fragment {
 
 	        
 		 rowItems = new ArrayList<RowItem>();
-		 for (int i = 0; i < names.length; ++i)
+		 for (int i = 0; i < 4; ++i)
 		 {
-			 RowItem item = new RowItem(images[i], names[i]);
+			// RowItem item = new RowItem(images[i], names[i]);
+			 RowItem item = new RowItem();
 			 rowItems.add(item);
 		 }
 		 

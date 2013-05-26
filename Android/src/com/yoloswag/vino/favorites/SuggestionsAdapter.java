@@ -17,9 +17,8 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem> {
 
 	Context context;
 	
-	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId,
-            List<RowItem> items) {
-		super(suggestionsFragment.getActivity(), resourceId, items);
+	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<RowItem> list) {
+		super(suggestionsFragment.getActivity(), resourceId, list);
 		this.context = suggestionsFragment.getActivity();
 	}
 
@@ -31,22 +30,45 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem> {
 	}
 	
 	public View getView(int position, View convertView, ViewGroup parent){
-		ViewHolder holder = null;
+		//ViewHolder holder = null;
 		RowItem rowItem = getItem(position);
 		
 		LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+		
 		if(convertView == null)
 		{
 			convertView = mInflater.inflate(R.layout.suggestions, null);
-			holder = new ViewHolder();
-			holder.txtName = (TextView) convertView.findViewById(R.id.name);
-			holder.imageView = (ImageView) convertView.findViewById(R.id.icon);
+			
+			ViewHolder holder = new ViewHolder();
+			holder.txtName = (TextView) convertView.findViewById(R.id.name1);
+			holder.imageView = (ImageView) convertView.findViewById(R.id.icon1);
+			holder.imageView.setImageResource(SuggestionsFragment.images[0]);
+			holder.txtName.setText(SuggestionsFragment.names[0]);
+			
+			ViewHolder holder2 = new ViewHolder();
+			holder2.txtName = (TextView) convertView.findViewById(R.id.name2);
+			holder2.imageView = (ImageView) convertView.findViewById(R.id.icon2);
+			holder2.imageView.setImageResource(SuggestionsFragment.images[1]);
+			holder2.txtName.setText(SuggestionsFragment.names[1]);
+			
+			ViewHolder holder3 = new ViewHolder();
+			holder3.txtName = (TextView) convertView.findViewById(R.id.name3);
+			holder3.imageView = (ImageView) convertView.findViewById(R.id.icon3);
+			holder3.imageView.setImageResource(SuggestionsFragment.images[2]);
+			holder3.txtName.setText(SuggestionsFragment.names[2]);
+			
+			ViewHolder holder4 = new ViewHolder();
+			holder4.txtName = (TextView) convertView.findViewById(R.id.name4);
+			holder4.imageView = (ImageView) convertView.findViewById(R.id.icon4);
+			holder4.imageView.setImageResource(SuggestionsFragment.images[3]);
+			holder4.txtName.setText(SuggestionsFragment.names[3]);
+			
 			convertView.setTag(holder);
 		}
-		else
+		/*else
 			holder = (ViewHolder) convertView.getTag();
 		holder.txtName.setText(rowItem.getName());
-		holder.imageView.setImageResource(rowItem.getImageID());
+		holder.imageView.setImageResource(rowItem.getImageID());*/
 		
 		return convertView;
 	}
