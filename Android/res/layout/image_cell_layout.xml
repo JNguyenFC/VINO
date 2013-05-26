@@ -77,7 +77,7 @@
         android:gravity="center"
         android:paddingTop="30dp"
         android:text="entry title"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
         android:visibility="invisible" />
       
