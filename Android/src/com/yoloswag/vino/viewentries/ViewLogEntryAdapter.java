@@ -84,6 +84,9 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_varietal.setText(entries[arg0].wine.varietal.varietal_name);
 		textview_varietal.setTextSize(34);
 		
+		TextView textview_entry_title = (TextView) v.findViewById(R.id.entry_title);
+		textview_entry_title.setText(entries[arg0].title);
+		
 		TextView textview_entry_comment = (TextView) v.findViewById(R.id.entry_comment);
 		textview_entry_comment.setText(entries[arg0].comment);
 		
@@ -104,6 +107,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				RelativeLayout vG = (RelativeLayout)v.getParent();
 				View elem = vG.findViewById(R.id.entry_details);
 				View elem2 = vG.findViewById(R.id.entry_comment);
+				View elem3 = vG.findViewById(R.id.entry_title);
+				View elem4 = vG.findViewById(R.id.line);
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
@@ -111,14 +116,18 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				 {
 					elem.setVisibility(RelativeLayout.VISIBLE);
 					elem2.setVisibility(RelativeLayout.VISIBLE);
+					elem3.setVisibility(RelativeLayout.VISIBLE);
+					elem4.setVisibility(RelativeLayout.VISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.GONE);
 					textview_producer.setVisibility(RelativeLayout.GONE);
 					textview_varietal.setVisibility(RelativeLayout.GONE);
 				 }
-				if(v == elem || v == elem2)
+				if(v == elem || v == elem2 || v == elem3 || v == elem4)
 				{
 					elem.setVisibility(RelativeLayout.INVISIBLE);
 					elem2.setVisibility(RelativeLayout.INVISIBLE);
+					elem3.setVisibility(RelativeLayout.INVISIBLE);
+					elem4.setVisibility(RelativeLayout.INVISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
 					textview_producer.setVisibility(RelativeLayout.VISIBLE);
 					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
@@ -131,6 +140,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		iv.setOnClickListener(handler);
 		textview_entry_details.setOnClickListener(handler);
 		textview_entry_comment.setOnClickListener(handler);
+		textview_entry_title.setOnClickListener(handler);
+		
 		return v;
 		
 		
