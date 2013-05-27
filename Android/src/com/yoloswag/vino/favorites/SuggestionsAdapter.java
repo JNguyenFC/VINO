@@ -53,7 +53,8 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 			//   ImageType[] images = suggestionsImages[position]; ...
 			// ** NOTE: Hmmm, position always seems to be 0 no matter which favorite is selected,
 			//    Does this need to be in getChildView() in FavoritesAdapter.java?
-			//      suggestions[groupPosition][childPosition] -- childPosition always 0 in our case
+			//      suggestions[groupPosition][childPosition] -- childPosition always 0 in our case,
+			//      but groupPosition changes depending on which favorite is tapped
 			ViewHolder holder = new ViewHolder();
 			holder.txtName = (TextView) convertView.findViewById(R.id.name1);
 			holder.imageView = (ImageView) convertView.findViewById(R.id.icon1);
