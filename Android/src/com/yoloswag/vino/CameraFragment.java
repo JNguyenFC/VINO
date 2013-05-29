@@ -27,7 +27,7 @@ public class CameraFragment extends Fragment {
 	public static Camera getCameraInstance() {
 		Camera c = null;
 		try {
-			c = Camera.open(0); // attempt to get a Camera instance
+			c = Camera.open(); // attempt to get a Camera instance
 		}
 		catch (Exception e){
 			// Camera is not available (in use or does not exist)
