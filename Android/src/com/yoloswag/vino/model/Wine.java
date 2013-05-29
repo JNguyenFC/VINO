@@ -29,11 +29,11 @@ public class Wine
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
-	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry", "room temperature" );
-	public static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet", "chilled");
-	public static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry", "chilled");
-	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry", "room temperature");
-	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet", "chilled");
+	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry" );
+	public static Wine b = new Wine("Yellow Tail", "California", "2009", 7.0, "white", "Moscato", "sweet");
+	public static Wine c = new Wine("Montana", "New Zealand", "2011", 13.4, "white", "Sauvignon Blanc", "dry");
+	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", 14.8, "red", "Cabernet Sauvignon", "dry");
+	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", 11.2, "white", "Riesling", "sweet");
 	
 	/**  Default constructor
 	 */
@@ -44,8 +44,7 @@ public class Wine
 	/**  All-member constructor for fake database
 	 */
 	public Wine(String name, String region, String vintage, double alcoholContent,
-	            String category, String varietal, String sweetOrDry,
-		        String servingTemp) 
+	            String category, String varietal, String sweetOrDry) 
 	{
 		this.name           = new Name(name);
 		this.region         = new Region(region);
