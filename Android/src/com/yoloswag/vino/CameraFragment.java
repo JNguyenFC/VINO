@@ -103,9 +103,11 @@ public class CameraFragment extends Fragment {
 				
 			    FileOutputStream out = new FileOutputStream(String.valueOf(Entry.getAll().length));
 			    bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+			    out.flush();
+			    out.close();
 
-				ImageView imageView = (ImageView)getView().findViewById(R.id.image);
-				imageView.setImageBitmap(bitmap);
+				//ImageView imageView = (ImageView)getView().findViewById(R.id.image);
+				//imageView.setImageBitmap(bitmap);
 				//CameraProjectActivity.image.setImageBitmap(bitmap);
 			}
 			catch(Exception e)

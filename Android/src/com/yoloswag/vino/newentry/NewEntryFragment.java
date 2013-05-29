@@ -3,32 +3,22 @@
  */
 package com.yoloswag.vino.newentry;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.List;
 
-import com.yoloswag.vino.CameraPreview;
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.util.Util;
-import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.text.format.Time;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,7 +26,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
@@ -52,28 +41,15 @@ public class NewEntryFragment extends Fragment {
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
     ExpandableListView exv;
-	private Bitmap mImageBitmap;
-	private ImageView mImageView;
-	private CameraPreview mPreview;
-	private Camera mCamera;
+	//private Bitmap mImageBitmap;
+	//private ImageView mImageView;
+	//private CameraPreview mPreview;
+	//private Camera mCamera;
     
     @Override
     public void onCreate (Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
-
-		
-	    FileInputStream in;
-		try {
-			in = new FileInputStream(String.valueOf(Entry.getAll().length));
-		    Bitmap bitmap = BitmapFactory.decodeStream(in);
-
-			ImageView imageView = (ImageView)getView().findViewById(R.id.image);
-			imageView.setImageBitmap(bitmap);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
     }
     
     @Override
@@ -116,6 +92,20 @@ public class NewEntryFragment extends Fragment {
 				((VINOActivity)getActivity()).onSubmit();
 			}
         });
+
+	    FileInputStream in;
+		try {
+			in = new FileInputStream(String.valueOf(Entry.getAll().length));
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+			System.out.println("loaded");
+		} catch (FileNotFoundException e) {
+			System.out.println("slip");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
         return rootView;
     }
