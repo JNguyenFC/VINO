@@ -1,6 +1,13 @@
 package com.yoloswag.vino;
 
 import android.content.Intent;
+import java.io.File;
+import java.io.FileOutputStream;
+
+import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.newentry.NewEntryFragment;
+import com.yoloswag.vino.util.Util;
+
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -9,6 +16,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +33,7 @@ public class CameraFragment extends Fragment {
 	public static Camera getCameraInstance() {
 		Camera c = null;
 		try {
-			c = Camera.open(0); // attempt to get a Camera instance
+			c = Camera.open(); // attempt to get a Camera instance
 		}
 		catch (Exception e){
 			// Camera is not available (in use or does not exist)
@@ -92,9 +100,14 @@ public class CameraFragment extends Fragment {
 				bitmap = Bitmap.createBitmap(bitmap, 0, 0, 
 						bitmap.getWidth(), bitmap.getHeight(), 
 						matrix, true);
+				
+			    FileOutputStream out = new FileOutputStream(String.valueOf(Entry.getAll().length));
+			    bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+			    out.flush();
+			    out.close();
 
-				ImageView imageView = (ImageView)getView().findViewById(R.id.image);
-				imageView.setImageBitmap(bitmap);
+				//ImageView imageView = (ImageView)getView().findViewById(R.id.image);
+				//imageView.setImageBitmap(bitmap);
 				//CameraProjectActivity.image.setImageBitmap(bitmap);
 			}
 			catch(Exception e)
@@ -136,6 +149,11 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//save picture
+				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
+				//Entry e = 
+				Environment.getExternalStorageState();// Checking that SDCard exists
+				File file = Util.getOutputMediaFile();
+				
 				// switching to the new entry fragment 
 				mCamera.release();
 				
@@ -183,6 +201,5 @@ public class CameraFragment extends Fragment {
 
 		return rootView;
 	}
-
-
+	
 }

@@ -7,13 +7,12 @@
     android:background="@drawable/wood1"
     android:orientation="horizontal"
     tools:context=".ViewLogEntryFragment" >
-
-   
+ 
     <ListView
         android:id="@+id/viewLogL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:divider="@null"
+        android:scrollbars="none">
     </ListView>
-
 </LinearLayout>

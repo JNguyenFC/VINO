@@ -3,25 +3,26 @@
  */
 package com.yoloswag.vino.newentry;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
+<<<<<<< HEAD
 import com.yoloswag.vino.CameraFragment;
 import com.yoloswag.vino.CameraPreview;
+=======
+>>>>>>> de7b0f8dfd3f9e82c6361b6c0fa983776b3c04bd
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
-
+import com.yoloswag.vino.util.Util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
-import android.hardware.Camera;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -31,8 +32,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 /**
@@ -46,10 +47,10 @@ public class NewEntryFragment extends Fragment {
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
     ExpandableListView exv;
-	private Bitmap mImageBitmap;
-	private ImageView mImageView;
-	private CameraPreview mPreview;
-	private Camera mCamera;
+	//private Bitmap mImageBitmap;
+	//private ImageView mImageView;
+	//private CameraPreview mPreview;
+	//private Camera mCamera;
     
     @Override
     public void onCreate (Bundle savedInstanceState) 
@@ -73,17 +74,25 @@ public class NewEntryFragment extends Fragment {
 				Entry e = new Entry();
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText location = (EditText)rootView.findViewById(R.id.location);
-				//EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
-				//EditText color = (EditText)rootView.findViewById(R.id.color);
-				//EditText smell = (EditText)rootView.findViewById(R.id.smell);
-				//EditText taste = (EditText)rootView.findViewById(R.id.taste);
-				//EditText comments = (EditText)rootView.findViewById(R.id.comments);
+				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
+				EditText category = (EditText)rootView.findViewById(R.id.category);
+				EditText region = (EditText)rootView.findViewById(R.id.region);
+				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
+				EditText comment = (EditText)rootView.findViewById(R.id.comments);
 
 				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
-				e.location = location.getText().toString();
-				//Toast.makeText(getActivity(), e.location, Toast.LENGTH_SHORT).show();
+
+				//save picture
+				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				
+				e.location = location.getText().toString();
+				e.vintageYear = vintageYear.getText().toString();
+				e.category = category.getText().toString();
+				e.region = region.getText().toString();
+				e.comment = comment.getText().toString();
+				e.rating = (int)rating.getRating();
+				e.uri = uri;
 				
 				e.save();
 
@@ -98,6 +107,20 @@ public class NewEntryFragment extends Fragment {
 			}
         });
 
+	    FileInputStream in;
+		try {
+			in = new FileInputStream(String.valueOf(Entry.getAll().length));
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+			System.out.println("loaded");
+		} catch (FileNotFoundException e) {
+			System.out.println("slip");
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
         return rootView;
     }
     
@@ -110,18 +133,4 @@ public class NewEntryFragment extends Fragment {
                 packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
     }
-    
-    /** Getting the image */
-    private void handleSmallCameraPhoto(Intent intent) 
-    {
-        Bundle extras = intent.getExtras();
-        mImageBitmap = (Bitmap) extras.get("data");
-        mImageView.setImageBitmap(mImageBitmap);
-    }
 }
-
-
-
-
-
-

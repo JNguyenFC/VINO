@@ -19,6 +19,12 @@ public class Entry
 	@DatabaseField
 	public String location;
 	@DatabaseField
+	public String vintageYear;
+	@DatabaseField
+	public String category;
+	@DatabaseField
+	public String region;
+	@DatabaseField
 	public int rating;
 	//@DatabaseField
 	//protected Image image;
@@ -27,10 +33,12 @@ public class Entry
 	public Wine wine;
 	@DatabaseField
 	public Date postDate;
+	@DatabaseField
+	public String uri;
 	
 	/**  Fake database of Entry (to be deleted later)
 	 */
-	public static Entry a = new Entry(Wine.a, "fuck you max", "France", "yoloswaging it up", 3);
+	public static Entry a = new Entry(Wine.a, "fuck you max", "France", "To all the ladies in the place with style and grace, allow me to lace these lyrical douches in your bushes. Who rock grooves and make moves with all the mommies? The back of the club, sippin' Moet, is where you'll find me. The back of the club, mackin' hoes, my crew's behind me; mad question askin', blunt passin', music blastin' but I just can't quit.", 3);
 	public static Entry b = new Entry(Wine.b, "#drank", "US", "gary", 5);
 	public static Entry c = new Entry(Wine.c, "#yolo", "Canada", "i love justin timberlake", 1);
 	public static Entry d = new Entry(Wine.d, "suq madiq", "Germany",  "derp", 4);
