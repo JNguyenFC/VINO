@@ -26,8 +26,6 @@ public class Wine
 	public SweetOrDry sweetOrDry;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Producer producer;
-	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public String uri;
 //	@DatabaseField(dataType=DataType.SERIALIZABLE)
 //	public ServingTemp servingTemp;
 	

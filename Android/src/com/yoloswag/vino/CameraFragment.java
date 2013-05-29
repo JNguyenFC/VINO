@@ -1,10 +1,11 @@
 package com.yoloswag.vino;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.FileOutputStream;
 
+import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.newentry.NewEntryFragment;
+import com.yoloswag.vino.util.Util;
 
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -12,19 +13,16 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -102,6 +100,9 @@ public class CameraFragment extends Fragment {
 				bitmap = Bitmap.createBitmap(bitmap, 0, 0, 
 						bitmap.getWidth(), bitmap.getHeight(), 
 						matrix, true);
+				
+			    FileOutputStream out = new FileOutputStream(String.valueOf(Entry.getAll().length));
+			    bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
 
 				ImageView imageView = (ImageView)getView().findViewById(R.id.image);
 				imageView.setImageBitmap(bitmap);
@@ -146,10 +147,10 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//save picture
-				String uri = getOutputMediaFileUri(MEDIA_TYPE_IMAGE).toString();// Getting URI
+				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				//Entry e = 
 				Environment.getExternalStorageState();// Checking that SDCard exists
-				File file = getOutputMediaFile(MEDIA_TYPE_IMAGE);
+				File file = Util.getOutputMediaFile();
 				
 				// switching to the new entry fragment 
 				Fragment fragment = new NewEntryFragment();
@@ -188,46 +189,6 @@ public class CameraFragment extends Fragment {
 
 
 		return rootView;
-	}
-
-
-	/** Create a file Uri for saving an image or video */
-	private static Uri getOutputMediaFileUri(int type){
-	      return Uri.fromFile(getOutputMediaFile(type));
-	}
-
-	/** Create a File for saving an image or video */
-	private static File getOutputMediaFile(int type){
-	    // To be safe, you should check that the SDCard is mounted
-	    // using Environment.getExternalStorageState() before doing this.
-
-	    File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-	              Environment.DIRECTORY_PICTURES), "MyCameraApp");
-	    // This location works best if you want the created images to be shared
-	    // between applications and persist after your app has been uninstalled.
-
-	    // Create the storage directory if it does not exist
-	    if (! mediaStorageDir.exists()){
-	        if (! mediaStorageDir.mkdirs()){
-	            Log.d("MyCameraApp", "failed to create directory");
-	            return null;
-	        }
-	    }
-
-	    // Create a media file name
-	    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-	    File mediaFile;
-	    if (type == MEDIA_TYPE_IMAGE){
-	        mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-	        "IMG_"+ timeStamp + ".jpg");
-	    } else if(type == MEDIA_TYPE_VIDEO) {
-	        mediaFile = new File(mediaStorageDir.getPath() + File.separator +
-	        "VID_"+ timeStamp + ".mp4");
-	    } else {
-	        return null;
-	    }
-
-	    return mediaFile;
 	}
 	
 }

@@ -33,6 +33,8 @@ public class Entry
 	public Wine wine;
 	@DatabaseField
 	public Date postDate;
+	@DatabaseField
+	public String uri;
 	
 	/**  Fake database of Entry (to be deleted later)
 	 */

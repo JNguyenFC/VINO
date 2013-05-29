@@ -4,6 +4,9 @@
 package com.yoloswag.vino.newentry;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
 
 import com.yoloswag.vino.CameraPreview;
@@ -11,6 +14,7 @@ import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.util.Util;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 import android.content.Context;
@@ -18,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -56,6 +61,19 @@ public class NewEntryFragment extends Fragment {
     public void onCreate (Bundle savedInstanceState) 
     {
     	super.onCreate(savedInstanceState);
+
+		
+	    FileInputStream in;
+		try {
+			in = new FileInputStream(String.valueOf(Entry.getAll().length));
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)getView().findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     @Override
@@ -82,12 +100,17 @@ public class NewEntryFragment extends Fragment {
 
 				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+
+				//save picture
+				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
+				
 				e.location = location.getText().toString();
 				e.vintageYear = vintageYear.getText().toString();
 				e.category = category.getText().toString();
 				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
+				e.uri = uri;
 				
 				e.save();
 				((VINOActivity)getActivity()).onSubmit();
@@ -106,18 +129,4 @@ public class NewEntryFragment extends Fragment {
                 packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
     }
-    
-    /** Getting the image */
-    private void handleSmallCameraPhoto(Intent intent) 
-    {
-        Bundle extras = intent.getExtras();
-        mImageBitmap = (Bitmap) extras.get("data");
-        mImageView.setImageBitmap(mImageBitmap);
-    }
 }
-
-
-
-
-
-
