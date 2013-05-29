@@ -101,10 +101,13 @@ public class CameraFragment extends Fragment {
 						bitmap.getWidth(), bitmap.getHeight(), 
 						matrix, true);
 				
-			    FileOutputStream out = new FileOutputStream(String.valueOf(Entry.getAll().length));
-			    bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+				String name = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg";
+				System.out.println("saving to " + name);
+			    FileOutputStream out = new FileOutputStream(name);
+			    bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
 			    out.flush();
 			    out.close();
+				System.out.println("done saving to " + name);
 
 				//ImageView imageView = (ImageView)getView().findViewById(R.id.image);
 				//imageView.setImageBitmap(bitmap);

@@ -1,10 +1,17 @@
 package com.yoloswag.vino.model;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Date;
 import java.util.List;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+import com.yoloswag.vino.R;
 import com.yoloswag.vino.db.DatabaseManager;
 
 @DatabaseTable
@@ -77,5 +84,19 @@ public class Entry
 	
 	public void destroy() {
 		
+	}
+	
+	public Bitmap getImage() {
+	    FileInputStream in;
+		try {
+			String name = uri;
+			in = new FileInputStream(name);
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+		    return bitmap;
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

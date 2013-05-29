@@ -198,7 +198,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 	@Override
 	public int getViewTypeCount() {
 		// TODO Auto-generated method stub
-		return entries.length;
+		return 1;
 	}
 
 	@Override
