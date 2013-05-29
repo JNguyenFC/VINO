@@ -58,8 +58,21 @@ public class NewEntryFragment extends Fragment {
 
         final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = rootView.findViewById(R.id.new_entry_button);
-        
-        Button b = (Button) button;
+
+	    FileInputStream in;
+		try {
+			String name = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+			in = new FileInputStream(name);
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
+
+		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
 			@Override
@@ -86,26 +99,12 @@ public class NewEntryFragment extends Fragment {
 				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
-				e.uri = uri;
+				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
 				((VINOActivity)getActivity()).onSubmit();
 			}
         });
-
-	    FileInputStream in;
-		try {
-			in = new FileInputStream(String.valueOf(Entry.getAll().length));
-		    Bitmap bitmap = BitmapFactory.decodeStream(in);
-
-			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
-			imageView.setImageBitmap(bitmap);
-			System.out.println("loaded");
-		} catch (FileNotFoundException e) {
-			System.out.println("slip");
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
         return rootView;
     }
