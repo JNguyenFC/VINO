@@ -70,6 +70,16 @@ public class ViewLogEntryAdapter implements ListAdapter {
 			default:
 				break;
 		}
+
+		//creates a button and locates the editText in XML
+		Button edit_button = (Button) v.findViewById(R.id.editText01);
+		edit_button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
