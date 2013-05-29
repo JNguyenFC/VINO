@@ -43,7 +43,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 			/*
     	          Call stopPreview() to stop updating the preview surface.
 			 */
-			mCamera.stopPreview();
+			//mCamera.stopPreview();
 		}
 		
 		stopPreviewAndFreeCamera();
@@ -96,7 +96,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 	        /*
 	          Call stopPreview() to stop updating the preview surface.
 	        */
-	        mCamera.stopPreview();
+	        //mCamera.stopPreview();
 	    
 	        /*
 	          Important: Call release() to release the camera for use by other applications. 

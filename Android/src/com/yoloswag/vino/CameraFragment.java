@@ -1,7 +1,6 @@
 package com.yoloswag.vino;
 
-import com.yoloswag.vino.newentry.NewEntryFragment;
-
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,11 +10,10 @@ import android.hardware.Camera.PictureCallback;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -139,12 +137,21 @@ public class CameraFragment extends Fragment {
 			public void onClick(View arg1) {
 				//save picture
 				// switching to the new entry fragment 
-				Fragment fragment = new NewEntryFragment();
+				mCamera.release();
+				
+				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
+				getActivity().startActivity(intent);
+
+				/*Fragment fragment = new NewEntryFragment();
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 				transaction.replace(R.id.cameraFragment, fragment);
 				transaction.addToBackStack(null);
 				transaction.commit();
+				
+				a.setVisibility(View.VISIBLE);
+				d.setVisibility(View.VISIBLE);
+				b.setVisibility(View.INVISIBLE);*/
 			}
 		});
 
