@@ -92,15 +92,16 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_entry_comment.setText(entries[arg0].comment);
 		
 		TextView textview_entry_details = (TextView) v.findViewById(R.id.entry_details);
-		textview_entry_details.setText("¥ Maker: " + entries[arg0].wine.name.producer + "\n" +
-                "¥ Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
-				"¥ Vintage: " + entries[arg0].wine.vintage.year + "\n" +
-                "¥ Region: " + entries[arg0].wine.region.region + "\n"+
-                "¥ Category: " + entries[arg0].wine.category.category + "\n" +
-                "¥ Rating: " + entries[arg0].rating
+		textview_entry_details.setText("ï¿½ Maker: " + entries[arg0].wine.name.producer + "\n" +
+                "ï¿½ Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
+				"ï¿½ Vintage: " + entries[arg0].wine.vintage.year + "\n" +
+                "ï¿½ Region: " + entries[arg0].wine.region.region + "\n"+
+                "ï¿½ Category: " + entries[arg0].wine.category.category + "\n" +
+                "ï¿½ Rating: " + entries[arg0].rating
                 );
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
-
+        
+		
         View.OnClickListener handler = new View.OnClickListener() {
 			
 			@Override
@@ -113,12 +114,14 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
+				//Button deleteButton = (Button) vG.findViewById(R.id.delete_button);
 				if(v == vG.findViewById(R.id.entry_image))
 				 {
 					elem.setVisibility(RelativeLayout.VISIBLE);
 					elem2.setVisibility(RelativeLayout.VISIBLE);
 					elem3.setVisibility(RelativeLayout.VISIBLE);
 					elem4.setVisibility(RelativeLayout.VISIBLE);
+					//deleteButton.setVisibility(RelativeLayout.VISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.GONE);
 					textview_producer.setVisibility(RelativeLayout.GONE);
 					textview_varietal.setVisibility(RelativeLayout.GONE);
@@ -129,6 +132,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem2.setVisibility(RelativeLayout.INVISIBLE);
 					elem3.setVisibility(RelativeLayout.INVISIBLE);
 					elem4.setVisibility(RelativeLayout.INVISIBLE);
+					//deleteButton.setVisibility(RelativeLayout.INVISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
 					textview_producer.setVisibility(RelativeLayout.VISIBLE);
 					textview_varietal.setVisibility(RelativeLayout.VISIBLE);

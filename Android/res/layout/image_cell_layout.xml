@@ -87,6 +87,7 @@
         android:id="@+id/line"
         android:layout_width="300dp"
         android:layout_height="1dp"
+        
         android:layout_below="@id/entry_title"
         android:layout_centerHorizontal="true"
         android:background="#f0000000"
@@ -103,5 +104,17 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#000000"
         android:visibility="invisible" /> 
-
+<!--   
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_toRightOf="@id/entry_title"
+        android:gravity="right"
+        android:text="Delete"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#000000"
+        android:background="#808080"
+        android:visibility="invisible"/>
+-->
 </RelativeLayout>
