@@ -71,8 +71,6 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				break;
 		}
 		
-		// ** NOTE: THESE ARE ALIGNED SUPER AWKWARDLY WHEN RUN ON THE EMULATOR
-		//    BUT ARE FINE ON THE ACTUAL PHONE
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
 		textview_vintage.setText(entries[arg0].wine.vintage.year);
@@ -86,35 +84,51 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_varietal.setText(entries[arg0].wine.varietal.varietal_name);
 		textview_varietal.setTextSize(34);
 		
-		TextView textview_entry_desc = (TextView) v.findViewById(R.id.entry_desc);
-		textview_entry_desc.isOpaque();
-		textview_entry_desc.setText("Varietal: " + entries[arg0].wine.name.producer + "\n" +
-                "Vintage: " + entries[arg0].wine.vintage.year + "\n" +
-                "Region: " + entries[arg0].wine.region.region + "\n"+
-                "Category: " + entries[arg0].wine.category.category + "\n"
-                );
-		textview_entry_desc.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
-		textview_entry_desc.setTextSize(34);
+		TextView textview_entry_title = (TextView) v.findViewById(R.id.entry_title);
+		textview_entry_title.setText(entries[arg0].title);
+		textview_entry_title.setTextSize(24);
 		
+		TextView textview_entry_comment = (TextView) v.findViewById(R.id.entry_comment);
+		textview_entry_comment.setText(entries[arg0].comment);
+		
+		TextView textview_entry_details = (TextView) v.findViewById(R.id.entry_details);
+		textview_entry_details.setText("¥ Maker: " + entries[arg0].wine.name.producer + "\n" +
+                "¥ Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
+				"¥ Vintage: " + entries[arg0].wine.vintage.year + "\n" +
+                "¥ Region: " + entries[arg0].wine.region.region + "\n"+
+                "¥ Category: " + entries[arg0].wine.category.category + "\n" +
+                "¥ Rating: " + entries[arg0].rating
+                );
+		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
+
         View.OnClickListener handler = new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				RelativeLayout vG = (RelativeLayout)v.getParent();
-				View elem = vG.findViewById(R.id.entry_desc);
+				View elem = vG.findViewById(R.id.entry_details);
+				View elem2 = vG.findViewById(R.id.entry_comment);
+				View elem3 = vG.findViewById(R.id.entry_title);
+				View elem4 = vG.findViewById(R.id.line);
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
 				if(v == vG.findViewById(R.id.entry_image))
 				 {
-					elem.setVisibility(LinearLayout.VISIBLE);
+					elem.setVisibility(RelativeLayout.VISIBLE);
+					elem2.setVisibility(RelativeLayout.VISIBLE);
+					elem3.setVisibility(RelativeLayout.VISIBLE);
+					elem4.setVisibility(RelativeLayout.VISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.GONE);
 					textview_producer.setVisibility(RelativeLayout.GONE);
 					textview_varietal.setVisibility(RelativeLayout.GONE);
 				 }
-				if(v == elem)
+				if(v == elem || v == elem2 || v == elem3 || v == elem4)
 				{
-					elem.setVisibility(LinearLayout.INVISIBLE);
+					elem.setVisibility(RelativeLayout.INVISIBLE);
+					elem2.setVisibility(RelativeLayout.INVISIBLE);
+					elem3.setVisibility(RelativeLayout.INVISIBLE);
+					elem4.setVisibility(RelativeLayout.INVISIBLE);
 					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
 					textview_producer.setVisibility(RelativeLayout.VISIBLE);
 					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
@@ -125,27 +139,30 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		
 		//when click on image make entry descirption appear
 		iv.setOnClickListener(handler);
-		textview_entry_desc.setOnClickListener(handler);
+		textview_entry_details.setOnClickListener(handler);
+		textview_entry_comment.setOnClickListener(handler);
+		textview_entry_title.setOnClickListener(handler);
+		
 		return v;
 		
 		
 		
 		/*
 		//t3 is going to hold the image and the comments
-		LinearLayout container = new LinearLayout(context);
+		RelativeLayout container = new RelativeLayout(context);
 		ImageView wine = new ImageView(context);
-		//LinearLayout containerText = new LinearLayout(context);
+		//RelativeLayout containerText = new RelativeLayout(context);
 		TextView info = new TextView(context);
 		View.OnClickListener handler = new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				LinearLayout vG = (LinearLayout)v;
+				RelativeLayout vG = (RelativeLayout)v;
 				View elem = vG.findViewById(400);
-				//if(elem.VISIBLE == LinearLayout.VISIBLE)
-					elem.setVisibility(LinearLayout.VISIBLE);
-				//if(elem.VISIBLE == LinearLayout.INVISIBLE)
-					//elem.setVisibility(LinearLayout.INVISIBLE);
+				//if(elem.VISIBLE == RelativeLayout.VISIBLE)
+					elem.setVisibility(RelativeLayout.VISIBLE);
+				//if(elem.VISIBLE == RelativeLayout.INVISIBLE)
+					//elem.setVisibility(RelativeLayout.INVISIBLE);
 			}
 		}; 
 		wine.setImageResource(R.drawable.classicgary);
@@ -155,7 +172,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		info.setPadding(70, 20, 20, 20);
 		info.setId(400);
 		//containerText.addView(info);
-		info.setVisibility(LinearLayout.INVISIBLE);
+		info.setVisibility(RelativeLayout.INVISIBLE);
 		container.addView(wine);
      	container.addView(info);
      	container.setOnClickListener(handler);

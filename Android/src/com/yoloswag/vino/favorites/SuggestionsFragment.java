@@ -13,10 +13,11 @@ import android.widget.ListView;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.favorites.*;
+import com.yoloswag.vino.model.Wine;
 
 public class SuggestionsFragment extends Fragment {
 
-	 public static final String[] names = new String[] {"Wine1", "Wine2", "Wine3", "Wine4"};
+	 public static final Wine[] names = new Wine[] {Wine.a, Wine.b, Wine.c, Wine.d};
 	 
 	 public static final Integer[] images = new Integer[] {R.drawable.wineicon, R.drawable.wine,
 		                                                   R.drawable.sauvignon_blanc,
@@ -32,9 +33,10 @@ public class SuggestionsFragment extends Fragment {
 
 	        
 		 rowItems = new ArrayList<RowItem>();
-		 for (int i = 0; i < names.length; ++i)
+		 for (int i = 0; i < 4; ++i)
 		 {
-			 RowItem item = new RowItem(images[i], names[i]);
+			// RowItem item = new RowItem(images[i], names[i]);
+			 RowItem item = new RowItem();
 			 rowItems.add(item);
 		 }
 		 

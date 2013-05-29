@@ -11,6 +11,11 @@ public class RowItem {
 		this.name = name;
 	}
 	
+	public RowItem()
+	{
+		
+	}
+	
 	public int getImageID()
 	{
 		return imageID;
