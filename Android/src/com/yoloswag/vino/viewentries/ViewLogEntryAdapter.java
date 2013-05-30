@@ -7,6 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
 
@@ -102,12 +107,12 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_entry_comment.setText(entries[arg0].comment);
 		
 		TextView textview_entry_details = (TextView) v.findViewById(R.id.entry_details);
-		textview_entry_details.setText("∙ Maker: " + entries[arg0].wine.name.producer + "\n" +
-                "∙ Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
-				"∙ Vintage: " + entries[arg0].wine.vintage.year + "\n" +
-                "∙ Region: " + entries[arg0].wine.region.region + "\n"+
-                "∙ Category: " + entries[arg0].wine.category.category + "\n" +
-                "∙ Rating: " + entries[arg0].rating
+		textview_entry_details.setText("Maker: " + entries[arg0].wine.name.producer + "\n" +
+                "Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
+				"Vintage: " + entries[arg0].wine.vintage.year + "\n" +
+                "Region: " + entries[arg0].wine.region.region + "\n"+
+                "Category: " + entries[arg0].wine.category.category + "\n" +
+                "Rating: " + entries[arg0].rating
                 );
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
         
@@ -116,6 +121,9 @@ public class ViewLogEntryAdapter implements ListAdapter {
 			
 			@Override
 			public void onClick(View v) {
+				Animation animationFadeIn = AnimationUtils.loadAnimation(context, R.anim.fadein);
+				Animation animationFadeOut = AnimationUtils.loadAnimation(context, R.anim.fadeout);
+				
 				RelativeLayout vG = (RelativeLayout)v.getParent();
 				View elem = vG.findViewById(R.id.entry_details);
 				View elem2 = vG.findViewById(R.id.entry_comment);
@@ -127,22 +135,40 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				//Button deleteButton = (Button) vG.findViewById(R.id.delete_button);
 				if(v == vG.findViewById(R.id.entry_image))
 				 {
+					elem.startAnimation(animationFadeIn);
+					elem2.startAnimation(animationFadeIn);
+					elem3.startAnimation(animationFadeIn);
+					elem4.startAnimation(animationFadeIn);			
 					elem.setVisibility(RelativeLayout.VISIBLE);
 					elem2.setVisibility(RelativeLayout.VISIBLE);
 					elem3.setVisibility(RelativeLayout.VISIBLE);
 					elem4.setVisibility(RelativeLayout.VISIBLE);
+					
 					//deleteButton.setVisibility(RelativeLayout.VISIBLE);
+					
+					textview_vintage.startAnimation(animationFadeOut);
+					textview_producer.startAnimation(animationFadeOut);
+					textview_varietal.startAnimation(animationFadeOut);				
 					textview_vintage.setVisibility(RelativeLayout.GONE);
 					textview_producer.setVisibility(RelativeLayout.GONE);
 					textview_varietal.setVisibility(RelativeLayout.GONE);
 				 }
 				if(v == elem || v == elem2 || v == elem3 || v == elem4)
 				{
+					elem.startAnimation(animationFadeOut);
+					elem2.startAnimation(animationFadeOut);
+					elem3.startAnimation(animationFadeOut);
+					elem4.startAnimation(animationFadeOut);				
 					elem.setVisibility(RelativeLayout.INVISIBLE);
 					elem2.setVisibility(RelativeLayout.INVISIBLE);
 					elem3.setVisibility(RelativeLayout.INVISIBLE);
 					elem4.setVisibility(RelativeLayout.INVISIBLE);
+					
 					//deleteButton.setVisibility(RelativeLayout.INVISIBLE);
+					
+					textview_vintage.startAnimation(animationFadeIn);
+					textview_producer.startAnimation(animationFadeIn);
+					textview_varietal.startAnimation(animationFadeIn);
 					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
 					textview_producer.setVisibility(RelativeLayout.VISIBLE);
 					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
@@ -150,6 +176,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				}
 			}
 		}; 
+		
+		
 		
 		//when click on image make entry descirption appear
 		iv.setOnClickListener(handler);
