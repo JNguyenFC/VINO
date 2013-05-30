@@ -41,7 +41,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		} catch (java.sql.SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 		{
 			// Here is your example @Jasmine
 			// (Some of these details are made up)
@@ -54,7 +54,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			// Sweet/Dry		: Dry
 			// Producer/Winery	: Barefoot
 
-			String name = "Barefoot Chardonnay";
 			String region = "USA";
 			String vintage = "1940";
 			String category = "White";
@@ -63,10 +62,72 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			String producer = "Barefoot";
 
 			// Create the wine
-			Wine example = new Wine(name, region, vintage, category, varietal, sweetdry, producer);
+			Wine example = new Wine(producer, varietal, category, region, sweetdry, vintage);
 
 			// Save the wine to the db
 			example.save();
+			
+			
+			Wine barefoot1  = new Wine("Barefoot", "Chardonnay", "White", "California", "Dry", "1900");
+			Wine barefoot2  = new Wine("Barefoot", "Cabernet Sauvignon", "Red", "California", "Dry", "1900");
+			Wine barefoot3  = new Wine("Barefoot", "Impression, Red Blend", "Red", "California", "Dry", "1900");
+			Wine barefoot4  = new Wine("Barefoot", "Merlot", "Red", "California", "Dry", "1900");
+			Wine barefoot5  = new Wine("Barefoot", "Moscato", "White", "California", "Sweet", "1900");
+			Wine barefoot6  = new Wine("Barefoot", "Pinot Grigio", "White", "California", "Dry", "1900");
+			Wine barefoot7  = new Wine("Barefoot", "Pinot Noir", "Red", "California", "Dry", "1900");
+			Wine barefoot8  = new Wine("Barefoot", "Riesling", "White", "California", "Sweet", "1900");
+			Wine barefoot9  = new Wine("Barefoot", "Sauvignon Blanc", "White", "California", "Dry", "1900");
+			Wine barefoot10 = new Wine("Barefoot", "Shiraz", "Red", "California", "Dry", "1900");
+			Wine barefoot11 = new Wine("Barefoot", "White Zinfandel", "Rose", "California", "Sweet", "1900");
+			Wine barefoot12 = new Wine("Barefoot", "Zinfandel", "White", "California", "Dry", "1900");
+			barefoot1.save(); barefoot2.save(); barefoot3.save(); barefoot4.save(); barefoot5.save(); barefoot6.save();
+			barefoot7.save(); barefoot8.save(); barefoot9.save(); barefoot10.save(); barefoot11.save(); barefoot12.save();
+
+			Wine chuckShaw1 = new Wine("Charles Shaw", "Cabernet Sauvignon", "Red", "California", "Dry", "1900");
+			Wine chuckShaw2 = new Wine("Charles Shaw", "Chardonnay", "White", "California", "Dry", "1900");
+			Wine chuckShaw3 = new Wine("Charles Shaw", "Merlot", "Red", "California", "Dry", "1900");
+			Wine chuckShaw4 = new Wine("Charles Shaw", "Pinot Grigio", "White", "California", "Dry", "1900");
+			Wine chuckShaw5 = new Wine("Charles Shaw", "Sauvignon Blanc", "White", "California", "Dry", "1900");
+			Wine chuckShaw6 = new Wine("Charles Shaw", "Shiraz", "Red", "California", "Dry", "1900");
+			Wine chuckShaw7 = new Wine("Charles Shaw", "White Zinfandel", "Rose", "California", "Sweet", "1900");
+			chuckShaw1.save(); chuckShaw2.save(); chuckShaw3.save(); chuckShaw4.save(); chuckShaw5.save(); 
+			chuckShaw6.save(); chuckShaw7.save(); 
+			
+			Wine sutter1  = new Wine("Sutter Homes", "Cabernet Sauvignon", "Red", "California", "Dry", "1900");
+			Wine sutter2  = new Wine("Sutter Homes", "Chardonnay", "White", "California", "Dry", "1900");
+			Wine sutter3  = new Wine("Sutter Homes", "Chenin Blanc", "White", "California", "Dry", "1900");
+			Wine sutter4  = new Wine("Sutter Homes", "Gewurztraminer", "White", "California", "Dry", "1900");
+			Wine sutter5  = new Wine("Sutter Homes", "Merlot", "Red", "California", "Dry", "1900");
+			Wine sutter6  = new Wine("Sutter Homes", "Moscato", "White", "California", "Sweet", "1900");
+			Wine sutter7  = new Wine("Sutter Homes", "Pink Moscato", "Rose", "California", "Sweet", "1900");
+			Wine sutter8  = new Wine("Sutter Homes", "Pink Pinot Grigio", "Rose", "California", "Dry", "1900");
+			Wine sutter9  = new Wine("Sutter Homes", "Pinot Grigio", "White", "California", "Dry", "1900");
+			Wine sutter10 = new Wine("Sutter Homes", "Pinot Noir", "Red", "California", "Dry", "1900");
+			Wine sutter11 = new Wine("Sutter Homes", "Red Moscato", "Red", "California", "Sweet", "1900");
+			Wine sutter12 = new Wine("Sutter Homes", "Riesling", "White", "California", "Sweet", "1900");
+			Wine sutter13 = new Wine("Sutter Homes", "Sauvignon Blanc", "White", "California", "Dry", "1900");
+			Wine sutter14 = new Wine("Sutter Homes", "Sweet Red", "Red", "California", "Sweet", "1900");
+			Wine sutter15 = new Wine("Sutter Homes", "Sweet White", "White", "California", "Sweet", "1900");
+			Wine sutter16 = new Wine("Sutter Homes", "White Merlot", "Rose", "California", "Dry", "1900");
+			Wine sutter17 = new Wine("Sutter Homes", "White Zinfandel", "Rose", "California", "Sweet", "1900");
+			Wine sutter18 = new Wine("Sutter Homes", "Zinfandel", "Red", "California", "Dry", "1900");
+			sutter1.save(); sutter2.save(); sutter3.save(); sutter4.save(); sutter5.save(); sutter6.save(); 
+			sutter7.save(); sutter8.save(); sutter9.save(); sutter10.save(); sutter11.save(); sutter12.save(); 
+			sutter13.save(); sutter14.save(); sutter15.save(); sutter16.save(); sutter17.save(); sutter18.save(); 
+			
+			Wine yt1  = new Wine("Yellow Tail", "Cabernet Sauvignon", "Red", "Australia", "Dry", "1900");
+			Wine yt2  = new Wine("Yellow Tail", "Cabernet-Merlot", "Red", "Australia", "Dry", "1900");
+			Wine yt3  = new Wine("Yellow Tail", "Chardonnay", "White", "Australia", "Dry", "1900");
+			Wine yt4  = new Wine("Yellow Tail", "Merlot", "Red", "Australia", "Dry", "1900");
+			Wine yt5  = new Wine("Yellow Tail", "Pinot Grigio", "White", "Australia", "Dry", "1900");
+			Wine yt6  = new Wine("Yellow Tail", "Pinot Noir", "Red", "Australia", "Dry", "1900");
+			Wine yt7  = new Wine("Yellow Tail", "Riesling", "White", "Australia", "Sweet", "1900");
+			Wine yt8  = new Wine("Yellow Tail", "Sauvignon Blanc", "White", "Australia", "Dry", "1900");
+			Wine yt9  = new Wine("Yellow Tail", "Shiraz", "Red", "Australia", "Dry", "1900");
+			Wine yt10 = new Wine("Yellow Tail", "Shiraz-Cabernet", "Red", "Australia", "Dry", "1900");
+			Wine yt11 = new Wine("Yellow Tail", "Shiraz-Grenache", "Red", "Australia", "Dry", "1900");
+			yt1.save(); yt2.save(); yt3.save(); yt4.save(); yt5.save(); yt6.save(); yt7.save(); 
+			yt8.save(); yt9.save(); yt10.save(); yt11.save(); 
 		}
 
 		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");

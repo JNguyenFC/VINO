@@ -32,11 +32,11 @@ public class Wine
 	/**  Fake database of Wine (to be deleted later)
 	 */
 	// these are wrong. refer to databasehelper.java for a correct example
-	public static Wine a = new Wine("Castello Banfi", "Italy", "2008", "Red", "Chianti", "dry", "room temperature" );
-	public static Wine b = new Wine("Yellow Tail", "California", "2009", "White", "Moscato", "sweet", "chilled");
-	public static Wine c = new Wine("Montana", "New Zealand", "2011", "White", "Sauvignon Blanc", "dry", "chilled");
-	public static Wine d = new Wine("Yellow Tail", "Australia", "2011", "Red", "Cabernet Sauvignon", "dry", "room temperature");
-	public static Wine e = new Wine("Chateau Ste. Michelle", "Florida", "2012", "White", "Riesling", "sweet", "chilled");
+	public static Wine a = new Wine("Castello Banfi", "Chianti", "Red", "Italy", "dry", "2008");
+	public static Wine b = new Wine("Yellow Tail", "Moscato", "White", "California", "sweet", "2009");
+	public static Wine c = new Wine("Montana", "Sauvignon Blanc", "White", "New Zealand", "dry", "2011");
+	public static Wine d = new Wine("Yellow Tail", "Cabernet Sauvignon", "Red", "Australia", "dry", "2011");
+	public static Wine e = new Wine("Chateau Ste. Michelle", "Riesling", "White", "Florida", "sweet", "2012");
 	
 	/**  Default constructor
 	 */
@@ -46,17 +46,15 @@ public class Wine
 	
 	/**  All-member constructor for fake database
 	 */
-	public Wine(String name, String region, String vintage,
-	            String category, String varietal, String sweetOrDry,
-		        String producer) 
+	public Wine(String name, String varietal, String category, String region,
+	            String sweetOrDry, String vintage)
 	{
 		this.name           = new Name(name);
-		this.region         = new Region(region);
-		this.vintage        = new Vintage(vintage);
-		this.category       = new Category(category);
 		this.varietal       = new Varietal(varietal); 
+		this.category       = new Category(category);
+		this.region         = new Region(region);
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
-		this.producer		= new Producer(sweetOrDry);
+		this.vintage        = new Vintage(vintage);
 	}
 	
 	/**  Getter for Entry
