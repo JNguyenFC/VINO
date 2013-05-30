@@ -71,15 +71,15 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				break;
 		}
 
-		//creates a button and locates the editText in XML
-		Button edit_button = (Button) v.findViewById(R.id.editText01);
-		edit_button.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+//		//creates a button and locates the editText in XML
+//		Button edit_button = (Button) v.findViewById(R.id.editText01);
+//		edit_button.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 		
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
@@ -102,12 +102,12 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		textview_entry_comment.setText(entries[arg0].comment);
 		
 		TextView textview_entry_details = (TextView) v.findViewById(R.id.entry_details);
-		textview_entry_details.setText("� Maker: " + entries[arg0].wine.name.producer + "\n" +
-                "� Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
-				"� Vintage: " + entries[arg0].wine.vintage.year + "\n" +
-                "� Region: " + entries[arg0].wine.region.region + "\n"+
-                "� Category: " + entries[arg0].wine.category.category + "\n" +
-                "� Rating: " + entries[arg0].rating
+		textview_entry_details.setText("∙ Maker: " + entries[arg0].wine.name.producer + "\n" +
+                "∙ Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
+				"∙ Vintage: " + entries[arg0].wine.vintage.year + "\n" +
+                "∙ Region: " + entries[arg0].wine.region.region + "\n"+
+                "∙ Category: " + entries[arg0].wine.category.category + "\n" +
+                "∙ Rating: " + entries[arg0].rating
                 );
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
         

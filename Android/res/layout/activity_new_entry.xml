@@ -85,54 +85,6 @@
                 </TableRow>
 
                 <TableRow
-                    android:id="@+id/tableRow6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/color"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_color"
-                        android:textColorHint="@color/android_blue" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/smell"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_smell"
-                        android:textColorHint="@color/android_blue" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <EditText
-                        android:id="@+id/taste"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_taste"
-                        android:textColorHint="@color/android_blue" />
-
-                </TableRow>
-
-                <TableRow
                     android:id="@+id/tableRow9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
