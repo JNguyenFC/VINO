@@ -1,6 +1,5 @@
 package com.yoloswag.vino;
 
-import android.content.Intent;
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -18,10 +17,11 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -158,21 +158,12 @@ public class CameraFragment extends Fragment {
 				File file = Util.getOutputMediaFile();
 				
 				// switching to the new entry fragment 
-				mCamera.release();
-				
-				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
-				getActivity().startActivity(intent);
-
-				/*Fragment fragment = new NewEntryFragment();
+				Fragment fragment = new NewEntryFragment();
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 				transaction.replace(R.id.cameraFragment, fragment);
 				transaction.addToBackStack(null);
 				transaction.commit();
-				
-				a.setVisibility(View.VISIBLE);
-				d.setVisibility(View.VISIBLE);
-				b.setVisibility(View.INVISIBLE);*/
 			}
 		});
 

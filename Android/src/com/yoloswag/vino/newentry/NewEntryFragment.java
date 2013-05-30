@@ -7,11 +7,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 
-<<<<<<< HEAD
-import com.yoloswag.vino.CameraFragment;
-import com.yoloswag.vino.CameraPreview;
-=======
->>>>>>> de7b0f8dfd3f9e82c6361b6c0fa983776b3c04bd
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
@@ -24,7 +19,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -108,15 +102,7 @@ public class NewEntryFragment extends Fragment {
 				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
-
-				((VINOActivity)getActivity()).onSubmit();	
-				
-				Fragment fragment = new CameraFragment();
-				FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-				transaction.replace(R.id.cameraFragment, fragment);
-				transaction.addToBackStack(null);
-				transaction.commit();
+				((VINOActivity)getActivity()).onSubmit();
 			}
         });
 
