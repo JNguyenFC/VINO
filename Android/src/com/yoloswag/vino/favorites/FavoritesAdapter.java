@@ -1,19 +1,21 @@
 package com.yoloswag.vino.favorites;
 
-import com.yoloswag.vino.R;
-import com.yoloswag.vino.model.Entry;
-
 import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.favorites.FavoritesFragment;
 
 /**
  * Custom Adapter for favorites wine list and recommendations. 
@@ -22,6 +24,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 {
 
 	private Activity context;
+	public static int sugPos;
 
 	Entry[] favoriteWines = sortRatings(Entry.getAll());
 
@@ -56,6 +59,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
+			sugPos = groupPosition;
+			
 			LinearLayout linearLayout = new LinearLayout(context);
 			linearLayout.setId(345+groupPosition);
 
@@ -64,6 +69,9 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			ft.replace(345+groupPosition, new SuggestionsFragment());
 			ft.commit();
 
+			System.out.println("sugPos: " + FavoritesAdapter.sugPos);
+			System.out.println("isLastChild? " + isLastChild);
+			
 			return linearLayout;
 //		}
 //		// TODO Auto-generated method stub
@@ -78,7 +86,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		// TODO Auto-generated method stub
 //		return recommendedWines[groupPosition].length;
-		return 1;
+		if (groupPosition == favoriteWines.length - 1)
+			return 2;
+		else
+			return 1;
 	}
 
 	@Override
@@ -171,4 +182,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		
 		return ratedEntries;
 	}
+	
+	
 }

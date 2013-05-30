@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Wine;
 
 public class SuggestionsAdapter extends ArrayAdapter<RowItem> 
 {
@@ -22,6 +23,7 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 	{
 		super(suggestionsFragment.getActivity(), resourceId, list);
 		this.context = suggestionsFragment.getActivity();
+System.out.println("CREATING SETADAPTER");
 	}
 
 	private class ViewHolder
@@ -42,47 +44,37 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 		if(convertView == null)
 		{
 			convertView = mInflater.inflate(R.layout.suggestions, null);
-			System.out.println("ViewGroup: " + parent);
+
+			// Since only 3 lists of suggestions in fake suggestions [][]
+			int j = FavoritesAdapter.sugPos%3;
 			
-			// TODO: To dynamically display suggestions--get list of arrays of wine
-			// suggestions, named suggestionsNames and suggestionsImages, for each favorite.
-			// suggestionsWhatever[position] will correspond to the array of suggestions
-			// for the selected favorite. Access indexes 0-3 (as shown below) of
-			// array to get the 4 wine names and their images.
-			//   Wine[] names = suggestions[position];
-			//   ImageType[] images = suggestionsImages[position]; ...
-			// ** NOTE: Hmmm, position always seems to be 0 no matter which favorite is selected,
-			//    Does this need to be in getChildView() in FavoritesAdapter.java? Or maybe pass
-			//      in groupPosition of getChildView()?
-			//      suggestions[groupPosition][childPosition] -- childPosition always 0 in our case,
-			//      but groupPosition changes depending on which favorite is tapped
 			ViewHolder holder = new ViewHolder();
 			holder.txtName = (TextView) convertView.findViewById(R.id.name1);
 			holder.imageView = (ImageView) convertView.findViewById(R.id.icon1);
 			holder.imageView.setImageResource(SuggestionsFragment.images[0]);
-			holder.txtName.setText(SuggestionsFragment.names[0].name.producer +
-					" " + SuggestionsFragment.names[0].varietal.varietal_name);
+			holder.txtName.setText(SuggestionsFragment.names[j][0].name.producer +
+					" " + SuggestionsFragment.names[j][0].varietal.varietal_name);
 			
 			ViewHolder holder2 = new ViewHolder();
 			holder2.txtName = (TextView) convertView.findViewById(R.id.name2);
 			holder2.imageView = (ImageView) convertView.findViewById(R.id.icon2);
 			holder2.imageView.setImageResource(SuggestionsFragment.images[1]);
-			holder2.txtName.setText(SuggestionsFragment.names[1].name.producer +
-					" " + SuggestionsFragment.names[1].varietal.varietal_name);
+			holder2.txtName.setText(SuggestionsFragment.names[j][1].name.producer +
+					" " + SuggestionsFragment.names[j][1].varietal.varietal_name);
 			
 			ViewHolder holder3 = new ViewHolder();
 			holder3.txtName = (TextView) convertView.findViewById(R.id.name3);
 			holder3.imageView = (ImageView) convertView.findViewById(R.id.icon3);
 			holder3.imageView.setImageResource(SuggestionsFragment.images[2]);
-			holder3.txtName.setText(SuggestionsFragment.names[2].name.producer +
-					" " + SuggestionsFragment.names[2].varietal.varietal_name);
+			holder3.txtName.setText(SuggestionsFragment.names[j][2].name.producer +
+					" " + SuggestionsFragment.names[j][2].varietal.varietal_name);
 			
 			ViewHolder holder4 = new ViewHolder();
 			holder4.txtName = (TextView) convertView.findViewById(R.id.name4);
 			holder4.imageView = (ImageView) convertView.findViewById(R.id.icon4);
 			holder4.imageView.setImageResource(SuggestionsFragment.images[3]);
-			holder4.txtName.setText(SuggestionsFragment.names[3].name.producer +
-					" " + SuggestionsFragment.names[3].varietal.varietal_name);
+			holder4.txtName.setText(SuggestionsFragment.names[j][3].name.producer +
+					" " + SuggestionsFragment.names[j][3].varietal.varietal_name);
 			
 			convertView.setTag(holder);
 		}

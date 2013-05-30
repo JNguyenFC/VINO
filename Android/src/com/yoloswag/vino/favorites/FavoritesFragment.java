@@ -13,9 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.TextView;
 
-public class FavoritesFragment extends Fragment 
+public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 {
 	Entry[] entries = Entry.getAll();
     ExpandableListView exv;
@@ -29,7 +30,9 @@ public class FavoritesFragment extends Fragment
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_favorites, container, false);
     	exv = (ExpandableListView)rootView.findViewById(R.id.expandableListView1);
+    	exv.setOnGroupExpandListener((OnGroupExpandListener) this);
 		exv.setAdapter(new FavoritesAdapter(this));
+		
         return rootView;
     }
     
@@ -38,4 +41,14 @@ public class FavoritesFragment extends Fragment
     	Fragment SuggestionsFragment = new SuggestionsFragment();
     	return SuggestionsFragment;
     }*/
+    
+    public void onGroupExpand(int groupPosition) {
+	    int len = exv.getCount();
+
+	    for (int i = 0; i < len; i++) {
+	        if (i != groupPosition) {
+	            exv.collapseGroup(i);
+	        }
+	    }
+	}
 }

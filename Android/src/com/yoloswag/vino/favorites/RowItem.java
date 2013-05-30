@@ -1,5 +1,7 @@
 package com.yoloswag.vino.favorites;
 
+import com.yoloswag.vino.model.Wine;
+
 public class RowItem {
 
 	private int imageID;
@@ -26,7 +28,7 @@ public class RowItem {
 		this.imageID = imageID;
 	}
 	
-	public String getName()
+	/* public String getName()
 	{
 		return name;
 	}
@@ -34,6 +36,6 @@ public class RowItem {
 	public void setName(String name)
 	{
 		this.name = name;
-	}
+	} */
 	
 }
