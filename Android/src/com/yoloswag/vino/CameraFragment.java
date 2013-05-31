@@ -7,6 +7,7 @@ import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.newentry.NewEntryFragment;
 import com.yoloswag.vino.util.Util;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -157,13 +158,18 @@ public class CameraFragment extends Fragment {
 				Environment.getExternalStorageState();// Checking that SDCard exists
 				File file = Util.getOutputMediaFile();
 				
+				//calling NewEntryActivity
+				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
+				getActivity().startActivity(intent);
+
+				
 				// switching to the new entry fragment 
-				Fragment fragment = new NewEntryFragment();
+				/*Fragment fragment = new NewEntryFragment();
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
 				transaction.replace(R.id.cameraFragment, fragment);
 				transaction.addToBackStack(null);
-				transaction.commit();
+				transaction.commit();*/
 			}
 		});
 
