@@ -169,6 +169,7 @@ public class CameraFragment extends Fragment {
 				transaction.replace(R.id.cameraFragment, fragment);
 				transaction.addToBackStack(null);
 				transaction.commit();*/
+
 			}
 		});
 

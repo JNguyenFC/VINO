@@ -1,6 +1,7 @@
 package com.yoloswag.vino.viewentries;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.ViewLogActivity;
 import com.yoloswag.vino.model.Entry;
 
 public class ViewLogEntryAdapter implements ListAdapter {
@@ -50,7 +52,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 	}
 
 	@Override
-	public View getView(int arg0, View arg1, ViewGroup arg2) {
+	public View getView(final int arg0, View arg1, ViewGroup arg2) {
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.image_cell_layout, null);
 		
@@ -77,16 +79,16 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		}
 
 //		//creates a button and locates the editText in XML
-//		Button edit_button = (Button) v.findViewById(R.id.editText01);
-//		edit_button.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View v) {
-//				// TODO Auto-generated method stub
-	/*		
-		}*/
-		
-//			}
-//		});
+		Button edit_button = (Button) v.findViewById(R.id.editText01);
+		edit_button.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+ 	// TODO Auto-generated method stub
+			Intent intent = new Intent(context, ViewLogActivity.class);
+			intent.putExtra("editEntry", entries[arg0]);
+			context.startActivity(intent);
+	     }        
+	});
 		
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);
@@ -131,6 +133,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				View elem2 = vG.findViewById(R.id.entry_comment);
 				View elem3 = vG.findViewById(R.id.entry_title);
 				View elem4 = vG.findViewById(R.id.line);
+				View editBut = vG.findViewById(R.id.editText01);
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
@@ -145,6 +148,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem2.setVisibility(RelativeLayout.VISIBLE);
 					elem3.setVisibility(RelativeLayout.VISIBLE);
 					elem4.setVisibility(RelativeLayout.VISIBLE);
+					editBut.setVisibility(RelativeLayout.VISIBLE);
 					
 					//deleteButton.setVisibility(RelativeLayout.VISIBLE);
 					
@@ -165,6 +169,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem2.setVisibility(RelativeLayout.INVISIBLE);
 					elem3.setVisibility(RelativeLayout.INVISIBLE);
 					elem4.setVisibility(RelativeLayout.INVISIBLE);
+					editBut.setVisibility(RelativeLayout.INVISIBLE);
 					
 					//deleteButton.setVisibility(RelativeLayout.INVISIBLE);
 					

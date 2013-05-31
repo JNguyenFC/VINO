@@ -105,7 +105,7 @@
         android:textColor="#000000"
         android:visibility="invisible" /> 
         
-<!--     	<Button
+  	<Button
     	    android:id="@+id/editText01"
     	    android:layout_width="80dp"
     	    android:layout_height="40dp"
@@ -116,9 +116,9 @@
     	    android:textColor="#000000"
     	    android:textSize="22dp"
     	    android:textStyle="bold"
-    	    android:visibility="visible" >
+    	    android:visibility="invisible" >
             
-        </Button>   -->
+        </Button>  
     
    
     <Button
