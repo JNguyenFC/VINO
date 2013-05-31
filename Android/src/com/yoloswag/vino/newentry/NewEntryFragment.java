@@ -41,10 +41,6 @@ public class NewEntryFragment extends Fragment {
      */
     public static final String ARG_SECTION_NUMBER = "section_number";
     ExpandableListView exv;
-	//private Bitmap mImageBitmap;
-	//private ImageView mImageView;
-	//private CameraPreview mPreview;
-	//private Camera mCamera;
     
     @Override
     public void onCreate (Bundle savedInstanceState) 

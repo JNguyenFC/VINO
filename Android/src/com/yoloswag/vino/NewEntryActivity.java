@@ -1,10 +1,13 @@
 package com.yoloswag.vino;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.util.Util;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -13,6 +16,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -23,16 +27,65 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 
 public class NewEntryActivity extends Activity {
 	
-	private Bitmap mImageBitmap;
-	private ImageView mImageView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
+		//final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
+        View button = this.findViewById(R.id.new_entry_button);
+
+	    FileInputStream in;
+		try {
+			String name = this.getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+			in = new FileInputStream(name);
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)this.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
+
+		Button b = (Button) button;
+
+        b.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg1) {
+				// TODO Auto-generated method stub
+				Entry e = new Entry();
+				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
+				EditText location = (EditText)findViewById(R.id.location);
+				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
+				EditText category = (EditText)findViewById(R.id.category);
+				EditText region = (EditText)findViewById(R.id.region);
+				RatingBar rating = (RatingBar)findViewById(R.id.rating);
+				EditText comment = (EditText)findViewById(R.id.comments);
+
+				//e.title = title.getText().toString();
+				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
+
+				//save picture
+				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
+				
+				e.location = location.getText().toString();
+				e.vintageYear = vintageYear.getText().toString();
+				e.category = category.getText().toString();
+				e.region = region.getText().toString();
+				e.comment = comment.getText().toString();
+				e.rating = (int)rating.getRating();
+				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+				
+				e.save();
+				//((VINOActivity)this.getActivity()).onSubmit();
+			}
+        });
+
 		//DatabaseManager.init(this);
 	}
 
@@ -47,8 +100,21 @@ public class NewEntryActivity extends Activity {
 
         final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = rootView.findViewById(R.id.new_entry_button);
-        
-        Button b = (Button) button;
+
+	    FileInputStream in;
+		try {
+			String name = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+			in = new FileInputStream(name);
+		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
+
+		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
 			@Override
@@ -57,21 +123,28 @@ public class NewEntryActivity extends Activity {
 				Entry e = new Entry();
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText location = (EditText)rootView.findViewById(R.id.location);
-				//EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
-				//EditText color = (EditText)rootView.findViewById(R.id.color);
-				//EditText smell = (EditText)rootView.findViewById(R.id.smell);
-				//EditText taste = (EditText)rootView.findViewById(R.id.taste);
-				//EditText comments = (EditText)rootView.findViewById(R.id.comments);
+				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
+				EditText category = (EditText)rootView.findViewById(R.id.category);
+				EditText region = (EditText)rootView.findViewById(R.id.region);
+				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
+				EditText comment = (EditText)rootView.findViewById(R.id.comments);
 
 				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
-				e.location = location.getText().toString();
-				//Toast.makeText(getActivity(), e.location, Toast.LENGTH_SHORT).show();
+
+				//save picture
+				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				
+				e.location = location.getText().toString();
+				e.vintageYear = vintageYear.getText().toString();
+				e.category = category.getText().toString();
+				e.region = region.getText().toString();
+				e.comment = comment.getText().toString();
+				e.rating = (int)rating.getRating();
+				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
-
-				//((VINOActivity)getActivity()).onSubmit();	
+				((VINOActivity)getActivity()).onSubmit();
 			}
         });
 
@@ -88,14 +161,30 @@ public class NewEntryActivity extends Activity {
         return list.size() > 0;
     }
     */
-    /** Getting the image */
-    /*private void handleSmallCameraPhoto(Intent intent) 
-    {
-        Bundle extras = intent.getExtras();
-        Bitmap mImageBitmap = (Bitmap) extras.get("data");
-        mImageView.setImageBitmap(mImageBitmap);
-    }*/
-    
-    
-
+	
+	@Override
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
+    }
 }
