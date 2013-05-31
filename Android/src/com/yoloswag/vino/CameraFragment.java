@@ -153,10 +153,8 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//save picture
-				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
-				//Entry e = 
 				Environment.getExternalStorageState();// Checking that SDCard exists
-				File file = Util.getOutputMediaFile();
+				//File file = Util.getOutputMediaFile();
 				
 				//calling NewEntryActivity
 				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
