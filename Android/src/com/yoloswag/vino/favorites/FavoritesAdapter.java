@@ -1,5 +1,8 @@
 package com.yoloswag.vino.favorites;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -8,15 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.model.Wine;
-import com.yoloswag.vino.favorites.FavoritesFragment;
 
 /**
  * Custom Adapter for favorites wine list and recommendations. 
@@ -27,7 +27,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	private Activity context;
 	public static int sugPos;
 
-	Entry[] favoriteWines = sortRatings(Entry.getAll());
+	Wine[] favoriteWines = sortRatings(Wine.getAll());
 
 	// Temporary array of wine suggestions
 	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
@@ -122,7 +122,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
 		
-		favoriteWines = Entry.getAll();
+		favoriteWines = Wine.getAll();
 		
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
@@ -131,10 +131,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		groupPosition = 1;
 		// Display favorite Wine vintage, producer, and varietal dynamically
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
-		textview.setText(favoriteWines[groupPosition].wine.vintage.year + 
-				" " + favoriteWines[groupPosition].wine.name.producer + " " + 
-				favoriteWines[groupPosition].wine.varietal.varietal_name +
-				", " + favoriteWines[groupPosition].wine.region.region);
+		textview.setText(favoriteWines[groupPosition].vintage.year + 
+				" " + favoriteWines[groupPosition].name.producer + " " + 
+				favoriteWines[groupPosition].varietal.varietal_name +
+				", " + favoriteWines[groupPosition].region.region);
 		
 		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
@@ -162,10 +162,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	/**  Naive sorting algorithm (bubble sort) for sorting wines by rating
 	 */
-	private Entry[] sortRatings(Entry[] ratedEntries)
+	private Wine[] sortRatings(Wine[] WineList)
 	{	
-		int n = ratedEntries.length;
-		Entry temp = null;
+		List<Wine> ratedEntries = getRatedWines(WineList);
+
+		
+		int n = ratedEntries.size();
+		Wine temp = null;
+		Wine current = null;
+		Wine next = null;
 		
 		int counter = 0;
 		do
@@ -174,11 +179,13 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 			for (int i = 0; i < n-1; ++i)
 			{
-				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
+				current = ratedEntries.get(i);
+				next = ratedEntries.get(n+1);
+				if (current.rating < next.rating)
 				{
-					temp = ratedEntries[i];
-					ratedEntries[i] = ratedEntries[i+1];
-					ratedEntries[i+1] = temp;
+					temp = current;
+					current = next;
+					next = temp;
 
 					++counter;
 				}
@@ -186,7 +193,23 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 		}while (counter > 0);
 		
-		return ratedEntries;
+		Wine[] sortedWines = ratedEntries.toArray(new Wine[ratedEntries.size()]);
+		
+		return sortedWines;
+	}
+	
+	private List<Wine> getRatedWines (Wine[] allWines)
+	{
+		int n = allWines.length;
+		List<Wine> ratedWines = new ArrayList<Wine>();
+		
+		for (int i = 0; i < n-1; ++i)
+			if (allWines[i].rating != 0)
+			{
+				ratedWines.add(allWines[i]);
+			}
+		
+		return ratedWines;
 	}
 	
 	

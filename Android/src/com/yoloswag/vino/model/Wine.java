@@ -65,7 +65,7 @@ public class Wine
 	}
 	
 	public void addRating(double newRating) {
-		rating = (rating * ratings + newRating) / ++ratings;
+		this.rating = (rating * ratings + newRating) / ++ratings;
 	}
 	
 	/**  Getter for Entry
