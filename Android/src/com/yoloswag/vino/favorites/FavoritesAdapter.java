@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Wine;
 import com.yoloswag.vino.favorites.FavoritesFragment;
 
 /**
@@ -86,9 +87,9 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		// TODO Auto-generated method stub
 //		return recommendedWines[groupPosition].length;
-		if (groupPosition == favoriteWines.length - 1)
-			return 2;
-		else
+		//if (groupPosition == favoriteWines.length - 1)
+		//	return 2;
+		//else
 			return 1;
 	}
 
@@ -120,9 +121,14 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		// Inflating a View takes the layout XML, creates the View specified
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
+		
+		favoriteWines = Entry.getAll();
+		
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
+		System.out.println("getting " + groupPosition + " " + favoriteWines.length);
+		groupPosition = 1;
 		// Display favorite Wine vintage, producer, and varietal dynamically
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
 		textview.setText(favoriteWines[groupPosition].wine.vintage.year + 

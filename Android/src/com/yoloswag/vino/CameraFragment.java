@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.newentry.NewEntryFragment;
+import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.util.Util;
 
 import android.content.Intent;
@@ -153,14 +154,12 @@ public class CameraFragment extends Fragment {
 			@Override
 			public void onClick(View arg1) {
 				//save picture
-				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
-				//Entry e = 
 				Environment.getExternalStorageState();// Checking that SDCard exists
-				File file = Util.getOutputMediaFile();
+				//File file = Util.getOutputMediaFile();
 				
 				//calling NewEntryActivity
 				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
-				getActivity().startActivity(intent);
+				getActivity().startActivityForResult(intent, 1);
 
 				
 				// switching to the new entry fragment 
@@ -170,6 +169,7 @@ public class CameraFragment extends Fragment {
 				transaction.replace(R.id.cameraFragment, fragment);
 				transaction.addToBackStack(null);
 				transaction.commit();*/
+
 			}
 		});
 

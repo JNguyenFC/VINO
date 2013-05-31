@@ -27,9 +27,9 @@ public class SuggestionsFragment extends Fragment
 	 /*public static final Wine[] names2 = new Wine[] {Wine.d, Wine.c, Wine.b, Wine.a};
 	 public static final Wine[] names3 = new Wine[] {Wine.c, Wine.d, Wine.a, Wine.b};*/
 	 
-	 public static final Integer[] images = new Integer[] {R.drawable.wineicon, R.drawable.wine,
-		                                                   R.drawable.sauvignon_blanc,
-		                                                   R.drawable.classicgary};
+	 public static final Integer[] images = new Integer[] {R.drawable.wine_vector, R.drawable.wine_vector,
+		                                                   R.drawable.wine_vector,
+		                                                   R.drawable.wine_vector};
 	 
 	 //public static Wine[] names = null;
 	 

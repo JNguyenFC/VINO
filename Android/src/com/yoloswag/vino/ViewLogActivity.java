@@ -30,7 +30,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
-public class NewEntryActivity extends Activity {
+public class ViewLogActivity extends Activity {
 	
 
 	@Override
