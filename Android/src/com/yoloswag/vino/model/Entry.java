@@ -1,5 +1,5 @@
 package com.yoloswag.vino.model;
-
+import java.io.Serializable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Date;
@@ -15,7 +15,7 @@ import com.yoloswag.vino.R;
 import com.yoloswag.vino.db.DatabaseManager;
 
 @DatabaseTable
-public class Entry 
+public class Entry implements Serializable
 {
 	@DatabaseField(generatedId=true)
 	public int id;
