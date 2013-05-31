@@ -28,6 +28,11 @@ public class Wine
 	public Producer producer;
 //	@DatabaseField(dataType=DataType.SERIALIZABLE)
 //	public ServingTemp servingTemp;
+	@DatabaseField
+	public double rating;
+	@DatabaseField
+	public double ratings;
+	
 	
 	/**  Fake database of Wine (to be deleted later)
 	 */
@@ -55,6 +60,12 @@ public class Wine
 		this.region         = new Region(region);
 		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
 		this.vintage        = new Vintage(vintage);
+		this.rating = 0;
+		this.ratings = 0;
+	}
+	
+	public void addRating(double newRating) {
+		rating = (rating * ratings + newRating) / ++ratings;
 	}
 	
 	/**  Getter for Entry
