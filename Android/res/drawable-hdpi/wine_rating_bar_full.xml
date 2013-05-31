@@ -11,7 +11,7 @@ android:drawable="@drawable/wine_burgundy" />
 
 <item android:state_selected="true"
 android:state_window_focused="true"
-android:drawable="@drawable/wine_burgundy" />
+android:drawable="@drawable/wine_burgundy"/>
 
 <item android:drawable="@drawable/wine_burgundy" />
 
