@@ -9,9 +9,12 @@ import com.yoloswag.vino.favorites.FavoritesFragment;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -42,7 +45,8 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
      */
     ViewPager mViewPager;
 
-    @Override
+    @SuppressLint("NewApi")
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vino);
@@ -81,6 +85,9 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
                             .setTabListener(this));
         }
+        //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
+        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#822b4f")));
+        actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
     }
 
     @Override
