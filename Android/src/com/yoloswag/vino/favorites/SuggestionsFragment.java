@@ -44,22 +44,10 @@ public class SuggestionsFragment extends Fragment
 		
 	        
 		 rowItems = new ArrayList<RowItem>();
-		 /*switch (FavoritesAdapter.sugPos)
-		 {
-		 	case 0:
-		 		names = names1;
-		 		break;
-		 	case 1:
-		 		names = names2;
-		 		break;
-		 	case 2:
-		 		names = names3;
-		 		break;
-		 }*/
+
 		 
 		 for (int i = 0; i < 4; ++i)
 		 {
-			// RowItem item = new RowItem(images[i], names[i].varietal.varietal_name);
 			 RowItem item = new RowItem();
 			 rowItems.add(item);
 		 }
