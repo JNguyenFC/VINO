@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/newEntryFragment"
     android:layout_width="match_parent"
@@ -13,17 +14,24 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
 
                 <TableRow
                     android:id="@+id/tableRow2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow2.5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
 
@@ -35,14 +43,10 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/newEntry_grape"
-                        android:textColorHint="@color/android_blue" >
-
- <!-- android:padding="0dip" -->
-                        android:textColorHint="@color/android_blue" >
+                        android:textColorHint="@color/white" >
 
                         <requestFocus />
                     </AutoCompleteTextView>
-
                 </TableRow>
 
                 <TableRow
@@ -57,8 +61,7 @@
                         android:layout_weight="1"
                         android:ems="10"
                         android:hint="@string/newEntry_location"
-                        android:textColorHint="@color/android_blue" />
-
+                        android:textColorHint="@color/white" />
                 </TableRow>
 
                 <TableRow
@@ -74,14 +77,49 @@
                         android:ems="10"
                         android:hint="@string/newEntry_vintage"
                         android:inputType="number"
-                        android:textColorHint="@color/android_blue" />
-
+                        android:textColorHint="@color/white" />
                 </TableRow>
 
                 <TableRow
                     android:id="@+id/tableRow5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/newEntry_category"
+                        android:textColorHint="@color/white" />
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tableRow8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:id="@+id/region"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="@string/newEntry_region"
+                        android:textColorHint="@color/white" />
                 </TableRow>
 
                 <TableRow
@@ -103,8 +141,7 @@
                         android:gravity="top|left|center_vertical"
                         android:hint="@string/newEntry_comment"
                         android:inputType="textMultiLine"
-                        android:textColorHint="@color/android_blue" />
-
+                        android:textColorHint="@color/white" />
                 </TableRow>
 
                 <TableRow
@@ -116,11 +153,9 @@
                         android:id="@+id/ratingTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Rating:"
+                        android:text="@string/newEntry_rating"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/android_blue" />
-                    
-
+                        android:textColor="@color/white" />
                 </TableRow>
 
                 <TableRow
@@ -129,19 +164,17 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal" >
 
-					<RatingBar
-	                    android:id="@+id/ratingBar"
-					    android:layout_width="wrap_content"
-					    android:layout_height="wrap_content"
-					    android:layout_marginTop="0dp"
-					    android:layout_marginRight="145dp"
-					    android:layout_marginLeft="145dp"
-					    android:max="5"
-					    android:numStars="5"
-					    android:rating="0.0"
-					    android:stepSize="0.5" 
-	                    />
-
+                    <RatingBar
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="145dp"
+                        android:layout_marginRight="145dp"
+                        android:layout_marginTop="0dp"
+                        android:max="5"
+                        android:numStars="5"
+                        android:rating="0.0"
+                        android:stepSize="0.5" />
                 </TableRow>
 
                 <TableRow
@@ -155,11 +188,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Submit" />
-
+                        android:text="@string/newEntry_submit" />
                 </TableRow>
             </TableLayout>
-        </LinearLayout>
+        
     </ScrollView>
 
 </LinearLayout>
