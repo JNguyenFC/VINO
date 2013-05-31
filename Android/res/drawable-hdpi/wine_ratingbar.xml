@@ -5,5 +5,5 @@
     <item android:id="@+android:id/secondaryProgress"
           android:drawable="@drawable/wine_empty" />
     <item android:id="@+android:id/progress"
-          android:drawable="@drawable/wine_full" />
+          android:drawable="@drawable/wine_burgundy" />
 </layer-list>
