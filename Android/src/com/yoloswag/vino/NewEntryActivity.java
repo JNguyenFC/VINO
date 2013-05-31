@@ -8,6 +8,7 @@ import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.util.Util;
+import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -70,8 +71,8 @@ public class NewEntryActivity extends Activity {
 				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
-				//save picture
-				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
+				//save picture 
+				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				
 				e.location = location.getText().toString();
 				e.vintageYear = vintageYear.getText().toString();
@@ -83,6 +84,8 @@ public class NewEntryActivity extends Activity {
 				
 				e.save();
 				//((VINOActivity)this.getActivity()).onSubmit();
+				
+				onDestroy();
 			}
         });
 
@@ -96,61 +99,7 @@ public class NewEntryActivity extends Activity {
 		return true;
 	}
 	
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
-        View button = rootView.findViewById(R.id.new_entry_button);
-
-	    FileInputStream in;
-		try {
-			String name = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
-			in = new FileInputStream(name);
-		    Bitmap bitmap = BitmapFactory.decodeStream(in);
-
-			ImageView imageView = (ImageView)rootView.findViewById(R.id.image);
-			imageView.setImageBitmap(bitmap);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}        
-
-		Button b = (Button) button;
-
-        b.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
-				Entry e = new Entry();
-				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
-				EditText location = (EditText)rootView.findViewById(R.id.location);
-				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
-				EditText category = (EditText)rootView.findViewById(R.id.category);
-				EditText region = (EditText)rootView.findViewById(R.id.region);
-				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
-				EditText comment = (EditText)rootView.findViewById(R.id.comments);
-
-				//e.title = title.getText().toString();
-				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
-
-				//save picture
-				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
-				
-				e.location = location.getText().toString();
-				e.vintageYear = vintageYear.getText().toString();
-				e.category = category.getText().toString();
-				e.region = region.getText().toString();
-				e.comment = comment.getText().toString();
-				e.rating = (int)rating.getRating();
-				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
-				
-				e.save();
-				((VINOActivity)getActivity()).onSubmit();
-			}
-        });
-
-        return rootView;
-    }
-  */  
     /** Checking if the intent is even available */
    /* public static boolean isIntentAvailable(Context context, String action) 
     {
@@ -186,5 +135,12 @@ public class NewEntryActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         // The activity is about to be destroyed.
+        // Calling ViewLogEntryFragment
+        Fragment fragment = new ViewLogEntryFragment();
+		FragmentTransaction transaction = fragment.getFragmentManager().beginTransaction();
+
+		transaction.replace(R.id.fragment_view_log_entry, fragment);
+		transaction.addToBackStack(null);
+		transaction.commit();
     }
 }
