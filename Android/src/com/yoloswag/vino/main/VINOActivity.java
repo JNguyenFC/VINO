@@ -11,6 +11,7 @@ import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -173,6 +174,14 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
             return null;
         }
     }
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		System.out.println("ASBKJDKSAD");
+		onSubmit();
+	}
 
     /**
      * A dummy fragment representing a section of the app, but that simply

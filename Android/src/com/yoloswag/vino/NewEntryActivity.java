@@ -85,7 +85,7 @@ public class NewEntryActivity extends Activity {
 				e.save();
 				//((VINOActivity)this.getActivity()).onSubmit();
 				
-				onDestroy();
+				finish();
 			}
         });
 
@@ -134,13 +134,13 @@ public class NewEntryActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // The activity is about to be destroyed.
+/*        // The activity is about to be destroyed.
         // Calling ViewLogEntryFragment
         Fragment fragment = new ViewLogEntryFragment();
 		FragmentTransaction transaction = fragment.getFragmentManager().beginTransaction();
 
 		transaction.replace(R.id.fragment_view_log_entry, fragment);
 		transaction.addToBackStack(null);
-		transaction.commit();
+		transaction.commit();*/
     }
 }

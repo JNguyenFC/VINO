@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.newentry.NewEntryFragment;
+import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.util.Util;
 
 import android.content.Intent;
@@ -158,7 +159,7 @@ public class CameraFragment extends Fragment {
 				
 				//calling NewEntryActivity
 				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
-				getActivity().startActivity(intent);
+				getActivity().startActivityForResult(intent, 1);
 
 				
 				// switching to the new entry fragment 
