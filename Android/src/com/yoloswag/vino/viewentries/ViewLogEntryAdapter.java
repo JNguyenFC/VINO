@@ -82,72 +82,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 //			@Override
 //			public void onClick(View v) {
 //				// TODO Auto-generated method stub
-	/*		LayoutInflater li_edit = LayoutInflater.from(context);
-		View z = li_edit.inflate(R.layout.image_cell_layout, null);
-		
-		ImageView iz = (ImageView) z.findViewById(R.id.entry_image);
-		TextView textview_entry_details_edit = (TextView) z.findViewById(R.id.entry_details);
-		textview_entry_details_edit.setText("Maker: " + entries[arg0].wine.name.producer + "\n" +
-                "Varietal: " + entries[arg0].wine.varietal.varietal_name + "\n" +
-				"Vintage: " + entries[arg0].wine.vintage.year + "\n" +
-                "Region: " + entries[arg0].wine.region.region + "\n"+
-                "Category: " + entries[arg0].wine.category.category + "\n" +
-                "Rating: " + entries[arg0].rating
-                );
-		textview_entry_details_edit.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
-        
-		Animation animationFadeIn = AnimationUtils.loadAnimation(context, R.anim.fadein);
-		Animation animationFadeOut = AnimationUtils.loadAnimation(context, R.anim.fadeout);
-		
-		RelativeLayout vG_edit = (RelativeLayout)v.getParent();
-		View elem = vG_edit.findViewById(R.id.entry_details);
-		View elem2 = vG_edit.findViewById(R.id.entry_comment);
-		View elem3 = vG_edit.findViewById(R.id.entry_title);
-		View elem4 = vG_edit.findViewById(R.id.line);
-		TextView textview_vintage_edit = (TextView) vG_edit.findViewById(R.id.vintage);
-		TextView textview_producer_edit = (TextView) vG_edit.findViewById(R.id.producer_name);
-		TextView textview_varietal_edit = (TextView) vG_edit.findViewById(R.id.varietal_name);
-		//Button deleteButton = (Button) vG.findViewById(R.id.delete_button);
-		if(z == vG_edit.findViewById(R.id.entry_image))
-		 {
-			elem.startAnimation(animationFadeIn);
-			elem2.startAnimation(animationFadeIn);
-			elem3.startAnimation(animationFadeIn);
-			elem4.startAnimation(animationFadeIn);			
-			elem.setVisibility(RelativeLayout.VISIBLE);
-			elem2.setVisibility(RelativeLayout.VISIBLE);
-			elem3.setVisibility(RelativeLayout.VISIBLE);
-			elem4.setVisibility(RelativeLayout.VISIBLE);
-			
-			//deleteButton.setVisibility(RelativeLayout.VISIBLE);
-			
-			textview_vintage_edit.startAnimation(animationFadeOut);
-			textview_producer_edit.startAnimation(animationFadeOut);
-			textview_varietal_edit.startAnimation(animationFadeOut);				
-			textview_vintage_edit.setVisibility(RelativeLayout.GONE);
-			textview_producer_edit.setVisibility(RelativeLayout.GONE);
-			textview_varietal_edit.setVisibility(RelativeLayout.GONE);
-		 }
-		if(v == elem || v == elem2 || v == elem3 || v == elem4)
-		{
-			elem.startAnimation(animationFadeOut);
-			elem2.startAnimation(animationFadeOut);
-			elem3.startAnimation(animationFadeOut);
-			elem4.startAnimation(animationFadeOut);				
-			elem.setVisibility(RelativeLayout.INVISIBLE);
-			elem2.setVisibility(RelativeLayout.INVISIBLE);
-			elem3.setVisibility(RelativeLayout.INVISIBLE);
-			elem4.setVisibility(RelativeLayout.INVISIBLE);
-			
-			//deleteButton.setVisibility(RelativeLayout.INVISIBLE);
-			
-			textview_vintage_edit.startAnimation(animationFadeIn);
-			textview_producer_edit.startAnimation(animationFadeIn);
-			textview_varietal_edit.startAnimation(animationFadeIn);
-			textview_vintage_edit.setVisibility(RelativeLayout.VISIBLE);
-			textview_producer_edit.setVisibility(RelativeLayout.VISIBLE);
-			textview_varietal_edit.setVisibility(RelativeLayout.VISIBLE);
-			
+	/*		
 		}*/
 		
 //			}
