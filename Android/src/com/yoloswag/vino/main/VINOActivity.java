@@ -86,7 +86,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
                             .setTabListener(this));
         }
         //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
-        actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#822b4f")));
+        //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#822b4f")));
         actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
     }
 

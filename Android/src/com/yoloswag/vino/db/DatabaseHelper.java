@@ -207,6 +207,33 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			yt1.addRating(4);
 			yt2.addRating(3.5);
 			yt3.addRating(1);
+			yt1.save(); yt2.save(); yt3.save();
+			
+			skinnygirl3.addRating(3);
+			skinnygirl3.save();
+			
+			woodbridge11.addRating(1);
+			woodbridge12.addRating(4);
+			woodbridge13.addRating(2.5);
+			woodbridge14.addRating(1.5);
+			woodbridge2.addRating(2.5);
+			woodbridge11.save(); woodbridge12.save(); woodbridge13.save(); 
+			woodbridge14.save(); woodbridge2.save();
+			
+			sutter9.addRating(5);
+			sutter8.addRating(3);
+			sutter9.save(); sutter8.save();
+			
+			barefoot7.addRating(2);
+			barefoot8.addRating(4.5);
+			barefoot9.addRating(5);
+			barefoot7.save(); barefoot8.save(); barefoot9.save();
+			
+			cupcake2.addRating(1);
+			cupcake2.addRating(2);
+			cupcake2.addRating(3);
+			cupcake2.save(); cupcake4.save(); cupcake6.save(); 
+			
 		}
 		
 	
@@ -214,7 +241,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
 		//new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();
 		//a.save();
-		/*Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
+		Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
 		b.save();
 		
 		Entry.a.save();
@@ -229,7 +256,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		Entry c = new Entry(Wine.a, "title4", "France", "If you see this it doesn't work ]:", 3);
 		c.save();
 		c.comment = "If you see this then it works [:";
-		c.save();*/
+		c.save();
 	}
 
 	@Override

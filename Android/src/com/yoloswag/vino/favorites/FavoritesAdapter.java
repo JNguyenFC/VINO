@@ -16,6 +16,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.model.Wine;
 
 /**
@@ -28,13 +29,14 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public static int sugPos;
 
 	Wine[] favoriteWines = sortRatings(Wine.getAll());
+	//Entry[] favoriteWines = sortRatings(Entry.getAll());
 
-	// Temporary array of wine suggestions
+	/*// Temporary array of wine suggestions
 	String recommendedWines[][] = { {"Suggestion 1", "Suggestion 2", "Suggestion 3"},
 			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
 			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
 			{"Suggestion 1", "Suggestion 2", "Suggestion 3"},
-			{"Suggestion 1", "Suggestion 2", "Suggestion 3"} };
+			{"Suggestion 1", "Suggestion 2", "Suggestion 3"} }; */
 
 
 	public FavoritesAdapter(FavoritesFragment favoritesFragment)
@@ -69,9 +71,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			FragmentTransaction ft = fm.beginTransaction();
 			ft.replace(345+groupPosition, new SuggestionsFragment());
 			ft.commit();
-
-			System.out.println("sugPos: " + FavoritesAdapter.sugPos);
-			System.out.println("isLastChild? " + isLastChild);
 			
 			return linearLayout;
 //		}
@@ -86,10 +85,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public int getChildrenCount(int groupPosition) 
 	{
 		// TODO Auto-generated method stub
-//		return recommendedWines[groupPosition].length;
-		//if (groupPosition == favoriteWines.length - 1)
-		//	return 2;
-		//else
+		// So that last favorite wine's suggestions are visible
+		if (groupPosition == favoriteWines.length - 1)
+			return 2;
+		else
 			return 1;
 	}
 
@@ -105,6 +104,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		// TODO Auto-generated method stub
 		return favoriteWines.length;
+		//return Wine.getAll().length;
 	}
 
 	@Override
@@ -114,7 +114,36 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		return groupPosition;
 	}
 
-	@Override
+	/* @Override
+	public View getGroupView(int groupPosition, boolean isExpanded,
+			View convertView, ViewGroup parent) 
+	{
+		// Inflating a View takes the layout XML, creates the View specified
+		//   within, and then adds the View to another ViewGroup --
+		//   this displays the RatingBar indicator for each favorite Wine
+		LayoutInflater li = LayoutInflater.from(context);
+		View v = li.inflate(R.layout.rating_cell_layout, null);
+		
+		// Display favorite Wine vintage, producer, and varietal dynamically
+		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
+		textview.setText(favoriteWines[groupPosition].wine.vintage.year + 
+				" " + favoriteWines[groupPosition].wine.name.producer + " " + 
+				favoriteWines[groupPosition].wine.varietal.varietal_name +
+				", " + favoriteWines[groupPosition].wine.region.region);
+		
+		// Customize RatingBar
+		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
+		//RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
+		bar.setRating((float)favoriteWines[groupPosition].rating);
+		bar.setIsIndicator(true);
+		bar.setPadding(0, 20, 0, 20);
+		
+		return v;
+	} */
+	
+	
+	// GETTING INFO FROM WINE CLASS INSTEAD OF ENTRY
+    @Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
 	{
@@ -122,13 +151,11 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
 		
-		favoriteWines = Wine.getAll();
-		
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
-		System.out.println("getting " + groupPosition + " " + favoriteWines.length);
-		groupPosition = 1;
+		//System.out.println("getting " + groupPosition + " " + favoriteWines.length);
+		//groupPosition = 1;
 		// Display favorite Wine vintage, producer, and varietal dynamically
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
 		textview.setText(favoriteWines[groupPosition].vintage.year + 
@@ -144,7 +171,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		bar.setPadding(0, 20, 0, 20);
 		
 		return v;
-	}
+	} 
 
 	@Override
 	public boolean hasStableIds() 
@@ -162,15 +189,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 	/**  Naive sorting algorithm (bubble sort) for sorting wines by rating
 	 */
-	private Wine[] sortRatings(Wine[] WineList)
+/*	private Entry[] sortRatings(Entry[] ratedEntries)
 	{	
-		List<Wine> ratedEntries = getRatedWines(WineList);
-
-		
-		int n = ratedEntries.size();
-		Wine temp = null;
-		Wine current = null;
-		Wine next = null;
+		int n = ratedEntries.length;
+		Entry temp = null;
 		
 		int counter = 0;
 		do
@@ -179,13 +201,46 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 			for (int i = 0; i < n-1; ++i)
 			{
-				current = ratedEntries.get(i);
-				next = ratedEntries.get(n+1);
-				if (current.rating < next.rating)
+				if (ratedEntries[i].rating < ratedEntries[i+1].rating)
 				{
-					temp = current;
-					current = next;
-					next = temp;
+					temp = ratedEntries[i];
+					ratedEntries[i] = ratedEntries[i+1];
+					ratedEntries[i+1] = temp;
+
+					++counter;
+				}
+			}
+
+		}while (counter > 0);
+		
+		return ratedEntries;
+	} */
+	
+	
+	 private Wine[] sortRatings(Wine[] WineList)
+	{	
+		List<Wine> ratedEntries = getRatedWines(WineList);
+	
+		int n = ratedEntries.size();
+//System.out.println("ratedEntries.size(): " + ratedEntries.size());
+//System.out.println("n: " + n);
+//for (int j = 0; j < ratedEntries.size(); ++j)
+//System.out.println("ratedEntries[" + j + "].rating: " + ratedEntries.get(j).rating);
+//System.out.println("FINISHED PRINTING RATINGS");
+		Wine temp = null;
+		
+		int counter = 0;
+		do
+		{
+			counter = 0;
+			for (int i = 0; i < n-1; ++i)
+			{
+//System.out.println("i: " + i);
+				if (ratedEntries.get(i).rating < ratedEntries.get(i+1).rating)
+				{
+					temp = ratedEntries.get(i);
+					ratedEntries.set(i, ratedEntries.get(i+1));
+					ratedEntries.set(i+1, temp);
 
 					++counter;
 				}
@@ -205,12 +260,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		
 		for (int i = 0; i < n-1; ++i)
 			if (allWines[i].rating != 0)
-			{
 				ratedWines.add(allWines[i]);
-			}
 		
 		return ratedWines;
-	}
+	} 
 	
 	
 }

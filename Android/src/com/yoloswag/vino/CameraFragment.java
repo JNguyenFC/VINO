@@ -161,6 +161,9 @@ public class CameraFragment extends Fragment {
 				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
 				getActivity().startActivityForResult(intent, 1);
 
+				a.setVisibility(View.INVISIBLE);
+				d.setVisibility(View.INVISIBLE);
+				b.setVisibility(View.VISIBLE);
 				
 				// switching to the new entry fragment 
 				/*Fragment fragment = new NewEntryFragment();

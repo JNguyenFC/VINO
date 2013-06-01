@@ -20,7 +20,8 @@
         android:layout_height="match_parent"
         android:layout_weight="1" 
         android:padding="2dp"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:listSelector="@color/listview_selector_pressed" >
     </ExpandableListView>
 
 </LinearLayout>
