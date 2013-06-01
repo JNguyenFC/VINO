@@ -8,7 +8,8 @@
     <string name="title_section3">Favorites</string>
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="newEntry_grape">Grape</string>
+    <string name="newEntry_producer">Producer</string>
+    <string name="newEntry_varietal">Varietal</string>
     <string name="newEntry_location">Location</string>
     <string name="newEntry_vintage">Vintage Year</string>
     <string name="newEntry_category">Category (i.e., white, red, etc.)</string>
@@ -18,5 +19,6 @@
     <string name="newEntry_submit">Submit</string>
     <string name="title_activity_new_entry">NewEntryActivity</string>
     <string name="title_activity_view_log">ViewLogActivity</string>
+    
 
 </resources>
