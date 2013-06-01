@@ -7,7 +7,7 @@ public class SweetOrDry implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected String taste;
+	public String taste;
 
 	public SweetOrDry(String taste){
 		this.taste = taste;		
