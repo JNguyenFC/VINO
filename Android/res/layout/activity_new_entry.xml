@@ -40,15 +40,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/producer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
                     android:inputType="number"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white" >
+                    <requestFocus />
+                </AutoCompleteTextView>
             </TableRow>
 
             <TableRow
@@ -56,18 +59,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/grapeAutoComplete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="0dip"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_varietal"
-                    android:textColorHint="@color/white" >
-
-                    <requestFocus />
-                </AutoCompleteTextView>
+                    android:textColorHint="@color/white" />
             </TableRow>
 
             <TableRow
