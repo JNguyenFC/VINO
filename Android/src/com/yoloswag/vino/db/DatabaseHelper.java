@@ -119,7 +119,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			Wine cupcake11 = new Wine("Cupcake", "Pinot Noir", "Red", "California", "Dry", "2000");
 			Wine cupcake12 = new Wine("Cupcake", "Red Velvet", "Red", "California", "Dry", "2000");
 			Wine cupcake13 = new Wine("Cupcake", "Riesling", "White", "California", "Sweet", "2000");
-			Wine cupcake14 = new Wine("Cupcake", "Rose", "White", "California", "Dry", "2000");
+			Wine cupcake14 = new Wine("Cupcake", "Rose", "Rose", "California", "Dry", "2000");
 			Wine cupcake15 = new Wine("Cupcake", "Sauvignon Blanc", "White", "California", "Dry", "2000");
 			Wine cupcake16 = new Wine("Cupcake", "Shiraz", "Red", "California", "Dry", "2000");
 			Wine cupcake17 = new Wine("Cupcake", "Zinfandel", "Red", "California", "Dry", "2000");
