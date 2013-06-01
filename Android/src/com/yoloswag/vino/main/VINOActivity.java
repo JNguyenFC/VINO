@@ -6,6 +6,7 @@ import com.yoloswag.vino.CameraFragment;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.favorites.FavoritesFragment;
+import com.yoloswag.vino.viewentries.DiaryFragment;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
@@ -152,8 +153,9 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
              //this is for the view log, first tab   
             if (position == 0) 
             {
-            	Fragment re1 = new ViewLogEntryFragment();
-            	return (Fragment) re1;
+            	//Fragment re1 = new ViewLogEntryFragment();
+            	//return (Fragment) re1;
+            	return new DiaryFragment();
             }
             
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
