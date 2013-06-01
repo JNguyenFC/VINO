@@ -1,10 +1,14 @@
 package com.yoloswag.vino.favorites;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.R.id;
 import com.yoloswag.vino.R.layout;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Wine;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +24,7 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 {
 	Entry[] entries = Entry.getAll();
     ExpandableListView exv;
+    public static final Wine[][] suggestionNames = new Wine [FavoritesAdapter.favoriteSize][4];
     
     public FavoritesFragment() 
     {
@@ -28,6 +33,12 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+    	
+		 for (int i = 0; i < FavoritesAdapter.favoriteSize; ++i)
+		 {
+			 suggestionNames[i] = suggestions(FavoritesAdapter.favoriteWines[i]);
+		 }
+    	
         View rootView = inflater.inflate(R.layout.fragment_favorites, container, false);
     	exv = (ExpandableListView)rootView.findViewById(R.id.expandableListView1);
     	exv.setOnGroupExpandListener((OnGroupExpandListener) this);
@@ -50,5 +61,50 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 	            exv.collapseGroup(i);
 	        }
 	    }
+	}
+    
+	List<Wine> suggestionsList = new ArrayList<Wine>();
+	
+	Wine[] wines = Wine.getAll();
+	
+	public Wine[] suggestions(Wine clickedFavorite)
+	{
+		int n = wines.length;
+		int counter = 0;
+
+				for (int j = 0; j < n; ++j)
+				{
+					if (clickedFavorite != wines[j] && wines[j].rating == 0)
+					{
+						if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
+							&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
+						    && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) != 0))
+						{
+						             suggestionsList.add(wines[j]);
+						             ++counter;
+						}
+						
+						             
+						else if((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
+						       && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
+						       && (counter < 4))
+						{
+							         suggestionsList.add(wines[j]);
+							         ++counter;
+						}
+						    
+					}
+				}
+			
+		Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
+		
+		Wine[] suggestedWines = new Wine[4];
+		
+		for(int i = 0; i < 4; ++i)
+		{
+			suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
+		}
+		
+		return suggestedWines;
 	}
 }

@@ -54,29 +54,29 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 			holder.txtName = (TextView) convertView.findViewById(R.id.name1);
 			holder.imageView = (ImageView) convertView.findViewById(R.id.icon1);
 			holder.imageView.setImageResource(SuggestionsFragment.images[0]);
-			holder.txtName.setText(SuggestionsFragment.names[j][0].name.producer +
-					" " + SuggestionsFragment.names[j][0].varietal.varietal_name);
+			holder.txtName.setText(FavoritesFragment.suggestionNames[j][0].name.producer +
+					" " + FavoritesFragment.suggestionNames[j][0].varietal.varietal_name);
 			
 			ViewHolder holder2 = new ViewHolder();
 			holder2.txtName = (TextView) convertView.findViewById(R.id.name2);
 			holder2.imageView = (ImageView) convertView.findViewById(R.id.icon2);
 			holder2.imageView.setImageResource(SuggestionsFragment.images[1]);
-			holder2.txtName.setText(SuggestionsFragment.names[j][1].name.producer +
-					" " + SuggestionsFragment.names[j][1].varietal.varietal_name);
+			holder2.txtName.setText(FavoritesFragment.suggestionNames[j][1].name.producer +
+					" " + FavoritesFragment.suggestionNames[j][1].varietal.varietal_name);
 			
 			ViewHolder holder3 = new ViewHolder();
 			holder3.txtName = (TextView) convertView.findViewById(R.id.name3);
 			holder3.imageView = (ImageView) convertView.findViewById(R.id.icon3);
 			holder3.imageView.setImageResource(SuggestionsFragment.images[2]);
-			holder3.txtName.setText(SuggestionsFragment.names[j][2].name.producer +
-					" " + SuggestionsFragment.names[j][2].varietal.varietal_name);
+			holder3.txtName.setText(FavoritesFragment.suggestionNames[j][2].name.producer +
+					" " + FavoritesFragment.suggestionNames[j][2].varietal.varietal_name);
 			
 			ViewHolder holder4 = new ViewHolder();
 			holder4.txtName = (TextView) convertView.findViewById(R.id.name4);
 			holder4.imageView = (ImageView) convertView.findViewById(R.id.icon4);
 			holder4.imageView.setImageResource(SuggestionsFragment.images[3]);
-			holder4.txtName.setText(SuggestionsFragment.names[j][3].name.producer +
-					" " + SuggestionsFragment.names[j][3].varietal.varietal_name);
+			holder4.txtName.setText(FavoritesFragment.suggestionNames[j][3].name.producer +
+					" " + FavoritesFragment.suggestionNames[j][3].varietal.varietal_name);
 			
 			convertView.setTag(holder);
 		}
