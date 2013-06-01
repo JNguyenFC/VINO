@@ -52,7 +52,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 	}
 
 	@Override
-	public View getView(final int arg0, View arg1, ViewGroup arg2) {
+	public View getView(int arg0, View arg1, ViewGroup arg2) {
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.image_cell_layout, null);
 		
@@ -79,16 +79,16 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		}
 
 //		//creates a button and locates the editText in XML
-		Button edit_button = (Button) v.findViewById(R.id.editText01);
-		edit_button.setOnClickListener(new View.OnClickListener() {
-		@Override
-		public void onClick(View v) {
- 	// TODO Auto-generated method stub
-			Intent intent = new Intent(context, ViewLogActivity.class);
-			intent.putExtra("editEntry", entries[arg0]);
-			context.startActivity(intent);
-	     }        
-	});
+//		Button edit_button = (Button) v.findViewById(R.id.editText01);
+//		edit_button.setOnClickListener(new View.OnClickListener() {
+//		@Override
+//		public void onClick(View v) {
+// 	// TODO Auto-generated method stub
+//			Intent intent = new Intent(context, ViewLogActivity.class);
+//			intent.putExtra("editEntry", entries[arg0]);
+//			context.startActivity(intent);
+//	     }        
+//	});
 		
 		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) v.findViewById(R.id.vintage);

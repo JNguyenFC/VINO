@@ -214,7 +214,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
 		//new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();
 		//a.save();
-		/*Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
+		Entry b = new Entry(Wine.a, "title1", "France", "yoloswaging it up", 3);
 		b.save();
 		
 		Entry.a.save();
@@ -229,7 +229,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		Entry c = new Entry(Wine.a, "title4", "France", "If you see this it doesn't work ]:", 3);
 		c.save();
 		c.comment = "If you see this then it works [:";
-		c.save();*/
+		c.save();
 	}
 
 	@Override
