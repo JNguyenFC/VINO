@@ -29,7 +29,7 @@
                         android:layout_height="wrap_content" />
                     
                 </TableRow>
-
+<!-- 
                 <TableRow
                     android:id="@+id/tableRow2.5"
                     android:layout_width="wrap_content"
@@ -42,13 +42,13 @@
                         android:layout_margin="0dip"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="@string/newEntry_grape"
+                     android:hint="@string/newEntry_grape" 
                         android:textColorHint="@color/white" >
 
                         <requestFocus />
                     </AutoCompleteTextView>
                 </TableRow>
-
+-->
                 <TableRow
                     android:id="@+id/tableRow3"
                     android:layout_width="wrap_content"
