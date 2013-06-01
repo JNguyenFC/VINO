@@ -9,206 +9,194 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-     >
+    android:scrollbars="none" >
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"  >
+        android:scrollbars="none" >
 
-            <TableLayout
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow
+                android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:gravity="center_horizontal" >
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2.5"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <TableRow
-                    android:id="@+id/tableRow2"
+                <AutoCompleteTextView
+                    android:id="@+id/grapeAutoComplete"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_grape"
+                    android:textColorHint="@color/white" >
 
-                    <ImageView
-                        android:id="@+id/image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    
-                </TableRow>
+                    <requestFocus />
+                </AutoCompleteTextView>
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow2.5"
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/location"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_location"
+                    android:textColorHint="@color/white" />
+            </TableRow>
 
-                    <AutoCompleteTextView
-                        android:id="@+id/grapeAutoComplete"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="0dip"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_grape"
-                        android:textColorHint="@color/white" >
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-                        <requestFocus />
-                    </AutoCompleteTextView>
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow3"
+                <EditText
+                    android:id="@+id/vintageYear"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_vintage"
+                    android:inputType="number"
+                    android:textColorHint="@color/white" />
+            </TableRow>
 
-                    <EditText
-                        android:id="@+id/location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_location"
-                        android:textColorHint="@color/white" />
-                </TableRow>
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-                    <EditText
-                        android:id="@+id/vintageYear"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_vintage"
-                        android:inputType="number"
-                        android:textColorHint="@color/white" />
-                </TableRow>
+                <EditText
+                    android:id="@+id/category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_category"
+                    android:textColorHint="@color/white" />
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </TableRow>
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+            <TableRow
+                android:id="@+id/tableRow8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-                    <EditText
-                        android:id="@+id/category"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_category"
-                        android:textColorHint="@color/white" />
-                </TableRow>
+                <EditText
+                    android:id="@+id/region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_region"
+                    android:textColorHint="@color/white" />
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </TableRow>
+            <TableRow
+                android:id="@+id/tableRow9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            </TableRow>
 
-                <TableRow
-                    android:id="@+id/tableRow8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+            <TableRow
+                android:id="@+id/tableRow10"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
 
-                    <EditText
-                        android:id="@+id/region"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:hint="@string/newEntry_region"
-                        android:textColorHint="@color/white" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow10"
+                <EditText
+                    android:id="@+id/comments"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="70dp"
+                    android:ems="13"
+                    android:gravity="top|left|center_vertical"
+                    android:hint="@string/newEntry_comment"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/white" />
+            </TableRow>
 
-                    <EditText
-                        android:id="@+id/comments"
-                        android:layout_width="fill_parent"
-                        android:layout_height="70dp"
-                        android:ems="13"
-                        android:gravity="top|left|center_vertical"
-                        android:hint="@string/newEntry_comment"
-                        android:inputType="textMultiLine"
-                        android:textColorHint="@color/white" />
-                </TableRow>
+            <TableRow
+                android:id="@+id/tableRow11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-                <TableRow
-                    android:id="@+id/tableRow11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
-
-                    <TextView
-                        android:id="@+id/ratingTitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/newEntry_rating"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="@color/white" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow12"
+                <TextView
+                    android:id="@+id/ratingTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal" >
+                    android:text="@string/newEntry_rating"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/white" />
+            </TableRow>
 
-					<RatingBar
-	                    android:id="@+id/rating"
-   						style="@style/wineRatingBarPadding"
-					    android:layout_width="wrap_content"
-					    android:layout_height="wrap_content"
-					    android:layout_marginTop="0dp"
-					    android:layout_marginRight="145dp"
-					    android:layout_marginLeft="145dp"
-					    android:max="5"
-					    android:numStars="5"
-					    android:rating="0.0"
-					    android:stepSize="0.5"
-					    
-	                    /> 
+            <TableRow
+                android:id="@+id/tableRow12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
 
-                    <!-- <RatingBar
-                        android:id="@+id/rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="145dp"
-                        android:layout_marginRight="145dp"
-                        android:layout_marginTop="0dp"
-                        android:max="5"
-                        android:numStars="5"
-                        android:rating="0.0"
-                        android:stepSize="0.5" /> -->
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/tableRow13"
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="@style/wineRatingBarPadding"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal" >
+                    android:layout_marginLeft="145dp"
+                    android:layout_marginRight="145dp"
+                    android:layout_marginTop="0dp"
+                    android:max="5"
+                    android:numStars="5"
+                    android:rating="0.0"
+                    android:stepSize="0.5" />
+            </TableRow>
 
-                    <Button
-                        android:id="@+id/new_entry_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/newEntry_submit" />
-                </TableRow>
-            </TableLayout>
-        
+            <TableRow
+                android:id="@+id/tableRow13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/new_entry_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/newEntry_submit" />
+            </TableRow>
+        </TableLayout>
     </ScrollView>
 
 </LinearLayout>
