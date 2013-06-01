@@ -29,6 +29,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public static int sugPos;
 
 	public static Wine[] favoriteWines = sortRatings(Wine.getAll());
+	public static int favoriteSize = favoriteWines.length; 
 	//Entry[] favoriteWines = sortRatings(Entry.getAll());
 
 	/*// Temporary array of wine suggestions
