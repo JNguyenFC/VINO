@@ -58,7 +58,6 @@ public class SuggestionsFragment extends Fragment
 		 listView = (ListView)rootView.findViewById(R.id.list);
 		 listView.setAdapter(new SuggestionsAdapter(this, R.layout.suggestions, rowItems));
 		 
-System.out.println("AFTER SETADAPTER");
 	     return rootView;
 	    }
 	 
