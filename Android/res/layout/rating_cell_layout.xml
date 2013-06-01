@@ -43,6 +43,7 @@
         android:isIndicator="true"
         android:max="5"
         android:numStars="5" 
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:paddingLeft="10dp" />
 
 </LinearLayout>
