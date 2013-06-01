@@ -62,13 +62,12 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 	        }
 	    }
 	}
-    
-	List<Wine> suggestionsList = new ArrayList<Wine>();
-	
-	Wine[] wines = Wine.getAll();
+
 	
 	public Wine[] suggestions(Wine clickedFavorite)
 	{
+		List<Wine> suggestionsList = new ArrayList<Wine>();
+		Wine[] wines = Wine.getAll();
 		int n = wines.length;
 		int counter = 0;
 
@@ -99,10 +98,11 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 		Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
 		
 		Wine[] suggestedWines = new Wine[4];
-		
+System.out.println("clicked: " + clickedFavorite.category.category);
 		for(int i = 0; i < 4; ++i)
 		{
 			suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
+System.out.println(suggestedWines[i].name.producer + ": " + suggestedWines[i].category.category);
 		}
 		
 		return suggestedWines;
