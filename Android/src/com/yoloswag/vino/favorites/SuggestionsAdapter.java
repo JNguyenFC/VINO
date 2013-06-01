@@ -128,7 +128,7 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 		
 		for(int i = 0; i < 4; ++i)
 		{
-			suggestedWines[i] = tempArray[(int)Math.random()];
+			suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
 		}
 		
 		return suggestedWines;
