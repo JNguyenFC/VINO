@@ -85,10 +85,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public int getChildrenCount(int groupPosition) 
 	{
 		// TODO Auto-generated method stub
-//		return recommendedWines[groupPosition].length;
-		//if (groupPosition == favoriteWines.length - 1)
-		//	return 2;
-		//else
+		// So that last favorite wine's suggestions are visible
+		if (groupPosition == favoriteWines.length - 1)
+			return 2;
+		else
 			return 1;
 	}
 
