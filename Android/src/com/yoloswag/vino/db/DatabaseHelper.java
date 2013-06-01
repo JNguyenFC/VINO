@@ -207,6 +207,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			yt1.addRating(4);
 			yt2.addRating(3.5);
 			yt3.addRating(1);
+			yt1.save(); yt2.save(); yt3.save();
 		}
 		
 	

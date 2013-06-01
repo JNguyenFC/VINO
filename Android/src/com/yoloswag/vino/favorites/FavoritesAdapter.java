@@ -103,8 +103,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public int getGroupCount() 
 	{
 		// TODO Auto-generated method stub
-		//return favoriteWines.length;
-		return Wine.getAll().length;
+		return favoriteWines.length;
+		//return Wine.getAll().length;
 	}
 
 	@Override
@@ -151,7 +151,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
 		
-		favoriteWines = Wine.getAll();
+		//favoriteWines = Wine.getAll();
+System.out.println("groupPosition: " + groupPosition);
 		
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
@@ -225,6 +226,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 		
 		int n = ratedEntries.size();
+System.out.println("ratedEntries.size(): " + ratedEntries.size());
+System.out.println("n: " + n);
 		Wine temp = null;
 		Wine current = null;
 		Wine next = null;
@@ -236,8 +239,9 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 			for (int i = 0; i < n-1; ++i)
 			{
+System.out.println("i: " + i);
 				current = ratedEntries.get(i);
-				next = ratedEntries.get(n+1);
+				next = ratedEntries.get(i+1);
 				if (current.rating < next.rating)
 				{
 					temp = current;
@@ -258,13 +262,17 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	private List<Wine> getRatedWines (Wine[] allWines)
 	{
 		int n = allWines.length;
+System.out.println("allWines.length: " + allWines.length);
 		List<Wine> ratedWines = new ArrayList<Wine>();
 		
 		for (int i = 0; i < n-1; ++i)
 			if (allWines[i].rating != 0)
 			{
+System.out.println("IF STATEMENT ENTERED");
 				ratedWines.add(allWines[i]);
 			}
+		
+System.out.println("ratedWines size: " + ratedWines.size());
 		
 		return ratedWines;
 	} 
