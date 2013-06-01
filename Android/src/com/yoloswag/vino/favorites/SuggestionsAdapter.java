@@ -23,7 +23,7 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 	{
 		super(suggestionsFragment.getActivity(), resourceId, list);
 		this.context = suggestionsFragment.getActivity();
-System.out.println("CREATING SETADAPTER");
+//System.out.println("CREATING SETADAPTER");
 	}
 
 	private class ViewHolder
