@@ -159,6 +159,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//groupPosition = 1;
 		// Display favorite Wine vintage, producer, and varietal dynamically
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
+		textview.setTextSize(18);
 		textview.setText(favoriteWines[groupPosition].vintage.year + 
 				" " + favoriteWines[groupPosition].name.producer + " " + 
 				favoriteWines[groupPosition].varietal.varietal_name +

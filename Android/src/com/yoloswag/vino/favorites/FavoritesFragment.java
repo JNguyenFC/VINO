@@ -62,13 +62,12 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 	        }
 	    }
 	}
-    
-	List<Wine> suggestionsList = new ArrayList<Wine>();
-	
-	Wine[] wines = Wine.getAll();
+
 	
 	public Wine[] suggestions(Wine clickedFavorite)
 	{
+		List<Wine> suggestionsList = new ArrayList<Wine>();
+		Wine[] wines = Wine.getAll();
 		int n = wines.length;
 		int counter = 0;
 
@@ -78,31 +77,48 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 					{
 						if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
 							&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
-						    && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) != 0))
+						    && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
 						{
 						             suggestionsList.add(wines[j]);
 						             ++counter;
 						}
 						
-						             
-						else if((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
-						       && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
-						       && (counter < 4))
+						else if (counter < 4)             
 						{
-							         suggestionsList.add(wines[j]);
-							         ++counter;
+							if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
+						        && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
+						    {         
+								suggestionsList.add(wines[j]);
+							    ++counter;
+						    }
+						
+						
+							else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
+							{
+								suggestionsList.add(wines[j]);
+								++counter;
+							}
+	
 						}
 						    
 					}
 				}
-			
-		Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
+
+//String maker = 
+for (int i = 0; i < suggestionsList.size(); ++i)
+System.out.println(suggestionsList.get(i).producer.producer + " " + suggestionsList.get(i).varietal.varietal_name);
+		//Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
 		
 		Wine[] suggestedWines = new Wine[4];
-		
+
 		for(int i = 0; i < 4; ++i)
 		{
-			suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
+			int pos = (int)(Math.random()*suggestionsList.size());
+System.out.println("Size of suggestions: " + suggestionsList.size());
+//System.out.println("pos: " + pos);
+			suggestedWines[i] = suggestionsList.remove(pos);
+			//suggestionsList.remove(pos);
+			//suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
 		}
 		
 		return suggestedWines;
