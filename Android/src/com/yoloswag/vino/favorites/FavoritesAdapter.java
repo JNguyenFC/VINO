@@ -151,9 +151,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
 		
-		//favoriteWines = Wine.getAll();
-System.out.println("groupPosition: " + groupPosition);
-		
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 		
@@ -223,30 +220,27 @@ System.out.println("groupPosition: " + groupPosition);
 	 private Wine[] sortRatings(Wine[] WineList)
 	{	
 		List<Wine> ratedEntries = getRatedWines(WineList);
-
-		
+	
 		int n = ratedEntries.size();
-System.out.println("ratedEntries.size(): " + ratedEntries.size());
-System.out.println("n: " + n);
+//System.out.println("ratedEntries.size(): " + ratedEntries.size());
+//System.out.println("n: " + n);
+//for (int j = 0; j < ratedEntries.size(); ++j)
+//System.out.println("ratedEntries[" + j + "].rating: " + ratedEntries.get(j).rating);
+//System.out.println("FINISHED PRINTING RATINGS");
 		Wine temp = null;
-		Wine current = null;
-		Wine next = null;
 		
 		int counter = 0;
 		do
 		{
 			counter = 0;
-
 			for (int i = 0; i < n-1; ++i)
 			{
-System.out.println("i: " + i);
-				current = ratedEntries.get(i);
-				next = ratedEntries.get(i+1);
-				if (current.rating < next.rating)
+//System.out.println("i: " + i);
+				if (ratedEntries.get(i).rating < ratedEntries.get(i+1).rating)
 				{
-					temp = current;
-					current = next;
-					next = temp;
+					temp = ratedEntries.get(i);
+					ratedEntries.set(i, ratedEntries.get(i+1));
+					ratedEntries.set(i+1, temp);
 
 					++counter;
 				}
@@ -262,17 +256,11 @@ System.out.println("i: " + i);
 	private List<Wine> getRatedWines (Wine[] allWines)
 	{
 		int n = allWines.length;
-System.out.println("allWines.length: " + allWines.length);
 		List<Wine> ratedWines = new ArrayList<Wine>();
 		
 		for (int i = 0; i < n-1; ++i)
 			if (allWines[i].rating != 0)
-			{
-System.out.println("IF STATEMENT ENTERED");
 				ratedWines.add(allWines[i]);
-			}
-		
-System.out.println("ratedWines size: " + ratedWines.size());
 		
 		return ratedWines;
 	} 
