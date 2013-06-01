@@ -19,7 +19,7 @@
     
       <style name="wineRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/wine_ratingbar</item>
-        <item name="android:minHeight">88dip</item>
+        <item name="android:minHeight">58dip</item>
         <item name="android:maxHeight">88dip</item>
     </style> 
     
