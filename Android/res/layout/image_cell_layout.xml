@@ -105,32 +105,35 @@
         android:textColor="#000000"
         android:visibility="invisible" /> 
         
+ 	<Button
+  	    android:id="@+id/deleteEntry"
+  	    android:layout_width="80dp"
+  	    android:layout_height="40dp"
+  	    android:layout_alignParentRight="true"
+  	    android:layout_alignParentTop="true"
+  	    android:gravity="center_vertical|center_horizontal"
+  	    android:minHeight="92dp"
+  	    android:onClick="onMyButtonClick"
+  	    android:text="DEL"
+  	    android:textColor="#000000"
+  	    android:textSize="22dp"
+  	    android:textStyle="bold"
+  	    android:visibility="invisible" />
+
   	<Button
-    	    android:id="@+id/editText01"
-    	    android:layout_width="80dp"
-    	    android:layout_height="40dp"
-    	    android:gravity="center_vertical|center_horizontal"
-    	    android:minHeight="92dp"
-    	    android:onClick="onMyButtonClick"
-    	    android:text="EDIT"
-    	    android:textColor="#000000"
-    	    android:textSize="22dp"
-    	    android:textStyle="bold"
-    	    android:visibility="invisible" >
-            
-        </Button>  
-    
-   
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_toRightOf="@id/entry_title"
-        android:gravity="right"
-        android:text="Delete"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#000000"
-        android:background="#808080"
-        android:visibility="invisible"/>
+  	    android:id="@+id/editText01"
+  	    android:layout_width="80dp"
+  	    android:layout_height="40dp"
+  	    android:layout_alignParentLeft="true"
+  	    android:layout_alignParentTop="true"
+  	    android:gravity="center_vertical|center_horizontal"
+  	    android:minHeight="92dp"
+  	    android:onClick="onMyButtonClick"
+  	    android:text="EDIT"
+  	    android:textColor="#000000"
+  	    android:textSize="22dp"
+  	    android:textStyle="bold"
+  	    android:visibility="visible" />
+
 
 </RelativeLayout>

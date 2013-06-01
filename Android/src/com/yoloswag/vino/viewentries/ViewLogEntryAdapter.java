@@ -137,7 +137,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
-				//Button deleteButton = (Button) vG.findViewById(R.id.delete_button);
+				Button delete_but = (Button) vG.findViewById(R.id.deleteEntry);
 				if(v == vG.findViewById(R.id.entry_image))
 				 {
 					elem.startAnimation(animationFadeIn);
@@ -149,8 +149,8 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem3.setVisibility(RelativeLayout.VISIBLE);
 					elem4.setVisibility(RelativeLayout.VISIBLE);
 					editBut.setVisibility(RelativeLayout.VISIBLE);
-					
-					//deleteButton.setVisibility(RelativeLayout.VISIBLE);
+					delete_but.setVisibility(RelativeLayout.VISIBLE);					
+
 					
 					textview_vintage.startAnimation(animationFadeOut);
 					textview_producer.startAnimation(animationFadeOut);
@@ -170,8 +170,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 					elem3.setVisibility(RelativeLayout.INVISIBLE);
 					elem4.setVisibility(RelativeLayout.INVISIBLE);
 					editBut.setVisibility(RelativeLayout.INVISIBLE);
-					
-					//deleteButton.setVisibility(RelativeLayout.INVISIBLE);
+		            delete_but.setVisibility(RelativeLayout.INVISIBLE);
 					
 					textview_vintage.startAnimation(animationFadeIn);
 					textview_producer.startAnimation(animationFadeIn);
