@@ -126,6 +126,11 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 		
 		Wine[] suggestedWines = new Wine[4];
 		
+		for(int i = 0; i < 4; ++i)
+		{
+			suggestedWines[i] = tempArray[(int)Math.random()];
+		}
+		
 		return suggestedWines;
 	}
 }

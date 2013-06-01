@@ -21,7 +21,8 @@ public class SuggestionsFragment extends Fragment
 	
 	 //public boolean OPEN = false;
 
-	 public static final Wine[][] names = new Wine[][] { {Wine.a, Wine.b, Wine.c, Wine.d},
+	 /*public static final Wine[][] names = 
+			                            new Wine[][] { {Wine.a, Wine.b, Wine.c, Wine.d},
 		 											     {Wine.d, Wine.c, Wine.b, Wine.a},
 	 												     {Wine.c, Wine.d, Wine.a, Wine.b} };
 	 /*public static final Wine[] names2 = new Wine[] {Wine.d, Wine.c, Wine.b, Wine.a};

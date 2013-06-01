@@ -28,7 +28,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	private Activity context;
 	public static int sugPos;
 
-	Wine[] favoriteWines = sortRatings(Wine.getAll());
+	public static Wine[] favoriteWines = sortRatings(Wine.getAll());
 	//Entry[] favoriteWines = sortRatings(Entry.getAll());
 
 	/*// Temporary array of wine suggestions
@@ -217,7 +217,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	} */
 	
 	
-	 private Wine[] sortRatings(Wine[] WineList)
+	 private static Wine[] sortRatings(Wine[] WineList)
 	{	
 		List<Wine> ratedEntries = getRatedWines(WineList);
 	
@@ -253,7 +253,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		return sortedWines;
 	}
 	
-	private List<Wine> getRatedWines (Wine[] allWines)
+	private static List<Wine> getRatedWines (Wine[] allWines)
 	{
 		int n = allWines.length;
 		List<Wine> ratedWines = new ArrayList<Wine>();
