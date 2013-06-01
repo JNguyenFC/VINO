@@ -2,11 +2,13 @@ package com.yoloswag.vino;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Wine;
 import com.yoloswag.vino.util.Util;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
@@ -20,19 +22,26 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
-public class NewEntryActivity extends Activity {
+public class NewEntryActivity extends Activity implements TextWatcher {
 	
-
+    AutoCompleteTextView myAutoComplete;
+    List<String> producers = new ArrayList<String>();
+    List<Wine> temp = new ArrayList<Wine>();
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +61,23 @@ public class NewEntryActivity extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}        
+		
+		//DatabaseManager wines;
+		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
+	    //temp = wines.getAllWines();
+	    myAutoComplete.addTextChangedListener(this);
+	    
+	    for(int i = 0; i < temp.size(); ++i)
+	    {
+	    	producers.add(temp.get(i).producer.producer);
+	    }
+	    //String[] producerList = producers.toArray(new String[producers.size()]);
+	    String producerList[]={
+	    		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
+	    		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
+	    		  "Yellow Tail"
+	    		};
+	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 
 		Button b = (Button) button;
 
@@ -142,5 +168,25 @@ public class NewEntryActivity extends Activity {
 		transaction.replace(R.id.fragment_view_log_entry, fragment);
 		transaction.addToBackStack(null);
 		transaction.commit();*/
+    }
+    
+    
+    @Override
+    public void afterTextChanged(Editable arg0) {
+     // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count,
+      int after) {
+     // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+     // TODO Auto-generated method stub
+
     }
 }
