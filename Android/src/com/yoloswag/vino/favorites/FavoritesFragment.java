@@ -103,24 +103,14 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 						    
 					}
 				}
-
-//String maker = 
-for (int i = 0; i < suggestionsList.size(); ++i)
-System.out.println(suggestionsList.get(i).producer.producer + " " + suggestionsList.get(i).varietal.varietal_name);
-		//Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
 		
 		Wine[] suggestedWines = new Wine[4];
 
 		for(int i = 0; i < 4; ++i)
 		{
 			int pos = (int)(Math.random()*suggestionsList.size());
-System.out.println("Size of suggestions: " + suggestionsList.size());
-//System.out.println("pos: " + pos);
 			suggestedWines[i] = suggestionsList.remove(pos);
-			//suggestionsList.remove(pos);
-			//suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
 		}
-		
 		return suggestedWines;
 	}
 }
