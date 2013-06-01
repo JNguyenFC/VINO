@@ -48,7 +48,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
-                    android:inputType="number"
                     android:textColorHint="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
