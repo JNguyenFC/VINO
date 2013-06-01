@@ -19,8 +19,14 @@
     
       <style name="wineRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/wine_ratingbar</item>
-        <item name="android:minHeight">48dip</item>
-        <item name="android:maxHeight">48dip</item>
+        <item name="android:minHeight">88dip</item>
+        <item name="android:maxHeight">88dip</item>
+    </style> 
+    
+         <style name="wineRatingBarPadding" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/wine_ratingbar_padding</item>
+        <item name="android:minHeight">108dip</item>
+        <item name="android:maxHeight">108dip</item>
     </style> 
 
 </resources>
