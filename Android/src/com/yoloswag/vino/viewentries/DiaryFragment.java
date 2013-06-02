@@ -37,7 +37,7 @@ public class DiaryFragment extends Fragment {
 		list.setFastScrollEnabled(true);
 		ArrayList<Entry> lst = new ArrayList<Entry>();
 		lst.addAll(Arrays.asList(Entry.getAll()));
-		adapter = new DiaryAdapter(getActivity(), 0, lst);
+		adapter = new DiaryAdapter(getActivity(), 0, lst, this);
 		list.setAdapter(adapter);
 		
 		return rootView;

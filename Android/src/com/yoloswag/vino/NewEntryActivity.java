@@ -112,7 +112,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
-				//save picture 		
+				//save picture
+				e.wine = new Wine("", "", "", "", "", "");
 				e.wine.category = new Category(category.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
