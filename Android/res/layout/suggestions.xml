@@ -19,115 +19,91 @@
 
         <!-- Suggestion 1 -->
 
-        <RelativeLayout
-            android:id="@+id/relativelayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/icon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:maxHeight="100dp"
+            android:minHeight="100dp" />
 
-            <ImageView
-                android:id="@+id/icon1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="100dp"
-                android:minHeight="100dp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/name1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/icon1"
-                android:layout_alignTop="@+id/icon1"
-                android:gravity="center"
-                android:paddingRight="10dp" 
-                android:textColor="#FFFFFF" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/name1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/icon1"
+            android:layout_alignTop="@+id/icon1"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:textColor="#FFFFFF" />
 
         <!-- Suggestion 2 -->
 
-        <RelativeLayout
-            android:id="@+id/relativelayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/icon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:maxHeight="100dp"
+            android:minHeight="100dp" />
 
-            <ImageView
-                android:id="@+id/icon2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="100dp"
-                android:minHeight="100dp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/name2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/icon2"
-                android:layout_alignTop="@+id/icon2"
-                android:gravity="center"
-                android:paddingRight="10dp"
-                android:textColor="#FFFFFF" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/icon2"
+            android:layout_alignTop="@+id/icon2"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:textColor="#FFFFFF" />
 
         <!-- Suggestion 3 -->
 
-        <RelativeLayout
-            android:id="@+id/relativelayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/icon3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:maxHeight="100dp"
+            android:minHeight="100dp" />
 
-            <ImageView
-                android:id="@+id/icon3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="100dp"
-                android:minHeight="100dp"
-                android:gravity="center" />
-
-            <TextView
-                android:id="@+id/name3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/icon3"
-                android:layout_alignTop="@+id/icon3"
-                android:gravity="center"
-                android:paddingRight="10dp"
-                android:textColor="#FFFFFF" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/name3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/icon3"
+            android:layout_alignTop="@+id/icon3"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:textColor="#FFFFFF" />
 
         <!-- Suggestion 4 -->
 
-        <RelativeLayout
-            android:id="@+id/relativelayout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <ImageView
+            android:id="@+id/icon4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:maxHeight="100dp"
+            android:minHeight="100dp" />
 
-            <ImageView
-                android:id="@+id/icon4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:adjustViewBounds="true"
-                android:maxHeight="100dp"
-                android:minHeight="100dp" 
-                android:gravity="center"/>
-
-            <TextView
-                android:id="@+id/name4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/icon4"
-                android:layout_alignTop="@+id/icon4"
-                android:gravity="center"
-                android:paddingRight="10dp"
-                android:textColor="#FFFFFF" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/name4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/icon4"
+            android:layout_alignTop="@+id/icon4"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </HorizontalScrollView>
