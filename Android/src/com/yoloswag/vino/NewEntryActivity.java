@@ -32,6 +32,10 @@ public class NewEntryActivity extends Activity implements TextWatcher {
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
   		};*/
+    String categoryList[]={
+	  "white", "red", "rose", "sparkling",
+	  "dessert"
+	};
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			e.printStackTrace();
 		}        
 		
+		// Auto-completing for wine producers from db
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
 	    myAutoComplete.addTextChangedListener(this);
 
@@ -61,11 +66,16 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    
 	    for(int i = 0; i < wineList.length; ++i)
 	    {
-	    	producerList[i] = wineList[i].name.producer.toString();
+	    	producerList[i] = wineList[i].name.producer.toString();// converting to string array
 	    }
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
-
+	    
+	    // Auto-complete for category
+	    myAutoComplete = (AutoCompleteTextView)findViewById(R.id.category);
+	    myAutoComplete.addTextChangedListener(this);
+	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
+	    
 		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {

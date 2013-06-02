@@ -9,15 +9,17 @@
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="newEntry_title">Entry Title</string>
-    <string name="newEntry_producer">Producer</string>
-    <string name="newEntry_varietal">Varietal</string>
+    <string name="newEntry_producer">Producer (i.e., Barefoot, etc.))</string>
+    <string name="newEntry_varietal">Varietal (i.e., chardonnay, moscato, etc.)</string>
     <string name="newEntry_location">Location</string>
     <string name="newEntry_vintage">Vintage Year</string>
     <string name="newEntry_category">Category (i.e., white, red, etc.)</string>
     <string name="newEntry_region">Region</string>
-    <string name="newEntry_rating">Rating</string>
+    <string name="newEntry_rating">Wine Rating</string>
     <string name="newEntry_comment">Comments</string>
     <string name="newEntry_submit">Submit</string>
+    <string name="newEntry_entry">Entry</string>
+    <string name="newEntry_wineTitle">Wine Details</string>
     <string name="title_activity_new_entry">NewEntryActivity</string>
     <string name="title_activity_view_log">ViewLogActivity</string>
     
