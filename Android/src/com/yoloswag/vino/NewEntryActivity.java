@@ -2,12 +2,7 @@ package com.yoloswag.vino;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import com.yoloswag.vino.model.Category;
-import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.model.Region;
-import com.yoloswag.vino.model.Varietal;
-import com.yoloswag.vino.model.Vintage;
-import com.yoloswag.vino.model.Wine;
+import com.yoloswag.vino.model.*;
 import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -96,6 +91,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
 				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
+				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
@@ -107,6 +103,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				e.wine.name = new Name(producer.getText().toString());
 				e.wine.addRating(rating.getRating());
 				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
