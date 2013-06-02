@@ -119,6 +119,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.rating = (int)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
+				String zcomment = comment.getText().toString();
+				Wine a = new Wine(zcomment, zcomment, zcomment, zcomment, zcomment, zcomment);
+
+				e.wine = a; // temporary
+				
 				e.save();
 				
 				finish();

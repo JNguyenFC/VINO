@@ -77,37 +77,40 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 					{
 						if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
 							&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
-						    && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) != 0))
+						    && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
 						{
 						             suggestionsList.add(wines[j]);
 						             ++counter;
 						}
 						
-						             
-						else if((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
-						       && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
-						       && (counter < 4))
+						else if (counter < 4)             
 						{
-							         suggestionsList.add(wines[j]);
-							         ++counter;
+							if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
+						        && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
+						    {         
+								suggestionsList.add(wines[j]);
+							    ++counter;
+						    }
+						
+						
+							else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
+							{
+								suggestionsList.add(wines[j]);
+								++counter;
+							}
+	
 						}
 						    
 					}
 				}
-			
-		//Wine[] tempArray = suggestionsList.toArray(new Wine[suggestionsList.size()]);
 		
 		Wine[] suggestedWines = new Wine[4];
 
 		for(int i = 0; i < 4; ++i)
 		{
 			int pos = (int)(Math.random()*suggestionsList.size());
-//System.out.println("pos: " + pos);
-			suggestedWines[i] = suggestionsList.get(pos);
-			//suggestionsList.remove(pos);
-			//suggestedWines[i] = tempArray[(int)(Math.random()*suggestionsList.size())];
+			suggestedWines[i] = suggestionsList.remove(pos);
 		}
-		
 		return suggestedWines;
 	}
 }
