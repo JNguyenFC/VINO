@@ -2,6 +2,10 @@ package com.yoloswag.vino.main;
 
 import java.util.Locale;
 
+import com.facebook.android.DialogError;
+import com.facebook.android.Facebook;
+import com.facebook.android.Facebook.DialogListener;
+import com.facebook.android.FacebookError;
 import com.yoloswag.vino.CameraFragment;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.db.DatabaseManager;
@@ -45,8 +49,12 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    
+    @SuppressWarnings("deprecation")
+	Facebook facebook = new Facebook("654661121226965");
 
-    @SuppressLint("NewApi")
+    @SuppressWarnings("deprecation")
+	@SuppressLint("NewApi")
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +97,20 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
         //actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
         //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#822b4f")));
         actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
+        
+        facebook.authorize(this, new String[] { "publish_actions" }, new DialogListener() {
+        	@Override
+            public void onComplete(Bundle values) {}
+
+            @Override
+            public void onFacebookError(FacebookError error) {}
+
+            @Override
+            public void onError(DialogError e) {}
+
+            @Override
+            public void onCancel() {}
+        });
     }
 
     @Override
@@ -184,11 +206,13 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
         }
     }
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
 		System.out.println("ASBKJDKSAD");
+		facebook.authorizeCallback(requestCode, resultCode, data);
 		onSubmit();
 	}
 
