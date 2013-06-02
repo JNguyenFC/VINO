@@ -66,7 +66,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    
 	    for(int i = 0; i < wineList.length; i++)
 	    {
-	    	if((i-1)>-1 && producerList[i-1] != wineList[i].name.producer.toString()) {
+	    	if(i == 0 || (i-1)>-1 && producerList[i-1] != wineList[i].name.producer.toString()) {
 	    		producerList[i] = wineList[i].name.producer.toString();
 	    	}
 	    }
