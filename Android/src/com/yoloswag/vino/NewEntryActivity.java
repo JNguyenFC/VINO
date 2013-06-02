@@ -38,14 +38,14 @@ public class NewEntryActivity extends Activity implements TextWatcher {
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
   		};*/
-    
+    /*
     String categoryList[]={
 	  "Dessert", "Red", "Rose", "Sparkling","White"
 	};
     String regionList[]={
 	  "Australia", "Burgundy", "California", "Canada", "France", "Germany", 
 	  "Italy", "Portugal", "Spain"
-	};
+	};*/
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,26 +67,36 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			e.printStackTrace();
 		}        
 		
+		// Autocomplete for producer
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
 	    myAutoComplete.addTextChangedListener(this);
-
 	    Wine[] wineList = Wine.getAll();
 	    String[] producerList = new String[wineList.length];
-	    
-	    for(int i = 0, j = 0; i < wineList.length; i++)
+	    String[] categoryList = new String[wineList.length];
+	    String[] regionList = new String[wineList.length];
+	    for(int i = 0, j = 0, k = 0, l = 0; i < wineList.length; i++)
 	    {
-	    	if(j == 0 || (j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString()) {
+	    	if(i == 0 || (j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString()) {
 	    		producerList[j] = wineList[i].name.producer.toString();
 	    		j++;
 	    	}
+	    	if(i == 0 || (k-1)>-1 && categoryList[k-1] != wineList[i].category.category.toString()) {
+	    		categoryList[k] = wineList[i].category.category.toString();
+	    		k++;
+	    	}
+	    	if(i == 0 || (l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString()) {
+	    		regionList[l] = wineList[i].region.region.toString();
+	    		l++;
+	    	}
 	    }
-
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 	    
+	    // Autocomplete for category
 		myAutoComplete2 = (AutoCompleteTextView)findViewById(R.id.category);
 	    myAutoComplete2.addTextChangedListener(this);
 	    myAutoComplete2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
 	   
+	    // Autocomplete for region
 		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
