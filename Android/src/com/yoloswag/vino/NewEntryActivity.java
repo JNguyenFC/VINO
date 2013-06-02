@@ -2,21 +2,19 @@ package com.yoloswag.vino;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import com.yoloswag.vino.model.*;
-import android.os.Bundle;
+
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RatingBar;
+import android.widget.*;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+
+import com.yoloswag.vino.model.*;
 
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
@@ -82,6 +80,36 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
 
+	    
+	    
+	    final CheckBox dry = (CheckBox)findViewById(R.id.dryCheck);
+        final CheckBox sweet = (CheckBox)findViewById(R.id.sweetCheck);
+		
+        OnCheckedChangeListener checkListener = new OnCheckedChangeListener() {
+        	public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+        		if(isChecked)
+        		{
+        		  switch(arg0.getId())
+        		  {
+        		    case R.id.dryCheck:
+        		         dry.setChecked(true);
+        		         sweet.setChecked(false);
+        		         break;
+        		    case R.id.sweetCheck:
+        		         sweet.setChecked(true);
+        		         dry.setChecked(false);
+        		         break;
+        		    }
+        		  }
+        		 
+        		}
+        };
+        
+		dry.setOnCheckedChangeListener(checkListener);
+        sweet.setOnCheckedChangeListener(checkListener);
+	    
+	    
+	    
 		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
@@ -99,21 +127,28 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
+
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save picture
 				e.wine = new Wine("", "", "", "", "", "");
 				e.title = title.getText().toString();
+				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+				e.location = location.getText().toString();
+				e.comment = comment.getText().toString();
 				e.wine.category = new Category(category.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
 				e.wine.name = new Name(producer.getText().toString());
 				e.wine.addRating(rating.getRating());
-				e.location = location.getText().toString();
-				e.comment = comment.getText().toString();
+				if (dry.isChecked())
+					e.wine.sweetOrDry = new SweetOrDry("Dry");
+				else if (sweet.isChecked())
+					e.wine.sweetOrDry = new SweetOrDry("Sweet");
+
 				//e.wine.rating = (double)rating.getRating();
-				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+
 				
 				e.save();
 				

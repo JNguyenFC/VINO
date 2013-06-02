@@ -147,10 +147,32 @@
                 </AutoCompleteTextView>
             </TableRow>
 
+            
             <TableRow
                 android:id="@+id/tableRow8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
+              
+               <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+               
+               <CheckBox
+                   android:id="@+id/dryCheck"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginRight="30dp"
+                   android:hint="@string/dry"
+                   android:textColorHint="@color/white" />
+
+                <CheckBox
+                    android:id="@+id/sweetCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sweet"
+                    android:textColorHint="@color/white" />
+                </LinearLayout>
             </TableRow>
             
             <TableRow

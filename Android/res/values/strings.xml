@@ -21,6 +21,8 @@
     <string name="newEntry_wineTitle">Wine Details</string>
     <string name="title_activity_new_entry">NewEntryActivity</string>
     <string name="title_activity_view_log">ViewLogActivity</string>
+    <string name="sweet">Sweet</string>
+    <string name="dry">Dry</string>
     
 
 </resources>
