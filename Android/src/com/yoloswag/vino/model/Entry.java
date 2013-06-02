@@ -15,6 +15,7 @@ import com.yoloswag.vino.db.DatabaseManager;
 @DatabaseTable
 public class Entry implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	@DatabaseField(generatedId=true)
 	public int id;
 	@DatabaseField

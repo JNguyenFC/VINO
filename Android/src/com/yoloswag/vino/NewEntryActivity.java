@@ -61,7 +61,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    
 	    for(int i = 0; i < wineList.length; ++i)
 	    {
-	    	producerList[i] = wineList[i].name.toString();
+	    	producerList[i] = wineList[i].name.producer.toString();
 	    }
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
