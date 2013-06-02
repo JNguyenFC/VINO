@@ -125,6 +125,7 @@ public class DiaryItemView extends LinearLayout {
 				delete_but.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
 						//delete entry
+						entries[arg0].destroy();
 					}
 					
 				});
