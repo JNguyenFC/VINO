@@ -64,24 +64,24 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    Wine[] wineList = Wine.getAll();
 	    String[] producerList = new String[wineList.length];
 	    
-	    for(int i = 0; i < wineList.length; i++)
+	    for(int i = 0, j = 0; i < wineList.length; i++)
 	    {
-	    	if(i == 0 || (i-1)>-1 && producerList[i-1] != wineList[i].name.producer.toString()) {
-	    		producerList[i] = wineList[i].name.producer.toString();
+	    	if(j == 0 || (j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString()) {
+	    		producerList[j] = wineList[i].name.producer.toString();
+	    		j++;
 	    	}
 	    }
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 	    
-	    
 		myAutoComplete2 = (AutoCompleteTextView)findViewById(R.id.category);
 	    myAutoComplete2.addTextChangedListener(this);
 	    myAutoComplete2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
-	/*    
+	   
 		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
-*/
+
 		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
