@@ -101,13 +101,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					Toast.makeText(NewEntryActivity.this, "You didn't enter a valid year", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				//check if year has occurred yet
-				int year = Integer.parseInt(vintageYear.toString());
-				if(year > 2013)
-				{
-					Toast.makeText(NewEntryActivity.this, "That year hasn't occurred yet!", Toast.LENGTH_SHORT).show();
-					return;
-				}
+
 				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
