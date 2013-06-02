@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
@@ -94,6 +95,19 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
+				//check if valid year
+				if(vintageYear.getText().toString().length() != 4)
+				{
+					Toast.makeText(NewEntryActivity.this, "You didn't enter a valid year", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				//check if year has occurred yet
+				int year = Integer.parseInt(vintageYear.toString());
+				if(year > 2013)
+				{
+					Toast.makeText(NewEntryActivity.this, "That year hasn't occurred yet!", Toast.LENGTH_SHORT).show();
+					return;
+				}
 				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
@@ -108,6 +122,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				
 				e.wine.name = new Name(producer.getText().toString());
 				e.wine.addRating(rating.getRating());
 				e.location = location.getText().toString();
