@@ -54,19 +54,19 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			// Sweet/Dry		: Dry
 			// Producer/Winery	: Barefoot
 
-			String region = "USA";
-			String vintage = "1940";
-			String category = "White";
-			String varietal = "Chardonnay";
-			String sweetdry = "Dry";
-			String producer = "Barefoot";
-
-			// Create the wine
-			Wine example = new Wine(producer, varietal, category, region, sweetdry, vintage);
-
-			// Save the wine to the db
-			example.save();
-			
+//			String region = "USA";
+//			String vintage = "1940";
+//			String category = "White";
+//			String varietal = "Chardonnay";
+//			String sweetdry = "Dry";
+//			String producer = "Barefoot";
+//
+//			// Create the wine
+//			Wine example = new Wine(producer, varietal, category, region, sweetdry, vintage);
+//
+//			// Save the wine to the db
+//			example.save();
+//			
 			
 			Wine barefoot1  = new Wine("Barefoot", "Chardonnay", "White", "California", "Dry", "2000");
 			Wine barefoot2  = new Wine("Barefoot", "Cabernet Sauvignon", "Red", "California", "Dry", "2000");
@@ -79,7 +79,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			Wine barefoot9  = new Wine("Barefoot", "Sauvignon Blanc", "White", "California", "Dry", "2000");
 			Wine barefoot10 = new Wine("Barefoot", "Shiraz", "Red", "California", "Dry", "2000");
 			Wine barefoot11 = new Wine("Barefoot", "White Zinfandel", "Rose", "California", "Sweet", "2000");
-			Wine barefoot12 = new Wine("Barefoot", "Zinfandel", "White", "California", "Dry", "2000");
+			Wine barefoot12 = new Wine("Barefoot", "Zinfandel", "Red", "California", "Dry", "2000");
 			barefoot1.save(); barefoot2.save(); barefoot3.save(); barefoot4.save(); barefoot5.save(); barefoot6.save();
 			barefoot7.save(); barefoot8.save(); barefoot9.save(); barefoot10.save(); barefoot11.save(); barefoot12.save();
 
