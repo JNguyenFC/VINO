@@ -32,10 +32,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
   		};*/
-    String categoryList[]={
-	  "white", "red", "rose", "sparkling",
-	  "dessert"
-	};
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +53,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			e.printStackTrace();
 		}        
 		
-		// Auto-completing for wine producers from db
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
 	    myAutoComplete.addTextChangedListener(this);
 
@@ -66,16 +61,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    
 	    for(int i = 0; i < wineList.length; ++i)
 	    {
-	    	producerList[i] = wineList[i].name.producer.toString();// converting to string array
+	    	producerList[i] = wineList[i].name.producer.toString();
 	    }
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
-	    
-	    // Auto-complete for category
-	    myAutoComplete = (AutoCompleteTextView)findViewById(R.id.category);
-	    myAutoComplete.addTextChangedListener(this);
-	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
-	    
+
 		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
@@ -101,10 +91,9 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				e.wine.addRating(rating.getRating());
 				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
-				//e.wine.rating = (double)rating.getRating();
+				e.wine.rating = (double)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();

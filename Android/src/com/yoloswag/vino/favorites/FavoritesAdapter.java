@@ -56,7 +56,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
-		System.out.println("asdasd" + groupPosition);
 			sugPos = groupPosition;
 			
 			LinearLayout linearLayout = new LinearLayout(context);
@@ -73,10 +72,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	@Override
 	public int getChildrenCount(int groupPosition) 
 	{
-//		// So that last favorite wine's suggestions are visible
-//		if (groupPosition == favoriteWines.length - 1)
-//			return 2;
-//		else
+		// So that last favorite wine's suggestions are visible
+		if (groupPosition == favoriteWines.length - 1)
+			return 2;
+		else
 			return 1;
 	}
 
@@ -137,9 +136,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		return true;
 	}
 	
-	static Wine[] sortRatings(Wine[] WineList)
-	{
-		System.out.println(WineList.length);
+	private static Wine[] sortRatings(Wine[] WineList)
+	{	
 		List<Wine> ratedEntries = getRatedWines(WineList);
 	
 		int n = ratedEntries.size();
@@ -164,8 +162,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		}while (counter > 0);
 		
 		Wine[] sortedWines = ratedEntries.toArray(new Wine[ratedEntries.size()]);
-
-		System.out.println(sortedWines.length);
+		
 		return sortedWines;
 	}
 	
@@ -174,7 +171,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		int n = allWines.length;
 		List<Wine> ratedWines = new ArrayList<Wine>();
 		
-		for (int i = 0; i < n; ++i)
+		for (int i = 0; i < n-1; ++i)
 			if (allWines[i].rating != 0)
 				ratedWines.add(allWines[i]);
 		
