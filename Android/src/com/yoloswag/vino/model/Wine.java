@@ -106,6 +106,8 @@ public class Wine
 	}
 
 	public void save() {
+		System.out.println("saving the wine" + Wine.getAll().length);
         DatabaseManager.getInstance().updateWine(this);
+		System.out.println("savasdasding the wine" + Wine.getAll().length);
 	}
 }

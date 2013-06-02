@@ -101,9 +101,10 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				e.wine.addRating(rating.getRating());
 				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
-				e.wine.rating = (double)rating.getRating();
+				//e.wine.rating = (double)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
@@ -114,7 +115,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 		//DatabaseManager.init(this);
 	}
-
+	
+	
 	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
