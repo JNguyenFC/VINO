@@ -62,9 +62,9 @@ public class ViewLogActivity extends Activity {
 				Entry e = new Entry();
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText location = (EditText)findViewById(R.id.location);
-				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-				EditText category = (EditText)findViewById(R.id.category);
-				EditText region = (EditText)findViewById(R.id.region);
+//				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
+//				EditText category = (EditText)findViewById(R.id.category);
+//				EditText region = (EditText)findViewById(R.id.region);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 				EditText comment = (EditText)findViewById(R.id.comments);
 
@@ -75,9 +75,9 @@ public class ViewLogActivity extends Activity {
 				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				
 				e.location = location.getText().toString();
-				e.vintageYear = vintageYear.getText().toString();
-				e.category = category.getText().toString();
-				e.region = region.getText().toString();
+//				e.vintageYear = vintageYear.getText().toString();
+//				e.category = category.getText().toString();
+//				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
