@@ -33,6 +33,14 @@ public class NewEntryActivity extends Activity implements TextWatcher {
   		  "Yellow Tail"
   		};*/
     
+    String categoryList[]={
+	  "Dessert", "Red", "Rose", "Sparkling","White"
+	};
+    String regionList[]={
+	  "Australia", "Burgundy", "California", "Canada", "France", "Germany", 
+	  "Italy", "Portugal", "Spain"
+	};
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +73,14 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    }
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
+	    
+		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.category);
+	    myAutoComplete.addTextChangedListener(this);
+	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
+	    
+		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.region);
+	    myAutoComplete.addTextChangedListener(this);
+	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
 
 		Button b = (Button) button;
 
