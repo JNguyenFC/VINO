@@ -110,14 +110,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/category"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_category"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white" >
+                    <requestFocus />
+                </AutoCompleteTextView>
             </TableRow>
 
             <TableRow
