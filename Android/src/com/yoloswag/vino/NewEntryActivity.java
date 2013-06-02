@@ -91,38 +91,36 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
 
-	    
-	    
+	    // Single-check check boxes for sweet and dry qualities of wine
 	    final CheckBox dry = (CheckBox)findViewById(R.id.dryCheck);
         final CheckBox sweet = (CheckBox)findViewById(R.id.sweetCheck);
 		
         OnCheckedChangeListener checkListener = new OnCheckedChangeListener() {
-        	public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-        		if(isChecked)
+        	public void onCheckedChanged(CompoundButton arg0, boolean isChecked) 
+        	{
+        		if (isChecked)
         		{
-        		  switch(arg0.getId())
-        		  {
-        		    case R.id.dryCheck:
-        		         dry.setChecked(true);
-        		         sweet.setChecked(false);
-        		         break;
-        		    case R.id.sweetCheck:
-        		         sweet.setChecked(true);
-        		         dry.setChecked(false);
-        		         break;
-        		    }
-        		  }
-        		 
+        			switch(arg0.getId())
+        			{
+        		    	case R.id.dryCheck:
+        		    		dry.setChecked(true);
+        		    		sweet.setChecked(false);
+        		    		break;
+        		    	case R.id.sweetCheck:
+        		    		sweet.setChecked(true);
+        		    		dry.setChecked(false);
+        		    		break;
+        		    }	
         		}
+        		 
+        	}
         };
         
 		dry.setOnCheckedChangeListener(checkListener);
-        sweet.setOnCheckedChangeListener(checkListener);
+        sweet.setOnCheckedChangeListener(checkListener); 
 	    
-	    
-	    
-		Button b = (Button) button;
-
+		// Submit button
+        Button b = (Button) button;
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
@@ -186,7 +184,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
-				//save picture
+				// Entry details
 				e.wine = new Wine("", "", "", "", "", "");
 				e.title = title.getText().toString();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
@@ -196,16 +194,13 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				
 				e.wine.name = new Name(producer.getText().toString());
 				e.wine.addRating(rating.getRating());
 				if (dry.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
-
 				//e.wine.rating = (double)rating.getRating();
-
 				
 				e.save();
 				
