@@ -48,7 +48,6 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
-                    android:inputType="number"
                     android:textColorHint="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
@@ -60,7 +59,7 @@
                 android:layout_height="wrap_content" >
 
                 <EditText
-                    android:id="@+id/grapeAutoComplete"
+                    android:id="@+id/varietal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

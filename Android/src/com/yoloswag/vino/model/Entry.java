@@ -26,12 +26,6 @@ public class Entry implements Serializable
 	@DatabaseField
 	public String location;
 	@DatabaseField
-	public String vintageYear;
-	@DatabaseField
-	public String category;
-	@DatabaseField
-	public String region;
-	@DatabaseField
 	public double rating;
 	//@DatabaseField
 	//protected Image image;
@@ -83,7 +77,7 @@ public class Entry implements Serializable
 	}
 	
 	public void destroy() {
-		
+		DatabaseManager.getInstance().deleteEntry(this);
 	}
 	
 	public Bitmap getImage() {

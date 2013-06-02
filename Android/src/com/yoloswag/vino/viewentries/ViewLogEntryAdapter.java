@@ -87,6 +87,9 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		//			Intent intent = new Intent(context, ViewLogActivity.class);
 		//			intent.putExtra("editEntry", entries[arg0]);
 		//			context.startActivity(intent);
+		//Intent intent = new Intent(getContext(), ViewLogActivity.class);
+		//intent.putExtra("editEntry", entry);
+		//getContext().startActivity(intent);
 		//	     }        
 		//	});
 

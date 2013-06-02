@@ -17,7 +17,7 @@ import com.yoloswag.vino.model.Wine;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	// name of the database file for your application -- change to something appropriate for your app
-	private static final String DATABASE_NAME = "VxIxsdfsddNxOdDxB.sqlite";
+	private static final String DATABASE_NAME = "VxIxsdfsdfasdsdsdfsddNxOdDxB.sqlite";
 
 	// any time you make changes to your database objects, you may have to increase the database version
 	private static final int DATABASE_VERSION = 1;
@@ -238,27 +238,27 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		
 	
 
-		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
-		//new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();
-		//a.save();
-		for(int i=0; i<10; i++) {
-			Entry b = new Entry(Wine.a, "title" + i, "France", "yoloswaging it up x" + i, 3);
-			b.save();
-		}
-		
-		Entry.a.save();
-		Entry.b.save();
-		Entry.c.save();
-		Entry.d.save();
-		Entry.e.save();
-		Entry e = new Entry(Wine.c, "title2", "New Zealand", "hi", 1);
-		e.save();
-		Entry d = new Entry(Wine.d, "title3", "California", "WHISTLE GOES WOO WOO", 5);
-		d.save();
-		Entry c = new Entry(Wine.a, "title4", "France", "If you see this it doesn't work ]:", 3);
-		c.save();
-		c.comment = "If you see this then it works [:";
-		c.save();
+//		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
+//		//new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();
+//		//a.save();
+//		for(int i=0; i<10; i++) {
+//			Entry b = new Entry(Wine.a, "title" + i, "France", "yoloswaging it up x" + i, 3);
+//			b.save();
+//		}
+//		
+//		Entry.a.save();
+//		Entry.b.save();
+//		Entry.c.save();
+//		Entry.d.save();
+//		Entry.e.save();
+//		Entry e = new Entry(Wine.c, "title2", "New Zealand", "hi", 1);
+//		e.save();
+//		Entry d = new Entry(Wine.d, "title3", "California", "WHISTLE GOES WOO WOO", 5);
+//		d.save();
+//		Entry c = new Entry(Wine.a, "title4", "France", "If you see this it doesn't work ]:", 3);
+//		c.save();
+//		c.comment = "If you see this then it works [:";
+//		c.save();
 	}
 
 	@Override

@@ -30,6 +30,8 @@ public class DiaryItemView extends LinearLayout {
 		super(context);
 		LayoutInflater inflater = LayoutInflater.from(context);
 		inflater.inflate(R.layout.view_diary_entry, this, true);
+		
+		
 	}
 
 	public static DiaryItemView build(Context context) {
@@ -63,7 +65,8 @@ public class DiaryItemView extends LinearLayout {
 				iv.post(new Runnable() {
 					@Override
 					public void run() {
-						iv.setImageBitmap(bitmap);
+//						iv.setImageBitmap(bitmap);
+						iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
 			}
@@ -108,6 +111,14 @@ public class DiaryItemView extends LinearLayout {
 				View elem3 = vG.findViewById(R.id.entry_title);
 				View elem4 = vG.findViewById(R.id.line);
 				View editBut = vG.findViewById(R.id.editText01);
+				/*
+				editBut.setOnClickListener(new OnClickListener(){
+					public void onClick(View v){
+						//edit stuff
+						
+					}
+				});
+				*/
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
@@ -118,7 +129,7 @@ public class DiaryItemView extends LinearLayout {
 				 	// TODO Auto-generated method stub
                                 entry.destroy();
 					     }
-			    });   
+			    });
 				if(v == vG.findViewById(R.id.entry_image)) {
 					elem.startAnimation(animationFadeIn);
 					elem2.startAnimation(animationFadeIn);
@@ -159,6 +170,8 @@ public class DiaryItemView extends LinearLayout {
 				}
 			}
 		}; 
+		
+
 
 		// Make description appear on click
 		iv.setOnClickListener(handler);
@@ -166,4 +179,6 @@ public class DiaryItemView extends LinearLayout {
 		textview_entry_comment.setOnClickListener(handler);
 		textview_entry_title.setOnClickListener(handler);
 	}
+	
+	
 }
