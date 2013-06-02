@@ -10,7 +10,7 @@ import java.util.List;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.main.VINOActivity;
 import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.util.Util;
+//import com.yoloswag.vino.util.Util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,11 +24,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+//import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.Toast;
+//import android.widget.RatingBar;
+//import android.widget.Toast;
 
 /**
  * @author tiffany
@@ -76,26 +76,27 @@ public class NewEntryFragment extends Fragment {
 				// TODO Auto-generated method stub
 				Entry e = new Entry();
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
+				/*
 				EditText location = (EditText)rootView.findViewById(R.id.location);
 				EditText vintageYear = (EditText)rootView.findViewById(R.id.vintageYear);
 				EditText category = (EditText)rootView.findViewById(R.id.category);
 				EditText region = (EditText)rootView.findViewById(R.id.region);
 				RatingBar rating = (RatingBar)rootView.findViewById(R.id.rating);
 				EditText comment = (EditText)rootView.findViewById(R.id.comments);
-
+*/
 				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save picture
-				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
+//				String uri = Util.getOutputMediaFileUri().toString();// Getting URI
 				
-				e.location = location.getText().toString();
+//				e.location = location.getText().toString();
 //				e.vintageYear = vintageYear.getText().toString();
 //				e.category = category.getText().toString();
 //				e.region = region.getText().toString();
-				e.comment = comment.getText().toString();
+//				e.comment = comment.getText().toString();
 //				e.rating = (int)rating.getRating();
-				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+//				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
 				((VINOActivity)getActivity()).onSubmit();
