@@ -12,9 +12,12 @@ import android.widget.ArrayAdapter;
 
 @TouchThisAndIWillFuckingKillYou
 public class DiaryAdapter extends ArrayAdapter<Entry> {
+	
+	private DiaryFragment diary;
 
-	public DiaryAdapter(Context context, int resource, ArrayList<Entry> lst) {
+	public DiaryAdapter(Context context, int resource, ArrayList<Entry> lst, DiaryFragment diary) {
 		super(context, resource, lst);
+		this.diary = diary;
 	}
 	
     @Override
@@ -26,7 +29,7 @@ public class DiaryAdapter extends ArrayAdapter<Entry> {
         	diaryItemView = (DiaryItemView)convertView;
         }
         
-        diaryItemView.bind(getItem(position), parent);
+        diaryItemView.bind(getItem(position), parent, diary);
 
         return diaryItemView;
     }

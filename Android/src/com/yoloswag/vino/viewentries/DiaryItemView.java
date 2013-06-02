@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.app.Fragment;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -30,15 +31,15 @@ public class DiaryItemView extends LinearLayout {
 		super(context);
 		LayoutInflater inflater = LayoutInflater.from(context);
 		inflater.inflate(R.layout.view_diary_entry, this, true);
-		
-		
+
+
 	}
 
 	public static DiaryItemView build(Context context) {
 		return new DiaryItemView(context);
 	}
 
-	public void bind(final Entry entry, ViewGroup parent) {
+	public void bind(final Entry entry, ViewGroup parent, final DiaryFragment diary) {
 		final ImageView iv = (ImageView) findViewById(R.id.entry_image);
 
 		// Sets photo to be displayed to fill the screen relative to any phone
@@ -65,7 +66,7 @@ public class DiaryItemView extends LinearLayout {
 				iv.post(new Runnable() {
 					@Override
 					public void run() {
-//						iv.setImageBitmap(bitmap);
+						//						iv.setImageBitmap(bitmap);
 						iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
@@ -115,21 +116,22 @@ public class DiaryItemView extends LinearLayout {
 				editBut.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
 						//edit stuff
-						
+
 					}
 				});
-				*/
+				 */
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
 				Button delete_but = (Button) vG.findViewById(R.id.deleteEntry);
 				delete_but.setOnClickListener(new View.OnClickListener() {
-						@Override
-						public void onClick(View v) {
-				 	// TODO Auto-generated method stub
-                                entry.destroy();
-					     }
-			    });
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						entry.destroy();
+						diary.updateData();
+					}
+				});
 				if(v == vG.findViewById(R.id.entry_image)) {
 					elem.startAnimation(animationFadeIn);
 					elem2.startAnimation(animationFadeIn);
@@ -170,7 +172,7 @@ public class DiaryItemView extends LinearLayout {
 				}
 			}
 		}; 
-		
+
 
 
 		// Make description appear on click
@@ -179,6 +181,6 @@ public class DiaryItemView extends LinearLayout {
 		textview_entry_comment.setOnClickListener(handler);
 		textview_entry_title.setOnClickListener(handler);
 	}
-	
-	
+
+
 }
