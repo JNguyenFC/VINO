@@ -76,10 +76,10 @@ public class Entry implements Serializable
         	wine.save();
         
         // getting timestamp
-        Calendar c = Calendar.getInstance();
+        //Calendar c = Calendar.getInstance();
         //SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         //postDate = df.format(c.getTime());
-        postDate = DateFormat.getDateTimeInstance().format(c.getTime());
+        //postDate = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(c.getTime());
         
         /*String myDate = new String("your date");
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -90,6 +90,15 @@ public class Entry implements Serializable
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
+        
+        Date today;
+//        //String dateOut;
+        DateFormat dateFormatter;
+
+        dateFormatter = DateFormat.getDateInstance();
+        today = new Date();
+        postDate = dateFormatter.format(today);
+//        System.out.println("POSTDATE: " + postDate);
 
         DatabaseManager.getInstance().updateEntry(this);
 	}

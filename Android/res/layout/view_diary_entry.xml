@@ -70,15 +70,15 @@
         android:gravity="bottom|center"
         android:paddingBottom="24dp"
         android:text="wine details"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textColor="#dd222222"
         android:visibility="invisible" />
 
     <TextView
         android:id="@+id/entry_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:paddingTop="30dp"
         android:text="entry title"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -89,35 +89,35 @@
     
     <TextView
         android:id="@+id/entry_postDate"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:paddingTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/entry_title"
+        android:layout_centerHorizontal="true"
         android:text="entry postDate"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#000000"
+        android:textSize="10sp"
+        android:textColor="#dd222222"
         android:visibility="invisible" />
 
     <View
         android:id="@+id/line"
         android:layout_width="300dp"
-        android:layout_height="1dp"
-        android:layout_below="@id/entry_title"
+        android:layout_height=".5dp"
+        android:layout_below="@+id/entry_postDate"
         android:layout_centerHorizontal="true"
         android:background="#f0000000"
         android:visibility="invisible" />
 
     <TextView
         android:id="@+id/entry_comment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/entry_title"
-        android:gravity="center"
-        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:text="entry comment"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp"
         android:textColor="#000000"
-        android:visibility="invisible" />
+        android:visibility="invisible" /> 
 
     <Button
         android:id="@+id/deleteEntry"

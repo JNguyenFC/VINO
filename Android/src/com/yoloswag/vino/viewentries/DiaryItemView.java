@@ -82,12 +82,12 @@ public class DiaryItemView extends LinearLayout {
 
 		TextView textview_varietal = (TextView) findViewById(R.id.varietal_name);
 		textview_varietal.setText(entry.wine.varietal.varietal_name);
-
-		TextView textview_entry_postDate = (TextView) findViewById(R.id.entry_postDate);
-		textview_entry_postDate.setText(entry.postDate);
 		
 		TextView textview_entry_title = (TextView) findViewById(R.id.entry_title);
 		textview_entry_title.setText(entry.title);
+		
+		TextView textview_entry_postDate = (TextView) findViewById(R.id.entry_postDate);
+		textview_entry_postDate.setText(entry.postDate);
 
 		TextView textview_entry_comment = (TextView) findViewById(R.id.entry_comment);
 		textview_entry_comment.setText(entry.comment);
