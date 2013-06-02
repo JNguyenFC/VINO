@@ -94,7 +94,7 @@ public class NewEntryFragment extends Fragment {
 //				e.category = category.getText().toString();
 //				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
-				e.rating = (int)rating.getRating();
+//				e.rating = (int)rating.getRating();
 				e.uri = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();

@@ -19,7 +19,7 @@
 
         <!-- Suggestion 1 -->
 
-         <RelativeLayout
+        <RelativeLayout
             android:id="@+id/relativelayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
@@ -28,11 +28,11 @@
                 android:id="@+id/icon1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="40dp"
                 android:adjustViewBounds="true"
                 android:maxHeight="100dp"
                 android:minHeight="100dp"
-                android:paddingRight="10dp" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/name1"
@@ -41,8 +41,7 @@
                 android:layout_alignBottom="@+id/icon1"
                 android:layout_alignTop="@+id/icon1"
                 android:gravity="center"
-                android:paddingRight="10dp"
-                android:paddingTop="20dp"
+                android:paddingRight="10dp" 
                 android:textColor="#FFFFFF" />
         </RelativeLayout>
 
@@ -57,11 +56,11 @@
                 android:id="@+id/icon2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="40dp"
                 android:adjustViewBounds="true"
                 android:maxHeight="100dp"
                 android:minHeight="100dp"
-                android:paddingRight="10dp" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/name2"
@@ -71,13 +70,12 @@
                 android:layout_alignTop="@+id/icon2"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:paddingTop="20dp"
                 android:textColor="#FFFFFF" />
         </RelativeLayout>
 
         <!-- Suggestion 3 -->
 
-         <RelativeLayout
+        <RelativeLayout
             android:id="@+id/relativelayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
@@ -86,11 +84,11 @@
                 android:id="@+id/icon3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="40dp"
                 android:adjustViewBounds="true"
                 android:maxHeight="100dp"
                 android:minHeight="100dp"
-                android:paddingRight="10dp" />
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/name3"
@@ -100,13 +98,12 @@
                 android:layout_alignTop="@+id/icon3"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:paddingTop="20dp"
                 android:textColor="#FFFFFF" />
         </RelativeLayout>
 
         <!-- Suggestion 4 -->
 
-         <RelativeLayout
+        <RelativeLayout
             android:id="@+id/relativelayout"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
@@ -115,11 +112,11 @@
                 android:id="@+id/icon4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="40dp"
                 android:adjustViewBounds="true"
                 android:maxHeight="100dp"
-                android:minHeight="100dp"
-                android:paddingRight="10dp" />
+                android:minHeight="100dp" 
+                android:gravity="center"/>
 
             <TextView
                 android:id="@+id/name4"
@@ -129,7 +126,6 @@
                 android:layout_alignTop="@+id/icon4"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:paddingTop="20dp"
                 android:textColor="#FFFFFF" />
         </RelativeLayout>
     </LinearLayout>

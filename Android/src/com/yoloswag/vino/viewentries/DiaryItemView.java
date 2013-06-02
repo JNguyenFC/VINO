@@ -95,7 +95,7 @@ public class DiaryItemView extends LinearLayout {
 				"Vintage: " + entry.wine.vintage.year + "\n" +
 				"Region: " + entry.wine.region.region + "\n"+
 				"Category: " + entry.wine.category.category + "\n" +
-				"Rating: " + entry.rating
+				"Rating: " + entry.wine.rating
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
 

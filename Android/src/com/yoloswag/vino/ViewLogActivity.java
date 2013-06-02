@@ -79,7 +79,7 @@ public class ViewLogActivity extends Activity {
 //				e.category = category.getText().toString();
 //				e.region = region.getText().toString();
 				e.comment = comment.getText().toString();
-				e.rating = (int)rating.getRating();
+//				e.rating = (int)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();

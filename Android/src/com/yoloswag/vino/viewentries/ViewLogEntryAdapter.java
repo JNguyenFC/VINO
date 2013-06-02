@@ -119,7 +119,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				"Vintage: " + entries[arg0].wine.vintage.year + "\n" +
 				"Region: " + entries[arg0].wine.region.region + "\n"+
 				"Category: " + entries[arg0].wine.category.category + "\n" +
-				"Rating: " + entries[arg0].rating
+				"Rating: " + entries[arg0].wine.rating
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(arg2.getWidth(), arg2.getHeight()));
 
