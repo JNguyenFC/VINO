@@ -26,6 +26,8 @@ import android.widget.RatingBar;
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
     AutoCompleteTextView myAutoComplete;
+    AutoCompleteTextView myAutoComplete2;
+    AutoCompleteTextView myAutoComplete3;
 
     /*String producerList[]={
   		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
@@ -74,13 +76,13 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 	    
-		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.category);
-	    myAutoComplete.addTextChangedListener(this);
-	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
+		myAutoComplete2 = (AutoCompleteTextView)findViewById(R.id.category);
+	    myAutoComplete2.addTextChangedListener(this);
+	    myAutoComplete2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
 	    
-		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.region);
-	    myAutoComplete.addTextChangedListener(this);
-	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
+		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
+	    myAutoComplete3.addTextChangedListener(this);
+	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
 
 		Button b = (Button) button;
 

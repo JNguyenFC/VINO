@@ -83,6 +83,9 @@ public class DiaryItemView extends LinearLayout {
 		TextView textview_varietal = (TextView) findViewById(R.id.varietal_name);
 		textview_varietal.setText(entry.wine.varietal.varietal_name);
 
+		TextView textview_entry_postDate = (TextView) findViewById(R.id.entry_postDate);
+		textview_entry_postDate.setText(entry.postDate);
+		
 		TextView textview_entry_title = (TextView) findViewById(R.id.entry_title);
 		textview_entry_title.setText(entry.title);
 
@@ -110,6 +113,7 @@ public class DiaryItemView extends LinearLayout {
 				View elem = vG.findViewById(R.id.entry_details);
 				View elem2 = vG.findViewById(R.id.entry_comment);
 				View elem3 = vG.findViewById(R.id.entry_title);
+				View elem35 = vG.findViewById(R.id.entry_postDate);
 				View elem4 = vG.findViewById(R.id.line);
 				View editBut = vG.findViewById(R.id.editText01);
 				/*
@@ -136,10 +140,12 @@ public class DiaryItemView extends LinearLayout {
 					elem.startAnimation(animationFadeIn);
 					elem2.startAnimation(animationFadeIn);
 					elem3.startAnimation(animationFadeIn);
+					elem35.startAnimation(animationFadeIn);
 					elem4.startAnimation(animationFadeIn);			
 					elem.setVisibility(RelativeLayout.VISIBLE);
 					elem2.setVisibility(RelativeLayout.VISIBLE);
 					elem3.setVisibility(RelativeLayout.VISIBLE);
+					elem35.setVisibility(RelativeLayout.VISIBLE);
 					elem4.setVisibility(RelativeLayout.VISIBLE);
 					editBut.setVisibility(RelativeLayout.VISIBLE);
 					delete_but.setVisibility(RelativeLayout.VISIBLE);					
@@ -155,10 +161,12 @@ public class DiaryItemView extends LinearLayout {
 					elem.startAnimation(animationFadeOut);
 					elem2.startAnimation(animationFadeOut);
 					elem3.startAnimation(animationFadeOut);
+					elem35.startAnimation(animationFadeOut);
 					elem4.startAnimation(animationFadeOut);				
 					elem.setVisibility(RelativeLayout.INVISIBLE);
 					elem2.setVisibility(RelativeLayout.INVISIBLE);
 					elem3.setVisibility(RelativeLayout.INVISIBLE);
+					elem35.setVisibility(RelativeLayout.INVISIBLE);
 					elem4.setVisibility(RelativeLayout.INVISIBLE);
 					editBut.setVisibility(RelativeLayout.INVISIBLE);
 					delete_but.setVisibility(RelativeLayout.INVISIBLE);
@@ -180,6 +188,7 @@ public class DiaryItemView extends LinearLayout {
 		textview_entry_details.setOnClickListener(handler);
 		textview_entry_comment.setOnClickListener(handler);
 		textview_entry_title.setOnClickListener(handler);
+		textview_entry_postDate.setOnClickListener(handler);
 	}
 
 

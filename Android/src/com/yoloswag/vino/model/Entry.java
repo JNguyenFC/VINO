@@ -2,6 +2,10 @@ package com.yoloswag.vino.model;
 import java.io.Serializable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +34,8 @@ public class Entry implements Serializable
     @DatabaseField(foreign=true,foreignAutoRefresh=true)
 	public Wine wine;
 	@DatabaseField
-	public Date postDate;
+	//public Date postDate;
+	public String postDate;
 	@DatabaseField
 	public String uri;
 	
@@ -69,6 +74,23 @@ public class Entry implements Serializable
 		//stop whineing
         if(wine != null)
         	wine.save();
+        
+        // getting timestamp
+        Calendar c = Calendar.getInstance();
+        //SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //postDate = df.format(c.getTime());
+        postDate = DateFormat.getDateTimeInstance().format(c.getTime());
+        
+        /*String myDate = new String("your date");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+			postDate = format.parse(myDate);
+	        postDate.getTime(); //fetch the time as milliseconds from Jan 1, 1970
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+
         DatabaseManager.getInstance().updateEntry(this);
 	}
 	
