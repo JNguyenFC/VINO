@@ -10,7 +10,8 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:adjustViewBounds="true"
-       android:scaleType="centerCrop" />
+       android:scaleType="centerCrop"
+       android:alpha=".75" />
     
     <ScrollView
         android:layout_width="fill_parent"
@@ -124,34 +125,6 @@
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
-
-            
-            <TableRow
-                android:id="@+id/tableRow8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-              
-               <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-               
-               <CheckBox
-                   android:id="@+id/dryCheck"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_marginRight="30dp"
-                   android:hint="@string/dry"
-                   android:textColorHint="@color/white" />
-
-                <CheckBox
-                    android:id="@+id/sweetCheck"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/sweet"
-                    android:textColorHint="@color/white" />
-                </LinearLayout>
-            </TableRow>
             
             <TableRow
                 android:id="@+id/tableRow9"
@@ -199,7 +172,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
             </TableRow>
+                        
+            <TableRow
+                android:id="@+id/tableRow8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+              
+               <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" >
+               
+               <CheckBox
+                   android:id="@+id/dryCheck"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_marginRight="30dp"
+                   android:hint="@string/dry"
+                   android:textColorHint="@color/white" />
 
+                <CheckBox
+                    android:id="@+id/sweetCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sweet"
+                    android:textColorHint="@color/white" />
+                </LinearLayout>
+            </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow14"
