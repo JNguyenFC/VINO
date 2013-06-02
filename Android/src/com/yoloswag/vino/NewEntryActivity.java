@@ -97,12 +97,39 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
+				EditText location = (EditText)findViewById(R.id.location);
+				EditText comment = (EditText)findViewById(R.id.comments);
+				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
+				RatingBar rating = (RatingBar)findViewById(R.id.rating);
+
+				//check if a producer has been entered
+				if(producer.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine producer.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				//check if a wine varietal has been entered
+				if(varietal.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine varietal.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+
+				//check if a vintage year has been entered
+				if(vintageYear.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter a vintage year.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
 				//check if valid year
 				if(vintageYear.getText().toString().length() != 4)
 				{
 					Toast.makeText(NewEntryActivity.this, "You didn't enter a valid year", Toast.LENGTH_SHORT).show();
 					return;
 				}
+				
 				//check if year has occurred yet
 				int year = Integer.valueOf(vintageYear.getText().toString());
 				Calendar calendar = Calendar.getInstance();
@@ -112,11 +139,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					Toast.makeText(NewEntryActivity.this, "That year hasn't occurred yet!", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				EditText location = (EditText)findViewById(R.id.location);
-				EditText comment = (EditText)findViewById(R.id.comments);
-				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
-				RatingBar rating = (RatingBar)findViewById(R.id.rating);
-
+				
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save picture
