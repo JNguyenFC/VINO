@@ -3,10 +3,12 @@ package com.yoloswag.vino.viewentries;
 import java.util.Random;
 
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.ViewLogActivity;
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -34,7 +36,7 @@ public class DiaryItemView extends LinearLayout {
 		return new DiaryItemView(context);
 	}
 
-	public void bind(Entry entry, ViewGroup parent) {
+	public void bind(final Entry entry, ViewGroup parent) {
 		final ImageView iv = (ImageView) findViewById(R.id.entry_image);
 
 		// Sets photo to be displayed to fill the screen relative to any phone
@@ -110,6 +112,13 @@ public class DiaryItemView extends LinearLayout {
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
 				Button delete_but = (Button) vG.findViewById(R.id.deleteEntry);
+				delete_but.setOnClickListener(new View.OnClickListener() {
+						@Override
+						public void onClick(View v) {
+				 	// TODO Auto-generated method stub
+                                entry.destroy();
+					     }
+			    });   
 				if(v == vG.findViewById(R.id.entry_image)) {
 					elem.startAnimation(animationFadeIn);
 					elem2.startAnimation(animationFadeIn);
