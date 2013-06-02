@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.view.View.OnClickListener;
 import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
-import com.yoloswag.vino.model.*;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -51,9 +49,9 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
-		//final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = this.findViewById(R.id.new_entry_button);
 
+        // Preview of captured image
 	    FileInputStream in;
 		try {
 			String name = this.getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
@@ -122,7 +120,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
         		    		break;
         		    }	
         		}
-        		 
         	}
         };
         

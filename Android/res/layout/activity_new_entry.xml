@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/newEntryFragment"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/newEntrylayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/wood1"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:scrollbars="none" >
+    android:orientation="vertical" >
 
+    <ImageView
+       android:id="@+id/image"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:adjustViewBounds="true"
+       android:scaleType="centerCrop" />
+    
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -38,19 +39,21 @@
             </TableRow>
             
             <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:gravity="center_horizontal" >
+                android:id="@+id/tableRow13"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop" />
+                <EditText
+                    android:id="@+id/comments"
+                    android:layout_width="fill_parent"
+                    android:layout_height="70dp"
+                    android:ems="13"
+                    android:gravity="top|left|center_vertical"
+                    android:hint="@string/newEntry_comment"
+                    android:inputType="textMultiLine"
+                    android:textColorHint="@color/white" />
             </TableRow>
+
 
             <TableRow
                 android:id="@+id/tableRow10"
@@ -104,31 +107,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
             </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <AutoCompleteTextView
-                    android:id="@+id/category"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="0dip"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/newEntry_category"
-                    android:textColorHint="@color/white" >
-                    <requestFocus />
-                </AutoCompleteTextView>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-            </TableRow>
-
             <TableRow
                 android:id="@+id/tableRow7"
                 android:layout_width="wrap_content"
@@ -192,25 +170,29 @@
             </TableRow>
             
             <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:hint="@string/newEntry_category"
+                    android:textColorHint="@color/white" >
+                    <requestFocus />
+                </AutoCompleteTextView>
+            </TableRow>
+            
+            <TableRow
                 android:id="@+id/tableRow10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
             </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <EditText
-                    android:id="@+id/location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/newEntry_location"
-                    android:textColorHint="@color/white" />
-            </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow12"
@@ -218,21 +200,6 @@
                 android:layout_height="wrap_content" >
             </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow13"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
-
-                <EditText
-                    android:id="@+id/comments"
-                    android:layout_width="fill_parent"
-                    android:layout_height="70dp"
-                    android:ems="13"
-                    android:gravity="top|left|center_vertical"
-                    android:hint="@string/newEntry_comment"
-                    android:inputType="textMultiLine"
-                    android:textColorHint="@color/white" />
-            </TableRow>
 
             <TableRow
                 android:id="@+id/tableRow14"
@@ -284,4 +251,4 @@
         </TableLayout>
     </ScrollView>
 
-</LinearLayout>
+</RelativeLayout>
