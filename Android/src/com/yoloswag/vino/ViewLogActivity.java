@@ -62,9 +62,9 @@ public class ViewLogActivity extends Activity {
 				Entry e = new Entry();
 				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText location = (EditText)findViewById(R.id.location);
-				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-				EditText category = (EditText)findViewById(R.id.category);
-				EditText region = (EditText)findViewById(R.id.region);
+//				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
+//				EditText category = (EditText)findViewById(R.id.category);
+//				EditText region = (EditText)findViewById(R.id.region);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 				EditText comment = (EditText)findViewById(R.id.comments);
 
