@@ -3,6 +3,10 @@ package com.yoloswag.vino;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import java.util.Calendar;
+
+import com.yoloswag.vino.model.*;
+import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,6 +19,13 @@ import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.yoloswag.vino.model.*;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
@@ -128,6 +139,51 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
 
+				//check if a producer has been entered
+				if(producer.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine producer.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				//check if a wine varietal has been entered
+				if(varietal.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine varietal.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				//check if region has been entered
+				if(region.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine region.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+
+				//check if a vintage year has been entered
+				if(vintageYear.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter a vintage year.", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				//check if valid year
+				if(vintageYear.getText().toString().length() != 4)
+				{
+					Toast.makeText(NewEntryActivity.this, "You didn't enter a valid year", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
+				//check if year has occurred yet
+				int year = Integer.valueOf(vintageYear.getText().toString());
+				Calendar calendar = Calendar.getInstance();
+				int currentYear = calendar.get(Calendar.YEAR);
+				if(year > currentYear)
+				{
+					Toast.makeText(NewEntryActivity.this, "That year hasn't occurred yet!", Toast.LENGTH_SHORT).show();
+					return;
+				}
+				
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save picture
@@ -140,6 +196,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				
 				e.wine.name = new Name(producer.getText().toString());
 				e.wine.addRating(rating.getRating());
 				if (dry.isChecked())
