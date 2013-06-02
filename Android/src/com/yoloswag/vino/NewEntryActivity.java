@@ -7,7 +7,11 @@ import java.util.List;
 
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.main.VINOActivity;
+import com.yoloswag.vino.model.Category;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Region;
+import com.yoloswag.vino.model.Varietal;
+import com.yoloswag.vino.model.Vintage;
 import com.yoloswag.vino.model.Wine;
 import com.yoloswag.vino.util.Util;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
@@ -39,8 +43,13 @@ import android.widget.RatingBar;
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
     AutoCompleteTextView myAutoComplete;
-    List<String> producers = new ArrayList<String>();
-    List<Wine> temp = new ArrayList<Wine>();
+    //List<String> producers = new ArrayList<String>();
+    //List<Wine> temp = new ArrayList<Wine>();
+    /*String producerList[]={
+  		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
+  		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
+  		  "Yellow Tail"
+  		};*/
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -63,20 +72,27 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		}        
 		
 		//DatabaseManager wines;
+		//temp = wines.getAllWines();
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
-	    //temp = wines.getAllWines();
+
 	    myAutoComplete.addTextChangedListener(this);
 	    
+
+	    //String[] producerList = producers.toArray(new String[producers.size()]);
+	    
+	    Wine[] wineList = Wine.getAll();
+	    String[] producerList = new String[wineList.length];
+	    
+	    for(int i = 0; i < wineList.length; ++i)
+	    {
+	    	producerList[i] = wineList[i].name.toString();
+	    }
+	    /*
 	    for(int i = 0; i < temp.size(); ++i)
 	    {
 	    	producers.add(temp.get(i).producer.producer);
-	    }
-	    //String[] producerList = producers.toArray(new String[producers.size()]);
-	    String producerList[]={
-	    		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
-	    		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
-	    		  "Yellow Tail"
-	    		};
+	    }*/
+
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 
 		Button b = (Button) button;
@@ -86,30 +102,27 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			public void onClick(View arg1) {
 				// TODO Auto-generated method stub
 				Entry e = new Entry();
-				//EditText title = (EditText)rootView.findViewById(R.id.grapeAutoComplete);
 				EditText category = (EditText)findViewById(R.id.category);
 				EditText region = (EditText)findViewById(R.id.region);
+				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
 				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
-				//e.title = title.getText().toString();
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
-				//save picture 
-				//String uri = Util.getOutputMediaFileUri().toString();// Getting URI
-				
-				e.category = category.getText().toString();
-				e.region = region.getText().toString();
-				e.vintageYear = vintageYear.getText().toString();
+				//save picture 		
+				e.wine.category = new Category(category.getText().toString());
+				e.wine.region = new Region(region.getText().toString());
+				e.wine.varietal = new Varietal(varietal.getText().toString());
+				e.wine.vintage = new Vintage(vintageYear.getText().toString());
 				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
-				//((VINOActivity)this.getActivity()).onSubmit();
 				
 				finish();
 			}

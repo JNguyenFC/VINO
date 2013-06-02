@@ -1,5 +1,7 @@
 package com.yoloswag.vino.viewentries;
 
+import java.util.ArrayList;
+
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
 
@@ -11,8 +13,8 @@ import android.widget.ArrayAdapter;
 @TouchThisAndIWillFuckingKillYou
 public class DiaryAdapter extends ArrayAdapter<Entry> {
 
-	public DiaryAdapter(Context context, int resource, Entry[] objects) {
-		super(context, resource, objects);
+	public DiaryAdapter(Context context, int resource, ArrayList<Entry> lst) {
+		super(context, resource, lst);
 	}
 	
     @Override

@@ -36,7 +36,7 @@ public class DiaryItemView extends LinearLayout {
 		return new DiaryItemView(context);
 	}
 
-	public void bind(Entry entry, ViewGroup parent) {
+	public void bind(final Entry entry, ViewGroup parent) {
 		final ImageView iv = (ImageView) findViewById(R.id.entry_image);
 
 		// Sets photo to be displayed to fill the screen relative to any phone
@@ -63,7 +63,8 @@ public class DiaryItemView extends LinearLayout {
 				iv.post(new Runnable() {
 					@Override
 					public void run() {
-						iv.setImageBitmap(bitmap);
+//						iv.setImageBitmap(bitmap);
+						iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
 			}
