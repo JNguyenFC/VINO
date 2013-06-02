@@ -115,6 +115,13 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					Toast.makeText(NewEntryActivity.this, "You need to enter the wine varietal.", Toast.LENGTH_SHORT).show();
 					return;
 				}
+				
+				//check if region has been entered
+				if(region.getText().toString().matches(""))
+				{
+					Toast.makeText(NewEntryActivity.this, "You need to enter the wine region.", Toast.LENGTH_SHORT).show();
+					return;
+				}
 
 				//check if a vintage year has been entered
 				if(vintageYear.getText().toString().matches(""))
