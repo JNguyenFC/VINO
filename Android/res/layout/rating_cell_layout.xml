@@ -16,24 +16,7 @@
         android:textSize="22sp"
         android:text="FAVORITE WINE NAME" />
 
-     <!--   <RatingBar
-        android:id="@+id/ratingBar1"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:isIndicator="true"
-        android:max="5"
-        android:numStars="5" 
-        android:layout_alignParentRight="true" /> -->
-        
-<!--       <RatingBar 
-      android:id="@+id/wineRatingBar"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:numStars="5"
-      android:rating="3.5"
-      android:isIndicator="false"
-      style="@style/wineRatingBar"    />   --> 
+
       
     <RatingBar
         android:id="@+id/wineRatingBar"
@@ -43,6 +26,7 @@
         android:isIndicator="true"
         android:max="5"
         android:numStars="5" 
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:paddingLeft="10dp" />
 
 </LinearLayout>
