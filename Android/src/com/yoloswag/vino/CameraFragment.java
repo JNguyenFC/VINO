@@ -1,12 +1,9 @@
 package com.yoloswag.vino;
 
-import java.io.File;
+
 import java.io.FileOutputStream;
 
 import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.newentry.NewEntryFragment;
-import com.yoloswag.vino.main.VINOActivity;
-import com.yoloswag.vino.util.Util;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,14 +16,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 
 public class CameraFragment extends Fragment {
 
