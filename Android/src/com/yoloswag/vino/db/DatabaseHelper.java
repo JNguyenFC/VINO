@@ -17,7 +17,7 @@ import com.yoloswag.vino.model.Wine;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	// name of the database file for your application -- change to something appropriate for your app
-	private static final String DATABASE_NAME = "VxIxsdfsdfasdsdsdfasdasdsddNxOdDxB.sqlite";
+	private static final String DATABASE_NAME = "VxIxasdsdxB.sqlite";
 
 	// any time you make changes to your database objects, you may have to increase the database version
 	private static final int DATABASE_VERSION = 1;
@@ -41,8 +41,10 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		} catch (java.sql.SQLException e) {
 			e.printStackTrace();
 		}
-		
-		{
+
+		Wine.a.save();
+
+		//{
 			// Here is your example @Jasmine
 			// (Some of these details are made up)
 			// The wine we are inserting for this example is:
@@ -67,7 +69,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 //			// Save the wine to the db
 //			example.save();
 //			
-			
+			/*
 			Wine barefoot1  = new Wine("Barefoot", "Chardonnay", "White", "California", "Dry", "2000");
 			Wine barefoot2  = new Wine("Barefoot", "Cabernet Sauvignon", "Red", "California", "Dry", "2000");
 			Wine barefoot3  = new Wine("Barefoot", "Impression, Red Blend", "Red", "California", "Dry", "2000");
@@ -234,9 +236,9 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			cupcake2.addRating(3);
 			cupcake2.save(); cupcake4.save(); cupcake6.save(); 
 			
-		}
-		
-	
+		}*/
+
+
 
 //		//Wine a = new Wine("Castello Banfi", "Italy", "2008", 12.9, "red", "Chianti", "dry");
 //		//new Wine("Chardonnay", "USA","2013",3,"white","Barefoot","dry").save();

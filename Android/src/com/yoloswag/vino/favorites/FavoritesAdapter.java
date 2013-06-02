@@ -56,8 +56,9 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
+		System.out.println("asdasd" + groupPosition);
 			sugPos = groupPosition;
-			
+
 			LinearLayout linearLayout = new LinearLayout(context);
 			linearLayout.setId(345+groupPosition);
 
@@ -65,17 +66,17 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			FragmentTransaction ft = fm.beginTransaction();
 			ft.replace(345+groupPosition, new SuggestionsFragment());
 			ft.commit();
-			
+
 			return linearLayout;
 	}
 
 	@Override
 	public int getChildrenCount(int groupPosition) 
 	{
-		// So that last favorite wine's suggestions are visible
-		if (groupPosition == favoriteWines.length - 1)
-			return 2;
-		else
+//		// So that last favorite wine's suggestions are visible
+//		if (groupPosition == favoriteWines.length - 1)
+//			return 2;
+//		else
 			return 1;
 	}
 
@@ -96,7 +97,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		return groupPosition;
 	}
-	
+
     @Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
@@ -104,23 +105,23 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		// Inflating a View takes the layout XML, creates the View specified
 		//   within, and then adds the View to another ViewGroup --
 		//   this displays the RatingBar indicator for each favorite Wine
-		
+
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
-		
+
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
 		textview.setTextSize(18);
 		textview.setText(favoriteWines[groupPosition].vintage.year + 
 				" " + favoriteWines[groupPosition].name.producer + " " + 
 				favoriteWines[groupPosition].varietal.varietal_name +
 				", " + favoriteWines[groupPosition].region.region);
-		
+
 		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);
 		bar.setRating((float)favoriteWines[groupPosition].rating);
 		bar.setIsIndicator(true);
 		bar.setPadding(0, 20, 0, 20);
-		
+
 		return v;
 	} 
 
@@ -135,14 +136,15 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	{
 		return true;
 	}
-	
-	private static Wine[] sortRatings(Wine[] WineList)
-	{	
+
+	static Wine[] sortRatings(Wine[] WineList)
+	{
+		System.out.println(WineList.length);
 		List<Wine> ratedEntries = getRatedWines(WineList);
-	
+
 		int n = ratedEntries.size();
 		Wine temp = null;
-		
+
 		int counter = 0;
 		do
 		{
@@ -160,21 +162,22 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			}
 
 		}while (counter > 0);
-		
+
 		Wine[] sortedWines = ratedEntries.toArray(new Wine[ratedEntries.size()]);
-		
+
+		System.out.println(sortedWines.length);
 		return sortedWines;
 	}
-	
+
 	private static List<Wine> getRatedWines (Wine[] allWines)
 	{
 		int n = allWines.length;
 		List<Wine> ratedWines = new ArrayList<Wine>();
-		
-		for (int i = 0; i < n-1; ++i)
+
+		for (int i = 0; i < n; ++i)
 			if (allWines[i].rating != 0)
 				ratedWines.add(allWines[i]);
-		
+
 		return ratedWines;
 	} 
 }
