@@ -73,6 +73,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 	    
+	    /*
 		myAutoComplete2 = (AutoCompleteTextView)findViewById(R.id.category);
 	    myAutoComplete2.addTextChangedListener(this);
 	    myAutoComplete2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
@@ -80,7 +81,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
-
+*/
 		Button b = (Button) button;
 
         b.setOnClickListener(new OnClickListener() {
