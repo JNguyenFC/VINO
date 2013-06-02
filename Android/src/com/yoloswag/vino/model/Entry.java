@@ -83,7 +83,7 @@ public class Entry implements Serializable
 	}
 	
 	public void destroy() {
-		
+		DatabaseManager.getInstance().deleteEntry(this);
 	}
 	
 	public Bitmap getImage() {

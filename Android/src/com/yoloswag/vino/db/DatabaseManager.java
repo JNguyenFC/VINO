@@ -68,4 +68,13 @@ public class DatabaseManager {
             e.printStackTrace();
         }
 	}
+
+	public void deleteEntry(Entry entry) {
+		// TODO Auto-generated method stub
+        try {
+            getHelper().getEntryDao().delete(entry);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+	}
 }
