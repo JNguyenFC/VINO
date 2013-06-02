@@ -7,8 +7,11 @@ import java.util.List;
 
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.main.VINOActivity;
+import com.yoloswag.vino.model.Category;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Region;
 import com.yoloswag.vino.model.Varietal;
+import com.yoloswag.vino.model.Vintage;
 import com.yoloswag.vino.model.Wine;
 import com.yoloswag.vino.util.Util;
 import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
@@ -110,19 +113,14 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save picture 		
-				e.category = category.getText().toString();
-				e.region = region.getText().toString();
+				e.wine.category = new Category(category.getText().toString());
+				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
-				e.vintageYear = vintageYear.getText().toString();
+				e.wine.vintage = new Vintage(vintageYear.getText().toString());
 				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
 				e.rating = (int)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
-				
-				String zcomment = comment.getText().toString();
-				Wine a = new Wine(zcomment, zcomment, zcomment, zcomment, zcomment, zcomment);
-
-				e.wine = a; // temporary
 				
 				e.save();
 				
