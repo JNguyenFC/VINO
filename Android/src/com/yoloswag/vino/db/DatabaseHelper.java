@@ -17,7 +17,7 @@ import com.yoloswag.vino.model.Wine;
 
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 	// name of the database file for your application -- change to something appropriate for your app
-	private static final String DATABASE_NAME = "VxIxasdsdxB.sqlite";
+	private static final String DATABASE_NAME = "VxIxssashdsdxB.sqlite";
 
 	// any time you make changes to your database objects, you may have to increase the database version
 	private static final int DATABASE_VERSION = 1;
@@ -69,7 +69,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 //			// Save the wine to the db
 //			example.save();
 //			
-			/*
+			
 			Wine barefoot1  = new Wine("Barefoot", "Chardonnay", "White", "California", "Dry", "2000");
 			Wine barefoot2  = new Wine("Barefoot", "Cabernet Sauvignon", "Red", "California", "Dry", "2000");
 			Wine barefoot3  = new Wine("Barefoot", "Impression, Red Blend", "Red", "California", "Dry", "2000");
@@ -206,37 +206,37 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			
 			
 			//TODO: remove later
-			yt1.addRating(4);
-			yt2.addRating(3.5);
-			yt3.addRating(1);
-			yt1.save(); yt2.save(); yt3.save();
+//			yt1.addRating(4);
+//			yt2.addRating(3.5);
+//			yt3.addRating(1);
+//			yt1.save(); yt2.save(); yt3.save();
+//			
+//			skinnygirl3.addRating(3);
+//			skinnygirl3.save();
+//			
+//			woodbridge11.addRating(1);
+//			woodbridge12.addRating(4);
+//			woodbridge13.addRating(2.5);
+//			woodbridge14.addRating(1.5);
+//			woodbridge2.addRating(2.5);
+//			woodbridge11.save(); woodbridge12.save(); woodbridge13.save(); 
+//			woodbridge14.save(); woodbridge2.save();
+//			
+//			sutter9.addRating(5);
+//			sutter8.addRating(3);
+//			sutter9.save(); sutter8.save();
+//			
+//			barefoot7.addRating(2);
+//			barefoot8.addRating(4.5);
+//			barefoot9.addRating(5);
+//			barefoot7.save(); barefoot8.save(); barefoot9.save();
+//			
+//			cupcake2.addRating(1);
+//			cupcake2.addRating(2);
+//			cupcake2.addRating(3);
+//			cupcake2.save(); cupcake4.save(); cupcake6.save(); 
 			
-			skinnygirl3.addRating(3);
-			skinnygirl3.save();
-			
-			woodbridge11.addRating(1);
-			woodbridge12.addRating(4);
-			woodbridge13.addRating(2.5);
-			woodbridge14.addRating(1.5);
-			woodbridge2.addRating(2.5);
-			woodbridge11.save(); woodbridge12.save(); woodbridge13.save(); 
-			woodbridge14.save(); woodbridge2.save();
-			
-			sutter9.addRating(5);
-			sutter8.addRating(3);
-			sutter9.save(); sutter8.save();
-			
-			barefoot7.addRating(2);
-			barefoot8.addRating(4.5);
-			barefoot9.addRating(5);
-			barefoot7.save(); barefoot8.save(); barefoot9.save();
-			
-			cupcake2.addRating(1);
-			cupcake2.addRating(2);
-			cupcake2.addRating(3);
-			cupcake2.save(); cupcake4.save(); cupcake6.save(); 
-			
-		}*/
+		}
 
 
 
@@ -261,7 +261,7 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 //		c.save();
 //		c.comment = "If you see this then it works [:";
 //		c.save();
-	}
+//	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db,ConnectionSource connectionSource, int oldVersion, int newVersion) {

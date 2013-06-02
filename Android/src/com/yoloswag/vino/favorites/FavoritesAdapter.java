@@ -56,7 +56,6 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
 	{
-		System.out.println("asdasd" + groupPosition);
 			sugPos = groupPosition;
 
 			LinearLayout linearLayout = new LinearLayout(context);
@@ -73,10 +72,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 	@Override
 	public int getChildrenCount(int groupPosition) 
 	{
-//		// So that last favorite wine's suggestions are visible
-//		if (groupPosition == favoriteWines.length - 1)
-//			return 2;
-//		else
+		// So that last favorite wine's suggestions are visible
+		if (groupPosition == favoriteWines.length - 1)
+			return 2;
+		else
 			return 1;
 	}
 
