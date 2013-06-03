@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:ems="10"
             android:inputType="textMultiLine"
-            android:text="YOU DON&apos;T HAVE ANY ENTRIES!!11!"
+            android:text="YOU DON'T HAVE ANY ENTRIES!"
             android:textSize="25sp"
             android:textColor="#000" />
     </LinearLayout>

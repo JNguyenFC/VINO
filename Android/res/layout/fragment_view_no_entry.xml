@@ -25,6 +25,6 @@
         android:ems="10"
         android:inputType="textMultiLine"
         android:textColor="#FFF"
-        android:text="You Don&apos;t have any entries" />
+        android:text="You don't have any entries" />
 
 </LinearLayout>
