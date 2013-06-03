@@ -130,6 +130,7 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 		for (int i = 0; i < 4; ++i)
 		{
 			int pos = (int)(Math.random()*suggestionsList.size());
+			if(suggestionsList.size() > pos)
 			suggestedWines[i] = suggestionsList.remove(pos);			
 		}
 
