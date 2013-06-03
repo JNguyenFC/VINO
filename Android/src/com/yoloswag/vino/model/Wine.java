@@ -9,9 +9,6 @@ import com.yoloswag.vino.db.DatabaseManager;
 
 public class Wine implements Serializable
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 10L;
 	@DatabaseField(generatedId=true)
 	public int id;
