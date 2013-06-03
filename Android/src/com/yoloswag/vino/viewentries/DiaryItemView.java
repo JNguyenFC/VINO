@@ -19,6 +19,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.app.Fragment;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -127,7 +128,7 @@ public class DiaryItemView extends LinearLayout {
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
-				Button delete_but = (Button) vG.findViewById(R.id.deleteEntry);
+				ImageButton delete_but = (ImageButton) vG.findViewById(R.id.deleteEntry);
 				delete_but.setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
