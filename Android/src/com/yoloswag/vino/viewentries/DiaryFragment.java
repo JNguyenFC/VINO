@@ -19,10 +19,12 @@ import android.widget.ListView;
 @TouchThisAndIWillFuckingKillYou
 public class DiaryFragment extends Fragment {
 	DiaryAdapter adapter;
+	Entry[] entries;
 
 	@Override
 	public void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		entries = Entry.getAll();
 	}
 
 	@Override
