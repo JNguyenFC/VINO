@@ -50,29 +50,26 @@ public class ViewLogActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
 				Entry e = new Entry();
 				EditText title = (EditText)findViewById(R.id.title);
 				EditText category = (EditText)findViewById(R.id.category);
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
-				//save picture
+				//save wine entry
 				e.wine = new Wine("", "", "", "", "", "");
 				e.title = title.getText().toString();
 				e.wine.category = new Category(category.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
-				e.wine.rating = (double)rating.getRating();
+				e.wine.addRating(rating.getRating());
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.save();
