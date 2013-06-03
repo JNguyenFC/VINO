@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Category;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Producer;
 import com.yoloswag.vino.model.Region;
 import com.yoloswag.vino.model.Varietal;
 import com.yoloswag.vino.model.Vintage;
@@ -97,6 +98,7 @@ public class EditLogActivity extends Activity {
 				
 				e.title = title.getText().toString();
 				e.wine.category = new Category(category.getText().toString());
+				e.wine.producer = new Producer(producer.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
