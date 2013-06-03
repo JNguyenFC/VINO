@@ -67,8 +67,8 @@ public class DiaryItemView extends LinearLayout {
 				iv.post(new Runnable() {
 					@Override
 					public void run() {
-						//						iv.setImageBitmap(bitmap);
-						//iv.setImageURI(Uri.parse(entry.uri));
+						iv.setImageBitmap(bitmap);
+						iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
 			}
