@@ -80,11 +80,8 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 	{
 		List<Wine> suggestionsList = new ArrayList<Wine>();
 		Wine[] wines = Wine.getAll();
-		int n = wines.length;
-		
-		int counter = 0;
 
-		for (int j = 0; j < n; ++j)
+		for (int j = 0; j < wines.length; ++j)
 		{
 			if (clickedFavorite != wines[j] && wines[j].rating == 0)
 			{
@@ -93,7 +90,6 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 				   && (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
 				{						             
 					suggestionsList.add(wines[j]);
-					++counter;
 				}
 						
 				else            
@@ -102,31 +98,26 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 					   && (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
 					{         
 						suggestionsList.add(wines[j]);
-						++counter;
 					}					
 						
 					else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
 					{
 						suggestionsList.add(wines[j]);
-						++counter;
 					}
 
 					else if ((clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
 					{
 						suggestionsList.add(wines[j]);
-						++counter;
 					}
 					
 					else if ((clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
 					{
 						suggestionsList.add(wines[j]);
-						++counter;
 					}
 					
 					else if ((clickedFavorite.region.region.compareToIgnoreCase(wines[j].region.region) == 0))
 					{
 						suggestionsList.add(wines[j]);
-						++counter;
 					}
 	
 				}
