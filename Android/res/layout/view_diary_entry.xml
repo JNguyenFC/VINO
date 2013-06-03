@@ -128,7 +128,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
-        android:src="@drawable/edit_button"
+        android:src="@drawable/delete_button"
         android:visibility="invisible" />
 
     <ImageButton
@@ -139,7 +139,7 @@
         android:layout_alignParentTop="true"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
-        android:src="@drawable/delete_button"
+        android:src="@drawable/edit_button"
         android:visibility="invisible" />
     <!--
     <Button
