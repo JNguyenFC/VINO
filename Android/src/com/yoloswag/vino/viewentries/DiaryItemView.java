@@ -98,7 +98,7 @@ public class DiaryItemView extends LinearLayout {
 				"Vintage: " + entry.wine.vintage.year + "\n" +
 				"Region: " + entry.wine.region.region + "\n"+
 				"Category: " + entry.wine.category.category + "\n" +
-				"Sweet/Dry" + entry.wine.sweetOrDry.taste + "\n" + 
+				"SweetOrDry: " + entry.wine.sweetOrDry.taste + "\n" + 
 				"Rating: " + entry.wine.rating
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
@@ -129,6 +129,7 @@ public class DiaryItemView extends LinearLayout {
 					intent.putExtra("category", entry.wine.category.category);
 					intent.putExtra("region", entry.wine.region.region);
 					intent.putExtra("vintage", entry.wine.vintage.year);
+					intent.putExtra("sweetordry", entry.wine.sweetOrDry.taste);
 					intent.putExtra("comment", entry.comment);
 					intent.putExtra("rating", entry.wine.rating);
 					intent.putExtra("title", entry.title);

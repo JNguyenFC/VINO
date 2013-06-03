@@ -81,11 +81,13 @@ public class EditLogActivity extends Activity {
 				
 				Entry e = (Entry)info.getSerializableExtra("entry");
 				EditText title = (EditText)findViewById(R.id.title);
+				EditText producer = (EditText) findViewById(R.id.producer);
 				EditText category = (EditText)findViewById(R.id.category);
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
 				EditText comment = (EditText)findViewById(R.id.comments);
+				//EditText sweetordry = (EditText) findViewById(R.id.sweetordry);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
 				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
@@ -98,6 +100,7 @@ public class EditLogActivity extends Activity {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				//e.wine.sweetOrDry = 
 				e.comment = comment.getText().toString();
 				e.wine.addRating(rating.getRating());
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
