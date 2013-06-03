@@ -11,7 +11,8 @@
        android:layout_height="wrap_content"
        android:adjustViewBounds="true"
        android:scaleType="centerCrop"
-       android:alpha=".75" />
+       android:alpha=".75"
+       android:contentDescription="@string/image" />
     
     <ScrollView
         android:layout_width="fill_parent"
@@ -34,11 +35,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
+                    android:ems="13"
                     android:hint="@string/newEntry_title"
                     android:scrollHorizontally="true"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white" />
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white" />
             </TableRow>
             
             <TableRow
@@ -54,7 +57,9 @@
                     android:gravity="top|left|center_vertical"
                     android:hint="@string/newEntry_comment"
                     android:inputType="textMultiLine"
-                    android:textColorHint="@color/white" />
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white" />
             </TableRow>
 
 

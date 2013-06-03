@@ -22,5 +22,6 @@
     <string name="title_activity_view_log">ViewLogActivity</string>
     <string name="sweet">Sweet</string>
     <string name="dry">Dry</string>
+    <string name="image">Image</string>
     
 </resources>
