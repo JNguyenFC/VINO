@@ -262,7 +262,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
-				//e.wine.rating = (double)rating.getRating();
 				
 				e.save();
 				
