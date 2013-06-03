@@ -12,8 +12,10 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
@@ -27,34 +29,25 @@ import android.widget.Toast;
 
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
+	// Autocomplete arrays
     AutoCompleteTextView myAutoComplete;
     AutoCompleteTextView myAutoComplete2;
     AutoCompleteTextView myAutoComplete3;
-    AutoCompleteTextView myAutoComplete4;
 
-    String producerList[]={
+    /*String producerList[]={
   		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
-  		};
+  		};*/
     
     String categoryList[]={
 	  "Dessert", "Red", "Rose", "Sparkling","White"
 	};
-    
+    /*
     String regionList[]={
 	  "Australia", "Burgundy", "California", "Canada", "France", "Germany", 
 	  "Italy", "Portugal", "Spain"
-	};
-    
-    String varietalList[]={
-    		"Angel Food", "Cabernet Merlot", "Cabernet Sauvignon", "California Red Blend", "California Rose Blend", 
-    		"California White Blend", "Chardonnay", "Chenin Blanc", "Chianti", "Gewurztraminer", "Late Harvest Chardonnay", 
-    		"Lightly Oaked Chardonnay", "Malbec", "Merlot", "Moscato", "Moscato D'Asti", "Petite Sirah", "Pink Moscato", 
-    		"Pink Pinot Grigio", "Pinot Grigio", "Pinot Gris", "Pinot Noir", "Port", "Prosecco","Red Moscato", "Red Velvet",
-            "Riesling", "Rose", "Sauvignon Blanc", "Shiraz", "Shiraz-Cabernet", "Shiraz-Grenache", "Sweet Red", "Sweet White",
-            "Summation", "Syrah", "Viognier", "White Merlot", "White Zinfandel", "Zinfandel"
-	};
+	};*/
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,18 +69,16 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			ImageView imageView = (ImageView)this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}        
 		
 		// Autocomplete for producer
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
 	    myAutoComplete.addTextChangedListener(this);
-	    //Wine[] wineList = Wine.getAll();
-	    //String[] producerList = new String[wineList.length];
+	    Wine[] wineList = Wine.getAll();
+	    String[] producerList = new String[wineList.length];
 	    //String[] categoryList = new String[wineList.length];
-	    //String[] regionList = new String[wineList.length];
-	    /*
+	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
 	    	if(i == 0 || ((j-1)>-1 && !(producerList[j-1].equals(wineList[i].name.producer.toString())))) {
@@ -103,18 +94,17 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    		System.out.println("winelist: " + "i:" + i + " " + wineList[i].name.producer.toString());
 	    		System.out.println("producerlist: " + "j: " + j + producerList[j]);
 	    		j++;
-	    	}*/
+	    	}
 	    	/*
 	    	if(i == 0 || (k-1)>-1 && categoryList[k-1] != wineList[i].category.category.toString()) {
 	    		categoryList[k] = wineList[i].category.category.toString();
 	    		k++;
 	    	}*/
-	    /*
 	    	if(i == 0 || ((l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString())) {
 	    		regionList[l] = wineList[i].region.region.toString();
 	    		l++;
 	    	}
-	    }*/
+	    }
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
 	    
 	    // Autocomplete for category
@@ -126,11 +116,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
-		   
-	    // Autocomplete for region
-		myAutoComplete4 = (AutoCompleteTextView)findViewById(R.id.varietal);
-	    myAutoComplete4.addTextChangedListener(this);
-	    myAutoComplete4.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, varietalList));
 
 	    // Single-check check boxes for sweet and dry qualities of wine
 	    final CheckBox dry = (CheckBox)findViewById(R.id.dryCheck);
@@ -164,7 +149,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
+				// Creating entry
 				Entry e = new Entry();
 				EditText title = (EditText)findViewById(R.id.title);
 				EditText category = (EditText)findViewById(R.id.category);
@@ -180,49 +165,85 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				//check if a producer has been entered
 				if(producer.getText().toString().matches(""))
 				{
-					Toast.makeText(NewEntryActivity.this, "You need to enter the wine producer.", Toast.LENGTH_SHORT).show();
-					return;
+                    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+                    ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+                    imageView.setImageResource(R.drawable.gary_vector);
+                    TextView textView = (TextView) toastView.findViewById(R.id.text);
+                    textView.setText("The producers need acknowledgement too :(");
+                    Toast toast = new Toast(NewEntryActivity.this);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(toastView);
+                    toast.show();
+                    return;
 				}
 				
 				//check if a wine varietal has been entered
 				if(varietal.getText().toString().matches(""))
 				{
-					Toast.makeText(NewEntryActivity.this, "You need to enter the wine varietal.", Toast.LENGTH_SHORT).show();
-					return;
+                    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+                    ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+                    imageView.setImageResource(R.drawable.gary_vector);
+                    TextView textView = (TextView) toastView.findViewById(R.id.text);
+                    textView.setText("What are ya drinking?");
+                    Toast toast = new Toast(NewEntryActivity.this);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(toastView);
+                    toast.show();
+                    return;
 				}
 				
 				//check if region has been entered
 				if(region.getText().toString().matches(""))
 				{
-					Toast.makeText(NewEntryActivity.this, "You need to enter the wine region.", Toast.LENGTH_SHORT).show();
-					return;
+                    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+                    ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+                    imageView.setImageResource(R.drawable.gary_vector);
+                    TextView textView = (TextView) toastView.findViewById(R.id.text);
+                    textView.setText("You need to enter the wine region!");
+                    Toast toast = new Toast(NewEntryActivity.this);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(toastView);
+                    toast.show();
+                    return;
 				}
 
 				//check if a vintage year has been entered
 				if(vintageYear.getText().toString().matches(""))
 				{
-					Toast.makeText(NewEntryActivity.this, "You need to enter a vintage year.", Toast.LENGTH_SHORT).show();
-					return;
+                    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+                    ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+                    imageView.setImageResource(R.drawable.gary_vector);
+                    TextView textView = (TextView) toastView.findViewById(R.id.text);
+                    textView.setText("You need to enter the vintage year.");
+                    Toast toast = new Toast(NewEntryActivity.this);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(toastView);
+                    toast.show();
+                    return;
 				}
-				
-				//check if valid year
-				if(vintageYear.getText().toString().length() != 4)
-				{
-					Toast.makeText(NewEntryActivity.this, "You didn't enter a valid year", Toast.LENGTH_SHORT).show();
-					return;
-				}
-				
+					
 				//check if year has occurred yet
 				int year = Integer.valueOf(vintageYear.getText().toString());
 				Calendar calendar = Calendar.getInstance();
 				int currentYear = calendar.get(Calendar.YEAR);
 				if(year > currentYear)
 				{
-					Toast.makeText(NewEntryActivity.this, "That year hasn't occurred yet!", Toast.LENGTH_SHORT).show();
-					return;
+                    View toastView = getLayoutInflater().inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+                    ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+                    imageView.setImageResource(R.drawable.gary_vector);
+                    TextView textView = (TextView) toastView.findViewById(R.id.text);
+                    textView.setText("Wine from the future? Don't think so!");
+                    Toast toast = new Toast(NewEntryActivity.this);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast.setDuration(Toast.LENGTH_SHORT);
+                    toast.setView(toastView);
+                    toast.show();
+                    return;
 				}
-				
-				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				// Entry details
 				e.wine = new Wine("", "", "", "", "", "");
@@ -239,15 +260,12 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
-				//e.wine.rating = (double)rating.getRating();
 				
 				e.save();
 				
 				finish();
 			}
         });
-
-		//DatabaseManager.init(this);
 	}
 	
 	
@@ -293,33 +311,19 @@ public class NewEntryActivity extends Activity implements TextWatcher {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-/*        // The activity is about to be destroyed.
-        // Calling ViewLogEntryFragment
-        Fragment fragment = new ViewLogEntryFragment();
-		FragmentTransaction transaction = fragment.getFragmentManager().beginTransaction();
-
-		transaction.replace(R.id.fragment_view_log_entry, fragment);
-		transaction.addToBackStack(null);
-		transaction.commit();*/
     }
     
     
     @Override
     public void afterTextChanged(Editable arg0) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count,
       int after) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-     // TODO Auto-generated method stub
-
     }
 }
