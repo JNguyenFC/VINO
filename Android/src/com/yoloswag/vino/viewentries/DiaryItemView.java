@@ -66,8 +66,8 @@ public class DiaryItemView extends LinearLayout {
 				iv.post(new Runnable() {
 					@Override
 					public void run() {
-						iv.setImageBitmap(bitmap);
-						iv.setImageURI(Uri.parse(entry.uri));
+						//						iv.setImageBitmap(bitmap);
+						//iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
 			}
@@ -93,11 +93,12 @@ public class DiaryItemView extends LinearLayout {
 		textview_entry_comment.setText(entry.comment);
 
 		TextView textview_entry_details = (TextView) findViewById(R.id.entry_details);
-		textview_entry_details.setText("Maker: " + entry.wine.name.producer + "\n" +
+		textview_entry_details.setText("Producer: " + entry.wine.name.producer + "\n" +
 				"Varietal: " + entry.wine.varietal.varietal_name + "\n" +
 				"Vintage: " + entry.wine.vintage.year + "\n" +
 				"Region: " + entry.wine.region.region + "\n"+
 				"Category: " + entry.wine.category.category + "\n" +
+				"Sweet/Dry" + entry.wine.sweetOrDry.taste + "\n" + 
 				"Rating: " + entry.wine.rating
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
@@ -137,7 +138,7 @@ public class DiaryItemView extends LinearLayout {
 					
 					}
 				});
-				 
+				
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
