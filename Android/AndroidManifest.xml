@@ -41,6 +41,7 @@
             android:name="com.yoloswag.vino.ViewLogActivity"
             android:label="@string/title_activity_view_log" >
         </activity>
+        <activity android:name=".viewentries.EditLogActivity"></activity>
     </application>
 
     
