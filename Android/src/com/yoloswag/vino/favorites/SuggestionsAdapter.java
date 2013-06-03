@@ -1,5 +1,6 @@
 package com.yoloswag.vino.favorites;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
@@ -16,6 +17,7 @@ import com.yoloswag.vino.model.Wine;
 
 public class SuggestionsAdapter extends ArrayAdapter<RowItem> 
 {
+	private Wine[] names;
 	Context context;
 
 	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<RowItem> list) 

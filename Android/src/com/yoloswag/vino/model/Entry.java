@@ -3,6 +3,9 @@ import java.io.Serializable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +17,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import com.yoloswag.vino.db.DatabaseManager;
 
 @DatabaseTable
-public class Entry implements Serializable //Class of objects created in New Entry
+public class Entry implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	@DatabaseField(generatedId=true)
@@ -23,52 +26,87 @@ public class Entry implements Serializable //Class of objects created in New Ent
 	public String title;
 	@DatabaseField
 	public String comment;
+	@DatabaseField
+	public String location;
+	//@DatabaseField
+	//protected Image image;
+	//protected Image image;
     @DatabaseField(foreign=true,foreignAutoRefresh=true)
 	public Wine wine;
 	@DatabaseField
+	//public Date postDate;
 	public String postDate;
 	@DatabaseField
 	public String uri;
 	
-	// Constructor for new Entry
+	/**  Fake database of Entry (to be deleted later) */
+	 
+	public static Entry a = new Entry(Wine.a, "fuck you max", "France", "To all the ladies in the place with style and grace, allow me to lace these lyrical douches in your bushes. Who rock grooves and make moves with all the mommies? The back of the club, sippin' Moet, is where you'll find me. The back of the club, mackin' hoes, my crew's behind me; mad question askin', blunt passin', music blastin' but I just can't quit.");
+	public static Entry b = new Entry(Wine.b, "#drank", "US", "gary");
+	public static Entry c = new Entry(Wine.c, "#yolo", "Canada", "i love justin timberlake");
+	public static Entry d = new Entry(Wine.d, "suq madiq", "Germany",  "derp");
+	public static Entry e = new Entry(Wine.e, "liqa madiq", "Italy", "trolls");
+	
 	public Entry() {
 		
 	}
+	
+	//constructor for fake database
+	public Entry(Wine wine, String title, String location, String comment) {
+		this.wine = Wine.get(wine);
+		this.location = location;
+		this.comment = comment;
+		this.title = title;
+	}
 
-	// Getting all entries
 	public static Entry[] getAll() {	
+		//return new Entry[] { a, b, c, d, e };
+		//real shit nigga
 		List<Entry> wines = DatabaseManager.getInstance().getAllEntries();
 		return wines.toArray(new Entry[wines.size()]);
 	}
 	
-	// Creating a new entry
 	public static Entry create() {
 		return new Entry();
 	}
 	
-	// Saving wine
 	public void save() {
-		// Make sure wine exists
+		//stop whineing
         if(wine != null)
         	wine.save();
         
-        // Getting timestamp
+        // getting timestamp
+        //Calendar c = Calendar.getInstance();
+        //SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //postDate = df.format(c.getTime());
+        //postDate = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(c.getTime());
+        
+        /*String myDate = new String("your date");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+			postDate = format.parse(myDate);
+	        postDate.getTime(); //fetch the time as milliseconds from Jan 1, 1970
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+        
         Date today;
+//        //String dateOut;
         DateFormat dateFormatter;
+
         dateFormatter = DateFormat.getDateInstance();
         today = new Date();
         postDate = dateFormatter.format(today);
-        
-        // Updating database
+//        System.out.println("POSTDATE: " + postDate);
+
         DatabaseManager.getInstance().updateEntry(this);
 	}
 	
-	// Destroying entry from database
 	public void destroy() {
 		DatabaseManager.getInstance().deleteEntry(this);
 	}
 	
-	// Getting image 
 	public Bitmap getImage() {
 	    FileInputStream in;
 		try {
