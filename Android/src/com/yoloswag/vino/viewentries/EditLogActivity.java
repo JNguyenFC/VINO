@@ -105,7 +105,7 @@ public class EditLogActivity extends Activity {
 				//e.wine.sweetOrDry = 
 				e.comment = comment.getText().toString();
 				e.wine.addRating(rating.getRating());
-				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
+//				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.wine.save();
 				e.save();
