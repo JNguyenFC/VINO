@@ -240,14 +240,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="30dp"
                         android:hint="@string/dry"
-                        android:textColorHint="@color/white" />
+                        android:textColorHint="@color/white"
+                        android:background="#40000000" />
 
                     <CheckBox
                         android:id="@+id/sweetCheck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/sweet"
-                        android:textColorHint="@color/white" />
+                        android:textColorHint="@color/white"
+                        android:background="#40000000" />
                 </LinearLayout>
             </TableRow>
 
