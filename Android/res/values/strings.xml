@@ -8,12 +8,12 @@
     <string name="title_section3">Favorites</string>
     <string name="title_activity_favorites">FavoritesActivity</string>
     <string name="newEntry_title">Entry Title</string>
-    <string name="newEntry_producer">*Producer</string>
-    <string name="newEntry_varietal">*Varietal</string>
+    <string name="newEntry_producer">Producer*</string>
+    <string name="newEntry_varietal">Varietal*</string>
     <string name="newEntry_location">Current Location</string>
-    <string name="newEntry_vintage">*Vintage Year</string>
+    <string name="newEntry_vintage">Vintage Year*</string>
     <string name="newEntry_category">Category (i.e., white, red, etc.)</string>
-    <string name="newEntry_region">*Region</string>
+    <string name="newEntry_region">Region*</string>
     <string name="newEntry_rating">Rating</string>
     <string name="newEntry_comment">Comments</string>
     <string name="newEntry_submit">Submit</string>
