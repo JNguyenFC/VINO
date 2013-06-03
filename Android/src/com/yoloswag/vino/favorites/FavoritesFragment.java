@@ -36,7 +36,7 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
     	Wine[] wines = adapter.sortRatings(Wine.getAll());
     	adapter.favoriteWines = wines;
     	adapter.favoriteSize = wines.length;
-    	
+    	adapter.notifyDataSetChanged();
     	//Wine[][] suggs = adapter.
     }
     

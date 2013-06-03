@@ -68,7 +68,7 @@ public class DiaryItemView extends LinearLayout {
 					@Override
 					public void run() {
 						//						iv.setImageBitmap(bitmap);
-						iv.setImageURI(Uri.parse(entry.uri));
+						//iv.setImageURI(Uri.parse(entry.uri));
 					}
 				});
 			}
@@ -117,14 +117,29 @@ public class DiaryItemView extends LinearLayout {
 				View elem35 = vG.findViewById(R.id.entry_postDate);
 				View elem4 = vG.findViewById(R.id.line);
 				View editBut = vG.findViewById(R.id.editText01);
-				/*
+				
 				editBut.setOnClickListener(new OnClickListener(){
 					public void onClick(View v){
-						//edit stuff
-
+					Intent intent = new Intent(v.getContext(), EditLogActivity.class);
+					//Bundle bund = new Bundle();
+					intent.removeExtra("title");
+					intent.putExtra("entry", entry);
+					intent.putExtra("producer", entry.wine.name.producer);
+					intent.putExtra("varietal", entry.wine.varietal.varietal_name);
+					intent.putExtra("category", entry.wine.category.category);
+					intent.putExtra("region", entry.wine.region.region);
+					intent.putExtra("vintage", entry.wine.vintage.year);
+					intent.putExtra("comment", entry.comment);
+					intent.putExtra("rating", entry.wine.rating);
+					intent.putExtra("location", entry.location);
+					intent.putExtra("title", entry.title);
+					v.getContext().startActivity(intent);
+					//entry.wine.region.region = intent.getStringExtra("region1");
+					diary.updateData();
+					
 					}
 				});
-				 */
+				 
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
