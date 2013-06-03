@@ -14,7 +14,7 @@
     <string name="newEntry_vintage">Vintage Year*</string>
     <string name="newEntry_category">Category (i.e., white, red, etc.)</string>
     <string name="newEntry_region">Region*</string>
-    <string name="newEntry_rating">Rating</string>
+    <string name="newEntry_rating">Rate it!</string>
     <string name="newEntry_comment">Comments</string>
     <string name="newEntry_submit">Submit</string>
     <string name="newEntry_wineTitle">Wine Details</string>
