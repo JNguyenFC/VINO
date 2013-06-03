@@ -79,7 +79,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 		}
 
 		//		//creates a button and locates the editText in XML
-		//		Button edit_button = (Button) v.findViewById(R.id.editText01);
+		//		ImageButton edit_button = (ImageButton) v.findViewById(R.id.editText01);
 		//		edit_button.setOnClickListener(new View.OnClickListener() {
 		//		@Override
 		//		public void onClick(View v) {
@@ -140,7 +140,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
-				Button delete_but = (Button) vG.findViewById(R.id.deleteEntry);
+				ImageButton delete_but = (ImageButton) vG.findViewById(R.id.deleteEntry);
 				if(v == vG.findViewById(R.id.entry_image))
 				{
 					elem.startAnimation(animationFadeIn);
