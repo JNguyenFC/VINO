@@ -93,7 +93,9 @@
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white"
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white"
                     android:maxLength="20" >
                     <requestFocus />
                 </AutoCompleteTextView>
@@ -112,7 +114,9 @@
                     android:ems="10"
                     android:hint="@string/newEntry_varietal"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white" />
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white" />
             </TableRow>
 
             <TableRow
@@ -136,7 +140,9 @@
                     android:ems="10"
                     android:hint="@string/newEntry_region"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white" >
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
@@ -154,7 +160,9 @@
                     android:ems="10"
                     android:hint="@string/newEntry_vintage"
                     android:inputType="number"
-                    android:textColorHint="@color/white"
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white"
                     android:maxLength="4" />
        
             
@@ -174,7 +182,9 @@
                     android:ems="10"
                     android:inputType="textCapWords"
                     android:hint="@string/newEntry_category"
-                    android:textColorHint="@color/white" >
+                    android:background="#40FFFFFF"
+                    android:textColorHint="#C0FFFFFF"
+                    android:textColor="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
