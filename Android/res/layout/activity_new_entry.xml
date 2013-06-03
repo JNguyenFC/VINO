@@ -30,6 +30,7 @@
                 android:gravity="center_horizontal" >
 
                 <EditText
+                   
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -38,7 +39,10 @@
                     android:hint="@string/newEntry_title"
                     android:scrollHorizontally="true"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white" >
+                           
+                 	<requestFocus />
+                 	</EditText>
             </TableRow>
             
             <TableRow

@@ -52,6 +52,10 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		setContentView(R.layout.activity_new_entry);
         View button = this.findViewById(R.id.new_entry_button);
 
+        EditText editText = (EditText)this.findViewById(R.id.title);
+        editText.requestFocus(); 
+        editText.setSelection(0); 
+        
         // Preview of captured image
 	    FileInputStream in;
 		try {
