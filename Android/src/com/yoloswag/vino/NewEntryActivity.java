@@ -172,7 +172,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					TextView textView = (TextView) toastView
 							.findViewById(R.id.text);
 
-					textView.setText("You didn't enter a producer!!");
+					textView.setText("Hey!! You need to acknowledge the producers!");
 					Toast toast = new Toast(NewEntryActivity.this);
 					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 					toast.setDuration(Toast.LENGTH_SHORT);
@@ -183,38 +183,88 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 				// check if a wine varietal has been entered
 				if (varietal.getText().toString().matches("")) {
-					Toast.makeText(
-							NewEntryActivity.this,
-							"You're seriously going to make a wine entry without stating the varietal?",
-							Toast.LENGTH_SHORT).show();
+					View toastView = getLayoutInflater()
+							.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+
+					imageView.setImageResource(R.drawable.gary_vector);
+
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+
+					textView.setText("Whatareya drinking?");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
 					return;
+				
 				}
 
 				// check if region has been entered
 				if (region.getText().toString().matches("")) {
-					Toast.makeText(NewEntryActivity.this,
-							"Hey, where's the wine from huh?",
-							Toast.LENGTH_SHORT).show();
+					View toastView = getLayoutInflater()
+							.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+
+					imageView.setImageResource(R.drawable.gary_vector);
+
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+
+					textView.setText("Hey, where's the wine from huh??");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
 					return;
+					
 				}
 
 				// check if a vintage year has been entered
 				if (vintageYear.getText().toString().matches("")) {
-					Toast.makeText(
-							NewEntryActivity.this,
-							"Nope sorry can't submit! You need to enter a vintage year!",
-							Toast.LENGTH_SHORT).show();
+					View toastView = getLayoutInflater()
+							.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+
+					imageView.setImageResource(R.drawable.gary_vector);
+
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+
+					textView.setText("Nope sorry! You need to enter the vintage year!");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
 					return;
+					
 				}
 
 				// check if year has occurred yet
-				int year = Integer.valueOf(vintageYear.getText().toString());
-				Calendar calendar = Calendar.getInstance();
-				int currentYear = calendar.get(Calendar.YEAR);
-				if (year > currentYear) {
-					Toast.makeText(NewEntryActivity.this,
-							"That year hasn't occurred yet!",
-							Toast.LENGTH_SHORT).show();
+				if (vintageYear.getText().toString().matches("Drinking wine from the future eh?")) {
+					View toastView = getLayoutInflater()
+							.inflate(R.layout.toast, (ViewGroup)findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+
+					imageView.setImageResource(R.drawable.gary_vector);
+
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+
+					textView.setText("");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
 					return;
 				}
 
