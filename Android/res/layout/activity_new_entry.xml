@@ -126,17 +126,20 @@
                 android:layout_marginLeft="5dip"
                 android:layout_marginRight="5dip" >
 
-                <EditText
+                <AutoCompleteTextView
                     android:id="@+id/varietal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_varietal"
-                    android:inputType="textCapWords"
                     android:background="#40000000"
                     android:textColorHint="#C0FFFFFF"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:inputType="textCapWords" >
+                    <requestFocus />
+                </AutoCompleteTextView>
             </TableRow>
 
             <TableRow
