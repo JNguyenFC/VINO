@@ -54,7 +54,8 @@
                     android:gravity="top|left|center_vertical"
                     android:hint="@string/newEntry_comment"
                     android:inputType="textMultiLine"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white"
+                    android:maxLength="300" />
             </TableRow>
 
 
@@ -69,7 +70,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/newEntry_wineTitle"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:maxLength="50" />
             </TableRow>
             
             <TableRow
@@ -86,7 +88,8 @@
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
                     android:inputType="textCapWords"
-                    android:textColorHint="@color/white" >
+                    android:textColorHint="@color/white"
+                    android:maxLength="20" >
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
@@ -144,7 +147,8 @@
                     android:ems="10"
                     android:hint="@string/newEntry_vintage"
                     android:inputType="number"
-                    android:textColorHint="@color/white" />
+                    android:textColorHint="@color/white"
+                    android:maxLength="4" />
             </TableRow>
             
             <TableRow
