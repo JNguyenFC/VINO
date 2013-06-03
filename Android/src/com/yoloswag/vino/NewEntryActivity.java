@@ -33,21 +33,31 @@ public class NewEntryActivity extends Activity implements TextWatcher {
     AutoCompleteTextView myAutoComplete;
     AutoCompleteTextView myAutoComplete2;
     AutoCompleteTextView myAutoComplete3;
+    AutoCompleteTextView myAutoComplete4;
 
-    /*String producerList[]={
+    String producerList[]={
   		  "Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
-  		};*/
+  		};
     
     String categoryList[]={
 	  "Dessert", "Red", "Rose", "Sparkling","White"
 	};
-    /*
+    
     String regionList[]={
 	  "Australia", "Burgundy", "California", "Canada", "France", "Germany", 
 	  "Italy", "Portugal", "Spain"
-	};*/
+	};
+    
+    String varietalList[]={
+    		"Angel Food", "Cabernet Merlot", "Cabernet Sauvignon", "California Red Blend", "California Rose Blend", 
+    		"California White Blend", "Chardonnay", "Chenin Blanc", "Chianti", "Gewurztraminer", "Late Harvest Chardonnay", 
+    		"Lightly Oaked Chardonnay", "Malbec", "Merlot", "Moscato", "Moscato D'Asti", "Petite Sirah", "Pink Moscato", 
+    		"Pink Pinot Grigio", "Pinot Grigio", "Pinot Gris", "Pinot Noir", "Port", "Prosecco","Red Moscato", "Red Velvet",
+            "Riesling", "Rose", "Sauvignon Blanc", "Shiraz", "Shiraz-Cabernet", "Shiraz-Grenache", "Sweet Red", "Sweet White",
+            "Summation", "Syrah", "Viognier", "White Merlot", "White Zinfandel", "Zinfandel"
+	};
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +81,15 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}        
-		
+
 		// Autocomplete for producer
 		myAutoComplete = (AutoCompleteTextView)findViewById(R.id.producer);
 	    myAutoComplete.addTextChangedListener(this);
-	    Wine[] wineList = Wine.getAll();
-	    String[] producerList = new String[wineList.length];
+	    //Wine[] wineList = Wine.getAll();
+	    //String[] producerList = new String[wineList.length];
 	    //String[] categoryList = new String[wineList.length];
-	    String[] regionList = new String[wineList.length];
+	    //String[] regionList = new String[wineList.length];
+	    /*
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
 	    	if(i == 0 || ((j-1)>-1 && !(producerList[j-1].equals(wineList[i].name.producer.toString())))) {
@@ -94,28 +105,34 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    		System.out.println("winelist: " + "i:" + i + " " + wineList[i].name.producer.toString());
 	    		System.out.println("producerlist: " + "j: " + j + producerList[j]);
 	    		j++;
-	    	}
+	    	}*/
 	    	/*
 	    	if(i == 0 || (k-1)>-1 && categoryList[k-1] != wineList[i].category.category.toString()) {
 	    		categoryList[k] = wineList[i].category.category.toString();
 	    		k++;
 	    	}*/
+	    /*
 	    	if(i == 0 || ((l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString())) {
 	    		regionList[l] = wineList[i].region.region.toString();
 	    		l++;
 	    	}
-	    }
+	    }*/
 	    myAutoComplete.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, producerList));
-	    
+
 	    // Autocomplete for category
 		myAutoComplete2 = (AutoCompleteTextView)findViewById(R.id.category);
 	    myAutoComplete2.addTextChangedListener(this);
 	    myAutoComplete2.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, categoryList));
-	   
+
 	    // Autocomplete for region
 		myAutoComplete3 = (AutoCompleteTextView)findViewById(R.id.region);
 	    myAutoComplete3.addTextChangedListener(this);
 	    myAutoComplete3.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, regionList));
+
+	    // Autocomplete for region
+		myAutoComplete4 = (AutoCompleteTextView)findViewById(R.id.varietal);
+	    myAutoComplete4.addTextChangedListener(this);
+	    myAutoComplete4.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, varietalList));
 
 	    // Single-check check boxes for sweet and dry qualities of wine
 	    final CheckBox dry = (CheckBox)findViewById(R.id.dryCheck);
