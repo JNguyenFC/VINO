@@ -1,13 +1,18 @@
 package com.yoloswag.vino.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.yoloswag.vino.db.DatabaseManager;
 
-public class Wine 
+public class Wine implements Serializable
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 10L;
 	@DatabaseField(generatedId=true)
 	public int id;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
