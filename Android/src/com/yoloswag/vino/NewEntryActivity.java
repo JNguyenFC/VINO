@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 public class NewEntryActivity extends Activity implements TextWatcher {
 	
+	// Autocomplete arrays
     AutoCompleteTextView myAutoComplete;
     AutoCompleteTextView myAutoComplete2;
     AutoCompleteTextView myAutoComplete3;
@@ -68,7 +69,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			ImageView imageView = (ImageView)this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}        
 		
@@ -149,7 +149,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
+				// Creating entry
 				Entry e = new Entry();
 				EditText title = (EditText)findViewById(R.id.title);
 				EditText category = (EditText)findViewById(R.id.category);
@@ -244,8 +244,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
                     toast.show();
                     return;
 				}
-				
-				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				// Entry details
 				e.wine = new Wine("", "", "", "", "", "");
@@ -268,8 +266,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				finish();
 			}
         });
-
-		//DatabaseManager.init(this);
 	}
 	
 	
@@ -315,33 +311,19 @@ public class NewEntryActivity extends Activity implements TextWatcher {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-/*        // The activity is about to be destroyed.
-        // Calling ViewLogEntryFragment
-        Fragment fragment = new ViewLogEntryFragment();
-		FragmentTransaction transaction = fragment.getFragmentManager().beginTransaction();
-
-		transaction.replace(R.id.fragment_view_log_entry, fragment);
-		transaction.addToBackStack(null);
-		transaction.commit();*/
     }
     
     
     @Override
     public void afterTextChanged(Editable arg0) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count,
       int after) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-     // TODO Auto-generated method stub
-
     }
 }
