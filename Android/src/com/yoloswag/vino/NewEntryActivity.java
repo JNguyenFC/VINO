@@ -52,6 +52,10 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		setContentView(R.layout.activity_new_entry);
         View button = this.findViewById(R.id.new_entry_button);
 
+        EditText editText = (EditText)this.findViewById(R.id.title);
+        editText.requestFocus(); 
+        editText.setSelection(0); 
+        
         // Preview of captured image
 	    FileInputStream in;
 		try {
@@ -75,8 +79,18 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
-	    	if(i == 0 || ((j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString())) {
+	    	if(i == 0 || ((j-1)>-1 && producerList[j-1].equals(wineList[i].name.producer.toString()))) {
 	    		producerList[j] = wineList[i].name.producer.toString();
+	    		
+	    		System.out.println("first check j-1 > -1? " + ((j-1)>-1));
+	    		if(j!= 0){
+	    		System.out.println("producer? " + (producerList[j-1] ));
+	    		System.out.println("second check? " + producerList[j-1] != wineList[i].name.producer.toString());
+	    		}
+	    		
+	    	    System.out.println("wine? " + (wineList[i].name.producer.toString()));
+	    		System.out.println("winelist: " + "i:" + i + " " + wineList[i].name.producer.toString());
+	    		System.out.println("producerlist: " + "j: " + j + producerList[j]);
 	    		j++;
 	    	}
 	    	/*
