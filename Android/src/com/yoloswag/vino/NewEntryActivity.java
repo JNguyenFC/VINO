@@ -79,7 +79,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
-	    	if(i == 0 || (j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString()) {
+	    	if(i == 0 || ((j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString())) {
 	    		producerList[j] = wineList[i].name.producer.toString();
 	    		j++;
 	    	}
@@ -88,7 +88,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    		categoryList[k] = wineList[i].category.category.toString();
 	    		k++;
 	    	}*/
-	    	if(i == 0 || (l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString()) {
+	    	if(i == 0 || ((l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString())) {
 	    		regionList[l] = wineList[i].region.region.toString();
 	    		l++;
 	    	}
@@ -144,7 +144,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-				EditText location = (EditText)findViewById(R.id.location);
+				//EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
