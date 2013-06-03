@@ -68,7 +68,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			ImageView imageView = (ImageView) this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 
 		}        
@@ -78,7 +77,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    myAutoComplete.addTextChangedListener(this);
 	    Wine[] wineList = Wine.getAll();
 	    String[] producerList = new String[wineList.length];
-	    //String[] categoryList = new String[wineList.length];
 	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
@@ -147,7 +145,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
+				// Create entry and wine and instantiate fields
 				Entry e = new Entry();
 
 				EditText title = (EditText)findViewById(R.id.title);
@@ -172,7 +170,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					TextView textView = (TextView) toastView
 							.findViewById(R.id.text);
 
-					textView.setText("Hey!! You need to acknowledge the producers!");
+					textView.setText("Needa acknowledge the producers!");
 					Toast toast = new Toast(NewEntryActivity.this);
 					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 					toast.setDuration(Toast.LENGTH_SHORT);
@@ -287,15 +285,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
-				// e.wine.rating = (double)rating.getRating();
-
+				
 				e.save();
-
 				finish();
 			}
-		});
-
-		// DatabaseManager.init(this);
+        });
 	}
 
 	/*
@@ -315,60 +309,43 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 */
 
 	@Override
-	protected void onStart() {
-		super.onStart();
-		// The activity is about to become visible.
-	}
+    protected void onStart() {
+        super.onStart();
+        // The activity is about to become visible.
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // The activity has become visible (it is now "resumed").
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Another activity is taking focus (this activity is about to be "paused").
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // The activity is no longer visible (it is now "stopped")
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // The activity is about to be destroyed.
+    }
+    
+    
+    @Override
+    public void afterTextChanged(Editable arg0) {
+    }
 
-	@Override
-	protected void onResume() {
-		super.onResume();
-		// The activity has become visible (it is now "resumed").
-	}
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count,
+      int after) {
+    }
 
-	@Override
-	protected void onPause() {
-		super.onPause();
-		// Another activity is taking focus (this activity is about to be
-		// "paused").
-	}
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    }
 
-	@Override
-	protected void onStop() {
-		super.onStop();
-		// The activity is no longer visible (it is now "stopped")
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		/*
-		 * // The activity is about to be destroyed. // Calling
-		 * ViewLogEntryFragment Fragment fragment = new ViewLogEntryFragment();
-		 * FragmentTransaction transaction =
-		 * fragment.getFragmentManager().beginTransaction();
-		 * 
-		 * transaction.replace(R.id.fragment_view_log_entry, fragment);
-		 * transaction.addToBackStack(null); transaction.commit();
-		 */
-	}
-
-	@Override
-	public void afterTextChanged(Editable arg0) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void beforeTextChanged(CharSequence s, int start, int count,
-			int after) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		// TODO Auto-generated method stub
-
-	}
 }
