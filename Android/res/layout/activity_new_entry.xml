@@ -11,7 +11,7 @@
        android:layout_height="wrap_content"
        android:adjustViewBounds="true"
        android:scaleType="centerCrop"
-       android:alpha=".75"
+       android:alpha=".90"
        android:contentDescription="@string/image" />
     
     <ScrollView
@@ -28,7 +28,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:gravity="center_horizontal" >
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >
 
                 <EditText
                     android:id="@+id/title"
@@ -47,7 +50,8 @@
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:padding="5dp" >
 
                 <EditText
                     android:id="@+id/comments"
@@ -67,7 +71,8 @@
             <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip" >
 
                 <TextView
                     android:id="@+id/wineTitle"
@@ -82,7 +87,9 @@
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/producer"
@@ -104,7 +111,10 @@
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >
 
                 <EditText
                     android:id="@+id/varietal"
@@ -118,18 +128,14 @@
                     android:textColorHint="#C0FFFFFF"
                     android:textColor="@color/white" />
             </TableRow>
-
+                        
             <TableRow
                 android:id="@+id/tableRow6"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-            </TableRow>
-            
-                        
-            <TableRow
-                android:id="@+id/tableRow7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/region"
@@ -148,9 +154,12 @@
             </TableRow>
             
             <TableRow
-                android:id="@+id/tableRow8"
+                android:id="@+id/tableRow7"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >   
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >   
               
               <EditText
                     android:id="@+id/vintageYear"
@@ -164,14 +173,15 @@
                     android:textColorHint="#C0FFFFFF"
                     android:textColor="@color/white"
                     android:maxLength="4" />
-       
-            
             </TableRow>
             
             <TableRow
                 android:id="@+id/tableRow9"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/category"
@@ -188,8 +198,6 @@
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
-            
-
 
             <TableRow
                 android:id="@+id/tableRow10"
