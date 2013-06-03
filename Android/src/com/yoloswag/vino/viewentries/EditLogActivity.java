@@ -38,6 +38,7 @@ public class EditLogActivity extends Activity {
 		setContentView(R.layout.activity_new_entry);
 		
 		EditText title = (EditText)findViewById(R.id.title);
+		EditText producer = (EditText)findViewById(R.id.producer);
 		EditText category = (EditText)findViewById(R.id.category);
 		EditText region = (EditText)findViewById(R.id.region);
 		EditText varietal = (EditText)findViewById(R.id.varietal);
@@ -48,7 +49,7 @@ public class EditLogActivity extends Activity {
 		
 		final Intent info = this.getIntent();
 		title.setText(info.getStringExtra("title"));
-		//producer.setText(info.getStringExtra("producer"));
+		producer.setText(info.getStringExtra("producer"));
 		vintageYear.setText(info.getStringExtra("vintage"));
 		category.setText(info.getStringExtra("category"));
 		region.setText(info.getStringExtra("region"));
@@ -69,7 +70,6 @@ public class EditLogActivity extends Activity {
 			ImageView imageView = (ImageView)this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}       
 
