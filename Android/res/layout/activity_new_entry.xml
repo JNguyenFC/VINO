@@ -88,6 +88,7 @@
                     android:maxLength="50"
                     android:text="@string/newEntry_wineTitle"
                     android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"
                     android:textColor="@color/white" />
             </TableRow>
 
@@ -251,6 +252,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/newEntry_rating"
                     android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textStyle="bold"
                     android:textColor="@color/white" />
             </TableRow>
 
