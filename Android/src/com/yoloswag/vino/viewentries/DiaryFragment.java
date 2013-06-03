@@ -61,7 +61,7 @@ public class DiaryFragment extends Fragment {
 		List<Entry> lit = Arrays.asList(Entry.getAll());
 		Collections.reverse(lit);
 
-		for (Entry object : lit) {
+		for (Entry object : lit	) {
 			adapter.insert(object, adapter.getCount());
 		}
 

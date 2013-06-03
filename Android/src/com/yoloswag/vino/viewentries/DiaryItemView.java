@@ -74,15 +74,18 @@ public class DiaryItemView extends LinearLayout {
 			}
 		}).start();
 
-		// Dynamically change white on black text captions on top of photos
+/*		// Dynamically change white on black text captions on top of photos
 		TextView textview_vintage = (TextView) findViewById(R.id.vintage);
-		textview_vintage.setText(entry.wine.vintage.year);
-
+		textview_vintage.setVisibility(GONE);
+		//textview_vintage.setText(entry.wine.vintage.year);
+*/
 		TextView textview_producer = (TextView) findViewById(R.id.producer_name);
-		textview_producer.setText(entry.wine.name.producer);
+		//textview_producer.setText(entry.wine.name.producer);
+		textview_producer.setText(entry.postDate);
 
 		TextView textview_varietal = (TextView) findViewById(R.id.varietal_name);
-		textview_varietal.setText(entry.wine.varietal.varietal_name);
+		//textview_varietal.setText(entry.wine.varietal.varietal_name);
+		textview_varietal.setText(entry.title);
 		
 		TextView textview_entry_title = (TextView) findViewById(R.id.entry_title);
 		textview_entry_title.setText(entry.title);
@@ -141,7 +144,7 @@ public class DiaryItemView extends LinearLayout {
 					}
 				});
 				
-				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
+//				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
 				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
 				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
 				ImageButton delete_but = (ImageButton) vG.findViewById(R.id.deleteEntry);
@@ -167,10 +170,10 @@ public class DiaryItemView extends LinearLayout {
 					editBut.setVisibility(RelativeLayout.VISIBLE);
 					delete_but.setVisibility(RelativeLayout.VISIBLE);					
 
-					textview_vintage.startAnimation(animationFadeOut);
+//					textview_vintage.startAnimation(animationFadeOut);
 					textview_producer.startAnimation(animationFadeOut);
 					textview_varietal.startAnimation(animationFadeOut);				
-					textview_vintage.setVisibility(RelativeLayout.GONE);
+//					textview_vintage.setVisibility(RelativeLayout.GONE);
 					textview_producer.setVisibility(RelativeLayout.GONE);
 					textview_varietal.setVisibility(RelativeLayout.GONE);
 				}
@@ -188,10 +191,10 @@ public class DiaryItemView extends LinearLayout {
 					editBut.setVisibility(RelativeLayout.INVISIBLE);
 					delete_but.setVisibility(RelativeLayout.INVISIBLE);
 
-					textview_vintage.startAnimation(animationFadeIn);
+//					textview_vintage.startAnimation(animationFadeIn);
 					textview_producer.startAnimation(animationFadeIn);
 					textview_varietal.startAnimation(animationFadeIn);
-					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
+//					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
 					textview_producer.setVisibility(RelativeLayout.VISIBLE);
 					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
 				}

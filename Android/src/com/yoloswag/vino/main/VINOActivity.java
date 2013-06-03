@@ -7,7 +7,6 @@ import com.yoloswag.vino.R;
 import com.yoloswag.vino.db.DatabaseManager;
 import com.yoloswag.vino.favorites.FavoritesFragment;
 import com.yoloswag.vino.viewentries.DiaryFragment;
-import com.yoloswag.vino.viewentries.ViewLogEntryFragment;
 
 
 import android.annotation.SuppressLint;
@@ -91,13 +90,13 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
         //actionBar.setStackedBackgroundDrawable(new ColorDrawable(Color.parseColor("#822b4f")));
         actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.vino, menu);
         return true;
-    }
+    }*/
     
     @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
