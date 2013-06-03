@@ -78,11 +78,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    myAutoComplete.addTextChangedListener(this);
 	    Wine[] wineList = Wine.getAll();
 	    String[] producerList = new String[wineList.length];
-	    String[] categoryList = new String[wineList.length];
+	    //String[] categoryList = new String[wineList.length];
 	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
-	    	if(i == 0 || ((j-1)>-1 && producerList[j-1].equals(wineList[i].name.producer.toString()))) {
+	    	if(i == 0 || ((j-1)>-1 && !(producerList[j-1].equals(wineList[i].name.producer.toString())))) {
 	    		producerList[j] = wineList[i].name.producer.toString();
 	    		
 	    		System.out.println("first check j-1 > -1? " + ((j-1)>-1));

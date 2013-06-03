@@ -41,27 +41,16 @@ public class EditLogActivity extends Activity {
 		EditText region = (EditText)findViewById(R.id.region);
 		EditText varietal = (EditText)findViewById(R.id.varietal);
 		EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-		EditText location = (EditText)findViewById(R.id.location);
 		EditText comment = (EditText)findViewById(R.id.comments);
 		RatingBar rating = (RatingBar)findViewById(R.id.rating);
 		
 		
 		final Intent info = this.getIntent();
-		//String pro = info.getStringExtra("producer");
-		//reg.setText(pro);
-		//Entry entry = (Entry) info.getSerializableExtra("entry");
-		//producer.setText(entry.wine.producer.producer);
-		//vintageYear.setText(entry.wine.vintage.year);
-		//category.setText(entry.wine.category.category);
-		//region.setText(entry.wine.region.region);
-		//comment.setText(entry.comment);
-		//rating.setRating((float) entry.wine.rating);
 		title.setText(info.getStringExtra("title"));
 		//producer.setText(info.getStringExtra("producer"));
 		vintageYear.setText(info.getStringExtra("vintage"));
 		category.setText(info.getStringExtra("category"));
 		region.setText(info.getStringExtra("region"));
-		location.setText(info.getStringExtra("location"));
 		comment.setText(info.getStringExtra("comment"));
 		rating.setRating(info.getFloatExtra("rating", 3));
 		varietal.setText(info.getStringExtra("varietal"));
@@ -96,7 +85,6 @@ public class EditLogActivity extends Activity {
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
-				EditText location = (EditText)findViewById(R.id.location);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 
@@ -110,9 +98,8 @@ public class EditLogActivity extends Activity {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
-				e.wine.rating = (double)rating.getRating();
+				e.wine.addRating(rating.getRating());
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 				
 				e.wine.save();

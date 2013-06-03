@@ -131,7 +131,6 @@ public class DiaryItemView extends LinearLayout {
 					intent.putExtra("vintage", entry.wine.vintage.year);
 					intent.putExtra("comment", entry.comment);
 					intent.putExtra("rating", entry.wine.rating);
-					intent.putExtra("location", entry.location);
 					intent.putExtra("title", entry.title);
 					v.getContext().startActivity(intent);
 					//entry.wine.region.region = intent.getStringExtra("region1");
