@@ -236,7 +236,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
                     ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
                     imageView.setImageResource(R.drawable.gary_vector);
                     TextView textView = (TextView) toastView.findViewById(R.id.text);
-                    textView.setText("Wine from the future?");
+                    textView.setText("Wine from the future? Don't think so.");
                     Toast toast = new Toast(NewEntryActivity.this);
                     toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                     toast.setDuration(Toast.LENGTH_SHORT);
