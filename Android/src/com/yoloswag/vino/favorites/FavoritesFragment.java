@@ -130,7 +130,8 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 					
 					else
 					{
-						
+						suggestionsList.add(wines[j]);
+						++counter;
 					}
 	
 				}
