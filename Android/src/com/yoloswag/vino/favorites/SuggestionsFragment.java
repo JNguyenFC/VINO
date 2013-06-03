@@ -34,14 +34,11 @@ public class SuggestionsFragment extends Fragment
 	 
 	 ListView listView;
 	 List<RowItem> rowItems;
-	
+	 
 	 @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
-		
-
-		
-	        
+		        
 		 rowItems = new ArrayList<RowItem>();
 
 		 
