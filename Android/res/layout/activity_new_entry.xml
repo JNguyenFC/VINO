@@ -36,6 +36,8 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_title"
+                    android:scrollHorizontally="true"
+                    android:inputType="textCapWords"
                     android:textColorHint="@color/white" />
             </TableRow>
             
@@ -83,6 +85,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_producer"
+                    android:inputType="textCapWords"
                     android:textColorHint="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
@@ -100,6 +103,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_varietal"
+                    android:inputType="textCapWords"
                     android:textColorHint="@color/white" />
             </TableRow>
 
@@ -121,6 +125,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:hint="@string/newEntry_region"
+                    android:inputType="textCapWords"
                     android:textColorHint="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
@@ -154,18 +159,12 @@
                     android:layout_margin="0dip"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:inputType="textCapWords"
                     android:hint="@string/newEntry_category"
                     android:textColorHint="@color/white" >
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
-            
-            <TableRow
-                android:id="@+id/tableRow10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-            </TableRow>
-
 
             <TableRow
                 android:id="@+id/tableRow12"

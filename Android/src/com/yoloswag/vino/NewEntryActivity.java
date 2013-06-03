@@ -36,10 +36,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
   		  "Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
   		  "Yellow Tail"
   		};*/
-    /*
+    
     String categoryList[]={
 	  "Dessert", "Red", "Rose", "Sparkling","White"
 	};
+    /*
     String regionList[]={
 	  "Australia", "Burgundy", "California", "Canada", "France", "Germany", 
 	  "Italy", "Portugal", "Spain"
@@ -72,16 +73,17 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    String[] producerList = new String[wineList.length];
 	    String[] categoryList = new String[wineList.length];
 	    String[] regionList = new String[wineList.length];
-	    for(int i = 0, j = 0, k = 0, l = 0; i < wineList.length; i++)
+	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
 	    	if(i == 0 || (j-1)>-1 && producerList[j-1] != wineList[i].name.producer.toString()) {
 	    		producerList[j] = wineList[i].name.producer.toString();
 	    		j++;
 	    	}
+	    	/*
 	    	if(i == 0 || (k-1)>-1 && categoryList[k-1] != wineList[i].category.category.toString()) {
 	    		categoryList[k] = wineList[i].category.category.toString();
 	    		k++;
-	    	}
+	    	}*/
 	    	if(i == 0 || (l-1)>-1 && regionList[l-1] != wineList[i].region.region.toString()) {
 	    		regionList[l] = wineList[i].region.region.toString();
 	    		l++;
