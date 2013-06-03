@@ -1,5 +1,7 @@
 package com.yoloswag.vino.viewentries;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,7 +38,9 @@ public class DiaryFragment extends Fragment {
 		ListView list = (ListView) rootView.findViewById(R.id.viewLogL);
 		list.setFastScrollEnabled(true);
 		ArrayList<Entry> lst = new ArrayList<Entry>();
-		lst.addAll(Arrays.asList(Entry.getAll()));
+		List<Entry> lit = Arrays.asList(Entry.getAll());
+		Collections.reverse(lit);
+		lst.addAll(lit);
 		adapter = new DiaryAdapter(getActivity(), 0, lst, this);
 		list.setAdapter(adapter);
 		
@@ -51,9 +55,13 @@ public class DiaryFragment extends Fragment {
 	}
 
 	public void updateData() {
-		adapter.clear(); 
+		adapter.clear();
 
-		for (Entry object : Entry.getAll()) {
+		ArrayList<Entry> lst = new ArrayList<Entry>();
+		List<Entry> lit = Arrays.asList(Entry.getAll());
+		Collections.reverse(lit);
+
+		for (Entry object : lit) {
 			adapter.insert(object, adapter.getCount());
 		}
 
