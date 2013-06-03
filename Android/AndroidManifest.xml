@@ -13,9 +13,9 @@
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-   
-    <uses-permission android:name="android.permission.INTERNET"/>
-    
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/wine_icon1"
@@ -23,7 +23,9 @@
         android:theme="@style/Theme.Example" >
         <activity
             android:name="com.yoloswag.vino.main.VINOActivity"
-            android:label="@string/app_name" >
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,17 +34,26 @@
         </activity>
         <activity
             android:name="com.yoloswag.vino.NewEntryActivity"
-            android:label="@string/app_name" />
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.yoloswag.vino.favorites.FavoritesFragment"
-            android:label="@string/title_activity_favorites" >
+            android:configChanges="orientation"
+            android:label="@string/title_activity_favorites"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.yoloswag.vino.ViewLogActivity"
-            android:label="@string/title_activity_view_log" >
+            android:configChanges="orientation"
+            android:label="@string/title_activity_view_log"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name=".viewentries.EditLogActivity"></activity>
+        <activity
+            android:name=".viewentries.EditLogActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+        </activity>
     </application>
 
-    
 </manifest>
