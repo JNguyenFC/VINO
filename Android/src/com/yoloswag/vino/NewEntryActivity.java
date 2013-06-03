@@ -197,7 +197,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				e.wine = new Wine("", "", "", "", "", "");
 				e.title = title.getText().toString();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
-				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
 				e.wine.category = new Category(category.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
