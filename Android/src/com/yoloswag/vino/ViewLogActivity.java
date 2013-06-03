@@ -70,7 +70,6 @@ public class ViewLogActivity extends Activity {
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				e.location = location.getText().toString();
 				e.comment = comment.getText().toString();
 				e.wine.rating = (double)rating.getRating();
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";

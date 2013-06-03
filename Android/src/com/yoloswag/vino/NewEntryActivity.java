@@ -66,7 +66,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 			ImageView imageView = (ImageView)this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}        
 		
@@ -75,7 +74,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	    myAutoComplete.addTextChangedListener(this);
 	    Wine[] wineList = Wine.getAll();
 	    String[] producerList = new String[wineList.length];
-	    //String[] categoryList = new String[wineList.length];
 	    String[] regionList = new String[wineList.length];
 	    for(int i = 0, j = 0, l = 0; i < wineList.length; i++)
 	    {
@@ -138,7 +136,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
         		}
         	}
         };
-        
 		dry.setOnCheckedChangeListener(checkListener);
         sweet.setOnCheckedChangeListener(checkListener); 
 	    
@@ -147,7 +144,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
+				// Create entry and wine and instantiate fields
 				Entry e = new Entry();
 				EditText title = (EditText)findViewById(R.id.title);
 				EditText category = (EditText)findViewById(R.id.category);
@@ -158,7 +155,6 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				EditText comment = (EditText)findViewById(R.id.comments);
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
-
 
 				//check if a producer has been entered
 				if(producer.getText().toString().matches(""))
@@ -222,15 +218,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
-				//e.wine.rating = (double)rating.getRating();
 				
 				e.save();
-				
 				finish();
 			}
         });
-
-		//DatabaseManager.init(this);
 	}
 	
 	
@@ -276,33 +268,20 @@ public class NewEntryActivity extends Activity implements TextWatcher {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-/*        // The activity is about to be destroyed.
-        // Calling ViewLogEntryFragment
-        Fragment fragment = new ViewLogEntryFragment();
-		FragmentTransaction transaction = fragment.getFragmentManager().beginTransaction();
-
-		transaction.replace(R.id.fragment_view_log_entry, fragment);
-		transaction.addToBackStack(null);
-		transaction.commit();*/
+        // The activity is about to be destroyed.
     }
     
     
     @Override
     public void afterTextChanged(Editable arg0) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count,
       int after) {
-     // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-     // TODO Auto-generated method stub
-
     }
 }
