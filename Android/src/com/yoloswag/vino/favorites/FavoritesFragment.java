@@ -106,22 +106,22 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 				{         
 					suggestionsList.add(wines[j]);
 					++counter;
-				}					
-
-				else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
-				{
-					suggestionsList.add(wines[j]);
-					++counter;
 				}
 
-				else if (counter < 4)
-				{
+				else if (counter < 4 && j > (wines.length/2))
+				{		
 					if ((clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
 					{
 						suggestionsList.add(wines[j]);
 						++counter;
 					}
-
+					
+					else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
+					{
+						suggestionsList.add(wines[j]);
+						++counter;
+					}
+					
 					else if ((clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
 					{
 						suggestionsList.add(wines[j]);
