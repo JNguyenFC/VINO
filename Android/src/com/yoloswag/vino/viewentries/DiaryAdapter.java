@@ -1,3 +1,10 @@
+/**
+ * Filename:    DiaryAdapter.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.viewentries;
 
 import java.util.ArrayList;
@@ -11,23 +18,28 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 @TouchThisAndIWillFuckingKillYou
-public class DiaryAdapter extends ArrayAdapter<Entry> {
+public class DiaryAdapter extends ArrayAdapter<Entry> 
+{
 	
 	private DiaryFragment diary;
 
-	public DiaryAdapter(Context context, int resource, ArrayList<Entry> lst, DiaryFragment diary) {
+	// Constructor for DiaryAdapter
+	public DiaryAdapter(Context context, int resource, ArrayList<Entry> lst, DiaryFragment diary) 
+	{
 		super(context, resource, lst);
 		this.diary = diary;
 	}
 	
+	/** Fetches and inflates data for entry
+	 */
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) 
+    {
         DiaryItemView diaryItemView;
-        if (convertView == null) {
+        if (convertView == null) 
         	diaryItemView = DiaryItemView.build(getContext());
-        } else {
+        else 
         	diaryItemView = (DiaryItemView)convertView;
-        }
         
         diaryItemView.bind(getItem(position), parent, diary);
 
