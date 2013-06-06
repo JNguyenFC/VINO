@@ -1,3 +1,10 @@
+/**
+ * Filename:    Wine.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.model;
 
 import java.io.Serializable;
@@ -25,9 +32,9 @@ public class Wine implements Serializable
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public SweetOrDry sweetOrDry;
 	@DatabaseField
-	public double rating;
+	public double rating;   // Single rating for a Wine
 	@DatabaseField
-	public double ratings;
+	public double ratings;  // Average rating for a Wine
 	
 	/**  Default constructor
 	 */
@@ -35,7 +42,8 @@ public class Wine implements Serializable
 	{
 	}
 	
-	/**  All-member constructor for fake database
+	//TODO: fix vintage
+	/**  All-member constructor for database
 	 */
 	public Wine(String name, String varietal, String category, String region,
 	            String sweetOrDry, String vintage)
@@ -50,7 +58,10 @@ public class Wine implements Serializable
 		this.ratings = 0;
 	}
 	
-	public void addRating(double newRating) {
+	/** Adds a rating to the given Wine
+	 */
+	public void addRating(double newRating) 
+	{
 		this.rating = (rating * ratings + newRating) / ++ratings;
 	}
 	
@@ -61,37 +72,18 @@ public class Wine implements Serializable
 		return wine;
 	}
 	
-	/**  Returns all wines with their corresponding data
+	/**  Gets all wines with their corresponding data from the database
 	 */
 	public static Wine[] getAll() 
 	{	
-		//return new Wine[] {a, b, c, d, e};
-		// from the database
 		List<Wine> wines = DatabaseManager.getInstance().getAllWines();
 		return wines.toArray(new Wine[wines.size()]);
 	}
-	
-	/*public Producer getProducer() 
+
+	/** Saves updated Wine into database
+	 */
+	public void save() 
 	{
-		// TODO actual implementation that works
-		return new Producer();
-	}*/
-
-
-	public SweetOrDry getSweetOrDry() {
-		return new SweetOrDry("SWEET");
-	}
-
-	public Varietal getVarietal() {
-		// would usually load from database
-		return new Varietal("CAYETANA");
-	}
-
-	public Category getCategory() {
-		return new Category("RED");
-	}
-
-	public void save() {
         DatabaseManager.getInstance().updateWine(this);
 	}
 }
