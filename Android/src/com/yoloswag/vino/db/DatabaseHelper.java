@@ -2,7 +2,7 @@
  * Filename:    DatabaseHelper.java
  * Team:        VINO
  * Description: 
- * Date:        June 8, 2013
+ * Date:        08 Jun 2013
  **/
 
 package com.yoloswag.vino.db;
