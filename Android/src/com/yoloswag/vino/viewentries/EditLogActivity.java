@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Category;
 import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.model.Name;
 import com.yoloswag.vino.model.Producer;
 import com.yoloswag.vino.model.Region;
 import com.yoloswag.vino.model.Varietal;
@@ -82,7 +83,7 @@ public class EditLogActivity extends Activity {
 				
 				Entry e = (Entry)info.getSerializableExtra("entry");
 				EditText title = (EditText)findViewById(R.id.title);
-				EditText producer = (EditText) findViewById(R.id.producer);
+				EditText name = (EditText) findViewById(R.id.producer);
 				EditText category = (EditText)findViewById(R.id.category);
 				EditText region = (EditText)findViewById(R.id.region);
 				EditText varietal = (EditText)findViewById(R.id.varietal);
@@ -98,7 +99,7 @@ public class EditLogActivity extends Activity {
 				
 				e.title = title.getText().toString();
 				e.wine.category = new Category(category.getText().toString());
-				e.wine.producer = new Producer(producer.getText().toString());
+				e.wine.name = new Name(name.getText().toString());
 				e.wine.region = new Region(region.getText().toString());
 				e.wine.varietal = new Varietal(varietal.getText().toString());
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
