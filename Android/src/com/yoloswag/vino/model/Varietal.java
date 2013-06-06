@@ -14,7 +14,7 @@ public class Varietal implements Serializable
 	private static final long serialVersionUID = 1L;
 	public String varietal_name;
 
-	// Initializes the String varietal in Varietal with the parameter
+	// Initializes the String varietal_name in Varietal with the parameter
 	public Varietal(String varietal)
 	{
 		this.varietal_name = varietal;		
