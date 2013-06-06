@@ -1,3 +1,10 @@
+/**
+ * Filename:    FavoritesAdapter.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.favorites;
 
 import java.util.ArrayList;
@@ -16,42 +23,44 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.model.Wine;
 
 /**
- * Custom Adapter for favorites wine list and recommendations. 
+ * Adapter to bridge FavoritesFragment and its underlying data to generate
+ * list of favorite wines and recommendations. 
  */
 public class FavoritesAdapter extends BaseExpandableListAdapter 
 {
-
 	private Activity context;
-	public static int sugPos;
 
 	public static Wine[] favoriteWines = sortRatings(Wine.getAll());
+	public static int sugPos;
 	public static int favoriteSize = favoriteWines.length; 
 
-
-
+	// Constructs a FavoritesAdapter for the specified FavoritesFragment
 	public FavoritesAdapter(FavoritesFragment favoritesFragment)
 	{
 		this.context = favoritesFragment.getActivity();
 	}
 
+	/** Gets the data associated with the given child within the given group
+	 */
 	@Override
 	public Object getChild(int groupPosition, int childPosition) 
 	{
-		// TODO Auto-generated method stub
 		return null;
 	}
 
+	/** Gets the ID for the given child within the given group 
+	 */
 	@Override
 	public long getChildId(int groupPosition, int childPosition) 
 	{
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
+	/** Gets a View that displays the recommendations for each favorite wine
+	 */
 	@Override
 	public View getChildView(int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) 
@@ -69,6 +78,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			return linearLayout;
 	}
 
+	/** Gets the number of recommendations drawers for each favorite wine
+	 */
 	@Override
 	public int getChildrenCount(int groupPosition) 
 	{
@@ -79,32 +90,36 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			return 1;
 	}
 
+	/** Gets the group position of the specified favorite wine
+	 */
 	@Override
 	public Object getGroup(int groupPosition) 
 	{
 		return groupPosition;
 	}
 
+	/** Gets the number of favorite wines to be displayed
+	 */
 	@Override
 	public int getGroupCount() 
 	{
 		return favoriteWines.length;
 	}
 
+	/** Gets the ID for the favorite wine at the given position
+	 */
 	@Override
 	public long getGroupId(int groupPosition) 
 	{
 		return groupPosition;
 	}
 
+	/** Gets the View that displays the list of favorite wines
+	 */
     @Override
 	public View getGroupView(int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) 
 	{
-		// Inflating a View takes the layout XML, creates the View specified
-		//   within, and then adds the View to another ViewGroup --
-		//   this displays the RatingBar indicator for each favorite Wine
-
 		LayoutInflater li = LayoutInflater.from(context);
 		View v = li.inflate(R.layout.rating_cell_layout, null);
 
@@ -124,25 +139,31 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		return v;
 	} 
 
+    /** Indicates whether the child and group IDs are stable across changes to
+     * the underlying data.
+     */
 	@Override
 	public boolean hasStableIds() 
 	{
 		return false;
 	}
 
+	//TODO: should be false?
+	/** Specifies whether the recommendations drawer is selectable
+	 */
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) 
 	{
 		return true;
 	}
 
+	/** (Bubble) Sorts list of favorite wines by rating (highest to lowest)
+	 */
 	static Wine[] sortRatings(Wine[] WineList)
 	{
-		System.out.println(WineList.length);
-		List<Wine> ratedEntries = getRatedWines(WineList);
-
-		int n = ratedEntries.size();
 		Wine temp = null;
+		List<Wine> ratedEntries = getRatedWines(WineList);
+		int n = ratedEntries.size();
 
 		int counter = 0;
 		do
@@ -164,10 +185,11 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 
 		Wine[] sortedWines = ratedEntries.toArray(new Wine[ratedEntries.size()]);
 
-		System.out.println(sortedWines.length);
 		return sortedWines;
 	}
 
+	/** Gets list of rated wines from all wines in database
+	 */
 	private static List<Wine> getRatedWines (Wine[] allWines)
 	{
 		int n = allWines.length;
