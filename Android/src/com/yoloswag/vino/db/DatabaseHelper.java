@@ -1,3 +1,10 @@
+/**
+ * Filename:    DatabaseHelper.java
+ * Team:        VINO
+ * Description: 
+ * Date:        13 Mar 2013
+ **/
+
 package com.yoloswag.vino.db;
 
 import java.util.ArrayList;
