@@ -41,7 +41,6 @@
             android:background="#8f000000"
             android:paddingLeft="4dp"
             android:paddingRight="8dp"
-            android:text="CARRUTH CELLARS"
             android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
@@ -55,7 +54,6 @@
             android:background="#8f000000"
             android:paddingLeft="4dp"
             android:paddingRight="8dp"
-            android:text="SAUVIGNON BLANC"
             android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
@@ -69,10 +67,9 @@
         android:layout_height="match_parent"
         android:background="#bdffffff"
         android:gravity="bottom|center"
-        android:paddingBottom="24dp"
-        android:text="wine details"
+        android:paddingBottom="15dp"
         android:textColor="#dd222222"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
     <TextView
@@ -80,11 +77,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:paddingTop="30dp"
-        android:text="entry title"
+        android:paddingTop="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="26sp"
         android:textStyle="bold"
         android:visibility="invisible" />
 
@@ -94,9 +90,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/entry_title"
         android:layout_centerHorizontal="true"
-        android:text="entry postDate"
         android:textColor="#dd222222"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:visibility="invisible" />
 
     <View
@@ -113,35 +108,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/line"
-        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:layout_marginTop="5dp"
         android:paddingLeft="15dp"
         android:paddingRight="15dp"
-        android:text="entry comment"
         android:textColor="#000000"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/deleteEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
         android:src="@drawable/delete_button"
+        android:background="#00000000"
         android:visibility="invisible" />
 
     <ImageButton
         android:id="@+id/editText01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_above="@id/deleteEntry"
+        android:padding="5dp"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
         android:src="@drawable/edit_button"
+        android:background="#00000000"
         android:visibility="invisible" />
     <!--
     <Button

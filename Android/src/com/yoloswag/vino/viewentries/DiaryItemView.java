@@ -82,6 +82,7 @@ public class DiaryItemView extends LinearLayout {
 		TextView textview_producer = (TextView) findViewById(R.id.producer_name);
 		//textview_producer.setText(entry.wine.name.producer);
 		textview_producer.setText(entry.postDate);
+		textview_producer.setTextSize(22);
 
 		TextView textview_varietal = (TextView) findViewById(R.id.varietal_name);
 		//textview_varietal.setText(entry.wine.varietal.varietal_name);
@@ -95,9 +96,10 @@ public class DiaryItemView extends LinearLayout {
 
 		TextView textview_entry_comment = (TextView) findViewById(R.id.entry_comment);
 		textview_entry_comment.setText(entry.comment);
+		//textview_entry_comment.setTextSize(28);
 
 		TextView textview_entry_details = (TextView) findViewById(R.id.entry_details);
-		textview_entry_details.setText("Producer: " + entry.wine.name.producer + "\n" +
+		textview_entry_details.setText("Winemaker: " + entry.wine.name.producer + "\n" +
 				"Varietal: " + entry.wine.varietal.varietal_name + "\n" +
 				"Vintage: " + entry.wine.vintage.year + "\n" +
 				"Region: " + entry.wine.region.region + "\n"+
