@@ -15,18 +15,20 @@ import com.j256.ormlite.table.TableUtils;
 import com.yoloswag.vino.model.Entry;
 import com.yoloswag.vino.model.Wine;
 
-public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
-	// name of the database file for your application -- change to something appropriate for your app
+public class DatabaseHelper extends OrmLiteSqliteOpenHelper 
+{
+	// Name of the database file for the app
 	private static final String DATABASE_NAME = "V.sqlite";
 
-	// any time you make changes to your database objects, you may have to increase the database version
+	// May have to increase version if we make changes to our database objects
 	private static final int DATABASE_VERSION = 1;
 
-	// the DAO object we use to access the SimpleData table
+	// DAO used to access the SimpleData table
 	private Dao<Entry, Integer> entryDao = null;
 	private Dao<Wine, Integer> wineDao = null;
 
-	public DatabaseHelper(Context context) {
+	public DatabaseHelper(Context context) 
+	{
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
@@ -41,34 +43,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 		} catch (java.sql.SQLException e) {
 			e.printStackTrace();
 		}
-
-		Wine.a.save();
-
-		//{
-			// Here is your example @Jasmine
-			// (Some of these details are made up)
-			// The wine we are inserting for this example is:
-			// Name				: Barefoot Chardonnay
-			// Region			: USA
-			// Vintage			: 1940
-			// Category			: White
-			// Varietal			: Chardonnay
-			// Sweet/Dry		: Dry
-			// Producer/Winery	: Barefoot
-
-//			String region = "USA";
-//			String vintage = "1940";
-//			String category = "White";
-//			String varietal = "Chardonnay";
-//			String sweetdry = "Dry";
-//			String producer = "Barefoot";
-//
-//			// Create the wine
-//			Wine example = new Wine(producer, varietal, category, region, sweetdry, vintage);
-//
-//			// Save the wine to the db
-//			example.save();
-//			
 			
 			Wine barefoot1  = new Wine("Barefoot", "Chardonnay", "White", "California", "Dry", "2000");
 			Wine barefoot2  = new Wine("Barefoot", "Cabernet Sauvignon", "Red", "California", "Dry", "2000");
@@ -203,39 +177,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 			Wine yt11 = new Wine("Yellow Tail", "Shiraz-Grenache", "Red", "Australia", "Dry", "2000");
 			yt1.save(); yt2.save(); yt3.save(); yt4.save(); yt5.save(); yt6.save(); yt7.save(); 
 			yt8.save(); yt9.save(); yt10.save(); yt11.save();
-			
-			
-			//TODO: remove later
-//			yt1.addRating(4);
-//			yt2.addRating(3.5);
-//			yt3.addRating(1);
-//			yt1.save(); yt2.save(); yt3.save();
-//			
-//			skinnygirl3.addRating(3);
-//			skinnygirl3.save();
-//			
-//			woodbridge11.addRating(1);
-//			woodbridge12.addRating(4);
-//			woodbridge13.addRating(2.5);
-//			woodbridge14.addRating(1.5);
-//			woodbridge2.addRating(2.5);
-//			woodbridge11.save(); woodbridge12.save(); woodbridge13.save(); 
-//			woodbridge14.save(); woodbridge2.save();
-//			
-//			sutter9.addRating(5);
-//			sutter8.addRating(3);
-//			sutter9.save(); sutter8.save();
-//			
-//			barefoot7.addRating(2);
-//			barefoot8.addRating(4.5);
-//			barefoot9.addRating(5);
-//			barefoot7.save(); barefoot8.save(); barefoot9.save();
-//			
-//			cupcake2.addRating(1);
-//			cupcake2.addRating(2);
-//			cupcake2.addRating(3);
-//			cupcake2.save(); cupcake4.save(); cupcake6.save(); 
-			
 		}
 
 
