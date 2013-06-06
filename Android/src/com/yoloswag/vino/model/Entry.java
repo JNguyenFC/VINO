@@ -30,22 +30,24 @@ public class Entry implements Serializable
 	@DatabaseField
 	public String uri;
 
-	// Empty constructor
+	// Default constructor
 	public Entry(){
 	}
 	
-	// getting all entries
-	public static Entry[] getAll() {	
+	// Retrieves all entries currently in the user's database
+	public static Entry[] getAll() 
+	{	
 		List<Entry> wines = DatabaseManager.getInstance().getAllEntries();
 		return wines.toArray(new Entry[wines.size()]);
 	}
 	
-	// creating new entry
-	public static Entry create() {
+	// Creates new Entry
+	public static Entry create() 
+	{
 		return new Entry();
 	}
 	
-	// saving entry
+	// Saves 
 	public void save() {
 		//stop whineing
         if(wine != null)
