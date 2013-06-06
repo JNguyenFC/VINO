@@ -1,5 +1,5 @@
 /**
- * Filename:    SuggestionsAdapter.java
+ * Filename:    Category.java
  * Team:		VINO
  * Description: 
  * Date:        8 Jun 2013
