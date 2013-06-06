@@ -1,28 +1,22 @@
+/**
+ * Filename:    Region.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.model;
 
 import java.io.Serializable;
 
-public class Region implements Serializable {
-	/**
-	 * 
-	 */
+public class Region implements Serializable 
+{
 	private static final long serialVersionUID = 1L;
 	public String region;
 	
+	// Initializes the String region in Region with the parameter
 	public Region(String region)
 	{
 		this.region = region;		
-	}
-	
-	public static Region[] getAll()
-	{
-		return new Region[]{new Region("NAPA VALLEY"),
-							new Region("SONOMA"),
-							new Region("TUSCANY"),
-							new Region("AUSTRAILIA"),
-							new Region("TEMECULA"),
-							new Region("SAN DIEGO"),
-							new Region("FRANCE"),
-							};
 	}
 }
