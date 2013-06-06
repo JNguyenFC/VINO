@@ -98,13 +98,13 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 		int counter = 0;
 
 		// Loops through all of the wines in the database, only recommending
-		//   wines that the user has not yet tasted
+		// wines that the user has not yet tasted
 		for (int j = 0; j < wines.length; ++j)
 		{
 			if (clickedFavorite != wines[j] && wines[j].rating == 0)
 			{
 				// Gives priority recommendations based on wine category, taste, and varietal; second priority
-				//   recommendations go to wines based on category and taste
+				// recommendations go to wines based on category and taste
 				if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
 						&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
 						&& (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
@@ -121,8 +121,8 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 				}
 
 				// If 4 wine recommendations have yet to be curated and more than half of the wine database
-				//   has already been traversed, start adding wines to the list of recommendations based on
-				//   taste, then category, then varietal, then region; if none of those match, then add any
+				// has already been traversed, start adding wines to the list of recommendations based on
+				// taste, then category, then varietal, then region; if none of those match, then add any
 				else if (counter < 4 && j > (wines.length/2))
 				{		
 					if ((clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
