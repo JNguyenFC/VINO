@@ -1,4 +1,12 @@
+/**
+ * Filename:    Entry.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.model;
+
 import java.io.Serializable;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,49 +42,58 @@ public class Entry implements Serializable
 	public Entry(){
 	}
 	
-	// Retrieves all entries currently in the user's database
+	/** Retrieves all entries currently in the user's database
+	 */
 	public static Entry[] getAll() 
 	{	
 		List<Entry> wines = DatabaseManager.getInstance().getAllEntries();
 		return wines.toArray(new Entry[wines.size()]);
 	}
 	
-	// Creates new Entry
+	/** Creates a new Entry
+	 */
 	public static Entry create() 
 	{
 		return new Entry();
 	}
 	
-	// Saves 
-	public void save() {
-		//stop whineing
+	/** Saves Wine in the given Entry to the database
+	 */
+	public void save() 
+	{
         if(wine != null)
         	wine.save();
         
-        // getting timestamp        
+        // Gets timestamp of Entry submission       
         Date today;
         DateFormat dateFormatter;
         dateFormatter = DateFormat.getDateInstance();
         today = new Date();
         postDate = dateFormatter.format(today);
 
+        // Updates Entry in database
         DatabaseManager.getInstance().updateEntry(this);
 	}
 	
-	// destroying entry
-	public void destroy() {
+	/** Deletes Entry from database
+	 */
+	public void destroy() 
+	{
 		DatabaseManager.getInstance().deleteEntry(this);
 	}
 	
-	// getting image
-	public Bitmap getImage() {
+	// Gets photo
+	public Bitmap getImage() 
+	{
 	    FileInputStream in;
 		try {
 			String name = uri;
 			in = new FileInputStream(name);
 		    Bitmap bitmap = BitmapFactory.decodeStream(in);
+		    
 		    return bitmap;
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
 		return null;
