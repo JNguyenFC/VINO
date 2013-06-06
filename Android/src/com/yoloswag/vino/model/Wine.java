@@ -14,8 +14,6 @@ public class Wine implements Serializable
 	public int id;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Vintage vintage;
-//	@DatabaseField
-//	public double alcoholContent;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public Name name;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
@@ -26,24 +24,10 @@ public class Wine implements Serializable
 	public Varietal varietal;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
 	public SweetOrDry sweetOrDry;
-	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Producer producer;
-//	@DatabaseField(dataType=DataType.SERIALIZABLE)
-//	public ServingTemp servingTemp;
 	@DatabaseField
 	public double rating;
 	@DatabaseField
 	public double ratings;
-	
-	
-	/**  Fake database of Wine (to be deleted later)
-	 */
-	// these are wrong. refer to databasehelper.java for a correct example
-	public static Wine a = new Wine("Castello Banfi", "Chianti", "Red", "Italy", "dry", "2008");
-	public static Wine b = new Wine("Yellow Tail", "Moscato", "White", "California", "sweet", "2009");
-	public static Wine c = new Wine("Montana", "Sauvignon Blanc", "White", "New Zealand", "dry", "2011");
-	public static Wine d = new Wine("Yellow Tail", "Cabernet Sauvignon", "Red", "Australia", "dry", "2011");
-	public static Wine e = new Wine("Chateau Ste. Michelle", "Riesling", "White", "Florida", "sweet", "2012");
 	
 	/**  Default constructor
 	 */
