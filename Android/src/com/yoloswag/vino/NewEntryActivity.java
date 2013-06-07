@@ -196,7 +196,6 @@ public class NewEntryActivity extends Activity implements TextWatcher
 		dry.setOnCheckedChangeListener(checkListener);
         sweet.setOnCheckedChangeListener(checkListener); 
 	    
-        // TODO: can we use the button from line 84?
 		// Submit button
         Button b = (Button) button;
         b.setOnClickListener(new OnClickListener() 
@@ -214,7 +213,6 @@ public class NewEntryActivity extends Activity implements TextWatcher
 				EditText comment = (EditText)findViewById(R.id.comments);
 				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
-
 
 				// Gary toast - check if a name has been entered
 				if(producer.getText().toString().matches(""))
