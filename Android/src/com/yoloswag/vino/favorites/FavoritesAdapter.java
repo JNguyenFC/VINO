@@ -121,7 +121,7 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 			View convertView, ViewGroup parent) 
 	{
 		LayoutInflater li = LayoutInflater.from(context);
-		View v = li.inflate(R.layout.rating_cell_layout, null);
+		View v = li.inflate(R.layout.fragment_favorites_cell, null);
 
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
 		textview.setTextSize(18);
