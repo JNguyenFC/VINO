@@ -1,3 +1,10 @@
+/**
+ * Filename:    DatabaseManager.java
+ * Team:        VINO
+ * Description: 
+ * Date:        08 Jun 2013
+ **/
+
 package com.yoloswag.vino.db;
 
 import java.sql.SQLException;
@@ -8,72 +15,107 @@ import com.yoloswag.vino.model.Wine;
 
 import android.content.Context;
 
-public class DatabaseManager {
-
+public class DatabaseManager 
+{
     static private DatabaseManager instance;
 
-    static public void init(Context ctx) {
-        if (null==instance) {
+    /** Creates a new DatabaseManager in this Context
+     */
+    static public void init(Context ctx) 
+    {
+        if (null == instance) 
+        {
             instance = new DatabaseManager(ctx);
         }
     }
 
-    static public DatabaseManager getInstance() {
+    /** Gets a DatabaseManager object
+     */
+    static public DatabaseManager getInstance() 
+    {
         return instance;
     }
 
+    /** Constructor for a DatabaseManager initialized to helper
+     */
     private DatabaseHelper helper;
-    private DatabaseManager(Context ctx) {
+    private DatabaseManager(Context ctx) 
+    {
         helper = new DatabaseHelper(ctx);
     }
 
-    private DatabaseHelper getHelper() {
+    /** Gets a helper (DatabaseManager)
+     */
+    private DatabaseHelper getHelper() 
+    {
         return helper;
     }
 
-    public List<Entry> getAllEntries() {
+    /** Gets all entries from user's database
+     */
+    public List<Entry> getAllEntries() 
+    {
         List<Entry> entries = null;
-        try {
+        try 
+        {
             entries = getHelper().getEntryDao().queryForAll();
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return entries;
     }
 
-    public List<Wine> getAllWines() {
+    /** Gets all wines from the user's database
+     */
+    public List<Wine> getAllWines() 
+    {
         List<Wine> entries = null;
-        try {
+        try 
+        {
             entries = getHelper().getWineDao().queryForAll();
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
         return entries;
     }
 
-	public void updateEntry(Entry entry) {
-		// TODO Auto-generated method stub
-        try {
+    /** Updates log entry in database after user edits
+     */
+	public void updateEntry(Entry entry) 
+	{
+        try 
+        {
             getHelper().getEntryDao().createOrUpdate(entry);
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 	}
 
-	public void updateWine(Wine wine) {
-		// TODO Auto-generated method stub
-        try {
+	/** Updates wine details in database after user edits in log entry
+	 */
+	public void updateWine(Wine wine) 
+	{
+        try 
+        {
             getHelper().getWineDao().createOrUpdate(wine);
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 	}
 
-	public void deleteEntry(Entry entry) {
-		// TODO Auto-generated method stub
-        try {
+	/** Deletes Entry from database
+	 */
+	public void deleteEntry(Entry entry) 
+	{
+        try 
+        {
             getHelper().getEntryDao().delete(entry);
-        } catch (SQLException e) {
+        } catch (SQLException e) 
+        {
             e.printStackTrace();
         }
 	}
