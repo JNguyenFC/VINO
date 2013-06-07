@@ -54,7 +54,7 @@ public class DiaryFragment extends Fragment
 		//		}
 
 		ArrayList<Entry> lst = new ArrayList<Entry>();
-		View rootView = inflater.inflate(R.layout.fragment_diary, container, false);
+		View rootView = inflater.inflate(R.layout.fragment_diary_view_all_entries, container, false);
 
 //		// Tutorial button
 //		View button = ((View) rootView).findViewById(R.id.view_entry_button);

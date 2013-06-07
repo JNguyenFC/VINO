@@ -37,7 +37,7 @@ public class DiaryItemView extends LinearLayout
 	{
 		super(context);
 		LayoutInflater inflater = LayoutInflater.from(context);
-		inflater.inflate(R.layout.view_diary_entry, this, true);
+		inflater.inflate(R.layout.fragment_diary_view_entry, this, true);
 	}
 
 	/** Creates a new DiaryItemView with this context
