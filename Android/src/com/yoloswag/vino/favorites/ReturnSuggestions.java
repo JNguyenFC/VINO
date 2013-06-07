@@ -1,3 +1,10 @@
+/**
+ * Filename:    ReturnSuggestions.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.favorites;
 
 import java.util.ArrayList;
@@ -5,8 +12,8 @@ import java.util.List;
 
 import com.yoloswag.vino.model.Wine;
 
-public class ReturnSuggestions {
-	//TODO: probably move this out of the fragment lol?
+public class ReturnSuggestions 
+{
 	/** Builds list of recommendations for the favorite wine that the user selects
 	 */
 	public Wine[] suggestions(Wine clickedFavorite)
