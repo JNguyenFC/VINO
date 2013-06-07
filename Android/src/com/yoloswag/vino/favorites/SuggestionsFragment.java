@@ -41,7 +41,6 @@ public class SuggestionsFragment extends Fragment
 	 {
 		 rowItems = new ArrayList<RowItem>();
 
-
 		 for (int i = 0; i < 4; ++i)
 		 {
 			 RowItem item = new RowItem();
