@@ -47,8 +47,11 @@ public class NewEntryActivity extends Activity implements TextWatcher
     // AutoComplete lists
     String producerList[] = 
     	{
-    		"Barefoot", "Charles Shaw", "Chateau Ste. Michelle", "Cupcake",
-    		"Kendall-Jackson", "Skinnygirl", "Sutter Homes", "Woodbridge",
+    		"Almaden", "Barefoot", "Beringer Vineyards", "Cavit", "Charles Shaw", 
+    		"Chateau Ste. Michelle", "Copper Ridge", "Cupcake", "Ecco Domani", 
+    		"Foxhorn Vineyards", "Franzia Winetaps", "Inglenook", "Kendall-Jackson", 
+    		"La Terre", "Mezzacorona", "Salmon Creek", "Skinnygirl", "Stone Cellars", 
+    		"Sutter Homes", "Sycamore Lane", "Taylor California Cellars", "Woodbridge",
     		"Yellow Tail"
   		};
     
@@ -59,18 +62,28 @@ public class NewEntryActivity extends Activity implements TextWatcher
     
     String regionList[] = 
     	{
-    		"Australia", "Burgundy", "California", "Canada", "France", "Germany", 
-    		"Italy", "Portugal", "Spain"
+    		"Argentina", "Australia", "Austria", "Belgium", "Brazil", "Bulgaria", 
+    		"Burgundy", "California", "Canada", "Chile", "Croatia", "Czech Republic", 
+    		"Denmark", "Dominican Republic", "France", "Germany", "Greece", "Hungary", 
+    		"India", "Israel", "Italy", "Jordan", "Lebanon", "Malta", "Mexico", 
+    		"Montenegro", "New Zealand", "Peru", "Portugal", "Romania", "San Marino", 
+    		"Serbia", "Slovenia", "South Africa", "Spain", "Switzerland", "Turkey", "Ukraine", 
+    		"United Kingdom", "United States", "Uruguay"
     	};
     
     String varietalList[] = 
     	{
-    		"Angel Food", "Cabernet Merlot", "Cabernet Sauvignon", "California Red Blend", "California Rose Blend", 
-    		"California White Blend", "Chardonnay", "Chenin Blanc", "Chianti", "Gewurztraminer", "Late Harvest Chardonnay", 
-    		"Lightly Oaked Chardonnay", "Malbec", "Merlot", "Moscato", "Moscato D'Asti", "Petite Sirah", "Pink Moscato", 
-    		"Pink Pinot Grigio", "Pinot Grigio", "Pinot Gris", "Pinot Noir", "Port", "Prosecco","Red Moscato", "Red Velvet",
-            "Riesling", "Rose", "Sauvignon Blanc", "Shiraz", "Shiraz-Cabernet", "Shiraz-Grenache", "Sweet Red", "Sweet White",
-            "Summation", "Syrah", "Viognier", "White Merlot", "White Zinfandel", "Zinfandel"
+    		"Angel Food", "Barbera", "Blush Wine", "Brut", "Cabernet Merlot", 
+    		"Cabernet Sauvignon", "California Red Blend", "California Rose Blend", 
+    		"California White Blend", "Champagne", "Chardonnay", "Chenin Blanc", "Chianti", 
+    		"Dolcetto", "Dry Vermouth", "Fume Blanc", "Gewurztraminer", 
+    		"Late Harvest Chardonnay", "Lightly Oaked Chardonnay", "Malbec", "Merlot", 
+    		"Moscato", "Moscato D'Asti", "Mourvedre", "Petite Sirah", "Pink Moscato", 
+    		"Pink Pinot Grigio", "Pinot Grigio", "Pinot Gris", "Pinot Noir", "Port", 
+    		"Prosecco","Red Moscato", "Red Velvet", "Riesling", "Rose", "Sangiovese", 
+    		"Sauvignon Blanc", "Shiraz", "Shiraz-Cabernet", "Shiraz-Grenache", "Sparkling Wine", 
+    		"Sweet Red", "Sweet White", "Summation", "Syrah", "Viognier", "White Merlot", 
+    		"White Zinfandel", "Zinfandel"
     	};
     
     /** Initializations for when a new Entry is being created
@@ -102,7 +115,7 @@ public class NewEntryActivity extends Activity implements TextWatcher
 		}        
 
 		
-		// AutoComplete for Name
+		// AutoComplete for Name/Producer
 		autoComplete_producer = (AutoCompleteTextView)findViewById(R.id.producer);
 	    autoComplete_producer.addTextChangedListener(this);
 	    //Wine[] wineList = Wine.getAll();
