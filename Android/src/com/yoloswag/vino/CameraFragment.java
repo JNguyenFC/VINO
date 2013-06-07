@@ -1,5 +1,11 @@
-package com.yoloswag.vino;
+/**
+ * Filename:    CameraFragment.java
+ * Team:        VINO
+ * Description: 
+ * Date:        08 Jun 2013
+ **/
 
+package com.yoloswag.vino;
 
 import java.io.FileOutputStream;
 
@@ -23,27 +29,38 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
-public class CameraFragment extends Fragment {
-
+public class CameraFragment extends Fragment 
+{
+	public static final int MEDIA_TYPE_IMAGE = 1;
+	public static final int MEDIA_TYPE_VIDEO = 2;
+	protected static final int K_STATE_FROZEN = 0;
+	protected static final int K_STATE_PREVIEW = 0;
+	protected static final int K_STATE_BUSY = 0;
 	protected static final String TAG = null;
-
-	public static Camera getCameraInstance() {
-		Camera c = null;
-		try {
-			c = Camera.open(); // attempt to get a Camera instance
-		}
-		catch (Exception e){
-			// Camera is not available (in use or does not exist)
-		}
-		return c; // returns null if camera is unavailable
-	}
-
+	
 	private Camera mCamera;
 	private CameraPreview mPreview;
 
+	public static Camera getCameraInstance() 
+	{
+		Camera c = null;
+		// Try to get a Camera object
+		try 
+		{
+			c = Camera.open();
+		}
+		// Camera is not available (in use or does not exist)
+		catch (Exception e)
+		{
+		}
+		// Null is returned if Camera does not exist
+		return c;
+	}
+
 	@SuppressWarnings("deprecation")
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
+	public void onActivityCreated(Bundle savedInstanceState) 
+	{
 		super.onActivityCreated(savedInstanceState);
 
 		// Create an instance of Camera
@@ -51,6 +68,7 @@ public class CameraFragment extends Fragment {
 
 		Camera.Parameters p = mCamera.getParameters();
 
+		// Set orientation
 		if (Integer.parseInt(Build.VERSION.SDK) >= 8)
 			mCamera.setDisplayOrientation(90);
 		else
@@ -67,6 +85,7 @@ public class CameraFragment extends Fragment {
 			}
 		}
 
+		// Changes the setting for this Camera service
 		mCamera.setParameters(p);
 
 		// Create our Preview view and set it as the content of our activity.
@@ -75,21 +94,16 @@ public class CameraFragment extends Fragment {
 		preview.addView(mPreview);
 	}
 
-	public static final int MEDIA_TYPE_IMAGE = 1;
-	public static final int MEDIA_TYPE_VIDEO = 2;
-	protected static final int K_STATE_FROZEN = 0;
-	protected static final int K_STATE_PREVIEW = 0;
-	protected static final int K_STATE_BUSY = 0;
-
-	private PictureCallback mPicture = new PictureCallback() {
-
+	private PictureCallback mPicture = new PictureCallback() 
+	{
+		// Called when image data is available after a picture is taken
 		@Override
-		public void onPictureTaken(byte[] data, Camera camera) {
-
+		public void onPictureTaken(byte[] data, Camera camera) 
+		{
 			try
 			{
 				BitmapFactory.Options opts = new BitmapFactory.Options();
-				Bitmap bitmap= BitmapFactory.decodeByteArray(data, 0, data.length,opts);
+				Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length,opts);
 				bitmap = Bitmap.createScaledBitmap(bitmap, 480, 480, false);
 
 				Matrix matrix = new Matrix();
@@ -98,6 +112,7 @@ public class CameraFragment extends Fragment {
 						bitmap.getWidth(), bitmap.getHeight(), 
 						matrix, true);
 				
+				// Set photo name
 				String name = getActivity().getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg";
 				System.out.println("saving to " + name);
 			    FileOutputStream out = new FileOutputStream(name);
@@ -105,10 +120,6 @@ public class CameraFragment extends Fragment {
 			    out.flush();
 			    out.close();
 				System.out.println("done saving to " + name);
-
-				//ImageView imageView = (ImageView)getView().findViewById(R.id.image);
-				//imageView.setImageBitmap(bitmap);
-				//CameraProjectActivity.image.setImageBitmap(bitmap);
 			}
 			catch(Exception e)
 			{
@@ -117,27 +128,31 @@ public class CameraFragment extends Fragment {
 		}
 	};
 
-
+	/** Creates and returns the new Entry's camera View 
+	 */
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) 
+	{
 		final View rootView = inflater.inflate(R.layout.camera, container, false);
-		View button = rootView.findViewById(R.id.button_capture);
-
+		
+		// New Entry buttons
 		View accept = rootView.findViewById(R.id.button_accept);
-		final Button a = (Button)accept;
-		a.setVisibility(View.INVISIBLE);
-
 		View decline = rootView.findViewById(R.id.button_decline);
+		View button = rootView.findViewById(R.id.button_capture);
+		
+		final Button a = (Button) accept;
 		final Button d = (Button)decline;
+		final Button b = (Button) button;
+		
+		a.setVisibility(View.INVISIBLE);
 		d.setVisibility(View.INVISIBLE);
 
-		final Button b = (Button) button;
-		b.setOnClickListener(new OnClickListener() {
+		// Set Accept and Decline buttons for photo preview after photo is taken
+		b.setOnClickListener(new OnClickListener() 
+		{
 			@Override
-			public void onClick(View arg1) {
-				// TODO Auto-generated method stub
-				// get an image from the camera
-
+			public void onClick(View arg1) 
+			{
 				mCamera.takePicture(null, null, mPicture);
 				a.setVisibility(View.VISIBLE);
 				d.setVisibility(View.VISIBLE);
@@ -145,59 +160,54 @@ public class CameraFragment extends Fragment {
 			}
 		});
 
-		a.setOnClickListener(new OnClickListener() {
+		// Set New Entry page to display after Accept is tapped
+		a.setOnClickListener(new OnClickListener() 
+		{
 			@Override
-			public void onClick(View arg1) {
-				//save picture
-				Environment.getExternalStorageState();// Checking that SDCard exists
-				//File file = Util.getOutputMediaFile();
+			public void onClick(View arg1) 
+			{
+				// Checks if SD card exists
+				Environment.getExternalStorageState();
 				
-				//calling NewEntryActivity
+				// Calling NewEntryActivity
 				Intent intent = new Intent(getActivity(), NewEntryActivity.class);
 				getActivity().startActivityForResult(intent, 1);
 
+				// Hide Accept and Decline buttons, show Submit button
 				a.setVisibility(View.INVISIBLE);
 				d.setVisibility(View.INVISIBLE);
 				b.setVisibility(View.VISIBLE);
-				
-				// switching to the new entry fragment 
-				/*Fragment fragment = new NewEntryFragment();
-				FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-				transaction.replace(R.id.cameraFragment, fragment);
-				transaction.addToBackStack(null);
-				transaction.commit();*/
-
 			}
 		});
 
-		d.setOnClickListener(new OnClickListener() {
+		// Set camera to display after Decline is tapped
+		d.setOnClickListener(new OnClickListener() 
+		{
 			@Override
-			public void onClick(View arg1) {
-				//change buttons
+			public void onClick(View arg1) 
+			{
+				// Hide Accept and Decline buttons, show Capture button
 				a.setVisibility(View.INVISIBLE);
 				d.setVisibility(View.INVISIBLE);
 				b.setVisibility(View.VISIBLE);
 
-				//restart camera preview
+				// Restart camera
 				int mPreviewState = 0;
-				switch(mPreviewState) {
-				case K_STATE_FROZEN:
-					mCamera.startPreview();
-					mPreviewState = K_STATE_PREVIEW;
-					break;
-
-				default:
-					PictureCallback rawCallback = null;
-					mCamera.takePicture( null, rawCallback, null);
-					mPreviewState = K_STATE_BUSY;
-				} // switch
-
+				switch(mPreviewState) 
+				{
+					case K_STATE_FROZEN:
+						mCamera.startPreview();
+						mPreviewState = K_STATE_PREVIEW;
+						break;
+					default:
+						PictureCallback rawCallback = null;
+						mCamera.takePicture( null, rawCallback, null);
+						mPreviewState = K_STATE_BUSY;
+						break;
+				}
 			}
 		});  
 
-
 		return rootView;
 	}
-	
 }
