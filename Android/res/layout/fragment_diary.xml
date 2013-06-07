@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- UI for the viewing log entries page -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context=".ViewLogEntryFragment" >
 
+        <!-- Graphic and message for if the user has no entries -->
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="wrap_content"
@@ -46,21 +48,9 @@
                 android:textSize="25sp" />
         </TableRow>
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal" >
-
-            <Button
-                android:id="@+id/view_entry_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/viewEntry_tutorial" />
-        </TableRow>
     </TableLayout>
 
+    <!-- Layout for displaying user's log entries -->
     <LinearLayout
         android:id="@+id/fragment_view_log_entry"
         android:layout_width="match_parent"
