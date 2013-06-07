@@ -9,11 +9,6 @@ package com.yoloswag.vino.viewentries;
 
 import java.util.Random;
 
-import com.yoloswag.vino.R;
-import com.yoloswag.vino.ViewLogActivity;
-import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -24,13 +19,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.app.Fragment;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
 
 @TouchThisAndIWillFuckingKillYou
 public class DiaryItemView extends LinearLayout 
