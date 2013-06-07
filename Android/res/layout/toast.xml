@@ -5,7 +5,7 @@ android:orientation="horizontal"
 android:layout_width="fill_parent"
 android:layout_height="fill_parent"
 android:padding="1dp"
-android:background="@layout/roundborder">
+android:background="@layout/toast_round_border">
 
 <ImageView android:id="@+id/garytoast"
 android:layout_width="wrap_content"
