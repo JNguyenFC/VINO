@@ -56,28 +56,28 @@ public class DiaryFragment extends Fragment
 		ArrayList<Entry> lst = new ArrayList<Entry>();
 		View rootView = inflater.inflate(R.layout.fragment_diary, container, false);
 
-		// Tutorial button
-		View button = ((View) rootView).findViewById(R.id.view_entry_button);
-		Button b = (Button) button;
-		b.setOnClickListener(new OnClickListener() 
-		{
-			@Override
-			public void onClick(View arg1) 
-			{
-				//  toast - Click on New Entry
-				View toastView = getActivity().getLayoutInflater().inflate(R.layout.toast, (ViewGroup)getActivity().findViewById(R.id.toastLayout));
-				ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
-				imageView.setImageResource(R.drawable.gary_vector);
-				TextView textView = (TextView) toastView.findViewById(R.id.text);
-				textView.setText("Click on the New Entry Tab and take a picture, fill out the details, " +
-						"click Submit. View your Log Entries in the View Entries tab. See your highest rated wines in the Favorites tab!");
-				Toast toast = new Toast(getActivity().getApplicationContext());
-				toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-				toast.setDuration(Toast.LENGTH_LONG);
-				toast.setView(toastView);
-				toast.show();
-			}
-		});
+//		// Tutorial button
+//		View button = ((View) rootView).findViewById(R.id.view_entry_button);
+//		Button b = (Button) button;
+//		b.setOnClickListener(new OnClickListener() 
+//		{
+//			@Override
+//			public void onClick(View arg1) 
+//			{
+//				//  toast - Click on New Entry
+//				View toastView = getActivity().getLayoutInflater().inflate(R.layout.toast, (ViewGroup)getActivity().findViewById(R.id.toastLayout));
+//				ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
+//				imageView.setImageResource(R.drawable.gary_vector);
+//				TextView textView = (TextView) toastView.findViewById(R.id.text);
+//				textView.setText("Click on the New Entry Tab and take a picture, fill out the details, " +
+//						"click Submit. View your Log Entries in the View Entries tab. See your highest rated wines in the Favorites tab!");
+//				Toast toast = new Toast(getActivity().getApplicationContext());
+//				toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//				toast.setDuration(Toast.LENGTH_LONG);
+//				toast.setView(toastView);
+//				toast.show();
+//			}
+//		});
 
 		ListView list = (ListView) rootView.findViewById(R.id.viewLogL);
 		list.setFastScrollEnabled(true);
