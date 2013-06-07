@@ -135,7 +135,7 @@ public class DiaryItemView extends LinearLayout
 				View elt_entryTitle = relative_layout.findViewById(R.id.entry_title);
 				View elt_entryDate = relative_layout.findViewById(R.id.entry_postDate);
 				View elt_entryLine = relative_layout.findViewById(R.id.line);
-				View editButton = relative_layout.findViewById(R.id.editText01);
+				View editButton = relative_layout.findViewById(R.id.editEntry);
 				
 				TextView textview_captionDate = (TextView) relative_layout.findViewById(R.id.entry_caption_date);
 				TextView textview_captionTitle = (TextView) relative_layout.findViewById(R.id.entry_caption_title);
