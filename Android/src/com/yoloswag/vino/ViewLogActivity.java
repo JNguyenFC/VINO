@@ -1,3 +1,7 @@
+/*******
+ * DELETE????????????
+ *******/
+
 package com.yoloswag.vino;
 
 import java.io.FileInputStream;
@@ -22,34 +26,38 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 
-public class ViewLogActivity extends Activity {
-	
-
+public class ViewLogActivity extends Activity 
+{
+	/** Called when the activity starts
+	 */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
-		//final View rootView = inflater.inflate(R.layout.fragment_new_entry, container, false);
         View button = this.findViewById(R.id.new_entry_button);
 
 	    FileInputStream in;
-		try {
+		try 
+		{
 			String name = this.getFilesDir() + String.valueOf(Entry.getAll().length)+".jpg";
 			in = new FileInputStream(name);
 		    Bitmap bitmap = BitmapFactory.decodeStream(in);
 
 			ImageView imageView = (ImageView)this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) 
+		{
 			e.printStackTrace();
 		}        
 
+		
 		Button b = (Button) button;
-
-        b.setOnClickListener(new OnClickListener() {
+        b.setOnClickListener(new OnClickListener() 
+        {
 			@Override
-			public void onClick(View arg1) {
+			public void onClick(View arg1) 
+			{
 				Entry e = new Entry();
 				EditText title = (EditText)findViewById(R.id.title);
 				EditText category = (EditText)findViewById(R.id.category);
@@ -58,8 +66,6 @@ public class ViewLogActivity extends Activity {
 				EditText vintageYear = (EditText)findViewById(R.id.vintageYear);
 				EditText comment = (EditText)findViewById(R.id.comments);
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
-
-				//Toast.makeText(getActivity(), e.title, Toast.LENGTH_SHORT).show();
 
 				//save wine entry
 				e.wine = new Wine("", "", "", "", "", "");
