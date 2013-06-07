@@ -58,7 +58,7 @@ public class ViewLogEntryAdapter implements ListAdapter {
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
 		LayoutInflater li = LayoutInflater.from(context);
-		View v = li.inflate(R.layout.image_cell_layout, null);
+		View v = li.inflate(R.layout.fragment_diary_entry, null);
 
 		ImageView iv = (ImageView) v.findViewById(R.id.entry_image);
 
