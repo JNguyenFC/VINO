@@ -43,7 +43,6 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textMultiLine"
-                android:text="@string/viewEntry_emptyMsg"
                 android:textColor="#000"
                 android:textSize="25sp" />
         </TableRow>
