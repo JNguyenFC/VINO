@@ -1,3 +1,8 @@
+/*********
+ * DELETE???????
+ * 
+ *********/
+
 package com.yoloswag.vino.viewentries;
 
 import com.yoloswag.vino.R;
