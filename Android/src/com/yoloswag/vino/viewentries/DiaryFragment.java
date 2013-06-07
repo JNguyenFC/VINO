@@ -1,3 +1,10 @@
+/**
+ * Filename:    DiaryFragment.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.viewentries;
 
 import java.util.Collections;
@@ -17,53 +24,65 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 @TouchThisAndIWillFuckingKillYou
-public class DiaryFragment extends Fragment {
+public class DiaryFragment extends Fragment 
+{
 	DiaryAdapter adapter;
 	Entry[] entries;
 
+	/** Get all entries from the database when fragment is created
+	 */
 	@Override
-	public void onCreate (Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 		entries = Entry.getAll();
 	}
 
+	/** Creates and returns the ListView for the entries
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-//		if(entries.length == 0) {
-//			View rootView1 = inflater.inflate(R.layout.fragment_view_no_entry, container, false);
-//			return rootView1;
-//		}
-
+			Bundle savedInstanceState) 
+	{
 		View rootView = inflater.inflate(R.layout.fragment_diary, container, false);
+		ArrayList<Entry> lst = new ArrayList<Entry>();
 		
 		ListView list = (ListView) rootView.findViewById(R.id.viewLogL);
 		list.setFastScrollEnabled(true);
-		ArrayList<Entry> lst = new ArrayList<Entry>();
+
 		List<Entry> lit = Arrays.asList(Entry.getAll());
 		Collections.reverse(lit);
 		lst.addAll(lit);
+		
 		adapter = new DiaryAdapter(getActivity(), 0, lst, this);
 		list.setAdapter(adapter);
 		
 		return rootView;
 	}
 	
+	/** Initializes newly added entries and their recommendations so that
+	 *  they are viewable in the Favorites tab
+	 */
 	@Override
-	public void onResume() {
+	public void onResume() 
+	{
 		super.onResume();
-		if(adapter != null)
+		if (adapter != null)
 			updateData();
 	}
 
-	public void updateData() {
+	/** Update list of all entries
+	 */
+	public void updateData() 
+	{
 		adapter.clear();
 
 		ArrayList<Entry> lst = new ArrayList<Entry>();
 		List<Entry> lit = Arrays.asList(Entry.getAll());
 		Collections.reverse(lit);
 
-		for (Entry object : lit	) {
+		for (Entry object : lit	) 
+		{
 			adapter.insert(object, adapter.getCount());
 		}
 
