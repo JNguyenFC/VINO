@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- UI for the elements of the view entries tab -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootlayout"
     android:layout_width="match_parent"
@@ -6,6 +7,7 @@
     android:orientation="vertical"
     android:scrollbars="none" >
 
+    <!-- Image for each Entry -->
     <ImageView
         android:id="@+id/entry_image"
         android:layout_width="match_parent"
@@ -14,6 +16,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/vino5" />
 
+    <!-- Entry captions - date and title -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,21 +24,8 @@
         android:layout_alignParentLeft="true"
         android:orientation="vertical" >
 
-<!--         <TextView
-            android:id="@+id/vintage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#8f000000"
-            android:paddingLeft="4dp"
-            android:paddingRight="8dp"
-            android:text="2011"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="#FFFFFF"
-            android:textSize="34sp"
-            android:textStyle="bold" /> -->
-
         <TextView
-            android:id="@+id/producer_name"
+            android:id="@+id/entry_caption_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#8f000000"
@@ -44,11 +34,11 @@
             android:textAllCaps="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="#FFFFFF"
-            android:textSize="34sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/varietal_name"
+            android:id="@+id/entry_caption_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#8f000000"
@@ -61,6 +51,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Wine details that appear on log when entry image is tapped -->
     <TextView
         android:id="@+id/entry_details"
         android:layout_width="match_parent"
@@ -72,6 +63,7 @@
         android:textSize="16sp"
         android:visibility="invisible" />
 
+    <!-- Title of Entry -->
     <TextView
         android:id="@+id/entry_title"
         android:layout_width="wrap_content"
@@ -84,6 +76,7 @@
         android:textStyle="bold"
         android:visibility="invisible" />
 
+    <!-- Date of Entry -->
     <TextView
         android:id="@+id/entry_postDate"
         android:layout_width="wrap_content"
@@ -94,6 +87,7 @@
         android:textSize="16sp"
         android:visibility="invisible" />
 
+    <!-- Superficial line below Entry title and date -->
     <View
         android:id="@+id/line"
         android:layout_width="300dp"
@@ -103,6 +97,7 @@
         android:background="#f0000000"
         android:visibility="invisible" />
 
+    <!-- Entry comment -->
     <TextView
         android:id="@+id/entry_comment"
         android:layout_width="wrap_content"
@@ -116,60 +111,31 @@
         android:textSize="20sp"
         android:visibility="invisible" />
 
+    <!-- Delete Entry button -->
     <ImageButton
         android:id="@+id/deleteEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:padding="5dp"
+        android:padding="7dp"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
         android:src="@drawable/delete_button"
         android:background="#00000000"
         android:visibility="invisible" />
 
+    <!-- Edit Entry button -->
     <ImageButton
-        android:id="@+id/editText01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/editEntry"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_above="@id/deleteEntry"
-        android:padding="5dp"
+        android:padding="7dp"
+        android:layout_marginBottom="5dp"
         android:gravity="center_vertical|center_horizontal"
         android:onClick="onMyButtonClick"
         android:src="@drawable/edit_button"
         android:background="#00000000"
         android:visibility="invisible" />
-    <!--
-    <Button
-        android:id="@+id/deleteEntry"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:minHeight="92dp"
-        android:onClick="onMyButtonClick"
-        android:text="DEL"
-        android:textColor="#000000"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-
-    <Button
-        android:id="@+id/editText01"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
-        android:minHeight="92dp"
-        android:onClick="onMyButtonClick"
-        android:text="EDIT"
-        android:textColor="#000000"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        android:visibility="invisible" />
-    -->
-
 </RelativeLayout>

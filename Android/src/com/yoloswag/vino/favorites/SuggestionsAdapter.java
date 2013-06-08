@@ -1,3 +1,10 @@
+/**
+ * Filename:    SuggestionsAdapter.java
+ * Team:		VINO
+ * Description: 
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.favorites;
 
 import java.util.List;
@@ -14,42 +21,38 @@ import android.widget.TextView;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Wine;
 
-public class SuggestionsAdapter extends ArrayAdapter<RowItem> 
+public class SuggestionsAdapter extends ArrayAdapter<Wine> 
 {
-	private Wine[] names;
 	Context context;
 
-	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<RowItem> list) 
+	// Constructor for this SuggestionsAdapter
+	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<Wine> list) 
 	{
 		super(suggestionsFragment.getActivity(), resourceId, list);
 		this.context = suggestionsFragment.getActivity();
-		//System.out.println("CREATING SETADAPTER");
 	}
 
+	// Nested class containing an ImageView and a Textview
 	private class ViewHolder
 	{
 		ImageView imageView;
 		TextView txtName;
-		//TextView txtVarietal;
-		//TextView textVintage;
 	}
 
+	/** Fetches and inflates recommendations for a specified favorite wine
+	 */
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
-		//ViewHolder holder = null;
-		//RowItem rowItem = getItem(position);
-
-
 		LayoutInflater mInflater = (LayoutInflater) context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 
 		if(convertView == null)
 		{
 			convertView = mInflater.inflate(R.layout.suggestions, null);
 
-			// Since only 3 lists of suggestions in fake suggestions [][]
 			Wine[] suggestions = FavoritesFragment.suggestionNames[FavoritesAdapter.sugPos];
 
-			if(suggestions.length > 0) {
+			if (suggestions.length > 0) 
+			{
 				ViewHolder holder = new ViewHolder();
 				convertView.setTag(holder);
 				holder.txtName = (TextView) convertView.findViewById(R.id.name1);
@@ -59,7 +62,8 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 						" \n" + suggestions[0].varietal.varietal_name);
 			}
 
-			if(suggestions.length > 1 && suggestions[1] != null) {
+			if (suggestions.length > 1 && suggestions[1] != null) 
+			{
 				ViewHolder holder2 = new ViewHolder();
 				holder2.txtName = (TextView) convertView.findViewById(R.id.name2);
 				holder2.imageView = (ImageView) convertView.findViewById(R.id.icon2);
@@ -68,7 +72,8 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 						" \n" + suggestions[1].varietal.varietal_name);
 			}
 
-			if(suggestions.length > 2 && suggestions[2] != null) {
+			if (suggestions.length > 2 && suggestions[2] != null) 
+			{
 				ViewHolder holder3 = new ViewHolder();
 				holder3.txtName = (TextView) convertView.findViewById(R.id.name3);
 				holder3.imageView = (ImageView) convertView.findViewById(R.id.icon3);
@@ -77,7 +82,8 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 						" \n" + suggestions[2].varietal.varietal_name);
 			}
 
-			if(suggestions.length > 3 && suggestions[3] != null) {
+			if (suggestions.length > 3 && suggestions[3] != null) 
+			{
 				ViewHolder holder4 = new ViewHolder();
 				holder4.txtName = (TextView) convertView.findViewById(R.id.name4);
 				holder4.imageView = (ImageView) convertView.findViewById(R.id.icon4);
@@ -86,13 +92,7 @@ public class SuggestionsAdapter extends ArrayAdapter<RowItem>
 						" \n" + suggestions[3].varietal.varietal_name);
 			}
 		}
-		/*else
-			holder = (ViewHolder) convertView.getTag();
-		holder.txtName.setText(rowItem.getName());
-		holder.imageView.setImageResource(rowItem.getImageID());*/
 
 		return convertView;
 	}
-
-
 }

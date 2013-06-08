@@ -1,6 +1,12 @@
+/**
+ * Filename:    DatabaseManager.java
+ * Team:        VINO
+ * Description: 
+ * Date:        08 Jun 2013
+ **/
+
 package com.yoloswag.vino.db;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import com.yoloswag.vino.model.Entry;
@@ -8,8 +14,8 @@ import com.yoloswag.vino.model.Wine;
 
 import android.content.Context;
 
-public class DatabaseManager {
-
+public class DatabaseManager 
+{
     static private DatabaseManager instance;
 
     private DatabaseHelper helper;
@@ -28,7 +34,10 @@ public class DatabaseManager {
         }
     }
 
-    static public DatabaseManager getInstance() {
+    /** Gets a DatabaseManager object
+     */
+    static public DatabaseManager getInstance() 
+    {
         return instance;
     }
 

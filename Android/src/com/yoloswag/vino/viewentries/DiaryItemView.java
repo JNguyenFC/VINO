@@ -1,11 +1,13 @@
+/**
+ * Filename:    DiaryItemView.java
+ * Team:		VINO
+ * Description:
+ * Date:        8 Jun 2013
+ **/
+
 package com.yoloswag.vino.viewentries;
 
 import java.util.Random;
-
-import com.yoloswag.vino.R;
-import com.yoloswag.vino.ViewLogActivity;
-import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,40 +19,51 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.app.Fragment;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-@TouchThisAndIWillFuckingKillYou
-public class DiaryItemView extends LinearLayout {
+import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Entry;
+import com.yoloswag.vino.warning.TouchThisAndIWillFuckingKillYou;
 
-	public DiaryItemView(Context context) {
+@TouchThisAndIWillFuckingKillYou
+public class DiaryItemView extends LinearLayout 
+{
+	// Constructor for DiaryItemView
+	public DiaryItemView(Context context) 
+	{
 		super(context);
 		LayoutInflater inflater = LayoutInflater.from(context);
-		inflater.inflate(R.layout.view_diary_entry, this, true);
-
-
+		inflater.inflate(R.layout.fragment_diary_view_entry, this, true);
 	}
 
-	public static DiaryItemView build(Context context) {
+	/** Creates a new DiaryItemView with this context
+	 */
+	public static DiaryItemView build(Context context) 
+	{
 		return new DiaryItemView(context);
 	}
 
-	public void bind(final Entry entry, ViewGroup parent, final DiaryFragment diary) {
+	/** Connects the entry to the DiaryFragment
+	 */
+	public void bind(final Entry entry, ViewGroup parent, final DiaryFragment diary) 
+	{
 		final ImageView iv = (ImageView) findViewById(R.id.entry_image);
 
 		// Sets photo to be displayed to fill the screen relative to any phone
 		iv.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
 
-		new Thread(new Runnable() {
+		new Thread(new Runnable() 
+		{
 			@Override
-			public void run() {
+			public void run() 
+			{
 				final Bitmap bitmap;
-				switch(new Random().nextInt(4)) {
+				switch(new Random().nextInt(4)) 
+				{
 				case 0:
 					bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.vino1);
 					break;
@@ -64,9 +77,11 @@ public class DiaryItemView extends LinearLayout {
 					bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.vino4);
 					break;
 				}
-				iv.post(new Runnable() {
+				iv.post(new Runnable() 
+				{
 					@Override
-					public void run() {
+					public void run() 
+					{
 						iv.setImageBitmap(bitmap);
 						iv.setImageURI(Uri.parse(entry.uri));
 					}
@@ -74,18 +89,11 @@ public class DiaryItemView extends LinearLayout {
 			}
 		}).start();
 
-/*		// Dynamically change white on black text captions on top of photos
-		TextView textview_vintage = (TextView) findViewById(R.id.vintage);
-		textview_vintage.setVisibility(GONE);
-		//textview_vintage.setText(entry.wine.vintage.year);
-*/
-		TextView textview_producer = (TextView) findViewById(R.id.producer_name);
-		//textview_producer.setText(entry.wine.name.producer);
+		// Dynamically change white on black text captions on top of photos
+		TextView textview_producer = (TextView) findViewById(R.id.entry_caption_date);
 		textview_producer.setText(entry.postDate);
-		textview_producer.setTextSize(22);
 
-		TextView textview_varietal = (TextView) findViewById(R.id.varietal_name);
-		//textview_varietal.setText(entry.wine.varietal.varietal_name);
+		TextView textview_varietal = (TextView) findViewById(R.id.entry_caption_title);
 		textview_varietal.setText(entry.title);
 		
 		TextView textview_entry_title = (TextView) findViewById(R.id.entry_title);
@@ -96,7 +104,6 @@ public class DiaryItemView extends LinearLayout {
 
 		TextView textview_entry_comment = (TextView) findViewById(R.id.entry_comment);
 		textview_entry_comment.setText(entry.comment);
-		//textview_entry_comment.setTextSize(28);
 
 		TextView textview_entry_details = (TextView) findViewById(R.id.entry_details);
 		textview_entry_details.setText("Winemaker: " + entry.wine.name.producer + "\n" +
@@ -109,109 +116,120 @@ public class DiaryItemView extends LinearLayout {
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
 
-
-		View.OnClickListener handler = new View.OnClickListener() {
+		// Display entry details upon image tap; disappears when tapped again
+		View.OnClickListener handler = new View.OnClickListener() 
+		{
 			@Override
-			public void onClick(View v) {
+			public void onClick(View v) 
+			{
+				// Subtle fade out and fade in animations upon entry tap
 				Animation animationFadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.fadein);
 				Animation animationFadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.fadeout);
 
-				RelativeLayout vG = (RelativeLayout)v.getParent();
-				View elem = vG.findViewById(R.id.entry_details);
-				View elem2 = vG.findViewById(R.id.entry_comment);
-				View elem3 = vG.findViewById(R.id.entry_title);
-				View elem35 = vG.findViewById(R.id.entry_postDate);
-				View elem4 = vG.findViewById(R.id.line);
-				View editBut = vG.findViewById(R.id.editText01);
+				RelativeLayout relative_layout = (RelativeLayout)v.getParent();
+				View elt_entryDetails = relative_layout.findViewById(R.id.entry_details);
+				View elt_entryComment = relative_layout.findViewById(R.id.entry_comment);
+				View elt_entryTitle = relative_layout.findViewById(R.id.entry_title);
+				View elt_entryDate = relative_layout.findViewById(R.id.entry_postDate);
+				View elt_entryLine = relative_layout.findViewById(R.id.line);
+				View editButton = relative_layout.findViewById(R.id.editEntry);
 				
-				editBut.setOnClickListener(new OnClickListener(){
-					public void onClick(View v){
-					Intent intent = new Intent(v.getContext(), EditLogActivity.class);
-					//Bundle bund = new Bundle();
-					intent.removeExtra("title");
-					intent.putExtra("entry", entry);
-					intent.putExtra("producer", entry.wine.name.producer);
-					intent.putExtra("varietal", entry.wine.varietal.varietal_name);
-					intent.putExtra("category", entry.wine.category.category);
-					intent.putExtra("region", entry.wine.region.region);
-					intent.putExtra("vintage", entry.wine.vintage.year);
-					intent.putExtra("sweetordry", entry.wine.sweetOrDry.taste);
-					intent.putExtra("comment", entry.comment);
-					intent.putExtra("rating", entry.wine.rating);
-					intent.putExtra("title", entry.title);
-					v.getContext().startActivity(intent);
-					//entry.wine.region.region = intent.getStringExtra("region1");
-					diary.updateData();
+				TextView textview_captionDate = (TextView) relative_layout.findViewById(R.id.entry_caption_date);
+				TextView textview_captionTitle = (TextView) relative_layout.findViewById(R.id.entry_caption_title);
+				
+				// Set Edit button in Entry
+				editButton.setOnClickListener(new OnClickListener()
+				{
+					public void onClick(View v)
+					{
+						Intent intent = new Intent(v.getContext(), EditLogActivity.class);
 					
+						intent.removeExtra("title");
+						intent.putExtra("entry", entry);
+						intent.putExtra("producer", entry.wine.name.producer);
+						intent.putExtra("varietal", entry.wine.varietal.varietal_name);
+						intent.putExtra("category", entry.wine.category.category);
+						intent.putExtra("region", entry.wine.region.region);
+						intent.putExtra("vintage", entry.wine.vintage.year);
+						intent.putExtra("sweetordry", entry.wine.sweetOrDry.taste);
+						intent.putExtra("comment", entry.comment);
+						intent.putExtra("rating", entry.wine.rating);
+						intent.putExtra("title", entry.title);
+						v.getContext().startActivity(intent);
+					
+						diary.updateData();
 					}
 				});
 				
-//				TextView textview_vintage = (TextView) vG.findViewById(R.id.vintage);
-				TextView textview_producer = (TextView) vG.findViewById(R.id.producer_name);
-				TextView textview_varietal = (TextView) vG.findViewById(R.id.varietal_name);
-				ImageButton delete_but = (ImageButton) vG.findViewById(R.id.deleteEntry);
-				delete_but.setOnClickListener(new View.OnClickListener() {
+				// Set Delete button in Entry
+				ImageButton delButton = (ImageButton) relative_layout.findViewById(R.id.deleteEntry);
+				delButton.setOnClickListener(new View.OnClickListener() 
+				{
 					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
+					public void onClick(View v) 
+					{
 						entry.destroy();
 						diary.updateData();
 					}
 				});
-				if(v == vG.findViewById(R.id.entry_image)) {
-					elem.startAnimation(animationFadeIn);
-					elem2.startAnimation(animationFadeIn);
-					elem3.startAnimation(animationFadeIn);
-					elem35.startAnimation(animationFadeIn);
-					elem4.startAnimation(animationFadeIn);			
-					elem.setVisibility(RelativeLayout.VISIBLE);
-					elem2.setVisibility(RelativeLayout.VISIBLE);
-					elem3.setVisibility(RelativeLayout.VISIBLE);
-					elem35.setVisibility(RelativeLayout.VISIBLE);
-					elem4.setVisibility(RelativeLayout.VISIBLE);
-					editBut.setVisibility(RelativeLayout.VISIBLE);
-					delete_but.setVisibility(RelativeLayout.VISIBLE);					
+				
+				// If Entry photo is tapped, fade in Entry's details and fade
+				// out photo captions
+				if (v == relative_layout.findViewById(R.id.entry_image)) 
+				{
+					elt_entryDetails.startAnimation(animationFadeIn);
+					elt_entryComment.startAnimation(animationFadeIn);
+					elt_entryTitle.startAnimation(animationFadeIn);
+					elt_entryDate.startAnimation(animationFadeIn);
+					elt_entryLine.startAnimation(animationFadeIn);
+					editButton.startAnimation(animationFadeIn);
+					delButton.startAnimation(animationFadeIn);
+					elt_entryDetails.setVisibility(RelativeLayout.VISIBLE);
+					elt_entryComment.setVisibility(RelativeLayout.VISIBLE);
+					elt_entryTitle.setVisibility(RelativeLayout.VISIBLE);
+					elt_entryDate.setVisibility(RelativeLayout.VISIBLE);
+					elt_entryLine.setVisibility(RelativeLayout.VISIBLE);
+					editButton.setVisibility(RelativeLayout.VISIBLE);
+					delButton.setVisibility(RelativeLayout.VISIBLE);					
 
-//					textview_vintage.startAnimation(animationFadeOut);
-					textview_producer.startAnimation(animationFadeOut);
-					textview_varietal.startAnimation(animationFadeOut);				
-//					textview_vintage.setVisibility(RelativeLayout.GONE);
-					textview_producer.setVisibility(RelativeLayout.GONE);
-					textview_varietal.setVisibility(RelativeLayout.GONE);
+					textview_captionDate.startAnimation(animationFadeOut);
+					textview_captionTitle.startAnimation(animationFadeOut);	
+					textview_captionDate.setVisibility(RelativeLayout.GONE);
+					textview_captionTitle.setVisibility(RelativeLayout.GONE);
 				}
-				if(v == elem || v == elem2 || v == elem3 || v == elem4) {
-					elem.startAnimation(animationFadeOut);
-					elem2.startAnimation(animationFadeOut);
-					elem3.startAnimation(animationFadeOut);
-					elem35.startAnimation(animationFadeOut);
-					elem4.startAnimation(animationFadeOut);				
-					elem.setVisibility(RelativeLayout.INVISIBLE);
-					elem2.setVisibility(RelativeLayout.INVISIBLE);
-					elem3.setVisibility(RelativeLayout.INVISIBLE);
-					elem35.setVisibility(RelativeLayout.INVISIBLE);
-					elem4.setVisibility(RelativeLayout.INVISIBLE);
-					editBut.setVisibility(RelativeLayout.INVISIBLE);
-					delete_but.setVisibility(RelativeLayout.INVISIBLE);
+				
+				// If Entry details is tapped, fade out Entry details and fade
+				// in photo captions
+				if (v == elt_entryDetails || v == elt_entryComment || v == elt_entryTitle || v == elt_entryLine) 
+				{
+					elt_entryDetails.startAnimation(animationFadeOut);
+					elt_entryComment.startAnimation(animationFadeOut);
+					elt_entryTitle.startAnimation(animationFadeOut);
+					elt_entryDate.startAnimation(animationFadeOut);
+					elt_entryLine.startAnimation(animationFadeOut);	
+					editButton.startAnimation(animationFadeOut);
+					delButton.startAnimation(animationFadeOut);
+					elt_entryDetails.setVisibility(RelativeLayout.INVISIBLE);
+					elt_entryComment.setVisibility(RelativeLayout.INVISIBLE);
+					elt_entryTitle.setVisibility(RelativeLayout.INVISIBLE);
+					elt_entryDate.setVisibility(RelativeLayout.INVISIBLE);
+					elt_entryLine.setVisibility(RelativeLayout.INVISIBLE);
+					editButton.setVisibility(RelativeLayout.INVISIBLE);
+					delButton.setVisibility(RelativeLayout.INVISIBLE);
 
-//					textview_vintage.startAnimation(animationFadeIn);
-					textview_producer.startAnimation(animationFadeIn);
-					textview_varietal.startAnimation(animationFadeIn);
-//					textview_vintage.setVisibility(RelativeLayout.VISIBLE);
-					textview_producer.setVisibility(RelativeLayout.VISIBLE);
-					textview_varietal.setVisibility(RelativeLayout.VISIBLE);
+					textview_captionDate.startAnimation(animationFadeIn);
+					textview_captionTitle.startAnimation(animationFadeIn);
+					textview_captionDate.setVisibility(RelativeLayout.VISIBLE);
+					textview_captionTitle.setVisibility(RelativeLayout.VISIBLE);
 				}
 			}
 		}; 
 
-
-
-		// Make description appear on click
+		// Make description appear/disappear when anywhere on screen is tapped
 		iv.setOnClickListener(handler);
 		textview_entry_details.setOnClickListener(handler);
 		textview_entry_comment.setOnClickListener(handler);
 		textview_entry_title.setOnClickListener(handler);
 		textview_entry_postDate.setOnClickListener(handler);
 	}
-
-
 }
