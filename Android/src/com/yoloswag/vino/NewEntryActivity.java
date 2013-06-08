@@ -35,7 +35,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-public class NewEntryActivity extends Activity implements TextWatcher 
+public class NewEntryActivity extends Activity// implements TextWatcher 
 {
 
 	// AutoComplete arrays
@@ -114,7 +114,7 @@ public class NewEntryActivity extends Activity implements TextWatcher
 
 		// AutoComplete for Name/Producer
 		autoComplete_producer = (AutoCompleteTextView) findViewById(R.id.producer);
-		autoComplete_producer.addTextChangedListener(this);
+//		autoComplete_producer.addTextChangedListener(this);
 		// Wine[] wineList = Wine.getAll();
 		// String[] producerList = new String[wineList.length];
 		// String[] categoryList = new String[wineList.length];
@@ -152,19 +152,16 @@ public class NewEntryActivity extends Activity implements TextWatcher
 
 		// Autocomplete for Category
 		autoComplete_category = (AutoCompleteTextView) findViewById(R.id.category);
-		autoComplete_category.addTextChangedListener(this);
 		autoComplete_category.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, categoryList));
 
 		// Autocomplete for Region
 		autoComplete_region = (AutoCompleteTextView) findViewById(R.id.region);
-		autoComplete_region.addTextChangedListener(this);
 		autoComplete_region.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, regionList));
 
 		// Autocomplete for Varietal
 		autoComplete_varietal = (AutoCompleteTextView) findViewById(R.id.varietal);
-		autoComplete_varietal.addTextChangedListener(this);
 		autoComplete_varietal.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, varietalList));
 
