@@ -114,8 +114,8 @@
     <!-- Delete Entry button -->
     <ImageButton
         android:id="@+id/deleteEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:padding="7dp"
@@ -128,8 +128,8 @@
     <!-- Edit Entry button -->
     <ImageButton
         android:id="@+id/editEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_above="@id/deleteEntry"
         android:padding="7dp"
         android:layout_marginBottom="5dp"
