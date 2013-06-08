@@ -82,7 +82,6 @@ public class EditLogActivity extends Activity
 		dry.setOnCheckedChangeListener(checkListener);
         sweet.setOnCheckedChangeListener(checkListener); 
 		
-		
         final Intent info = this.getIntent();
 		title.setText(info.getStringExtra("title"));
 		producer.setText(info.getStringExtra("producer"));
@@ -92,7 +91,6 @@ public class EditLogActivity extends Activity
 		comment.setText(info.getStringExtra("comment"));
 		rating.setRating(info.getFloatExtra("rating", 0));
 		varietal.setText(info.getStringExtra("varietal"));
-		info.removeExtra("title");
 		
 		View button = this.findViewById(R.id.new_entry_button);
       
@@ -137,7 +135,6 @@ public class EditLogActivity extends Activity
 				e.wine.vintage = new Vintage(vintageYear.getText().toString());
 				e.comment = comment.getText().toString();
 				e.wine.addRating(rating.getRating());
-				
 				if (dry.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
 				else if (sweet.isChecked())
