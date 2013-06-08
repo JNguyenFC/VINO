@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.yoloswag.vino.R;
+import com.yoloswag.vino.model.Wine;
 
 /** Inflates the View which holds the ListView of wine recommendations and
  *  also sets the adapter for it.
@@ -31,7 +32,7 @@ public class SuggestionsFragment extends Fragment
 		                                                   R.drawable.wine_vector};
 
 	 ListView listView;
-	 List<RowItem> rowItems;
+	 List<Wine> rowItems;
 
 	 /** Creates and returns the ListView of wines recommendations
 	  */
@@ -39,11 +40,12 @@ public class SuggestionsFragment extends Fragment
 	 public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) 
 	 {
-		 rowItems = new ArrayList<RowItem>();
+		 // Recommendations drawer
+		 rowItems = new ArrayList<Wine>();
 
 		 for (int i = 0; i < 4; ++i)
 		 {
-			 RowItem item = new RowItem();
+			 Wine item = new Wine();
 			 rowItems.add(item);
 		 }
 		 

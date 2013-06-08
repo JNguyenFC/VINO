@@ -21,12 +21,12 @@ import android.widget.TextView;
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.Wine;
 
-public class SuggestionsAdapter extends ArrayAdapter<RowItem> 
+public class SuggestionsAdapter extends ArrayAdapter<Wine> 
 {
 	Context context;
 
 	// Constructor for this SuggestionsAdapter
-	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<RowItem> list) 
+	public SuggestionsAdapter(SuggestionsFragment suggestionsFragment, int resourceId, List<Wine> list) 
 	{
 		super(suggestionsFragment.getActivity(), resourceId, list);
 		this.context = suggestionsFragment.getActivity();
