@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -124,6 +125,8 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		View v = li.inflate(R.layout.fragment_favorites_cell, null);
 
 		TextView textview = (TextView) v.findViewById(R.id.favorite_wine);
+		//Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
+		//textview.setTypeface(typeface);
 		textview.setTextSize(18);
 		textview.setText(favoriteWines[groupPosition].vintage.year + 
 				" " + favoriteWines[groupPosition].name.producer + " " + 

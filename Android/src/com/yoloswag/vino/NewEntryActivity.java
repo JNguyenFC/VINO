@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Gravity;
@@ -90,6 +91,8 @@ public class NewEntryActivity extends Activity implements TextWatcher
 		View button = this.findViewById(R.id.new_entry_button);
 
 		EditText editText = (EditText) this.findViewById(R.id.title);
+		Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
+		editText.setTypeface(typeface);
 		editText.requestFocus();
 		editText.setSelection(0);
 
