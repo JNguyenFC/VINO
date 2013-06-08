@@ -34,7 +34,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-public class NewEntryActivity extends Activity implements TextWatcher {
+public class NewEntryActivity extends Activity implements TextWatcher 
+{
 
 	// AutoComplete arrays
 	AutoCompleteTextView autoComplete_producer;
@@ -81,7 +82,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * Initializations for when a new Entry is being created
 	 */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(Bundle savedInstanceState) 
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
 		// Submit button
@@ -93,7 +95,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 		// Preview of captured image
 		FileInputStream in;
-		try {
+		try 
+		{
 			String name = this.getFilesDir()
 					+ String.valueOf(Entry.getAll().length) + ".jpg";
 			in = new FileInputStream(name);
@@ -101,7 +104,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 			ImageView imageView = (ImageView) this.findViewById(R.id.image);
 			imageView.setImageBitmap(bitmap);
-		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
 
@@ -165,10 +169,14 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 		final CheckBox dry = (CheckBox) findViewById(R.id.dryCheck);
 		final CheckBox sweet = (CheckBox) findViewById(R.id.sweetCheck);
 
-		OnCheckedChangeListener checkListener = new OnCheckedChangeListener() {
-			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-				if (isChecked) {
-					switch (arg0.getId()) {
+		OnCheckedChangeListener checkListener = new OnCheckedChangeListener() 
+		{
+			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) 
+			{
+				if (isChecked) 
+				{
+					switch (arg0.getId()) 
+					{
 					case R.id.dryCheck:
 						dry.setChecked(true);
 						sweet.setChecked(false);
@@ -187,9 +195,11 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 
 		// Submit button
 		Button b = (Button) button;
-		b.setOnClickListener(new OnClickListener() {
+		b.setOnClickListener(new OnClickListener() 
+		{
 			@Override
-			public void onClick(View arg1) {
+			public void onClick(View arg1) 
+			{
 				// Creating entry
 				Entry e = new Entry();
 				EditText title = (EditText) findViewById(R.id.title);
@@ -207,7 +217,9 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 						&& region.getText().toString().matches("")
 						&& varietal.getText().toString().matches("")
 						&& vintageYear.getText().toString().matches("")
-						&& comment.getText().toString().matches("")) {
+						&& comment.getText().toString().matches("")
+						&& producer.getText().toString().matches("")) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -224,8 +236,10 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					toast.show();
 					return;
 				}
+				
 				// Gary toast - check if a name has been entered
-				if (producer.getText().toString().matches("")) {
+				if (producer.getText().toString().matches("")) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -244,7 +258,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				}
 
 				// Gary toast - check if a varietal has been entered
-				if (varietal.getText().toString().matches("")) {
+				if (varietal.getText().toString().matches("")) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -263,7 +278,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				}
 
 				// Gary toast - check if a region has been entered
-				if (region.getText().toString().matches("")) {
+				if (region.getText().toString().matches("")) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -282,7 +298,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				}
 
 				// Gary toast - check if a vintage year has been entered
-				if (vintageYear.getText().toString().matches("")) {
+				if (vintageYear.getText().toString().matches("")) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -305,7 +322,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 				Calendar calendar = Calendar.getInstance();
 				int currentYear = calendar.get(Calendar.YEAR);
 
-				if (year > currentYear) {
+				if (year > currentYear) 
+				{
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -315,6 +333,67 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 					TextView textView = (TextView) toastView
 							.findViewById(R.id.text);
 					textView.setText("Wine from the future? Don't think so!");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
+					return;
+				}
+				
+				// Gary toast - check if a category has been entered
+				if (category.getText().toString().matches("")) 
+				{
+					View toastView = getLayoutInflater().inflate(
+							R.layout.toast,
+							(ViewGroup) findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+					imageView.setImageResource(R.drawable.gary_vector);
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+					textView.setText("What type of wine are you drinking?");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
+					return;
+				}
+				
+				// Gary toast - check to see if sweet or dry has been checked
+				if (!(dry.isChecked() || sweet.isChecked())) 
+				{
+					View toastView = getLayoutInflater().inflate(
+							R.layout.toast,
+							(ViewGroup) findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+					imageView.setImageResource(R.drawable.gary_vector);
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+					textView.setText("Is the wine sweet or dry?");
+					Toast toast = new Toast(NewEntryActivity.this);
+					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+					toast.setDuration(Toast.LENGTH_SHORT);
+					toast.setView(toastView);
+					toast.show();
+					return;
+				}
+				
+				// Gary toast - check to see if a rating has been given
+				if (rating.getRating() < 0.5) 
+				{
+					View toastView = getLayoutInflater().inflate(
+							R.layout.toast,
+							(ViewGroup) findViewById(R.id.toastLayout));
+					ImageView imageView = (ImageView) toastView
+							.findViewById(R.id.garytoast);
+					imageView.setImageResource(R.drawable.gary_vector);
+					TextView textView = (TextView) toastView
+							.findViewById(R.id.text);
+					textView.setText("It couldn't have been THAT bad. Give at " +
+									 "least a 0.5 bottle rating!");
 					Toast toast = new Toast(NewEntryActivity.this);
 					toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 					toast.setDuration(Toast.LENGTH_SHORT);
@@ -357,7 +436,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * The activity is about to become visible
 	 */
 	@Override
-	protected void onStart() {
+	protected void onStart() 
+	{
 		super.onStart();
 	}
 
@@ -365,7 +445,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * The activity is now visible
 	 */
 	@Override
-	protected void onResume() {
+	protected void onResume() 
+	{
 		super.onResume();
 	}
 
@@ -373,7 +454,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * This activity is about to be paused while another comes into focus
 	 */
 	@Override
-	protected void onPause() {
+	protected void onPause() 
+	{
 		super.onPause();
 	}
 
@@ -381,7 +463,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * The activity is stopped, it is no longer visible
 	 */
 	@Override
-	protected void onStop() {
+	protected void onStop() 
+	{
 		super.onStop();
 	}
 
@@ -389,7 +472,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * The activity is about to be terminated
 	 */
 	@Override
-	protected void onDestroy() {
+	protected void onDestroy() 
+	{
 		super.onDestroy();
 	}
 
@@ -397,7 +481,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * Called to notify that the parameter has been changed
 	 */
 	@Override
-	public void afterTextChanged(Editable arg0) {
+	public void afterTextChanged(Editable arg0) 
+	{
 	}
 
 	/**
@@ -406,7 +491,8 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 */
 	@Override
 	public void beforeTextChanged(CharSequence s, int start, int count,
-			int after) {
+			int after) 
+	{
 	}
 
 	/**
@@ -414,6 +500,7 @@ public class NewEntryActivity extends Activity implements TextWatcher {
 	 * have just replaced old text that had length before
 	 */
 	@Override
-	public void onTextChanged(CharSequence s, int start, int before, int count) {
+	public void onTextChanged(CharSequence s, int start, int before, int count) 
+	{
 	}
 }
