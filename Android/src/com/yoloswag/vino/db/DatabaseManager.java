@@ -12,6 +12,16 @@ public class DatabaseManager {
 
     static private DatabaseManager instance;
 
+    private DatabaseHelper helper;
+	private WineDao wineDao;
+	private EntryDao entryDao;
+	
+    private DatabaseManager(Context ctx) {
+        helper = new DatabaseHelper(ctx);
+        wineDao = new WineDao(helper);
+        entryDao = new EntryDao(helper);
+    }
+
     static public void init(Context ctx) {
         if (null==instance) {
             instance = new DatabaseManager(ctx);
@@ -22,59 +32,27 @@ public class DatabaseManager {
         return instance;
     }
 
-    private DatabaseHelper helper;
-    private DatabaseManager(Context ctx) {
-        helper = new DatabaseHelper(ctx);
+    public List<Wine> getAllWines() {
+    	return wineDao.getAllWines();
     }
 
-    private DatabaseHelper getHelper() {
-        return helper;
-    }
+	public void updateWine(Wine wine) {
+		wineDao.updateWine(wine);
+	}
+
+	public void deleteWine(Wine wine) {
+		wineDao.deleteWine(wine);
+	}
 
     public List<Entry> getAllEntries() {
-        List<Entry> entries = null;
-        try {
-            entries = getHelper().getEntryDao().queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return entries;
-    }
-
-    public List<Wine> getAllWines() {
-        List<Wine> entries = null;
-        try {
-            entries = getHelper().getWineDao().queryForAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return entries;
+    	return entryDao.getAllEntries();
     }
 
 	public void updateEntry(Entry entry) {
-		// TODO Auto-generated method stub
-        try {
-            getHelper().getEntryDao().createOrUpdate(entry);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-	}
-
-	public void updateWine(Wine wine) {
-		// TODO Auto-generated method stub
-        try {
-            getHelper().getWineDao().createOrUpdate(wine);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+		entryDao.updateEntry(entry);
 	}
 
 	public void deleteEntry(Entry entry) {
-		// TODO Auto-generated method stub
-        try {
-            getHelper().getEntryDao().delete(entry);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+		entryDao.deleteEntry(entry);
 	}
 }
