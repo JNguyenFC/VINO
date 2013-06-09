@@ -12,7 +12,7 @@ import java.util.List;
 
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
-import com.yoloswag.vino.db.DatabaseManager;
+import com.yoloswag.vino.db.WineAction;
 
 public class Wine implements Serializable
 {
@@ -35,19 +35,15 @@ public class Wine implements Serializable
 	public double rating;   // Single rating for a Wine
 	@DatabaseField
 	public double ratings;  // Average rating for a Wine
-	
-	/**  Default constructor
-	 */
-	public Wine() 
-	{
-	}
-	
-	//TODO: fix vintage
+		
 	/**  All-member constructor for database
 	 */
+	public Wine() {
+		
+	}
+	
 	public Wine(String name, String varietal, String category, String region,
-	            String sweetOrDry, String vintage)
-	{
+	            String sweetOrDry, String vintage) {
 		this.name           = new Name(name);
 		this.varietal       = new Varietal(varietal); 
 		this.category       = new Category(category);
@@ -60,30 +56,18 @@ public class Wine implements Serializable
 	
 	/** Adds a rating to the given Wine
 	 */
-	public void addRating(double newRating) 
-	{
+	public void addRating(double newRating) {
 		this.rating = (rating * ratings + newRating) / ++ratings;
-	}
-	
-	/**  Getter for Entry
-	 */
-	public static Wine get(Wine wine) 
-	{
-		return wine;
 	}
 	
 	/**  Gets all wines with their corresponding data from the database
 	 */
-	public static Wine[] getAll() 
-	{	
-		List<Wine> wines = DatabaseManager.getInstance().getAllWines();
+	public static Wine[] getAll() {	
+		List<Wine> wines = WineAction.getAllWines();
 		return wines.toArray(new Wine[wines.size()]);
 	}
 
-	/** Saves updated Wine into database
-	 */
-	public void save() 
-	{
-        DatabaseManager.getInstance().updateWine(this);
+	public void save() {
+		WineAction.updateWine(this);
 	}
 }

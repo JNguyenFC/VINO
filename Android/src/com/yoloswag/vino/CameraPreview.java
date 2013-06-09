@@ -98,25 +98,4 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
 		mCamera.autoFocus(null);
 	}
-	
-	/** mCamera will be null when this function returns
-	 */
-	private void stopPreviewAndFreeCamera() 
-	{
-	    if (mCamera != null) 
-	    {
-	        /*
-	          Call stopPreview() to stop updating the preview surface.
-	        */
-	        //mCamera.stopPreview();
-	    
-	        
-	        // Important: Call release() to release the camera for use by other applications. 
-	        // Applications should release the camera immediately in onPause() (and re-open() it in
-	        // onResume());
-	        mCamera.release();
-	    
-	        mCamera = null;
-	    }
-	}
 }

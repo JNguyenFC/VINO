@@ -16,7 +16,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
-import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import com.yoloswag.vino.model.Entry;
@@ -29,10 +28,6 @@ public class DatabaseHelper extends OrmLiteSqliteOpenHelper
 
 	// May have to increase version if we make changes to our database objects
 	private static final int DATABASE_VERSION = 1;
-
-	// DAO used to access the SimpleData table
-	private Dao<Entry, Integer> entryDao = null;
-	private Dao<Wine, Integer> wineDao = null;
 
 	public DatabaseHelper(Context context)
 	{

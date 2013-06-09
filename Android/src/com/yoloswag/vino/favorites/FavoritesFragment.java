@@ -41,9 +41,9 @@ public class FavoritesFragment extends Fragment implements OnGroupExpandListener
 	public void onResume() 
 	{
 		super.onResume();
-		Wine[] wines = adapter.sortRatings(Wine.getAll());
-		adapter.favoriteWines = wines;
-		adapter.favoriteSize = wines.length;
+		Wine[] wines = FavoritesAdapter.sortRatings(Wine.getAll());
+		FavoritesAdapter.favoriteWines = wines;
+		FavoritesAdapter.favoriteSize = wines.length;
 		adapter.notifyDataSetChanged();
 
 		suggestionNames = new Wine [FavoritesAdapter.favoriteSize][4];

@@ -22,15 +22,11 @@ import com.yoloswag.vino.warning.GaryToast;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.*;
 
 import android.widget.ArrayAdapter;
@@ -39,7 +35,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Toast;
 
 public class NewEntryActivity extends Activity {
 
@@ -242,7 +237,7 @@ public class NewEntryActivity extends Activity {
 				else if (sweet.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Sweet");
 
-				e.save();
+				EntryAction.addEntry(e);
 
 				// Return to the parent activity
 				finish();

@@ -45,7 +45,7 @@ public class SuggestionsFragment extends Fragment
 
 		 for (int i = 0; i < 4; ++i)
 		 {
-			 Wine item = new Wine();
+			 Wine item = new Wine("", "", "", "", "", "");
 			 rowItems.add(item);
 		 }
 		 
