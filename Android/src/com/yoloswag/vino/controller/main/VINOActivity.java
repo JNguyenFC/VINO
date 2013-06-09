@@ -111,27 +111,27 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     			e1.wine = w1;
     			EntryAction.addEntry(e1);
     		}{
-    			Entry e1 = new Entry("The Newest Wine Thieves", "Carruth Cellars, we love you (almost as much as your staff and patrons love us).", "android.resource://com.yoloswag.vino/" + R.drawable.vino1);
-    			Wine w1 = new Wine("Carruth Cellars", "Sauvignon Blanc", "White", "California", "Dry", "2011");
-    			w1.addRating(5.0);
-    			e1.wine = w1;
-    			EntryAction.addEntry(e1);
-    		}{
     			Entry e1 = new Entry("A Local Treat", "Checked out Orfila Winery in Escondido today! Such beautiful grounds with some lovely wines. The Cab Sauv had some really great earthy tones with a really rich berry profile. What a treat!", "android.resource://com.yoloswag.vino/" + R.drawable.vino2);
     			Wine w1 = new Wine("Orfila", "Cabernet Sauvignon", "Red", "California", "Dry", "2010");
     			w1.addRating(4.0);
     			e1.wine = w1;
     			EntryAction.addEntry(e1);
     		}{
-    			Entry e1 = new Entry("99 Bottles of Wine on the Wall", "Added another bottle to the collection! Barefoot Zinfandel. Not sure if I liked it that much, guess I'll have to have another glass to find out?", "android.resource://com.yoloswag.vino/" + R.drawable.vino3);
-    			Wine w1 = new Wine("Barefoot", "Zinfandel", "Red", "California", "Dry", "2013");
-    			w1.addRating(2.5);
+    			Entry e1 = new Entry("The Newest Wine Thieves", "Carruth Cellars, we love you (almost as much as your staff and patrons love us).", "android.resource://com.yoloswag.vino/" + R.drawable.vino1);
+    			Wine w1 = new Wine("Carruth Cellars", "Sauvignon Blanc", "White", "California", "Dry", "2011");
+    			w1.addRating(5.0);
     			e1.wine = w1;
     			EntryAction.addEntry(e1);
     		}{
     			Entry e1 = new Entry("The Happiest of Hours", "Went to Underbelly in Little Italy for happy hour! They don't have a super extensive wine list, but this Riesling was off the charts! And you can't beat the presentation. Gotta come back soon.", "android.resource://com.yoloswag.vino/" + R.drawable.vino4);
     			Wine w1 = new Wine("Chateau Ste. Michelle", "Riesling", "White", "Washington", "Sweet", "2011");
     			w1.addRating(5.0);
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}{
+    			Entry e1 = new Entry("99 Bottles of Wine on the Wall", "Added another bottle to the collection! Barefoot Zinfandel. Not sure if I liked it that much, guess I'll have to have another glass to find out?", "android.resource://com.yoloswag.vino/" + R.drawable.vino3);
+    			Wine w1 = new Wine("Barefoot", "Zinfandel", "Red", "California", "Dry", "2013");
+    			w1.addRating(2.5);
     			e1.wine = w1;
     			EntryAction.addEntry(e1);
     		}
