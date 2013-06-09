@@ -42,7 +42,6 @@ public class ViewEntryFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_diary_view_all_entries, container, false);
 
 		ListView list = (ListView) rootView.findViewById(R.id.viewLogL);
-		list.setFastScrollEnabled(true);
 
 		List<Entry> lit = Arrays.asList(Entry.getAll());
 		Collections.reverse(lit);
