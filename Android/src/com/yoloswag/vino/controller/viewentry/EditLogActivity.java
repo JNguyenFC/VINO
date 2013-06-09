@@ -23,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RatingBar;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
@@ -51,8 +52,8 @@ public class EditLogActivity extends Activity
 		RatingBar rating = (RatingBar)findViewById(R.id.rating);
 		
 		
-		final CheckBox dry = (CheckBox)findViewById(R.id.dryCheck);
-        final CheckBox sweet = (CheckBox)findViewById(R.id.sweetCheck);
+		final RadioButton dry = (RadioButton)findViewById(R.id.dryCheck);
+        final RadioButton sweet = (RadioButton)findViewById(R.id.sweetCheck);
 		
         OnCheckedChangeListener checkListener = new OnCheckedChangeListener() 
         {
