@@ -29,6 +29,8 @@
         <item name="android:actionModeBackground">@drawable/cab_background_top_example</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_example</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Example</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
         
         
     </style>

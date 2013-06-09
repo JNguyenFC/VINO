@@ -13,20 +13,30 @@
     </style>
 
     <!-- Application theme. -->
+
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
-    
-      <style name="wineRatingBar" parent="@android:style/Widget.RatingBar">
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="wineRatingBar" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/wine_ratingbar</item>
         <item name="android:minHeight">58dip</item>
         <item name="android:maxHeight">88dip</item>
-    </style> 
-    
-         <style name="wineRatingBarPadding" parent="@android:style/Widget.RatingBar">
+    </style>
+
+    <style name="wineRatingBarPadding" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/wine_ratingbar_padding</item>
         <item name="android:minHeight">108dip</item>
         <item name="android:maxHeight">108dip</item>
-    </style> 
+    </style>
 
 </resources>

@@ -23,6 +23,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.controller.favorites.FavoritesFragment;
@@ -32,9 +33,9 @@ import com.yoloswag.vino.model.db.DatabaseManager;
 import com.yoloswag.vino.model.entry.Entry;
 import com.yoloswag.vino.model.entry.EntryAction;
 import com.yoloswag.vino.model.wine.Wine;
+import com.yoloswag.vino.view.FontUtil;
 
-public class VINOActivity extends FragmentActivity implements ActionBar.TabListener 
-{
+public class VINOActivity extends FragmentActivity implements ActionBar.TabListener {
 
     /** The PagerAdapter that will provide fragments for each of the tabs. A
      *  FragmentPagerAdapter derivative is used, which will keep every loaded
@@ -91,6 +92,9 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
                             .setTabListener(this));
         }
         actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
+
+        final ViewGroup mContainer = (ViewGroup) findViewById(android.R.id.content).getRootView();
+        FontUtil.setFont(mContainer, this);
     }
 
     @Override
@@ -108,26 +112,31 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     			Entry e1 = new Entry("The Newest Wine Thieves", "Carruth Cellars, we love you (almost as much as your staff and patrons love us).", "android.resource://com.yoloswag.vino/" + R.drawable.vino1);
     			Wine w1 = new Wine("Carruth Cellars", "Sauvignon Blanc", "White", "California", "Sweet", "2011");
     			e1.wine = w1;
+				e1.wine.addRating(5);
     			EntryAction.addEntry(e1);
     		}{
     			Entry e1 = new Entry("A Local Treat", "Checked out Orfila Winery in Escondido today! Such beautiful grounds with some lovely wines. The Cab Sauv had some really great earthy tones with a really rich berry profile. What a treat!", "android.resource://com.yoloswag.vino/" + R.drawable.vino2);
     			Wine w1 = new Wine("Orfila", "Cabernet Sauvignon", "Red", "California", "Dry", "2010");
     			e1.wine = w1;
+				e1.wine.addRating(4);
     			EntryAction.addEntry(e1);
     		}{
     			Entry e1 = new Entry("99 Bottles of Wine on the Wall", "Added another bottle to the collection! Barefoot Zinfandel. Not sure if I liked it that much, guess I'll have to have another glass to find out?", "android.resource://com.yoloswag.vino/" + R.drawable.vino3);
     			Wine w1 = new Wine("Barefoot", "Zinfandel", "Red", "California", "Dry", "2013");
     			e1.wine = w1;
+				e1.wine.addRating(3);
     			EntryAction.addEntry(e1);
     		}{
     			Entry e1 = new Entry("The Happiest of Hours", "Went to Underbelly in Little Italy for happy hour! They don't have a super extensive wine list, but this Riesling was off the charts! And you can't beat the presentation. Gotta come back soon.", "android.resource://com.yoloswag.vino/" + R.drawable.vino4);
     			Wine w1 = new Wine("Chateau Ste. Michelle", "Riesling", "White", "Washington", "Sweet", "2011");
     			e1.wine = w1;
+				e1.wine.addRating(2);
     			EntryAction.addEntry(e1);
     		}{
     			Entry e1 = new Entry("Totes Adorbs", "Doyle can't drink wine, but I can! Had a glass of some White Zinfandel this afternoon while watching Doyle play in the backyard. It had the perfect amount of sweetness, definitely a great way to relax.", "android.resource://com.yoloswag.vino/" + R.drawable.vino5);
     			Wine w1 = new Wine("Sutter Homes", "White Zinfandel", "Rose", "California", "Sweet", "2013");
     			e1.wine = w1;
+				e1.wine.addRating(1);
     			EntryAction.addEntry(e1);
     		}
     		viewEntryFragment.refresh();

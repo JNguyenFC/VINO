@@ -32,10 +32,14 @@ import com.yoloswag.vino.model.entry.Entry;
 
 public class ViewEntryItemView extends LinearLayout 
 {
+	
+	Context context;
+	
 	// Constructor for DiaryItemView
 	public ViewEntryItemView(Context context) 
 	{
 		super(context);
+		this.context = context;
 		LayoutInflater inflater = LayoutInflater.from(context);
 		inflater.inflate(R.layout.fragment_diary_view_entry, this, true);
 	}

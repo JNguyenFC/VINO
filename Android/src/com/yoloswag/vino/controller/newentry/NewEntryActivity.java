@@ -21,6 +21,7 @@ import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.entry.Entry;
 import com.yoloswag.vino.model.entry.EntryAction;
 import com.yoloswag.vino.model.wine.Wine;
+import com.yoloswag.vino.view.FontUtil;
 import com.yoloswag.vino.view.newentry.GaryToast;
 
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.*;
 
@@ -94,7 +96,7 @@ public class NewEntryActivity extends Activity {
 		setContentView(R.layout.activity_new_entry);
 
 		EditText editText = (EditText) this.findViewById(R.id.title);
-		Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
+		Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
 		editText.setTypeface(typeface);
 		editText.requestFocus();
 		editText.setSelection(0);
@@ -234,6 +236,9 @@ public class NewEntryActivity extends Activity {
 				finish();
 			}
 		});
+		
+        final ViewGroup mContainer = (ViewGroup) findViewById(android.R.id.content).getRootView();
+        FontUtil.setFont(mContainer, this);
 	}
 	
 	private String extractText(int id) {

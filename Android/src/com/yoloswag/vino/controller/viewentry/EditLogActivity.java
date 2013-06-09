@@ -16,6 +16,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -27,6 +28,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.model.entry.Entry;
+import com.yoloswag.vino.view.FontUtil;
 
 public class EditLogActivity extends Activity 
 {
@@ -140,5 +142,8 @@ public class EditLogActivity extends Activity
 				finish();
 			}
         });
+
+        final ViewGroup mContainer = (ViewGroup) findViewById(android.R.id.content).getRootView();
+        FontUtil.setFont(mContainer, this);
 	}
 }
