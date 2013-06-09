@@ -121,13 +121,13 @@ public class EditLogActivity extends Activity
 				RatingBar rating = (RatingBar)findViewById(R.id.rating);
 				
 				// Entry and Wine details to be saved upon submitting edit
-				e.title = title.getText().toString();
-				e.wine.category = category.getText().toString();
-				e.wine.name = name.getText().toString();
-				e.wine.region = region.getText().toString();
-				e.wine.varietal = varietal.getText().toString();
-				e.wine.vintage = vintageYear.getText().toString();
-				e.comment = comment.getText().toString();
+				e.title = title.getText().toString().trim();
+				e.wine.category = category.getText().toString().trim();
+				e.wine.name = name.getText().toString().trim();
+				e.wine.region = region.getText().toString().trim();
+				e.wine.varietal = varietal.getText().toString().trim();
+				e.wine.vintage = vintageYear.getText().toString().trim();
+				e.comment = comment.getText().toString().trim();
 				e.wine.addRating(rating.getRating());
 				if (dry.isChecked())
 					e.wine.sweetOrDry = "Dry";

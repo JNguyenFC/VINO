@@ -149,13 +149,13 @@ public class NewEntryActivity extends Activity {
 			@Override
 			public void onClick(View arg1) {
 				// Creating entry
-				String title = extractText(R.id.title);
-				String category = extractText(R.id.category);
-				String region = extractText(R.id.region);
-				String varietal = extractText(R.id.varietal);
-				String vintageYear = extractText(R.id.vintageYear);
-				String comment = extractText(R.id.comments);
-				String producer = extractText(R.id.producer);
+				String title = extractText(R.id.title).trim();
+				String category = extractText(R.id.category).trim();
+				String region = extractText(R.id.region).trim();
+				String varietal = extractText(R.id.varietal).trim();
+				String vintageYear = extractText(R.id.vintageYear).trim();
+				String comment = extractText(R.id.comments).trim();
+				String producer = extractText(R.id.producer).trim();
 				RatingBar rating = (RatingBar) findViewById(R.id.rating);
 
 				// Gary toast - check that there is at least one field entered
