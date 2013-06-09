@@ -264,10 +264,10 @@
                 android:background="#40000000"
                 android:orientation="horizontal" >
                 
-                <LinearLayout
+                <RadioGroup
                     android:orientation="horizontal" >
 
-                    <CheckBox
+                    <RadioButton
                         android:id="@+id/dryCheck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -277,7 +277,7 @@
                         android:textStyle="bold"
                         android:textColorHint="@color/white" />
 
-                    <CheckBox
+                    <RadioButton
                         android:id="@+id/sweetCheck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -285,7 +285,7 @@
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textStyle="bold"
                         android:textColorHint="@color/white" />
-                </LinearLayout>
+                </RadioGroup>
             </TableRow>
 
             <!-- Helper text informing user to rate wine -->

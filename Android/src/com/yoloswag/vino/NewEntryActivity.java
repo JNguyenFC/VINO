@@ -10,7 +10,12 @@ package com.yoloswag.vino;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.List;
+
+import static java.util.Arrays.asList;
 
 import com.yoloswag.vino.model.*;
 import android.os.Bundle;
@@ -41,28 +46,31 @@ public class NewEntryActivity extends Activity {
 	AutoCompleteTextView autoComplete_region;
 	AutoCompleteTextView autoComplete_varietal;
 
-	// TODO: ADD MOAR
 	// AutoComplete lists
-	String producerList[] = { "Almaden", "Barefoot", "Beringer Vineyards",
+	ArrayList<String> producerList = new ArrayList<String>(asList("Almaden",
+			"Barefoot", "Beringer Vineyards",
 			"Cavit", "Charles Shaw", "Chateau Ste. Michelle", "Copper Ridge",
 			"Cupcake", "Ecco Domani", "Foxhorn Vineyards", "Franzia Winetaps",
 			"Inglenook", "Kendall-Jackson", "La Terre", "Mezzacorona",
 			"Salmon Creek", "Skinnygirl", "Stone Cellars", "Sutter Homes",
 			"Sycamore Lane", "Taylor California Cellars", "Woodbridge",
-			"Yellow Tail" };
+			"Yellow Tail"));
 
-	String categoryList[] = { "Dessert", "Red", "Rose", "Sparkling", "White" };
+	ArrayList<String> categoryList = new ArrayList<String>(asList("Dessert",
+			"Red", "Rose", "Sparkling", "White"));
 
-	String regionList[] = { "Argentina", "Australia", "Austria", "Belgium",
+	ArrayList<String> regionList = new ArrayList<String>(asList("Argentina",
+			"Australia", "Austria", "Belgium",
 			"Brazil", "Bulgaria", "Burgundy", "California", "Canada", "Chile",
 			"Croatia", "Czech Republic", "Denmark", "Dominican Republic",
 			"France", "Germany", "Greece", "Hungary", "India", "Israel",
 			"Italy", "Jordan", "Lebanon", "Malta", "Mexico", "Montenegro",
 			"New Zealand", "Peru", "Portugal", "Romania", "San Marino",
 			"Serbia", "Slovenia", "South Africa", "Spain", "Switzerland",
-			"Turkey", "Ukraine", "United Kingdom", "United States", "Uruguay" };
+			"Turkey", "Ukraine", "United Kingdom", "United States", "Uruguay"));
 
-	String varietalList[] = { "Angel Food", "Barbera", "Blush Wine", "Brut",
+	ArrayList<String> varietalList = new ArrayList<String>(asList("Angel Food",
+			"Barbera", "Blush Wine", "Brut",
 			"Cabernet Merlot", "Cabernet Sauvignon", "California Red Blend",
 			"California Rose Blend", "California White Blend", "Champagne",
 			"Chardonnay", "Chenin Blanc", "Chianti", "Dolcetto",
@@ -74,7 +82,7 @@ public class NewEntryActivity extends Activity {
 			"Riesling", "Rose", "Sangiovese", "Sauvignon Blanc", "Shiraz",
 			"Shiraz-Cabernet", "Shiraz-Grenache", "Sparkling Wine",
 			"Sweet Red", "Sweet White", "Summation", "Syrah", "Viognier",
-			"White Merlot", "White Zinfandel", "Zinfandel" };
+			"White Merlot", "White Zinfandel", "Zinfandel"));
 
 	/**
 	 * Initializations for when a new Entry is being created
@@ -83,6 +91,7 @@ public class NewEntryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
+		
 		// Submit button
 		View button = this.findViewById(R.id.new_entry_button);
 
@@ -91,72 +100,43 @@ public class NewEntryActivity extends Activity {
 		editText.setTypeface(typeface);
 		editText.requestFocus();
 		editText.setSelection(0);
-
-		// Preview of captured image
-		FileInputStream in;
-		try 
-		{
-			String name = this.getFilesDir()
-					+ String.valueOf(Entry.getAll().length) + ".jpg";
-			in = new FileInputStream(name);
-			Bitmap bitmap = BitmapFactory.decodeStream(in);
-
-			ImageView imageView = (ImageView) this.findViewById(R.id.image);
-			imageView.setImageBitmap(bitmap);
-		} catch (FileNotFoundException e) 
-		{
-			e.printStackTrace();
+		
+		showPreviewImage();
+		
+		// Add all existing wine data to the default data
+		for(Wine wine : Wine.getAll()) {
+			producerList.add(wine.name.producer);
+			categoryList.add(wine.category.category);
+			regionList.add(wine.region.region);
+			varietalList.add(wine.varietal.varietal_name);
+		}
+		
+		// Remove duplicates from all collections
+		@SuppressWarnings("unchecked")
+		List<ArrayList<String>> allCollections = asList(producerList, categoryList, regionList, varietalList);
+		for(ArrayList<String> collection : allCollections) {
+			HashSet<String> hs = new HashSet<String>();
+			hs.addAll(collection);
+			collection.clear();
+			collection.addAll(hs);
 		}
 
 		// AutoComplete for Name/Producer
 		autoComplete_producer = (AutoCompleteTextView) findViewById(R.id.producer);
-//		autoComplete_producer.addTextChangedListener(this);
-		// Wine[] wineList = Wine.getAll();
-		// String[] producerList = new String[wineList.length];
-		// String[] categoryList = new String[wineList.length];
-		// String[] regionList = new String[wineList.length];
-		/*
-		 * for(int i = 0, j = 0, l = 0; i < wineList.length; i++) { if(i == 0 ||
-		 * ((j-1)>-1 &&
-		 * !(producerList[j-1].equals(wineList[i].name.producer.toString())))) {
-		 * producerList[j] = wineList[i].name.producer.toString();
-		 * 
-		 * System.out.println("first check j-1 > -1? " + ((j-1)>-1)); if(j!= 0){
-		 * System.out.println("producer? " + (producerList[j-1] ));
-		 * System.out.println("second check? " + producerList[j-1] !=
-		 * wineList[i].name.producer.toString()); }
-		 * 
-		 * System.out.println("wine? " +
-		 * (wineList[i].name.producer.toString()));
-		 * System.out.println("winelist: " + "i:" + i + " " +
-		 * wineList[i].name.producer.toString());
-		 * System.out.println("producerlist: " + "j: " + j + producerList[j]);
-		 * j++; }
-		 */
-		/*
-		 * if(i == 0 || (k-1)>-1 && categoryList[k-1] !=
-		 * wineList[i].category.category.toString()) { categoryList[k] =
-		 * wineList[i].category.category.toString(); k++; }
-		 */
-		/*
-		 * if(i == 0 || ((l-1)>-1 && regionList[l-1] !=
-		 * wineList[i].region.region.toString())) { regionList[l] =
-		 * wineList[i].region.region.toString(); l++; } }
-		 */
 		autoComplete_producer.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, producerList));
 
-		// Autocomplete for Category
+		// AutoComplete for Category
 		autoComplete_category = (AutoCompleteTextView) findViewById(R.id.category);
 		autoComplete_category.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, categoryList));
 
-		// Autocomplete for Region
+		// AutoComplete for Region
 		autoComplete_region = (AutoCompleteTextView) findViewById(R.id.region);
 		autoComplete_region.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, regionList));
 
-		// Autocomplete for Varietal
+		// AutoComplete for Varietal
 		autoComplete_varietal = (AutoCompleteTextView) findViewById(R.id.varietal);
 		autoComplete_varietal.setAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_dropdown_item_1line, varietalList));
@@ -164,26 +144,6 @@ public class NewEntryActivity extends Activity {
 		// Single-check check boxes for sweet and dry qualities of wine
 		final CheckBox dry = (CheckBox) findViewById(R.id.dryCheck);
 		final CheckBox sweet = (CheckBox) findViewById(R.id.sweetCheck);
-
-		OnCheckedChangeListener checkListener = new OnCheckedChangeListener() {
-			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
-				if(isChecked) {
-					switch (arg0.getId()) {
-					case R.id.dryCheck:
-						dry.setChecked(true);
-						sweet.setChecked(false);
-						break;
-					case R.id.sweetCheck:
-						sweet.setChecked(true);
-						dry.setChecked(false);
-						break;
-					}
-				}
-			}
-		};
-
-		dry.setOnCheckedChangeListener(checkListener);
-		sweet.setOnCheckedChangeListener(checkListener);
 
 		// Submit button
 		Button b = (Button) button;
@@ -406,5 +366,20 @@ public class NewEntryActivity extends Activity {
 				finish();
 			}
 		});
+	}
+
+	private void showPreviewImage() {
+		// Preview of captured image
+		FileInputStream in;
+		try {
+			String name = this.getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg";
+			in = new FileInputStream(name);
+			Bitmap bitmap = BitmapFactory.decodeStream(in);
+
+			ImageView imageView = (ImageView) this.findViewById(R.id.image);
+			imageView.setImageBitmap(bitmap);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }
