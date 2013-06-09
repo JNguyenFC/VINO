@@ -2,7 +2,7 @@
  * Filename:    NewEntryActivity.java
  * Team:		VINO
  * Description: 
- * Date:        8 Jun 2013
+ * Date:        8 June 2013
  **/
 
 package com.yoloswag.vino;
@@ -18,8 +18,6 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,8 +33,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-public class NewEntryActivity extends Activity// implements TextWatcher 
-{
+public class NewEntryActivity extends Activity {
 
 	// AutoComplete arrays
 	AutoCompleteTextView autoComplete_producer;
@@ -83,8 +80,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 	 * Initializations for when a new Entry is being created
 	 */
 	@Override
-	protected void onCreate(Bundle savedInstanceState) 
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
 		// Submit button
@@ -169,14 +165,10 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 		final CheckBox dry = (CheckBox) findViewById(R.id.dryCheck);
 		final CheckBox sweet = (CheckBox) findViewById(R.id.sweetCheck);
 
-		OnCheckedChangeListener checkListener = new OnCheckedChangeListener() 
-		{
-			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) 
-			{
-				if (isChecked) 
-				{
-					switch (arg0.getId()) 
-					{
+		OnCheckedChangeListener checkListener = new OnCheckedChangeListener() {
+			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+				if(isChecked) {
+					switch (arg0.getId()) {
 					case R.id.dryCheck:
 						dry.setChecked(true);
 						sweet.setChecked(false);
@@ -195,11 +187,9 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 
 		// Submit button
 		Button b = (Button) button;
-		b.setOnClickListener(new OnClickListener() 
-		{
+		b.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View arg1) 
-			{
+			public void onClick(View arg1) {
 				// Creating entry
 				Entry e = new Entry();
 				EditText title = (EditText) findViewById(R.id.title);
@@ -238,8 +228,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 				
 				// Gary toast - check if a name has been entered
-				if (producer.getText().toString().matches("")) 
-				{
+				if (producer.getText().toString().matches("")) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -258,8 +247,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 
 				// Gary toast - check if a varietal has been entered
-				if (varietal.getText().toString().matches("")) 
-				{
+				if (varietal.getText().toString().matches("")) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -278,8 +266,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 
 				// Gary toast - check if a region has been entered
-				if (region.getText().toString().matches("")) 
-				{
+				if (region.getText().toString().matches("")) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -298,8 +285,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 
 				// Gary toast - check if a vintage year has been entered
-				if (vintageYear.getText().toString().matches("")) 
-				{
+				if (vintageYear.getText().toString().matches("")) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -322,8 +308,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				Calendar calendar = Calendar.getInstance();
 				int currentYear = calendar.get(Calendar.YEAR);
 
-				if (year > currentYear) 
-				{
+				if (year > currentYear) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -342,8 +327,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 				
 				// Gary toast - check if a category has been entered
-				if (category.getText().toString().matches("")) 
-				{
+				if (category.getText().toString().matches("")) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -362,8 +346,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 				
 				// Gary toast - check to see if sweet or dry has been checked
-				if (!(dry.isChecked() || sweet.isChecked())) 
-				{
+				if (!(dry.isChecked() || sweet.isChecked())) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
@@ -382,8 +365,7 @@ public class NewEntryActivity extends Activity// implements TextWatcher
 				}
 				
 				// Gary toast - check to see if a rating has been given
-				if (rating.getRating() < 0.5) 
-				{
+				if (rating.getRating() < 0.5) {
 					View toastView = getLayoutInflater().inflate(
 							R.layout.toast,
 							(ViewGroup) findViewById(R.id.toastLayout));
