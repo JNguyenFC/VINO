@@ -78,4 +78,9 @@ public class ViewEntryFragment extends Fragment {
 
 		adapter.notifyDataSetChanged();
 	}
+
+	public void refresh() {
+		if (adapter != null)
+			updateData();
+	}
 }

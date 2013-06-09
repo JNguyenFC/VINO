@@ -141,44 +141,4 @@ public class EditLogActivity extends Activity
 			}
         });
 	}
-	
-	/** The activity is about to become visible
-	 */
-	@Override
-    protected void onStart() 
-	{
-        super.onStart();
-    }
-	
-	/** The activity is now "resumed"
-	 */
-    @Override
-    protected void onResume() 
-    {
-        super.onResume();
-    }
-    
-    /** This activity is about to be "paused" while another takes focus
-     */
-    @Override
-    protected void onPause() 
-    {
-        super.onPause();
-    }
-    
-    /** The activity is now "stopped" and is no longer visible
-     */
-    @Override
-    protected void onStop() 
-    {
-        super.onStop();
-    }
-    
-    /** The activity is about to be terminated
-     */
-    @Override
-    protected void onDestroy() 
-    {
-        super.onDestroy();
-    }
 }

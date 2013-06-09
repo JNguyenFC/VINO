@@ -21,12 +21,17 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.yoloswag.vino.R;
 import com.yoloswag.vino.controller.favorites.FavoritesFragment;
 import com.yoloswag.vino.controller.newentry.NewEntryFragment;
 import com.yoloswag.vino.controller.viewentry.ViewEntryFragment;
 import com.yoloswag.vino.model.db.DatabaseManager;
+import com.yoloswag.vino.model.entry.Entry;
+import com.yoloswag.vino.model.entry.EntryAction;
+import com.yoloswag.vino.model.wine.Wine;
 
 public class VINOActivity extends FragmentActivity implements ActionBar.TabListener 
 {
@@ -41,6 +46,9 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
     /** The ViewPager that will host the section contents.
      */
     ViewPager mViewPager;
+
+
+	public ViewEntryFragment viewEntryFragment = new ViewEntryFragment();
 
     @SuppressLint("NewApi")
 	@Override
@@ -84,13 +92,50 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
         }
         actionBar.setSplitBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.vino, menu);
         return true;
-    }*/
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+    	case R.id.action_add: {
+    		{
+    			Entry e1 = new Entry("Getting Drank1", "Soooo drank.", "android.resource://com.yoloswag.vino/" + R.drawable.vino1);
+    			Wine w1 = new Wine("Name", "Varietal", "Category", "Region", "Sweet/Dry", "Vintage");
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}{
+    			Entry e1 = new Entry("Getting Drank2", "Soooo drank.", "android.resource://com.yoloswag.vino/" + R.drawable.vino2);
+    			Wine w1 = new Wine("Name", "Varietal", "Category", "Region", "Sweet/Dry", "Vintage");
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}{
+    			Entry e1 = new Entry("Getting Drank3", "Soooo drank.", "android.resource://com.yoloswag.vino/" + R.drawable.vino3);
+    			Wine w1 = new Wine("Name", "Varietal", "Category", "Region", "Sweet/Dry", "Vintage");
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}{
+    			Entry e1 = new Entry("Getting Drank4", "Soooo drank.", "android.resource://com.yoloswag.vino/" + R.drawable.vino4);
+    			Wine w1 = new Wine("Name", "Varietal", "Category", "Region", "Sweet/Dry", "Vintage");
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}{
+    			Entry e1 = new Entry("Getting Drank5", "Soooo drank.", "android.resource://com.yoloswag.vino/" + R.drawable.vino5);
+    			Wine w1 = new Wine("Name", "Varietal", "Category", "Region", "Sweet/Dry", "Vintage");
+    			e1.wine = w1;
+    			EntryAction.addEntry(e1);
+    		}
+    		viewEntryFragment.refresh();
+    		break;
+    	}
+    	}
+    	return super.onOptionsItemSelected(item);
+    }
     
     /** Switch to corresponding page in ViewPager when the given tab is selected
      */
@@ -136,7 +181,7 @@ public class VINOActivity extends FragmentActivity implements ActionBar.TabListe
         {   
             switch (position)
             {
-            	case 0: return new ViewEntryFragment();
+            	case 0: return viewEntryFragment ;
             	case 1: return new NewEntryFragment();
             	case 2: return new FavoritesFragment();
             }
