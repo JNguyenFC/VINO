@@ -147,54 +147,53 @@ public class NewEntryActivity extends Activity {
 			@Override
 			public void onClick(View arg1) {
 				// Creating entry
-				Entry e = new Entry();
-				EditText title = (EditText) findViewById(R.id.title);
-				EditText category = (EditText) findViewById(R.id.category);
-				EditText region = (EditText) findViewById(R.id.region);
-				EditText varietal = (EditText) findViewById(R.id.varietal);
-				EditText vintageYear = (EditText) findViewById(R.id.vintageYear);
-				EditText comment = (EditText) findViewById(R.id.comments);
-				AutoCompleteTextView producer = (AutoCompleteTextView) findViewById(R.id.producer);
+				String title = extractText(R.id.title);
+				String category = extractText(R.id.category);
+				String region = extractText(R.id.region);
+				String varietal = extractText(R.id.varietal);
+				String vintageYear = extractText(R.id.vintageYear);
+				String comment = extractText(R.id.comments);
+				String producer = extractText(R.id.producer);
 				RatingBar rating = (RatingBar) findViewById(R.id.rating);
 
 				// Gary toast - check that there is at least one field entered
-				if (title.getText().toString().matches("")
-						&& category.getText().toString().matches("")
-						&& region.getText().toString().matches("")
-						&& varietal.getText().toString().matches("")
-						&& vintageYear.getText().toString().matches("")
-						&& comment.getText().toString().matches("")
-						&& producer.getText().toString().matches("")) 
+				if (title.matches("")
+						&& category.matches("")
+						&& region.matches("")
+						&& varietal.matches("")
+						&& vintageYear.matches("")
+						&& comment.matches("")
+						&& producer.matches("")) 
 				{
 					showGaryToast("WTF you didn't enter anything!");
 					return;
 				}
 				
 				// Gary toast - check if a name has been entered
-				if (producer.getText().toString().matches("")) {
+				if (producer.matches("")) {
 					showGaryToast("The winemakers need acknowledgement too :(");
 					return;
 				}
 
 				// Gary toast - check if a varietal has been entered
-				if (varietal.getText().toString().matches("")) {
+				if (varietal.matches("")) {
 					showGaryToast("What are ya drinking?");
 					return;
 				}
 
 				// Gary toast - check if a region has been entered
-				if (region.getText().toString().matches("")) {
+				if (region.matches("")) {
 					showGaryToast("You need to enter the wine region!");
 				}
 
 				// Gary toast - check if a vintage year has been entered
-				if (vintageYear.getText().toString().matches("")) {
+				if (vintageYear.matches("")) {
 					showGaryToast("You need to enter the vintage year.");
 					return;
 				}
 
 				// Gary toast - check range of year
-				int year = Integer.valueOf(vintageYear.getText().toString());
+				int year = Integer.valueOf(vintageYear);
 				Calendar calendar = Calendar.getInstance();
 				int currentYear = calendar.get(Calendar.YEAR);
 
@@ -204,7 +203,7 @@ public class NewEntryActivity extends Activity {
 				}
 				
 				// Gary toast - check if a category has been entered
-				if (category.getText().toString().matches("")) {
+				if (category.matches("")) {
 					showGaryToast("What type of wine are you drinking?");
 					return;
 				}
@@ -223,16 +222,17 @@ public class NewEntryActivity extends Activity {
 				}
 
 				// Create and save user-entered entry information
+				Entry e = new Entry();
 				e.wine = new Wine("", "", "", "", "", "");
-				e.title = title.getText().toString();
+				e.title = title;
 				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)
 						+ ".jpg";
-				e.comment = comment.getText().toString();
-				e.wine.category = new Category(category.getText().toString());
-				e.wine.region = new Region(region.getText().toString());
-				e.wine.varietal = new Varietal(varietal.getText().toString());
-				e.wine.vintage = new Vintage(vintageYear.getText().toString());
-				e.wine.name = new Name(producer.getText().toString());
+				e.comment = comment;
+				e.wine.category = new Category(category);
+				e.wine.region = new Region(region);
+				e.wine.varietal = new Varietal(varietal);
+				e.wine.vintage = new Vintage(vintageYear);
+				e.wine.name = new Name(producer);
 				e.wine.addRating(rating.getRating());
 				if (dry.isChecked())
 					e.wine.sweetOrDry = new SweetOrDry("Dry");
@@ -247,14 +247,17 @@ public class NewEntryActivity extends Activity {
 		});
 	}
 	
+	private String extractText(int id) {
+		EditText field = (EditText) findViewById(id);
+		return field.getText().toString();
+	}
+	
 	private void showGaryToast(String message) {
 		View toastView = getLayoutInflater().inflate(R.layout.toast,
 				(ViewGroup) findViewById(R.id.toastLayout));
-		ImageView imageView = (ImageView) toastView
-				.findViewById(R.id.garytoast);
+		ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
 		imageView.setImageResource(R.drawable.gary_vector);
-		TextView textView = (TextView) toastView
-				.findViewById(R.id.text);
+		TextView textView = (TextView) toastView.findViewById(R.id.text);
 		textView.setText(message);
 		Toast toast = new Toast(NewEntryActivity.this);
 		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
