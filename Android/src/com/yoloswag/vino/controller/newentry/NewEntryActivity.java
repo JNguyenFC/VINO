@@ -94,12 +94,6 @@ public class NewEntryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
-
-		EditText editText = (EditText) this.findViewById(R.id.title);
-		Typeface typeface = Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
-		editText.setTypeface(typeface);
-		editText.requestFocus();
-		editText.setSelection(0);
 		
 		showPreviewImage();
 		
