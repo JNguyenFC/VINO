@@ -123,6 +123,7 @@
         android:onClick="onMyButtonClick"
         android:src="@drawable/delete_button"
         android:background="#00000000"
+        android:tint="#777"
         android:visibility="invisible" />
 
     <!-- Edit Entry button -->
@@ -137,5 +138,6 @@
         android:onClick="onMyButtonClick"
         android:src="@drawable/edit_button"
         android:background="#00000000"
+        android:tint="#777"
         android:visibility="invisible" />
 </RelativeLayout>
