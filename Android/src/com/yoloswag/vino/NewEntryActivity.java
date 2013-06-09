@@ -100,10 +100,10 @@ public class NewEntryActivity extends Activity {
 		
 		// Add all existing wine data to the default data
 		for(Wine wine : Wine.getAll()) {
-			producerList.add(wine.name.producer);
-			categoryList.add(wine.category.category);
-			regionList.add(wine.region.region);
-			varietalList.add(wine.varietal.varietal_name);
+			producerList.add(wine.name);
+			categoryList.add(wine.category);
+			regionList.add(wine.region);
+			varietalList.add(wine.varietal);
 		}
 		
 		// Remove duplicates from all collections
@@ -221,21 +221,9 @@ public class NewEntryActivity extends Activity {
 				}
 
 				// Create and save user-entered entry information
-				Entry e = new Entry();
-				e.wine = new Wine("", "", "", "", "", "");
-				e.title = title;
-				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg";
-				e.comment = comment;
-				e.wine.category = new Category(category);
-				e.wine.region = new Region(region);
-				e.wine.varietal = new Varietal(varietal);
-				e.wine.vintage = new Vintage(vintageYear);
-				e.wine.name = new Name(producer);
+				Entry e = new Entry(title, comment, getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg");
+				e.wine = new Wine(producer, varietal, category, region, dry.isChecked() ? "Dry" : "Sweet", vintageYear);
 				e.wine.addRating(rating.getRating());
-				if (dry.isChecked())
-					e.wine.sweetOrDry = new SweetOrDry("Dry");
-				else if (sweet.isChecked())
-					e.wine.sweetOrDry = new SweetOrDry("Sweet");
 
 				EntryAction.addEntry(e);
 

@@ -106,12 +106,12 @@ public class DiaryItemView extends LinearLayout
 		textview_entry_comment.setText(entry.comment);
 
 		TextView textview_entry_details = (TextView) findViewById(R.id.entry_details);
-		textview_entry_details.setText("Winemaker: " + entry.wine.name.producer + "\n" +
-				"Varietal: " + entry.wine.varietal.varietal_name + "\n" +
-				"Vintage: " + entry.wine.vintage.year + "\n" +
-				"Region: " + entry.wine.region.region + "\n"+
-				"Category: " + entry.wine.category.category + "\n" +
-				"SweetOrDry: " + entry.wine.sweetOrDry.taste + "\n" + 
+		textview_entry_details.setText("Winemaker: " + entry.wine.name + "\n" +
+				"Varietal: " + entry.wine.varietal + "\n" +
+				"Vintage: " + entry.wine.vintage + "\n" +
+				"Region: " + entry.wine.region + "\n"+
+				"Category: " + entry.wine.category + "\n" +
+				"SweetOrDry: " + entry.wine.sweetOrDry + "\n" + 
 				"Rating: " + entry.wine.rating
 				);
 		textview_entry_details.setLayoutParams(new RelativeLayout.LayoutParams(parent.getWidth(), parent.getHeight()));
@@ -146,12 +146,12 @@ public class DiaryItemView extends LinearLayout
 					
 						intent.removeExtra("title");
 						intent.putExtra("entry", entry);
-						intent.putExtra("producer", entry.wine.name.producer);
-						intent.putExtra("varietal", entry.wine.varietal.varietal_name);
-						intent.putExtra("category", entry.wine.category.category);
-						intent.putExtra("region", entry.wine.region.region);
-						intent.putExtra("vintage", entry.wine.vintage.year);
-						intent.putExtra("sweetordry", entry.wine.sweetOrDry.taste);
+						intent.putExtra("producer", entry.wine.name);
+						intent.putExtra("varietal", entry.wine.varietal);
+						intent.putExtra("category", entry.wine.category);
+						intent.putExtra("region", entry.wine.region);
+						intent.putExtra("vintage", entry.wine.vintage);
+						intent.putExtra("sweetordry", entry.wine.sweetOrDry);
 						intent.putExtra("comment", entry.comment);
 						intent.putExtra("rating", entry.wine.rating);
 						intent.putExtra("title", entry.title);

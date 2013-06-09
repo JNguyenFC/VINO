@@ -58,8 +58,8 @@ public class SuggestionsAdapter extends ArrayAdapter<Wine>
 				holder.txtName = (TextView) convertView.findViewById(R.id.name1);
 				holder.imageView = (ImageView) convertView.findViewById(R.id.icon1);
 				holder.imageView.setImageResource(R.drawable.wine_vector);
-				holder.txtName.setText(suggestions[0].name.producer +
-						" \n" + suggestions[0].varietal.varietal_name);
+				holder.txtName.setText(suggestions[0].name +
+						" \n" + suggestions[0].varietal);
 			}
 
 			if (suggestions.length > 1 && suggestions[1] != null) 
@@ -68,8 +68,8 @@ public class SuggestionsAdapter extends ArrayAdapter<Wine>
 				holder2.txtName = (TextView) convertView.findViewById(R.id.name2);
 				holder2.imageView = (ImageView) convertView.findViewById(R.id.icon2);
 				holder2.imageView.setImageResource(R.drawable.wine_vector);
-				holder2.txtName.setText(suggestions[1].name.producer +
-						" \n" + suggestions[1].varietal.varietal_name);
+				holder2.txtName.setText(suggestions[1].name +
+						" \n" + suggestions[1].varietal);
 			}
 
 			if (suggestions.length > 2 && suggestions[2] != null) 
@@ -78,8 +78,8 @@ public class SuggestionsAdapter extends ArrayAdapter<Wine>
 				holder3.txtName = (TextView) convertView.findViewById(R.id.name3);
 				holder3.imageView = (ImageView) convertView.findViewById(R.id.icon3);
 				holder3.imageView.setImageResource(R.drawable.wine_vector);
-				holder3.txtName.setText(suggestions[2].name.producer +
-						" \n" + suggestions[2].varietal.varietal_name);
+				holder3.txtName.setText(suggestions[2].name +
+						" \n" + suggestions[2].varietal);
 			}
 
 			if (suggestions.length > 3 && suggestions[3] != null) 
@@ -88,8 +88,8 @@ public class SuggestionsAdapter extends ArrayAdapter<Wine>
 				holder4.txtName = (TextView) convertView.findViewById(R.id.name4);
 				holder4.imageView = (ImageView) convertView.findViewById(R.id.icon4);
 				holder4.imageView.setImageResource(R.drawable.wine_vector);
-				holder4.txtName.setText(suggestions[3].name.producer +
-						" \n" + suggestions[3].varietal.varietal_name);
+				holder4.txtName.setText(suggestions[3].name +
+						" \n" + suggestions[3].varietal);
 			}
 		}
 

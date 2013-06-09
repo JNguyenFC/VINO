@@ -40,6 +40,12 @@ public class Entry implements Serializable {
 		
 	}
 	
+	public Entry(String title, String comment, String uri) {
+		this.title = title;
+		this.comment = comment;
+		this.uri = uri;
+	}
+
 	/** Retrieves all entries currently in the user's database
 	 */
 	public static Entry[] getAll() {	

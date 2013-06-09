@@ -20,17 +20,17 @@ public class Wine implements Serializable
 	@DatabaseField(generatedId=true)
 	public int id;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Vintage vintage;
+	public String vintage;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Name name;
+	public String name;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Region region;
+	public String region;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Category category;
+	public String category;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public Varietal varietal;
+	public String varietal;
 	@DatabaseField(dataType=DataType.SERIALIZABLE)
-	public SweetOrDry sweetOrDry;
+	public String sweetOrDry;
 	@DatabaseField
 	public double rating;   // Single rating for a Wine
 	@DatabaseField
@@ -44,12 +44,12 @@ public class Wine implements Serializable
 	
 	public Wine(String name, String varietal, String category, String region,
 	            String sweetOrDry, String vintage) {
-		this.name           = new Name(name);
-		this.varietal       = new Varietal(varietal); 
-		this.category       = new Category(category);
-		this.region         = new Region(region);
-		this.sweetOrDry     = new SweetOrDry(sweetOrDry);
-		this.vintage        = new Vintage(vintage);
+		this.name           = name;
+		this.varietal       = varietal; 
+		this.category       = category;
+		this.region         = region;
+		this.sweetOrDry     = sweetOrDry;
+		this.vintage        = vintage;
 		this.rating = 0;
 		this.ratings = 0;
 	}

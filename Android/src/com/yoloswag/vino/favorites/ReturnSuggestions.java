@@ -32,16 +32,16 @@ public class ReturnSuggestions
 			{
 				// Gives priority recommendations based on wine category, taste, and varietal; second priority
 				// recommendations go to wines based on category and taste
-				if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
-						&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0)
-						&& (clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
+				if ((clickedFavorite.category.compareToIgnoreCase(wines[j].category) == 0)
+						&& (clickedFavorite.sweetOrDry.compareToIgnoreCase(wines[j].sweetOrDry) == 0)
+						&& (clickedFavorite.varietal.compareToIgnoreCase(wines[j].varietal) == 0))
 				{						             
 					suggestionsList.add(wines[j]);
 					++counter;
 				}
 
-				else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0)
-						&& (clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
+				else if ((clickedFavorite.category.compareToIgnoreCase(wines[j].category) == 0)
+						&& (clickedFavorite.sweetOrDry.compareToIgnoreCase(wines[j].sweetOrDry) == 0))
 				{         
 					suggestionsList.add(wines[j]);
 					++counter;
@@ -52,25 +52,25 @@ public class ReturnSuggestions
 				// taste, then category, then varietal, then region; if none of those match, then add any
 				else if (counter < 4 && j > (wines.length/2))
 				{		
-					if ((clickedFavorite.sweetOrDry.taste.compareToIgnoreCase(wines[j].sweetOrDry.taste) == 0))
+					if ((clickedFavorite.sweetOrDry.compareToIgnoreCase(wines[j].sweetOrDry) == 0))
 					{
 						suggestionsList.add(wines[j]);
 						++counter;
 					}
 					
-					else if ((clickedFavorite.category.category.compareToIgnoreCase(wines[j].category.category) == 0))
+					else if ((clickedFavorite.category.compareToIgnoreCase(wines[j].category) == 0))
 					{
 						suggestionsList.add(wines[j]);
 						++counter;
 					}
 					
-					else if ((clickedFavorite.varietal.varietal_name.compareToIgnoreCase(wines[j].varietal.varietal_name) == 0))
+					else if ((clickedFavorite.varietal.compareToIgnoreCase(wines[j].varietal) == 0))
 					{
 						suggestionsList.add(wines[j]);
 						++counter;
 					}
 
-					else if ((clickedFavorite.region.region.compareToIgnoreCase(wines[j].region.region) == 0))
+					else if ((clickedFavorite.region.compareToIgnoreCase(wines[j].region) == 0))
 					{
 						suggestionsList.add(wines[j]);
 						++counter;

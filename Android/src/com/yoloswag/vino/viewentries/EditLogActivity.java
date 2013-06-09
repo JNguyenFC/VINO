@@ -26,13 +26,7 @@ import android.widget.RatingBar;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.yoloswag.vino.R;
-import com.yoloswag.vino.model.Category;
 import com.yoloswag.vino.model.Entry;
-import com.yoloswag.vino.model.Name;
-import com.yoloswag.vino.model.Region;
-import com.yoloswag.vino.model.SweetOrDry;
-import com.yoloswag.vino.model.Varietal;
-import com.yoloswag.vino.model.Vintage;
 
 public class EditLogActivity extends Activity 
 {
@@ -128,17 +122,17 @@ public class EditLogActivity extends Activity
 				
 				// Entry and Wine details to be saved upon submitting edit
 				e.title = title.getText().toString();
-				e.wine.category = new Category(category.getText().toString());
-				e.wine.name = new Name(name.getText().toString());
-				e.wine.region = new Region(region.getText().toString());
-				e.wine.varietal = new Varietal(varietal.getText().toString());
-				e.wine.vintage = new Vintage(vintageYear.getText().toString());
+				e.wine.category = category.getText().toString();
+				e.wine.name = name.getText().toString();
+				e.wine.region = region.getText().toString();
+				e.wine.varietal = varietal.getText().toString();
+				e.wine.vintage = vintageYear.getText().toString();
 				e.comment = comment.getText().toString();
 				e.wine.addRating(rating.getRating());
 				if (dry.isChecked())
-					e.wine.sweetOrDry = new SweetOrDry("Dry");
+					e.wine.sweetOrDry = "Dry";
 				else if (sweet.isChecked())
-					e.wine.sweetOrDry = new SweetOrDry("Sweet");
+					e.wine.sweetOrDry = "Sweet";
 				
 				e.wine.save();
 				e.save();

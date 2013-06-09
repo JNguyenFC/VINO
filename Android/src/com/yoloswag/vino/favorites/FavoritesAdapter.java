@@ -127,10 +127,10 @@ public class FavoritesAdapter extends BaseExpandableListAdapter
 		//Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
 		//textview.setTypeface(typeface);
 		textview.setTextSize(18);
-		textview.setText(favoriteWines[groupPosition].vintage.year + 
-				" " + favoriteWines[groupPosition].name.producer + " " + 
-				favoriteWines[groupPosition].varietal.varietal_name +
-				", " + favoriteWines[groupPosition].region.region);
+		textview.setText(favoriteWines[groupPosition].vintage + 
+				" " + favoriteWines[groupPosition].name + " " + 
+				favoriteWines[groupPosition].varietal +
+				", " + favoriteWines[groupPosition].region);
 
 		// Customize RatingBar
 		RatingBar bar = (RatingBar) v.findViewById(R.id.wineRatingBar);

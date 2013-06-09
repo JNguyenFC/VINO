@@ -24,7 +24,7 @@ import com.yoloswag.vino.model.Wine;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper 
 {
 	// Name of the database file for the app
-	private static final String DATABASE_NAME = "V.sqlite";
+	private static final String DATABASE_NAME = "Vino.sqlite";
 
 	// May have to increase version if we make changes to our database objects
 	private static final int DATABASE_VERSION = 1;
