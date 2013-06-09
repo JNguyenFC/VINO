@@ -142,8 +142,8 @@ public class NewEntryActivity extends Activity {
 				android.R.layout.simple_dropdown_item_1line, varietalList));
 
 		// Single-check check boxes for sweet and dry qualities of wine
-		final CheckBox dry = (CheckBox) findViewById(R.id.dryCheck);
-		final CheckBox sweet = (CheckBox) findViewById(R.id.sweetCheck);
+		final RadioButton dry = (RadioButton) findViewById(R.id.dryCheck);
+		final RadioButton sweet = (RadioButton) findViewById(R.id.sweetCheck);
 
 		// Submit button
 		Button b = (Button) button;
