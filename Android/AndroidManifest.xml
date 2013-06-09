@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Example" >
         <activity
-            android:name="com.yoloswag.vino.main.VINOActivity"
+            android:name="com.yoloswag.vino.controller.main.VINOActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
@@ -33,12 +33,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.yoloswag.vino.NewEntryActivity"
+            android:name="com.yoloswag.vino.controller.newentry.NewEntryActivity"
             android:configChanges="orientation"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.yoloswag.vino.favorites.FavoritesFragment"
+            android:name="com.yoloswag.vino.controller.favorites.FavoritesFragment"
             android:configChanges="orientation"
             android:label="@string/title_activity_favorites"
             android:screenOrientation="portrait" >
@@ -50,7 +50,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".viewentries.EditLogActivity"
+            android:name="com.yoloswag.vino.controller.viewentry.EditLogActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" >
         </activity>

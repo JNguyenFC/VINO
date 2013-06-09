@@ -9,22 +9,23 @@
     android:orientation="vertical" >
 
     <!-- Captured image is the background of this page -->
+
     <ImageView
-       android:id="@+id/image"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:adjustViewBounds="true"
-       android:scaleType="centerCrop"
-       android:alpha=".90"
-       android:contentDescription="@string/image" />
- 
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:alpha=".90"
+        android:contentDescription="@string/image"
+        android:scaleType="centerCrop" />
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none" >
 
-  
         <!-- Entry fields appear in this TableLayout -->
+
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -33,72 +34,78 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip"
+                android:adjustViewBounds="true"
+                android:gravity="center_horizontal" >
 
                 <!-- Entry title -->
+
                 <EditText
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
-                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:background="#40000000"
                     android:ems="13"
                     android:hint="@string/newEntry_title"
                     android:inputType="textCapWords"
-                    android:background="#40000000"
-                    android:textColorHint="@color/white"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
+                    android:padding="5dp"
                     android:scrollHorizontally="true"
-                    android:textColor="@color/white" >
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" >
+
                     <requestFocus />
                 </EditText>
-
             </TableRow>
 
             <!-- Entry comments -->
+
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip" >
 
                 <EditText
                     android:id="@+id/comments"
                     android:layout_width="wrap_content"
                     android:layout_height="80dp"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
-                    android:gravity="top|left"
-                    android:padding="5dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:textStyle="bold"
-                    android:inputType="textCapSentences|textMultiLine"
+                    android:layout_weight="1"
                     android:background="#40000000"
-                    android:maxLength="444"
+                    android:gravity="top|left"
                     android:hint="@string/newEntry_comment"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="444"
+                    android:padding="5dp"
+                    android:scrollbars="vertical"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:scrollbars="vertical" />
+                    android:textStyle="bold" />
             </TableRow>
 
-         <!--    <TableRow
+            <!--
+                 <TableRow
                 android:id="@+id/tableRow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dip"
-                android:layout_marginLeft="5dip" > -->
+                android:layout_marginLeft="5dip" >
+            -->
 
-        <!--         <TextView
+
+            <!--
+                     <TextView
                     android:id="@+id/wineTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -107,188 +114,196 @@
                     android:text="@string/newEntry_wineTitle"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
-                    android:textStyle="bold" /> -->
+                    android:textStyle="bold" />
+            -->
 
-       <!--      </TableRow> -->
+
+            <!-- </TableRow> -->
+
 
             <!-- Producer field -->
+
             <TableRow
                 android:id="@+id/tableRow4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="5dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/producer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
                     android:layout_marginTop="20dp"
-                    android:padding="5dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="1"
+                    android:background="#40000000"
                     android:hint="@string/newEntry_producer"
                     android:inputType="textCapWords"
-                    android:background="#40000000"
                     android:maxLength="20"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textColorHint="@color/white" >
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" >
 
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
 
             <!-- Varietal field -->
+
             <TableRow
                 android:id="@+id/tableRow5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/varietal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:background="#40000000"
+                    android:hint="@string/newEntry_varietal"
+                    android:inputType="textCapWords"
                     android:padding="5dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:hint="@string/newEntry_varietal"
-                    android:background="#40000000"
-                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:inputType="textCapWords" >
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" >
+
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
 
             <!-- Region field -->
+
             <TableRow
                 android:id="@+id/tableRow6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/region"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
-                    android:padding="5dp"                   
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="1"
+                    android:background="#40000000"
                     android:hint="@string/newEntry_region"
                     android:inputType="textCapWords"
-                    android:background="#40000000"
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
                     android:textColorHint="@color/white"
-                    android:textStyle="bold"
-                    android:textColor="@color/white" >
+                    android:textStyle="bold" >
+
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
 
-            <!--  Vintage field -->
+            <!-- Vintage field -->
+
             <TableRow
                 android:id="@+id/tableRow7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip" >
 
-              <EditText
+                <EditText
                     android:id="@+id/vintageYear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
-                    android:padding="5dp"                   
-                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:layout_weight="1"
+                    android:background="#40000000"
                     android:hint="@string/newEntry_vintage"
                     android:inputType="number"
-                    android:background="#40000000"
-                    android:textColorHint="@color/white"
                     android:maxLength="4"
-                    android:textStyle="bold"
-                    android:textColor="@color/white" />
+                    android:padding="5dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
             </TableRow>
 
             <!-- Category field -->
+
             <TableRow
                 android:id="@+id/tableRow9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dip"
                 android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip" >
+                android:layout_marginRight="5dip"
+                android:layout_marginTop="10dip" >
 
                 <AutoCompleteTextView
                     android:id="@+id/category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
+                    android:layout_weight="1"
+                    android:background="#40000000"
+                    android:hint="@string/newEntry_category"
+                    android:inputType="textCapWords"
                     android:padding="5dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:hint="@string/newEntry_category"
-                    android:background="#40000000"
-                    android:textColorHint="@color/white"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:inputType="textCapWords" >
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" >
+
                     <requestFocus />
                 </AutoCompleteTextView>
             </TableRow>
 
             <!-- Sweet or dry checkboxes -->
-            <TableRow
+
+            <RadioGroup
                 android:id="@+id/tableRow10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:background="#40000000"
                 android:orientation="horizontal" >
-                
-                <RadioGroup
-                    android:orientation="horizontal" >
 
-                    <RadioButton
-                        android:id="@+id/dryCheck"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="30dp"
-                        android:hint="@string/dry"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold"
-                        android:textColorHint="@color/white" />
+                <RadioButton
+                    android:id="@+id/dryCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:hint="@string/dry"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
 
-                    <RadioButton
-                        android:id="@+id/sweetCheck"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/sweet"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textStyle="bold"
-                        android:textColorHint="@color/white" />
-                </RadioGroup>
-            </TableRow>
+                <RadioButton
+                    android:id="@+id/sweetCheck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/sweet"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColorHint="@color/white"
+                    android:textStyle="bold" />
+            </RadioGroup>
 
             <!-- Helper text informing user to rate wine -->
+
             <TextView
                 android:id="@+id/ratingTitle"
                 android:layout_width="wrap_content"
@@ -301,6 +316,7 @@
                 android:textStyle="bold" />
 
             <!-- Rating bar -->
+
             <TableRow
                 android:id="@+id/tableRow12"
                 android:layout_width="wrap_content"
@@ -322,6 +338,7 @@
             </TableRow>
 
             <!-- Submit button -->
+
             <TableRow
                 android:id="@+id/tableRow13"
                 android:layout_width="wrap_content"
