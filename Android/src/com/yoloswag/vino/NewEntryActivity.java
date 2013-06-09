@@ -18,12 +18,16 @@ import java.util.List;
 import static java.util.Arrays.asList;
 
 import com.yoloswag.vino.model.*;
+import com.yoloswag.vino.warning.GaryToast;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -165,30 +169,30 @@ public class NewEntryActivity extends Activity {
 						&& comment.matches("")
 						&& producer.matches("")) 
 				{
-					showGaryToast("WTF you didn't enter anything!");
+					GaryToast.show("WTF you didn't enter anything!", NewEntryActivity.this);
 					return;
 				}
 				
 				// Gary toast - check if a name has been entered
 				if (producer.matches("")) {
-					showGaryToast("The winemakers need acknowledgement too :(");
+					GaryToast.show("The winemakers need acknowledgement too :(", NewEntryActivity.this);
 					return;
 				}
 
 				// Gary toast - check if a varietal has been entered
 				if (varietal.matches("")) {
-					showGaryToast("What are ya drinking?");
+					GaryToast.show("What are ya drinking?", NewEntryActivity.this);
 					return;
 				}
 
 				// Gary toast - check if a region has been entered
 				if (region.matches("")) {
-					showGaryToast("You need to enter the wine region!");
+					GaryToast.show("You need to enter the wine region!", NewEntryActivity.this);
 				}
 
 				// Gary toast - check if a vintage year has been entered
 				if (vintageYear.matches("")) {
-					showGaryToast("You need to enter the vintage year.");
+					GaryToast.show("You need to enter the vintage year.", NewEntryActivity.this);
 					return;
 				}
 
@@ -198,26 +202,26 @@ public class NewEntryActivity extends Activity {
 				int currentYear = calendar.get(Calendar.YEAR);
 
 				if (year > currentYear) {
-					showGaryToast("Wine from the future? Don't think so!");
+					GaryToast.show("Wine from the future? Don't think so!", NewEntryActivity.this);
 					return;
 				}
 				
 				// Gary toast - check if a category has been entered
 				if (category.matches("")) {
-					showGaryToast("What type of wine are you drinking?");
+					GaryToast.show("What type of wine are you drinking?", NewEntryActivity.this);
 					return;
 				}
 				
 				// Gary toast - check to see if sweet or dry has been checked
 				if (!(dry.isChecked() || sweet.isChecked())) {
-					showGaryToast("Is the wine sweet or dry?");
+					GaryToast.show("Is the wine sweet or dry?", NewEntryActivity.this);
 					return;
 				}
 				
 				// Gary toast - check to see if a rating has been given
 				if (rating.getRating() < 0.5) {
-					showGaryToast("It couldn't have been THAT bad. Give at " +
-									 "least a 0.5 bottle rating!");
+					GaryToast.show("It couldn't have been THAT bad. Give at " +
+									 "least a 0.5 bottle rating!", NewEntryActivity.this);
 					return;
 				}
 
@@ -225,8 +229,7 @@ public class NewEntryActivity extends Activity {
 				Entry e = new Entry();
 				e.wine = new Wine("", "", "", "", "", "");
 				e.title = title;
-				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length)
-						+ ".jpg";
+				e.uri = getFilesDir() + String.valueOf(Entry.getAll().length) + ".jpg";
 				e.comment = comment;
 				e.wine.category = new Category(category);
 				e.wine.region = new Region(region);
@@ -250,20 +253,6 @@ public class NewEntryActivity extends Activity {
 	private String extractText(int id) {
 		EditText field = (EditText) findViewById(id);
 		return field.getText().toString();
-	}
-	
-	private void showGaryToast(String message) {
-		View toastView = getLayoutInflater().inflate(R.layout.toast,
-				(ViewGroup) findViewById(R.id.toastLayout));
-		ImageView imageView = (ImageView) toastView.findViewById(R.id.garytoast);
-		imageView.setImageResource(R.drawable.gary_vector);
-		TextView textView = (TextView) toastView.findViewById(R.id.text);
-		textView.setText(message);
-		Toast toast = new Toast(NewEntryActivity.this);
-		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-		toast.setDuration(Toast.LENGTH_SHORT);
-		toast.setView(toastView);
-		toast.show();
 	}
 
 	private void showPreviewImage() {
