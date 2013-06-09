@@ -28,7 +28,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.*;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -91,9 +90,6 @@ public class NewEntryActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_entry);
-		
-		// Submit button
-		View button = this.findViewById(R.id.new_entry_button);
 
 		EditText editText = (EditText) this.findViewById(R.id.title);
 		Typeface typeface =Typeface.createFromAsset(getAssets(),"fonts/Roboto-Light.ttf");
@@ -146,8 +142,8 @@ public class NewEntryActivity extends Activity {
 		final RadioButton sweet = (RadioButton) findViewById(R.id.sweetCheck);
 
 		// Submit button
-		Button b = (Button) button;
-		b.setOnClickListener(new OnClickListener() {
+		Button submitButton = (Button) findViewById(R.id.new_entry_button);
+		submitButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg1) {
 				// Creating entry
